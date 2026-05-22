@@ -212,6 +212,102 @@
       height: 100%;
       border: 0;
     }
+    .video-facade {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      cursor: pointer;
+      overflow: hidden;
+      transition: opacity 0.4s ease;
+    }
+    .video-facade-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-facade-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 100%);
+      transition: background 0.3s;
+    }
+    .video-facade:hover .video-facade-overlay {
+      background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.4) 100%);
+    }
+    .video-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0a0a0a;
+      box-shadow:
+        0 0 0 12px rgba(212, 175, 55, 0.18),
+        0 0 0 24px rgba(212, 175, 55, 0.08),
+        0 20px 60px rgba(0,0,0,0.6);
+      transition: transform 0.3s, background 0.3s;
+      animation: video-pulse 2.5s ease-in-out infinite;
+    }
+    .video-facade:hover .video-play-btn {
+      transform: translate(-50%, -50%) scale(1.1);
+      background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 100%);
+    }
+    .video-play-btn svg {
+      width: 38px;
+      height: 38px;
+      margin-left: 5px; /* triangle visual balance */
+    }
+    @keyframes video-pulse {
+      0%, 100% {
+        box-shadow:
+          0 0 0 12px rgba(212,175,55,0.18),
+          0 0 0 24px rgba(212,175,55,0.08),
+          0 20px 60px rgba(0,0,0,0.6);
+      }
+      50% {
+        box-shadow:
+          0 0 0 18px rgba(212,175,55,0.25),
+          0 0 0 36px rgba(212,175,55,0.12),
+          0 20px 60px rgba(0,0,0,0.6);
+      }
+    }
+    .video-facade-hint {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 14px rgba(0,0,0,0.9);
+      white-space: nowrap;
+      padding: 8px 18px;
+      background: rgba(0,0,0,0.45);
+      border-radius: 50px;
+      backdrop-filter: blur(4px);
+    }
+    .video-facade.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    @media (max-width: 600px) {
+      .video-play-btn { width: 72px; height: 72px; }
+      .video-play-btn svg { width: 28px; height: 28px; margin-left: 4px; }
+      .video-facade-hint { font-size: 10px; letter-spacing: 1.5px; bottom: 14px; padding: 6px 14px; }
+    }
     .hero-cta-wrap {
       display: flex;
       flex-direction: column;
@@ -774,15 +870,25 @@
       </p>
 
       <div class="hero-video">
-        <div class="video-caption">Devamını izleyin</div>
+        <div class="video-caption">Önce bu videoyu izleyin</div>
         <div class="video-wrap">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/c9Gx1S-dUKs?rel=0&modestbranding=1&start=1"
+          <iframe id="vsl-iframe"
+            src="https://www.youtube-nocookie.com/embed/c9Gx1S-dUKs?autoplay=1&mute=1&rel=0&modestbranding=1&start=1&enablejsapi=1&playsinline=1"
             title="Satış Laboratuvarı - Faruk Oğuz | Sağlık İşletmeleri için Satış Sistemi"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-            loading="lazy"></iframe>
+            allowfullscreen></iframe>
+          <div class="video-facade" id="vsl-facade" role="button" tabindex="0" aria-label="Videoyu sesli oynat">
+            <img class="video-facade-img"
+                 src="https://img.youtube.com/vi/c9Gx1S-dUKs/maxresdefault.jpg"
+                 onerror="this.onerror=null; this.src='https://img.youtube.com/vi/c9Gx1S-dUKs/hqdefault.jpg'"
+                 alt="VSL videosu önizleme">
+            <div class="video-facade-overlay"></div>
+            <button class="video-play-btn" type="button" tabindex="-1" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="video-facade-hint">▶ Sesli izlemek için tıklayın</div>
+          </div>
         </div>
       </div>
 
@@ -1112,6 +1218,39 @@
   <script>
     /* ---------- CONFIG ---------- */
     const WHATSAPP_NUMBER = '905394931144'; // uluslararası format, + yok
+
+    /* ---------- VSL VIDEO: facade click → unmute + play from start ---------- */
+    (function() {
+      const facade = document.getElementById('vsl-facade');
+      const iframe = document.getElementById('vsl-iframe');
+      if (!facade || !iframe) return;
+
+      function ytCommand(func, args) {
+        try {
+          iframe.contentWindow.postMessage(
+            JSON.stringify({ event: 'command', func: func, args: args || '' }),
+            '*'
+          );
+        } catch (e) {}
+      }
+
+      function activateVideo() {
+        // Sıfırdan sesli başlat
+        ytCommand('seekTo', [1, true]);
+        ytCommand('unMute', '');
+        ytCommand('playVideo', '');
+        facade.classList.add('is-hidden');
+        setTimeout(() => facade.remove(), 500);
+      }
+
+      facade.addEventListener('click', activateVideo);
+      facade.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activateVideo();
+        }
+      });
+    })();
 
     /* ---------- DATE PICKER (önümüzdeki 10 iş günü) ---------- */
     const aylar = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
