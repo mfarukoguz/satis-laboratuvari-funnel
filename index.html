@@ -530,6 +530,49 @@
       .brand-card { flex: 0 1 100%; max-width: 320px; }
     }
 
+    /* Daha fazlasını gör butonu + gizli kartlar */
+    .brand-grid .brand-card.is-extra { display: none; }
+    .brand-grid.is-expanded .brand-card.is-extra {
+      display: flex;
+      animation: fadeInUp 0.4s ease both;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .brand-show-more-wrap {
+      text-align: center;
+      margin-top: 36px;
+    }
+    .brand-show-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--border-gold);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .brand-show-more:hover {
+      background: rgba(212, 175, 55, 0.08);
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+    .brand-show-more .arrow {
+      transition: transform 0.25s;
+      font-size: 16px;
+      line-height: 1;
+    }
+    .brand-show-more.is-active .arrow { transform: rotate(180deg); }
+
     /* ---------------- SOLUTIONS ---------------- */
     .solutions {
       padding: 100px 0;
@@ -1053,26 +1096,9 @@
       <div class="brand-grid-wrap">
         <h3 class="brand-grid-title">Birlikte <span class="accent">Büyüdüğümüz</span> Markalar</h3>
         <p class="brand-grid-sub">Çalıştığımız markaların Instagram profillerine göz atın</p>
-        <div class="brand-grid">
+        <div class="brand-grid" id="brand-grid">
 
-          <a href="https://www.instagram.com/beratkizilel/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Berat Kızılel Instagram profili">
-            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/beratkizilel.png" alt="Berat Kızılel" loading="lazy"></div>
-            <div class="brand-handle">@beratkizilel</div>
-            <div class="brand-name">Berat Kızılel</div>
-            <div class="brand-desc">Girişimci · Dijital Pazarlama / Satış Stratejisi</div>
-            <div class="brand-followers"><strong>3.2K</strong> takipçi</div>
-          </a>
-
-          <a href="https://www.instagram.com/diyetisyensuhedaterat/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Dyt. Şüheda Terat Instagram profili">
-            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/diyetisyensuhedaterat.png" alt="Dyt. Şüheda Terat" loading="lazy"></div>
-            <div class="brand-handle">@diyetisyensuhedaterat</div>
-            <div class="brand-name">Dyt. Şüheda Terat</div>
-            <div class="brand-desc">İzmir · Bilim Temelli Yeni Nesil Beslenme</div>
-            <div class="brand-followers"><strong>62K</strong> takipçi</div>
-          </a>
-
+          <!-- 1. @rehberimsensin (167K) -->
           <a href="https://www.instagram.com/rehberimsensin/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Rehberim Sensin Instagram profili">
             <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/rehberimsensin.png" alt="Rehberim Sensin" loading="lazy"></div>
@@ -1082,6 +1108,37 @@
             <div class="brand-followers"><strong>167K</strong> takipçi</div>
           </a>
 
+          <!-- 2. @dytcisemnurertopcu (151K) -->
+          <a href="https://www.instagram.com/dytcisemnurertopcu/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Diyetisyen Çisem Nur Ertopçu Instagram profili">
+            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/dytcisemnurertopcu.png" alt="Çisem Nur Ertopçu" loading="lazy"></div>
+            <div class="brand-handle">@dytcisemnurertopcu</div>
+            <div class="brand-name">Dyt. Çisem Nur Ertopçu</div>
+            <div class="brand-desc">Duygusal Yeme Dönüşüm Koçu · Lüleburgaz</div>
+            <div class="brand-followers"><strong>151K</strong> takipçi</div>
+          </a>
+
+          <!-- 3. @diyetisyensuhedaterat (62K) -->
+          <a href="https://www.instagram.com/diyetisyensuhedaterat/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Dyt. Şüheda Terat Instagram profili">
+            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/diyetisyensuhedaterat.png" alt="Dyt. Şüheda Terat" loading="lazy"></div>
+            <div class="brand-handle">@diyetisyensuhedaterat</div>
+            <div class="brand-name">Dyt. Şüheda Terat</div>
+            <div class="brand-desc">İzmir · Bilim Temelli Yeni Nesil Beslenme</div>
+            <div class="brand-followers"><strong>62K</strong> takipçi</div>
+          </a>
+
+          <!-- 4. @sigarayibirakankara (35.7K) -->
+          <a href="https://www.instagram.com/sigarayibirakankara/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Aydoğan Tantürkü - Allen Carr Ankara Instagram profili">
+            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/sigarayibirakankara.png" alt="Aydoğan Tantürkü" loading="lazy"></div>
+            <div class="brand-handle">@sigarayibirakankara</div>
+            <div class="brand-name">Aydoğan Tantürkü</div>
+            <div class="brand-desc">Allen Carr Ankara Eğitmeni · Sigarayı Bırakma</div>
+            <div class="brand-followers"><strong>35.7K</strong> takipçi</div>
+          </a>
+
+          <!-- 5. @diyetisyenintabagi (32K) -->
           <a href="https://www.instagram.com/diyetisyenintabagi/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Dyt. Pınar Dağhan Bayram Instagram profili">
             <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/diyetisyenintabagi.png" alt="Dyt. Pınar Dağhan Bayram" loading="lazy"></div>
@@ -1091,6 +1148,17 @@
             <div class="brand-followers"><strong>32K</strong> takipçi</div>
           </a>
 
+          <!-- 6. @diyetisyen_aydan (17.7K) -->
+          <a href="https://www.instagram.com/diyetisyen_aydan/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Ankara Diyetisyen Aydan Bilgin Instagram profili">
+            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/diyetisyen_aydan.png" alt="Aydan Bilgin" loading="lazy"></div>
+            <div class="brand-handle">@diyetisyen_aydan</div>
+            <div class="brand-name">Dyt. Aydan Bilgin</div>
+            <div class="brand-desc">Çankaya / Ankara · Yüz Yüze + Online Diyet</div>
+            <div class="brand-followers"><strong>17.7K</strong> takipçi</div>
+          </a>
+
+          <!-- 7. @erdem.dubai (16K) -->
           <a href="https://www.instagram.com/erdem.dubai/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Erdem Gursoy Instagram profili">
             <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/erdem.dubai.png" alt="Erdem Gursoy" loading="lazy"></div>
@@ -1100,6 +1168,7 @@
             <div class="brand-followers"><strong>16K</strong> takipçi</div>
           </a>
 
+          <!-- 8. @ismailcerrahh (12K) -->
           <a href="https://www.instagram.com/ismailcerrahh/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="İsmail Cerrah Instagram profili">
             <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/ismailcerrahh.png" alt="İsmail Cerrah" loading="lazy"></div>
@@ -1109,7 +1178,20 @@
             <div class="brand-followers"><strong>12K</strong> takipçi</div>
           </a>
 
-          <a href="https://www.instagram.com/dcamazonn/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="DC Amazon Instagram profili">
+          <!-- 9. @dyt.edanurbolukbas (8K) -->
+          <a href="https://www.instagram.com/dyt.edanurbolukbas/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Diyetisyen Edanur Bölükbaş Instagram profili">
+            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/dyt.edanurbolukbas.png" alt="Edanur Bölükbaş" loading="lazy"></div>
+            <div class="brand-handle">@dyt.edanurbolukbas</div>
+            <div class="brand-name">Dyt. Edanur Bölükbaş</div>
+            <div class="brand-desc">İstanbul / Bahçelievler · Sürdürülebilir Beslenme</div>
+            <div class="brand-followers"><strong>8K</strong> takipçi</div>
+          </a>
+
+          <!-- ---- "Daha fazlasını gör" altında gizli ---- -->
+
+          <!-- 10. @dcamazonn (6.9K) -->
+          <a href="https://www.instagram.com/dcamazonn/" class="brand-card is-extra" target="_blank" rel="noopener noreferrer" aria-label="DC Amazon Instagram profili">
             <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/dcamazonn.png" alt="DC Amazon" loading="lazy"></div>
             <div class="brand-handle">@dcamazonn</div>
@@ -1118,7 +1200,8 @@
             <div class="brand-followers"><strong>6.9K</strong> takipçi</div>
           </a>
 
-          <a href="https://www.instagram.com/dyt.sinemnur/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Sinemnur Tufan Duman Instagram profili">
+          <!-- 11. @dyt.sinemnur (4.9K) -->
+          <a href="https://www.instagram.com/dyt.sinemnur/" class="brand-card is-extra" target="_blank" rel="noopener noreferrer" aria-label="Sinemnur Tufan Duman Instagram profili">
             <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/dyt.sinemnur.png" alt="Sinemnur Tufan Duman" loading="lazy"></div>
             <div class="brand-handle">@dyt.sinemnur</div>
@@ -1127,6 +1210,33 @@
             <div class="brand-followers"><strong>4.9K</strong> takipçi</div>
           </a>
 
+          <!-- 12. @beratkizilel (3.2K) -->
+          <a href="https://www.instagram.com/beratkizilel/" class="brand-card is-extra" target="_blank" rel="noopener noreferrer" aria-label="Berat Kızılel Instagram profili">
+            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/beratkizilel.png" alt="Berat Kızılel" loading="lazy"></div>
+            <div class="brand-handle">@beratkizilel</div>
+            <div class="brand-name">Berat Kızılel</div>
+            <div class="brand-desc">Girişimci · Dijital Pazarlama / Satış Stratejisi</div>
+            <div class="brand-followers"><strong>3.2K</strong> takipçi</div>
+          </a>
+
+          <!-- 13. @iskenderunortodonti (2.7K) -->
+          <a href="https://www.instagram.com/iskenderunortodonti/" class="brand-card is-extra" target="_blank" rel="noopener noreferrer" aria-label="İskenderun Ortodonti Instagram profili">
+            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/iskenderunortodonti.png" alt="Uzm. Dt. Fırat Söğüt" loading="lazy"></div>
+            <div class="brand-handle">@iskenderunortodonti</div>
+            <div class="brand-name">Uzm. Dt. Fırat Söğüt</div>
+            <div class="brand-desc">İskenderun · Ortodonti & Çene Cerrahisi</div>
+            <div class="brand-followers"><strong>2.7K</strong> takipçi</div>
+          </a>
+
+        </div>
+
+        <div class="brand-show-more-wrap">
+          <button type="button" class="brand-show-more" id="brand-show-more">
+            <span class="label">Daha fazla marka gör</span>
+            <span class="arrow">▼</span>
+          </button>
         </div>
       </div>
     </div>
@@ -1455,6 +1565,19 @@
           e.preventDefault();
           activateVideo();
         }
+      });
+    })();
+
+    /* ---------- BRAND GRID: "Daha fazlasını gör" toggle ---------- */
+    (function() {
+      const btn = document.getElementById('brand-show-more');
+      const grid = document.getElementById('brand-grid');
+      if (!btn || !grid) return;
+      const label = btn.querySelector('.label');
+      btn.addEventListener('click', () => {
+        const expanded = grid.classList.toggle('is-expanded');
+        btn.classList.toggle('is-active', expanded);
+        label.textContent = expanded ? 'Daha az göster' : 'Daha fazla marka gör';
       });
     })();
 
