@@ -1938,14 +1938,14 @@
               <label class="checkbox-item"><input type="checkbox" name="problems" value="Reklam bütçemden istediğim ROI'yi alamıyorum"><span>Reklam bütçemden istediğim ROI'yi alamıyorum!</span></label>
               <label class="checkbox-item"><input type="checkbox" name="problems" value="Mevcut müşterilerim tekrar alışveriş yapmıyor"><span>Mevcut müşterilerim tekrar alışveriş yapmıyor!</span></label>
               <label class="checkbox-item"><input type="checkbox" name="problems" value="Online satış kanalımı büyütemiyorum"><span>Online satış kanalımı büyütemiyorum!</span></label>
-              <label class="checkbox-item"><input type="checkbox" name="problems" value="Çalıştığım ajans işimi yeterince anlamıyor"><span>Çalıştığım ajans işimi yeterince anlamıyor!</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="problems" value="İşletmemin cirosunu ölçekleyemiyorum"><span>İşletmemin cirosunu ölçekleyemiyorum!</span></label>
             </div>
           </div>
 
-          <!-- 2. Future -->
+          <!-- 2. Pre-meeting notes -->
           <div class="form-group">
-            <label class="form-label" for="future">Bu sorunları çözmezseniz 1 ila 5 yıl sonra ne tür sorunlar yaşayacağınızı düşünüyorsunuz? <span class="req">*</span></label>
-            <textarea id="future" name="future" class="form-textarea" placeholder="Gelecekte yaşayabileceğiniz sorunları detaylı olarak açıklayın..."></textarea>
+            <label class="form-label" for="future">Görüşme öncesinde bizim bilmemizi istediğiniz şeyler nelerdir? <span class="req">*</span></label>
+            <textarea id="future" name="future" class="form-textarea" placeholder="İşletmenizle, ekibinizle, satış sürecinizle ya da hedeflerinizle ilgili görüşme öncesinde paylaşmak istediğiniz detayları yazın..."></textarea>
           </div>
 
           <!-- 3. Sector -->
@@ -2343,7 +2343,7 @@
 
       const missing = [];
       if (problems.length === 0) missing.push('Karşılaştığınız sorunlar');
-      if (!future) missing.push('Gelecek senaryosu');
+      if (!future) missing.push('Görüşme öncesi notlar');
       if (!sector) missing.push('Sektör');
       if (!budget) missing.push('Aylık reklam bütçesi');
       if (!name) missing.push('Ad Soyad');
@@ -2373,7 +2373,7 @@
         '*⚠️ Karşılaştığı Sorunlar:*',
         ...problems.map(p => '• ' + p),
         '',
-        '*🔮 1–5 Yıl İçinde Yaşanabilecek Sorunlar:*',
+        '*📝 Görüşme Öncesi Notları:*',
         future,
         '',
         `📅 *Randevu Tarihi:* ${date}`,
