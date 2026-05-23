@@ -802,6 +802,13 @@
       .testimonial-card { flex: 0 1 100%; max-width: 320px; }
     }
 
+    /* Testimonial "Daha fazlasını gör" — ilk 3 görünür, kalan saklı */
+    .testimonial-grid .testimonial-card.is-extra { display: none; }
+    .testimonial-grid.is-expanded .testimonial-card.is-extra {
+      display: flex;
+      animation: fadeInUp 0.4s ease both;
+    }
+
     /* ---------------- SOLUTIONS ---------------- */
     .solutions {
       padding: 110px 0;
@@ -1622,7 +1629,7 @@
         Bizimle çalışan markaların kendi ağzından deneyimleri. Önce dinleyin, sonra karar verin.
       </p>
 
-      <div class="testimonial-grid">
+      <div class="testimonial-grid" id="testimonial-grid">
 
         <!-- Pınar Dağhan Bayram - Diyetisyenin Tabağı -->
         <div class="testimonial-card">
@@ -1706,7 +1713,7 @@
         </div>
 
         <!-- Sinemnur Tufan Duman - Uzman Diyetisyen -->
-        <div class="testimonial-card">
+        <div class="testimonial-card is-extra">
           <div class="testimonial-video-wrap">
             <video
               id="vid-sinemnur"
@@ -1733,7 +1740,7 @@
         </div>
 
         <!-- Edanur Bölükbaş - Diyetisyen -->
-        <div class="testimonial-card">
+        <div class="testimonial-card is-extra">
           <div class="testimonial-video-wrap">
             <video
               id="vid-edanur"
@@ -1760,7 +1767,7 @@
         </div>
 
         <!-- Dyt. Şüheda Terat - İzmir Diyetisyen -->
-        <div class="testimonial-card">
+        <div class="testimonial-card is-extra">
           <div class="testimonial-video-wrap">
             <video
               id="vid-suheda"
@@ -1787,7 +1794,7 @@
         </div>
 
         <!-- Hülya Kamay - Kamay Akademi -->
-        <div class="testimonial-card">
+        <div class="testimonial-card is-extra">
           <div class="testimonial-video-wrap">
             <video
               id="vid-hulya"
@@ -1814,7 +1821,7 @@
         </div>
 
         <!-- Dyt. Ayşe Davdav - Etimesgut Diyetisyen -->
-        <div class="testimonial-card">
+        <div class="testimonial-card is-extra">
           <div class="testimonial-video-wrap">
             <video
               id="vid-ayse"
@@ -1841,7 +1848,7 @@
         </div>
 
         <!-- Dyt. Simge Kurnaz - Diyetisyen -->
-        <div class="testimonial-card">
+        <div class="testimonial-card is-extra">
           <div class="testimonial-video-wrap">
             <video
               id="vid-simge"
@@ -1867,6 +1874,13 @@
           </div>
         </div>
 
+      </div>
+
+      <div class="brand-show-more-wrap">
+        <button type="button" class="brand-show-more" id="testimonial-show-more">
+          <span class="label">Daha fazla müşteri yorumu görüntüle</span>
+          <span class="arrow">▼</span>
+        </button>
       </div>
     </div>
   </section>
@@ -2237,6 +2251,19 @@
         const expanded = grid.classList.toggle('is-expanded');
         btn.classList.toggle('is-active', expanded);
         label.textContent = expanded ? 'Daha az göster' : 'Daha fazla marka gör';
+      });
+    })();
+
+    /* ---------- TESTIMONIAL GRID: "Daha fazlasını gör" toggle ---------- */
+    (function() {
+      const btn = document.getElementById('testimonial-show-more');
+      const grid = document.getElementById('testimonial-grid');
+      if (!btn || !grid) return;
+      const label = btn.querySelector('.label');
+      btn.addEventListener('click', () => {
+        const expanded = grid.classList.toggle('is-expanded');
+        btn.classList.toggle('is-active', expanded);
+        label.textContent = expanded ? 'Daha az göster' : 'Daha fazla müşteri yorumu görüntüle';
       });
     })();
 
