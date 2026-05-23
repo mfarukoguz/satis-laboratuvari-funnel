@@ -573,6 +573,124 @@
     }
     .brand-show-more.is-active .arrow { transform: rotate(180deg); }
 
+    /* ---------------- TESTIMONIALS (Müşteri yorumları) ---------------- */
+    .testimonials {
+      padding: 100px 0;
+      background:
+        radial-gradient(circle at 50% 0%, var(--gold-glow), transparent 40%),
+        var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .testimonial-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+      max-width: 1100px;
+      margin: 50px auto 0;
+    }
+    .testimonial-card {
+      flex: 0 1 320px;
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all 0.25s;
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-gold);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .testimonial-video-wrap {
+      position: relative;
+      width: 100%;
+      padding-bottom: 177.77%; /* 9:16 oranı */
+      background: #000;
+      overflow: hidden;
+    }
+    .testimonial-video-wrap video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .testimonial-video-facade {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+      transition: opacity 0.3s ease;
+    }
+    .testimonial-video-facade.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .testimonial-play-btn {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-bright) 100%);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0a0a0a;
+      box-shadow:
+        0 0 0 10px rgba(212, 175, 55, 0.18),
+        0 0 0 20px rgba(212, 175, 55, 0.08),
+        0 14px 40px rgba(0,0,0,0.5);
+      transition: transform 0.3s;
+      animation: video-pulse 2.5s ease-in-out infinite;
+    }
+    .testimonial-video-facade:hover .testimonial-play-btn {
+      transform: scale(1.1);
+    }
+    .testimonial-play-btn svg {
+      width: 30px;
+      height: 30px;
+      margin-left: 4px;
+    }
+    .testimonial-meta {
+      padding: 20px 22px 24px;
+      text-align: center;
+    }
+    .testimonial-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .testimonial-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .testimonial-brand:hover { color: var(--gold-bright); }
+    .testimonial-brand svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .testimonial-card { flex: 0 1 100%; max-width: 320px; }
+    }
+
     /* ---------------- SOLUTIONS ---------------- */
     .solutions {
       padding: 100px 0;
@@ -1342,6 +1460,47 @@
     </div>
   </section>
 
+  <!-- ============ TESTIMONIALS (Müşteri Yorumları) ============ -->
+  <section class="testimonials" id="yorumlar">
+    <div class="container">
+      <h2 class="section-title">Müşterilerimizin <span class="accent">Sözleri</span></h2>
+      <p class="section-sub">
+        Bizimle çalışan markaların kendi ağzından deneyimleri. Önce dinleyin, sonra karar verin.
+      </p>
+
+      <div class="testimonial-grid">
+
+        <!-- Pınar Dağhan Bayram - Diyetisyenin Tabağı -->
+        <div class="testimonial-card">
+          <div class="testimonial-video-wrap">
+            <video
+              id="vid-pinar"
+              controls
+              playsinline
+              preload="metadata"
+              poster="videos/testimonials/pinar-daghan-poster.jpg">
+              <source src="videos/testimonials/pinar-daghan.mp4" type="video/mp4">
+              Tarayıcınız video oynatmayı desteklemiyor.
+            </video>
+            <div class="testimonial-video-facade" data-target="vid-pinar" role="button" tabindex="0" aria-label="Pınar Dağhan yorumunu oynat">
+              <button class="testimonial-play-btn" type="button" tabindex="-1" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Pınar Dağhan Bayram</div>
+            <a href="https://www.instagram.com/diyetisyenintabagi/" class="testimonial-brand" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              @diyetisyenintabagi · Diyetisyenin Tabağı
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ============ SOLUTIONS ============ -->
   <section class="solutions">
     <div class="container">
@@ -1667,6 +1826,25 @@
         }
       });
     })();
+
+    /* ---------- TESTIMONIAL VIDEOS: facade click → play with sound ---------- */
+    document.querySelectorAll('.testimonial-video-facade').forEach(facade => {
+      function activate() {
+        const id = facade.getAttribute('data-target');
+        const vid = document.getElementById(id);
+        if (vid) {
+          vid.play().catch(() => {});
+          facade.classList.add('is-hidden');
+        }
+      }
+      facade.addEventListener('click', activate);
+      facade.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activate();
+        }
+      });
+    });
 
     /* ---------- BRAND GRID: "Daha fazlasını gör" toggle ---------- */
     (function() {
