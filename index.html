@@ -607,16 +607,9 @@
     .testimonial-video-wrap {
       position: relative;
       width: 100%;
-      padding-bottom: 177.77%; /* 9:16 oranı (dikey, default) */
+      padding-bottom: 177.77%; /* 9:16 oranı */
       background: #000;
       overflow: hidden;
-    }
-    /* Yatay video kartı: 2x genişlik + 16:9 oran */
-    .testimonial-card.is-wide {
-      flex: 0 1 660px;
-    }
-    .testimonial-card.is-wide .testimonial-video-wrap {
-      padding-bottom: 56.25%; /* 16:9 oranı (yatay) */
     }
     .testimonial-video-wrap video {
       position: absolute;
@@ -1531,8 +1524,8 @@
           </div>
         </div>
 
-        <!-- Dt. Fırat Söğüt - İskenderun Ortodonti (yatay video) -->
-        <div class="testimonial-card is-wide">
+        <!-- Dt. Fırat Söğüt - İskenderun Ortodonti -->
+        <div class="testimonial-card">
           <div class="testimonial-video-wrap">
             <video
               id="vid-firat"
