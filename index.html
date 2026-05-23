@@ -607,9 +607,16 @@
     .testimonial-video-wrap {
       position: relative;
       width: 100%;
-      padding-bottom: 177.77%; /* 9:16 oranı */
+      padding-bottom: 177.77%; /* 9:16 oranı (dikey, default) */
       background: #000;
       overflow: hidden;
+    }
+    /* Yatay video kartı: 2x genişlik + 16:9 oran */
+    .testimonial-card.is-wide {
+      flex: 0 1 660px;
+    }
+    .testimonial-card.is-wide .testimonial-video-wrap {
+      padding-bottom: 56.25%; /* 16:9 oranı (yatay) */
     }
     .testimonial-video-wrap video {
       position: absolute;
@@ -1520,6 +1527,33 @@
             <a href="https://www.instagram.com/diyetisyen_aydan/" class="testimonial-brand" target="_blank" rel="noopener noreferrer">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               @diyetisyen_aydan · Ankara Diyetisyen
+            </a>
+          </div>
+        </div>
+
+        <!-- Dt. Fırat Söğüt - İskenderun Ortodonti (yatay video) -->
+        <div class="testimonial-card is-wide">
+          <div class="testimonial-video-wrap">
+            <video
+              id="vid-firat"
+              controls
+              playsinline
+              preload="metadata"
+              poster="videos/testimonials/firat-sogut-poster.jpg">
+              <source src="videos/testimonials/firat-sogut.mp4" type="video/mp4">
+              Tarayıcınız video oynatmayı desteklemiyor.
+            </video>
+            <div class="testimonial-video-facade" data-target="vid-firat" role="button" tabindex="0" aria-label="Dt. Fırat Söğüt yorumunu oynat">
+              <button class="testimonial-play-btn" type="button" tabindex="-1" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="testimonial-meta">
+            <div class="testimonial-name">Dt. Fırat Söğüt</div>
+            <a href="https://www.instagram.com/iskenderunortodonti/" class="testimonial-brand" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              @iskenderunortodonti · İskenderun Ortodonti
             </a>
           </div>
         </div>
