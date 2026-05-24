@@ -340,12 +340,15 @@
         0 0 0 6px rgba(212, 175, 55, 0.06),
         0 0 60px rgba(212, 175, 55, 0.15);
     }
-    .video-wrap iframe {
+    .video-wrap iframe,
+    .video-wrap video {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       border: 0;
+      background: #000;
+      display: block;
     }
     .video-facade {
       position: absolute;
@@ -1433,16 +1436,17 @@
       <div class="hero-video">
         <div class="video-caption">Önce bu videoyu izleyin</div>
         <div class="video-wrap">
-          <iframe id="vsl-iframe"
-            src="https://www.youtube-nocookie.com/embed/c9Gx1S-dUKs?autoplay=1&mute=1&rel=0&modestbranding=1&start=1&enablejsapi=1&playsinline=1"
-            title="Satış Laboratuvarı - Faruk Oğuz | Sağlık İşletmeleri için Satış Sistemi"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen></iframe>
+          <video id="vsl-video"
+                 controls
+                 playsinline
+                 preload="metadata"
+                 poster="videos/hero/vsl-poster.jpg">
+            <source src="videos/hero/vsl.mp4" type="video/mp4">
+            Tarayıcınız video oynatmayı desteklemiyor.
+          </video>
           <div class="video-facade" id="vsl-facade" role="button" tabindex="0" aria-label="Videoyu sesli oynat">
             <img class="video-facade-img"
-                 src="https://img.youtube.com/vi/c9Gx1S-dUKs/maxresdefault.jpg"
-                 onerror="this.onerror=null; this.src='https://img.youtube.com/vi/c9Gx1S-dUKs/hqdefault.jpg'"
+                 src="videos/hero/vsl-poster.jpg"
                  alt="VSL videosu önizleme">
             <div class="video-facade-overlay"></div>
             <button class="video-play-btn" type="button" tabindex="-1" aria-hidden="true">
@@ -2343,26 +2347,16 @@
       els.forEach(el => io.observe(el));
     })();
 
-    /* ---------- VSL VIDEO: facade click → unmute + play from start ---------- */
+    /* ---------- VSL VIDEO: facade click → play with sound from start ---------- */
     (function() {
       const facade = document.getElementById('vsl-facade');
-      const iframe = document.getElementById('vsl-iframe');
-      if (!facade || !iframe) return;
-
-      function ytCommand(func, args) {
-        try {
-          iframe.contentWindow.postMessage(
-            JSON.stringify({ event: 'command', func: func, args: args || '' }),
-            '*'
-          );
-        } catch (e) {}
-      }
+      const video = document.getElementById('vsl-video');
+      if (!facade || !video) return;
 
       function activateVideo() {
-        // Sıfırdan sesli başlat
-        ytCommand('seekTo', [1, true]);
-        ytCommand('unMute', '');
-        ytCommand('playVideo', '');
+        video.currentTime = 0;
+        video.muted = false;
+        video.play().catch(() => {});
         facade.classList.add('is-hidden');
         setTimeout(() => facade.remove(), 500);
       }
