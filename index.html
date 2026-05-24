@@ -1030,6 +1030,64 @@
       z-index: 1;
     }
 
+    /* ---------------- WHATSAPP PROOFS (Marquee) ---------------- */
+    .whatsapp-proofs {
+      padding: 100px 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(229, 9, 20, 0.05), transparent 50%),
+        var(--bg);
+      overflow: hidden;
+      position: relative;
+    }
+    .wp-marquee {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 56px;
+      mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
+    }
+    .wp-marquee-track {
+      display: flex;
+      gap: 28px;
+      width: max-content;
+      animation: wp-scroll-right 80s linear infinite;
+      will-change: transform;
+    }
+    .wp-marquee:hover .wp-marquee-track { animation-play-state: paused; }
+    @keyframes wp-scroll-right {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
+    .wp-card {
+      flex: 0 0 auto;
+      height: 460px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      transition: transform 0.35s cubic-bezier(.2,.8,.2,1), border-color 0.35s, box-shadow 0.35s;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+    .wp-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      border-color: var(--border-gold);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(229, 9, 20, 0.2);
+    }
+    .wp-card img {
+      height: 100%;
+      width: auto;
+      display: block;
+      pointer-events: none;
+    }
+    @media (max-width: 768px) {
+      .wp-card { height: 340px; }
+      .wp-marquee-track { animation-duration: 60s; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wp-marquee-track { animation: none; }
+    }
+
     /* ---------------- APPOINTMENT FORM ---------------- */
     .appointment {
       padding: 110px 0;
@@ -2071,6 +2129,48 @@
           <h3>Satış Oranlarını Artırma</h3>
           <p>Mevcut satış ekibinizin randevu, görüşme ve kapanış oranlarını analiz edip her aşamada %30–80 arası iyileştirme sağlıyoruz. Performans optimizasyonu + sürekli koçluk.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHATSAPP PROOFS (Marquee) ============ -->
+  <section class="whatsapp-proofs">
+    <div class="container">
+      <h2 class="section-title">Müşterilerimizden <span class="accent">Gerçek Mesajlar</span></h2>
+      <p class="section-sub">
+        Çalıştığımız markalardan gelen WhatsApp mesajları. Söz değil, sonuç.
+      </p>
+    </div>
+
+    <div class="wp-marquee">
+      <div class="wp-marquee-track">
+        <!-- Orijinal set -->
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_0576.jpg" alt="Müşteri mesajı" loading="lazy"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_1023.jpg" alt="Müşteri mesajı" loading="lazy"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_1284.jpg" alt="Müşteri mesajı" loading="lazy"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9465.jpg" alt="Müşteri mesajı" loading="lazy"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9600.jpg" alt="Müşteri mesajı" loading="lazy"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9616.jpg" alt="Müşteri mesajı" loading="lazy"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9617.jpg" alt="Müşteri mesajı" loading="lazy"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9810.jpg" alt="Müşteri mesajı" loading="lazy"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9845.jpg" alt="Müşteri mesajı" loading="lazy"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9894.jpg" alt="Müşteri mesajı" loading="lazy"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9998.jpg" alt="Müşteri mesajı" loading="lazy"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9999.jpg" alt="Müşteri mesajı" loading="lazy"></div>
+
+        <!-- Duplicate set (seamless loop için) -->
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_0576.jpg" alt="" loading="lazy"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_1023.jpg" alt="" loading="lazy"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_1284.jpg" alt="" loading="lazy"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9465.jpg" alt="" loading="lazy"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9600.jpg" alt="" loading="lazy"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9616.jpg" alt="" loading="lazy"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9617.jpg" alt="" loading="lazy"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9810.jpg" alt="" loading="lazy"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9845.jpg" alt="" loading="lazy"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9894.jpg" alt="" loading="lazy"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9998.jpg" alt="" loading="lazy"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9999.jpg" alt="" loading="lazy"></div>
       </div>
     </div>
   </section>
