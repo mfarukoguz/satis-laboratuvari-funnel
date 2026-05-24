@@ -179,6 +179,39 @@
       text-transform: uppercase;
       margin-top: 4px;
     }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-ig {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(.2,.8,.2,1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .nav-ig:hover {
+      border-color: var(--gold);
+      color: var(--gold-bright);
+      transform: translateY(-2px);
+      background: rgba(229, 9, 20, 0.08);
+      box-shadow: 0 8px 24px rgba(229, 9, 20, 0.3);
+    }
+    .nav-ig svg { width: 20px; height: 20px; transition: transform 0.3s; }
+    .nav-ig:hover svg { transform: scale(1.1); }
+    header.is-scrolled .nav-ig {
+      width: 40px;
+      height: 40px;
+    }
     .nav-cta {
       background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 100%);
       color: #fff5f5;
@@ -1403,7 +1436,16 @@
         <span class="logo-mark">Satış Laboratuvarı</span>
         <span class="logo-sub">Faruk Oğuz</span>
       </a>
-      <a href="#randevu" class="nav-cta">Randevu Al</a>
+      <div class="nav-actions">
+        <a href="https://www.instagram.com/mfarukoguz/" class="nav-ig" target="_blank" rel="noopener noreferrer" aria-label="Faruk Oğuz Instagram profili">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="#randevu" class="nav-cta">Randevu Al</a>
+      </div>
     </nav>
   </header>
 
