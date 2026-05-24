@@ -2154,8 +2154,8 @@
           <button type="submit" class="form-submit">Şimdi Randevu Al →</button>
 
           <p class="form-disclaimer">
-            Başvurunuzu inceledikten sonra <span>en geç 24 saat içinde</span> sizinle iletişime geçiyoruz.
-            Verdiğiniz cevapları görüşme öncesinde dikkatle değerlendiriyoruz, böylece görüşmemiz size özel hazırlanmış oluyor.
+            Forma butona bastığınızda <span>WhatsApp üzerinden</span> tarafımıza ulaşacaksınız.
+            Verdiğiniz cevapları görüşme öncesi dikkatle inceliyoruz, böylece görüşmemiz çok daha verimli geçiyor.
           </p>
         </form>
       </div>
@@ -2292,16 +2292,15 @@
   </div>
   <div class="modal-overlay" id="modal-success" onclick="closeModalIfBg(event,'success')">
     <div class="modal">
-      <h3>Başvurunuz Alındı</h3>
-      <p>Başvurunuzu inceleyip <strong style="color:var(--gold)">en geç 24 saat içinde</strong> sizinle iletişime geçeceğiz. Verdiğiniz bilgiler titizlikle değerlendirilecek; görüşmemiz size özel hazırlanmış olacak.</p>
+      <h3>Harika!</h3>
+      <p>Başvurunuz WhatsApp üzerinden hazırlandı. <strong style="color:var(--gold)">Mesajı göndererek</strong> başvurunuzu tamamlamayı unutmayın — birkaç saniye içinde size dönüş yapacağız.</p>
       <button class="modal-close" onclick="closeModal('success')">Tamam</button>
     </div>
   </div>
 
   <script>
     /* ---------- CONFIG ---------- */
-    const API_URL = 'https://www.coachtosales.com/customers';
-    const WHATSAPP_NUMBER = '905394931144'; // fallback (footer link için)
+    const WHATSAPP_NUMBER = '905394931144'; // uluslararası format, + yok
 
     /* ---------- HEADER SHRINK (Apple style) ---------- */
     (function() {
@@ -2504,8 +2503,8 @@
     function closeModal(id) { document.getElementById('modal-' + id).classList.remove('show'); }
     function closeModalIfBg(e, id) { if (e.target.classList.contains('modal-overlay')) closeModal(id); }
 
-    /* ---------- FORM SUBMIT → API ---------- */
-    document.getElementById('lead-form').addEventListener('submit', async (e) => {
+    /* ---------- FORM SUBMIT → WHATSAPP ---------- */
+    document.getElementById('lead-form').addEventListener('submit', (e) => {
       e.preventDefault();
       const errBox = document.getElementById('form-error');
       errBox.classList.remove('show');
@@ -2539,59 +2538,48 @@
         return;
       }
 
-      // API payload
-      const payload = {
-        name,
-        phone,
-        email,
-        sector,
-        monthlyAdBudget: budget,
-        websiteOrSocial: web,
-        problems,
-        preMeetingNotes: future,
-        appointmentDate: date,
-        appointmentTime: time,
-        submittedAt: new Date().toISOString(),
-        source: 'satis-laboratuvari-funnel'
-      };
+      const SEP = '━━━━━━━━━━━━━━━━';
+      const lines = [
+        '✨ *YENİ BAŞVURU*',
+        '_Satış Laboratuvarı · Faruk Oğuz_',
+        '',
+        `👤 *${name}*`,
+        `🏢 ${sector}`,
+        `💰 ${budget} aylık bütçe`,
+        '',
+        SEP,
+        '',
+        '📞 *İletişim*',
+        `• Telefon: ${phone}`,
+        `• E-posta: ${email}`,
+        web ? `• Web / Sosyal Medya: ${web}` : null,
+        '',
+        SEP,
+        '',
+        '⚠️ *Karşılaştığı Sorunlar*',
+        '',
+        ...problems.map(p => `✗ ${p}`),
+        '',
+        SEP,
+        '',
+        '📝 *Görüşme Öncesi Notları*',
+        '',
+        future,
+        '',
+        SEP,
+        '',
+        '📅 *Talep Edilen Randevu*',
+        `${date}  ·  ${time}`,
+        '',
+        SEP,
+        '',
+        '_Bu başvuru Satış Laboratuvarı funnel sayfasından otomatik olarak iletilmiştir._',
+      ].filter(Boolean);
 
-      // Loading state — butonu disable + metni değiştir
-      const submitBtn = document.querySelector('.form-submit');
-      const originalText = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.style.opacity = '0.6';
-      submitBtn.style.cursor = 'wait';
-      submitBtn.textContent = 'Gönderiliyor…';
-
-      try {
-        const response = await fetch(API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-
-        if (!response.ok) {
-          throw new Error(`Sunucu yanıt vermedi (HTTP ${response.status})`);
-        }
-
-        // Başarılı — modal göster, formu sıfırla
-        openModal('success');
-        document.getElementById('lead-form').reset();
-        document.querySelectorAll('.pick-option.selected').forEach(o => o.classList.remove('selected'));
-        if (typeof updateSummary === 'function') updateSummary();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } catch (err) {
-        const fallbackMsg = `Başvuru gönderiminde bir hata oluştu: ${err.message}. Lütfen birkaç dakika sonra tekrar deneyin ya da WhatsApp'tan ulaşın: wa.me/${WHATSAPP_NUMBER}`;
-        errBox.textContent = fallbackMsg;
-        errBox.classList.add('show');
-        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        console.error('Form submission failed:', err);
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.style.opacity = '';
-        submitBtn.style.cursor = '';
-        submitBtn.textContent = originalText;
-      }
+      const msg = encodeURIComponent(lines.join('\n'));
+      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
+      window.open(url, '_blank');
+      openModal('success');
     });
   </script>
 </body>
