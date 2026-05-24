@@ -1050,9 +1050,9 @@
     }
     .wp-marquee-track {
       display: flex;
-      gap: 22px;
+      gap: 18px;
       width: max-content;
-      animation: wp-scroll-right 100s linear infinite;
+      animation: wp-scroll-right 90s linear infinite;
       will-change: transform;
     }
     .wp-marquee:hover .wp-marquee-track { animation-play-state: paused; }
@@ -1062,14 +1062,14 @@
     }
     .wp-card {
       flex: 0 0 auto;
-      height: 280px;
-      border-radius: 14px;
+      height: 180px;
+      border-radius: 10px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: var(--bg-card);
       transition: transform 0.35s cubic-bezier(.2,.8,.2,1), border-color 0.35s, box-shadow 0.35s;
       box-shadow:
-        0 8px 24px rgba(0, 0, 0, 0.4),
+        0 6px 18px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.06);
       position: relative;
     }
@@ -1077,7 +1077,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 14px;
+      border-radius: 10px;
       box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3);
       pointer-events: none;
     }
@@ -1097,8 +1097,8 @@
       filter: contrast(1.05) brightness(1.02);
     }
     @media (max-width: 768px) {
-      .wp-card { height: 220px; }
-      .wp-marquee-track { animation-duration: 70s; gap: 16px; }
+      .wp-card { height: 140px; }
+      .wp-marquee-track { animation-duration: 60s; gap: 12px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .wp-marquee-track { animation: none; }
