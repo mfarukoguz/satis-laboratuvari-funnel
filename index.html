@@ -1043,15 +1043,16 @@
       position: relative;
       width: 100%;
       overflow: hidden;
-      margin-top: 56px;
-      mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
+      margin-top: 48px;
+      padding: 16px 0;
+      mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
     }
     .wp-marquee-track {
       display: flex;
-      gap: 28px;
+      gap: 22px;
       width: max-content;
-      animation: wp-scroll-right 80s linear infinite;
+      animation: wp-scroll-right 100s linear infinite;
       will-change: transform;
     }
     .wp-marquee:hover .wp-marquee-track { animation-play-state: paused; }
@@ -1061,28 +1062,43 @@
     }
     .wp-card {
       flex: 0 0 auto;
-      height: 460px;
-      border-radius: 18px;
+      height: 280px;
+      border-radius: 14px;
       overflow: hidden;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       background: var(--bg-card);
       transition: transform 0.35s cubic-bezier(.2,.8,.2,1), border-color 0.35s, box-shadow 0.35s;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      position: relative;
+    }
+    .wp-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.3);
+      pointer-events: none;
     }
     .wp-card:hover {
-      transform: translateY(-6px) scale(1.02);
+      transform: translateY(-5px) scale(1.04);
       border-color: var(--border-gold);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(229, 9, 20, 0.2);
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.55),
+        0 0 30px rgba(229, 9, 20, 0.25);
+      z-index: 2;
     }
     .wp-card img {
       height: 100%;
       width: auto;
       display: block;
       pointer-events: none;
+      filter: contrast(1.05) brightness(1.02);
     }
     @media (max-width: 768px) {
-      .wp-card { height: 340px; }
-      .wp-marquee-track { animation-duration: 60s; }
+      .wp-card { height: 220px; }
+      .wp-marquee-track { animation-duration: 70s; gap: 16px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .wp-marquee-track { animation: none; }
