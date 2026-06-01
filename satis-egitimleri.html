@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Satış Eğitimleri | Satış Laboratuvarı — Faruk Oğuz</title>
+  <meta name="description" content="7 günde işletmene düzenli müşteri akışı kuran ve satış oranını arttıran sistem. Satış Master Class + Bonus Hediye. Lansmana özel 7.900₺." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mfarukoguz.github.io/satis-laboratuvari-funnel/satis-egitimleri.html" />
+  <meta property="og:title" content="7 Günde Müşteri Akışı + Satış Master Class | Satış Laboratuvarı" />
+  <meta property="og:description" content="Satış sistemini kuran, müşteri akışını başlatan ve dönüşüm oranlarını arttıran online eğitim. Lansmana özel fiyat: 7.900₺ (normal 24.000₺)." />
+  <meta property="og:image" content="https://mfarukoguz.github.io/satis-laboratuvari-funnel/images/og-image.jpg" />
+  <meta property="og:site_name" content="Satış Laboratuvarı · Faruk Oğuz" />
+  <meta property="og:locale" content="tr_TR" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080606;
+      --bg-2: #110a0a;
+      --bg-card: #1a1010;
+      --bg-card-2: #221414;
+      --bg-warm: #2a1818;
+      --gold: #e50914;
+      --gold-bright: #ff3344;
+      --gold-soft: #b30810;
+      --gold-deep: #780510;
+      --gold-glow: rgba(229, 9, 20, 0.22);
+      --green: #ffc864;
+      --green-glow: rgba(255, 200, 100, 0.14);
+      --text: #f5f0eb;
+      --text-muted: #a89090;
+      --text-dim: #6f5555;
+      --border: #2a1818;
+      --border-gold: rgba(229, 9, 20, 0.32);
+      --radius: 14px;
+      --radius-lg: 22px;
+      --radius-xl: 28px;
+      --shadow-deep: 0 30px 80px rgba(0, 0, 0, 0.7);
+      --font-display: 'Inter', sans-serif;
+      --font-serif: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 9, 7, 0.55);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid transparent;
+      transition: all 0.35s cubic-bezier(.2,.8,.2,1);
+    }
+    header.is-scrolled {
+      background: rgba(10, 9, 7, 0.92);
+      border-bottom-color: var(--border);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 28px;
+      max-width: 1320px;
+      margin: 0 auto;
+      transition: padding 0.35s;
+    }
+    header.is-scrolled .nav { padding: 12px 28px; }
+    .logo { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    .logo-mark {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 600;
+      font-size: 26px;
+      color: var(--gold-bright);
+      letter-spacing: -0.5px;
+      line-height: 1;
+      transition: font-size 0.35s;
+    }
+    header.is-scrolled .logo-mark { font-size: 22px; }
+    .logo-sub {
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .nav-link {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 50px;
+      transition: all 0.25s;
+      letter-spacing: 0.3px;
+    }
+    .nav-link:hover { color: var(--gold-bright); }
+    .nav-link.is-active {
+      background: rgba(229, 9, 20, 0.12);
+      color: var(--gold-bright);
+      border: 1px solid var(--border-gold);
+    }
+    .nav-ig {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.3s;
+      backdrop-filter: blur(8px);
+    }
+    .nav-ig:hover {
+      border-color: var(--gold);
+      color: var(--gold-bright);
+      transform: translateY(-2px);
+    }
+    .nav-ig svg { width: 20px; height: 20px; }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 100%);
+      color: #fff5f5;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 13px 24px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+      border: none;
+      white-space: nowrap;
+      box-shadow: 0 6px 20px rgba(229, 9, 20, 0.25);
+    }
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(229, 9, 20, 0.4);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 90px 0 80px;
+      background: var(--bg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: -10%;
+      background:
+        radial-gradient(ellipse 60% 50% at 30% 30%, rgba(229, 9, 20, 0.28), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 70% 70%, rgba(229, 9, 20, 0.15), transparent 60%);
+      filter: blur(40px);
+      animation: aurora 18s ease-in-out infinite alternate;
+      z-index: 0;
+    }
+    @keyframes aurora {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(3%, -3%); }
+      100% { transform: translate(-2%, 4%); }
+    }
+    .hero > * { position: relative; z-index: 2; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-gold);
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gold-bright);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      backdrop-filter: blur(20px);
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold-bright);
+      box-shadow: 0 0 12px var(--gold-bright);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.3); }
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 7vw, 92px);
+      font-weight: 500;
+      line-height: 1.02;
+      letter-spacing: -2px;
+      margin-bottom: 28px;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 .accent {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: clamp(16px, 1.6vw, 19px);
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    /* Price ticker */
+    .price-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 24px;
+      padding: 18px 32px;
+      background: rgba(229, 9, 20, 0.06);
+      border: 1px solid var(--border-gold);
+      border-radius: 50px;
+      backdrop-filter: blur(10px);
+      margin-bottom: 32px;
+    }
+    .price-strip .old {
+      font-size: 18px;
+      color: var(--text-dim);
+      text-decoration: line-through;
+      text-decoration-color: rgba(229, 9, 20, 0.8);
+      text-decoration-thickness: 2px;
+    }
+    .price-strip .new {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      color: var(--gold-bright);
+      font-weight: 600;
+    }
+    .price-strip .save {
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--gold);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+
+    /* CTA Button */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-soft));
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 22px 48px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      box-shadow:
+        0 16px 45px rgba(229, 9, 20, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 24px 60px rgba(229, 9, 20, 0.55);
+    }
+
+    /* Sections */
+    section {
+      padding: 100px 0;
+      position: relative;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 22px;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+    }
+    .section-title .accent {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 56px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* Problem section */
+    .problems {
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(229, 9, 20, 0.04), transparent 50%),
+        var(--bg-2);
+    }
+    .problem-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .problem-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 22px 28px;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      transition: all 0.25s;
+    }
+    .problem-item:hover {
+      border-color: var(--border-gold);
+      transform: translateX(8px);
+    }
+    .problem-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(229, 9, 20, 0.12);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-bright);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .problem-text { font-size: 16px; line-height: 1.5; color: var(--text); }
+
+    /* What you build (3 systems) */
+    .systems-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .system-card {
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 42px 32px;
+      transition: all 0.4s cubic-bezier(.2,.8,.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .system-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-bright), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .system-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--border-gold);
+      box-shadow: var(--shadow-deep);
+    }
+    .system-card:hover::before { opacity: 1; }
+    .system-num {
+      font-family: var(--font-serif);
+      font-size: 60px;
+      font-weight: 600;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold-soft));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+    .system-card h3 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .system-card p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* Education cards */
+    .edu-cards {
+      background: var(--bg);
+    }
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .edu-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(.2,.8,.2,1);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .edu-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--border-gold);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 60px rgba(229, 9, 20, 0.2);
+    }
+    .edu-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .edu-card-body {
+      padding: 28px 32px;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+    }
+    .edu-card-body h3 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .edu-card-body ul {
+      list-style: none;
+      padding: 0;
+    }
+    .edu-card-body li {
+      padding: 8px 0;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+    .edu-card-body li::before {
+      content: '✓';
+      color: var(--gold-bright);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    /* Target audience */
+    .audience {
+      background: var(--bg-2);
+    }
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .audience-item {
+      padding: 26px 24px;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .audience-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-gold);
+    }
+    .audience-emoji {
+      font-size: 30px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .audience-name {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    /* Pricing / Offer */
+    .offer {
+      padding: 120px 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(229, 9, 20, 0.1), transparent 50%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      text-align: center;
+    }
+    .offer-card {
+      max-width: 720px;
+      margin: 56px auto 0;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 2px solid var(--gold);
+      border-radius: var(--radius-xl);
+      padding: 56px 48px;
+      box-shadow:
+        0 30px 80px rgba(229, 9, 20, 0.25),
+        0 0 60px rgba(229, 9, 20, 0.15);
+      position: relative;
+    }
+    .offer-badge {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--gold);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px 22px;
+      border-radius: 50px;
+      letter-spacing: 2px;
+      box-shadow: 0 8px 20px rgba(229, 9, 20, 0.4);
+    }
+    .value-stack {
+      margin-bottom: 32px;
+    }
+    .value-stack-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .value-stack-item:last-of-type { border-bottom: none; }
+    .value-stack-name {
+      text-align: left;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .value-stack-name strong { display: block; font-weight: 700; }
+    .value-stack-name small { display: block; color: var(--text-dim); font-size: 12px; margin-top: 2px; }
+    .value-stack-price {
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--text-muted);
+    }
+    .value-stack-price.crossed {
+      text-decoration: line-through;
+      text-decoration-color: rgba(229, 9, 20, 0.6);
+      text-decoration-thickness: 2px;
+    }
+    .value-stack-price.bonus {
+      color: var(--gold-bright);
+      font-weight: 800;
+    }
+    .total-value {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-top: 1px dashed var(--border-gold);
+      border-bottom: 1px dashed var(--border-gold);
+      margin: 8px 0 26px;
+    }
+    .total-value-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .total-value-price {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      color: var(--text-dim);
+      text-decoration: line-through;
+      text-decoration-color: rgba(229, 9, 20, 0.6);
+      text-decoration-thickness: 2px;
+    }
+    .final-price-label {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold-bright);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .final-price {
+      font-family: var(--font-serif);
+      font-size: clamp(56px, 8vw, 88px);
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-soft));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 6px 30px rgba(229, 9, 20, 0.3));
+    }
+    .final-price-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .offer-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      max-width: 480px;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-soft));
+      color: #fff;
+      font-weight: 800;
+      font-size: 17px;
+      padding: 24px 48px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      box-shadow:
+        0 16px 45px rgba(229, 9, 20, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+    .offer-cta:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 24px 60px rgba(229, 9, 20, 0.6);
+    }
+    .secure-note {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* FAQ */
+    .faq {
+      background: var(--bg);
+      padding: 100px 0;
+    }
+    .faq-list {
+      max-width: 820px;
+      margin: 56px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item.open { border-color: var(--border-gold); }
+    .faq-question {
+      padding: 22px 26px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-weight: 700;
+      font-size: 16px;
+      user-select: none;
+    }
+    .faq-question .arrow {
+      color: var(--gold);
+      font-size: 18px;
+      transition: transform 0.25s;
+    }
+    .faq-item.open .arrow { transform: rotate(180deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-answer-inner {
+      padding: 0 26px 24px;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      background: #050505;
+      border-top: 1px solid var(--border);
+      padding: 50px 0 30px;
+      text-align: center;
+    }
+    .footer-brand {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--gold-bright);
+      margin-bottom: 10px;
+    }
+    .footer-copy { color: var(--text-muted); font-size: 13px; margin-bottom: 18px; }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .nav { padding: 14px 18px; }
+      .nav-link { padding: 8px 12px; font-size: 12px; }
+      .nav-cta { font-size: 11px; padding: 10px 16px; }
+      .nav-ig { width: 38px; height: 38px; }
+      section { padding: 70px 0; }
+      .systems-grid { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: 1fr; gap: 24px; }
+      .offer-card { padding: 40px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">Satış Laboratuvarı</span>
+        <span class="logo-sub">Faruk Oğuz</span>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="nav-link">Ana Sayfa</a>
+        <a href="satis-egitimleri.html" class="nav-link is-active">Satış Eğitimleri</a>
+        <a href="https://www.instagram.com/mfarukoguz/" class="nav-ig" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="#satin-al" class="nav-cta">Satın Al</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-eyebrow">Lansmana Özel · Sınırlı Süre</span>
+      <h1>
+        7 Günde Düzenli <span class="accent">Müşteri Akışı</span> ve <span class="accent">Satış Sistemi</span> Kur
+      </h1>
+      <p class="hero-sub">
+        İşletmene düzenli müşteri çeken bir sistem kur, satış görüşmelerini dönüşüme çevir,
+        rakamlarla yöneten bir satış makinesi inşa et. Sadece bilgi değil — <strong style="color:var(--text)">uygulanabilir sistem.</strong>
+      </p>
+      <div class="price-strip">
+        <span class="old">24.000 ₺</span>
+        <span class="new">7.900 ₺</span>
+        <span class="save">%67 İNDİRİM</span>
+      </div>
+      <div>
+        <a href="#satin-al" class="btn-primary">Eğitime Hemen Başla →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMS -->
+  <section class="problems">
+    <div class="container">
+      <h2 class="section-title">Bu Sorunlar <span class="accent">Tanıdık</span> Geliyorsa…</h2>
+      <p class="section-sub">Sorun ürün veya hizmetinde değil. Sorun: bir <strong style="color:var(--text)">sistemin olmaması</strong>.</p>
+
+      <div class="problem-list">
+        <div class="problem-item">
+          <div class="problem-icon">×</div>
+          <div class="problem-text">Düzenli müşteri bulmakta zorlanıyorsun, ay sonunu hep zar-zor kapatıyorsun</div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">×</div>
+          <div class="problem-text">Görüşmelere giriyorsun ama satış kapatamıyor, "düşüneyim" duyup kaybediyorsun</div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">×</div>
+          <div class="problem-text">Reklam veriyorsun ama bütçen yanıyor, sonuç gelmiyor</div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">×</div>
+          <div class="problem-text">Sosyal medyada içerik üretiyorsun ama müşteri akışı oluşmuyor</div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">×</div>
+          <div class="problem-text">Hangi rakamı takip edeceğini bilmiyor, körlemesine çalışıyorsun</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT YOU BUILD (3 systems) -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Bu Programda <span class="accent">3 Sistem</span> Kuruyorsun</h2>
+      <p class="section-sub">Bilgi değil — uygulanabilir, ölçeklenebilir 3 sistem.</p>
+
+      <div class="systems-grid">
+        <div class="system-card">
+          <div class="system-num">01</div>
+          <h3>Müşteri Akışı Sistemi</h3>
+          <p>Potansiyel müşterilerin seni bulduğu, takip ettiği ve seninle iletişime geçtiği otomatik bir akış. Reklam, içerik, otomasyon — tek sistem altında.</p>
+        </div>
+        <div class="system-card">
+          <div class="system-num">02</div>
+          <h3>Satış Sistemi</h3>
+          <p>Görüşmelerde ne söyleyeceğini, itirazları nasıl yöneteceğini, randevuyu satışa nasıl çevireceğini adım adım öğreniyorsun.</p>
+        </div>
+        <div class="system-card">
+          <div class="system-num">03</div>
+          <h3>KPI & Takip Sistemi</h3>
+          <p>Hangi rakamı, hangi sıklıkla takip edeceğini öğrenerek büyümeyi şansa bırakmıyorsun. Sayılarla yöneten bir işletme oluyorsun.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION CARDS -->
+  <section class="edu-cards">
+    <div class="container">
+      <h2 class="section-title">Eğitim <span class="accent">İçeriği</span></h2>
+      <p class="section-sub">Bir ana eğitim + bir tam değerli bonus. Toplamda <strong style="color:var(--text)">24.000 ₺ değerinde</strong> içerik.</p>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <img src="images/egitim/satis-master-class.jpg" alt="Satış Master Class" loading="lazy">
+          <div class="edu-card-body">
+            <h3>Satış Master Class</h3>
+            <ul>
+              <li>Satış psikolojisi ve müşteri davranışı</li>
+              <li>7 adımlı satış sistemi (script + uygulama)</li>
+              <li>İtiraz yönetimi ve cevap çerçeveleri</li>
+              <li>Randevu → satış dönüşüm oranı artırma</li>
+              <li>KPI sistemi ve performans takibi</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <img src="images/egitim/musteri-akisi.jpg" alt="7 Günde Sınırsız Müşteri Akışı" loading="lazy">
+          <div class="edu-card-body">
+            <h3>7 Günde Müşteri Akışı (BONUS)</h3>
+            <ul>
+              <li>Doğru hedef kitleyi tespit etme</li>
+              <li>Çekici teklif (offer) oluşturma</li>
+              <li>İçerik üretim sistemi (kalıcı akış)</li>
+              <li>Meta reklam kurulumu A'dan Z'ye</li>
+              <li>ManyChat otomasyonu + referans sistemi</li>
+              <li>Müşteri ekosistemi kurulumu</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TARGET AUDIENCE -->
+  <section class="audience">
+    <div class="container">
+      <h2 class="section-title">Bu Eğitim <span class="accent">Kimler</span> İçin?</h2>
+      <p class="section-sub">Uzmanlık bilgisi olan, hizmet ya da danışmanlık satan herkes için.</p>
+
+      <div class="audience-grid">
+        <div class="audience-item">
+          <span class="audience-emoji">🎯</span>
+          <div class="audience-name">Danışmanlar</div>
+        </div>
+        <div class="audience-item">
+          <span class="audience-emoji">📚</span>
+          <div class="audience-name">Koçlar</div>
+        </div>
+        <div class="audience-item">
+          <span class="audience-emoji">🏢</span>
+          <div class="audience-name">Ajans Sahipleri</div>
+        </div>
+        <div class="audience-item">
+          <span class="audience-emoji">⚡</span>
+          <div class="audience-name">Hizmet İşletmeleri</div>
+        </div>
+        <div class="audience-item">
+          <span class="audience-emoji">💼</span>
+          <div class="audience-name">Online Eğitmenler</div>
+        </div>
+        <div class="audience-item">
+          <span class="audience-emoji">🚀</span>
+          <div class="audience-name">Solo Girişimciler</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER / PRICING -->
+  <section class="offer" id="satin-al">
+    <div class="container">
+      <h2 class="section-title">Lansmana <span class="accent">Özel Fiyat</span></h2>
+      <p class="section-sub">İki eğitim, tek ücret. Bonus tamamen hediye.</p>
+
+      <div class="offer-card">
+        <div class="offer-badge">SINIRLI SÜRELİ</div>
+
+        <div class="value-stack">
+          <div class="value-stack-item">
+            <div class="value-stack-name">
+              <strong>Satış Master Class</strong>
+              <small>7 adımlı satış sistemi + KPI</small>
+            </div>
+            <div class="value-stack-price crossed">12.000 ₺</div>
+          </div>
+          <div class="value-stack-item">
+            <div class="value-stack-name">
+              <strong>7 Günde Sınırsız Müşteri Akışı</strong>
+              <small>Reklam + funnel + otomasyon</small>
+            </div>
+            <div class="value-stack-price bonus">HEDİYE ✨</div>
+          </div>
+        </div>
+
+        <div class="total-value">
+          <span class="total-value-name">TOPLAM DEĞER</span>
+          <span class="total-value-price">24.000 ₺</span>
+        </div>
+
+        <div class="final-price-label">LANSMANA ÖZEL FİYAT</div>
+        <div class="final-price">7.900 ₺</div>
+        <div class="final-price-note">Tek seferlik ödeme · Ömür boyu erişim · 14 gün iade garantisi</div>
+
+        <!-- PayTR Payment Button (placeholder URL) -->
+        <a href="https://www.paytr.com/odeme/PAYTR_LINK_BURAYA"
+           class="offer-cta"
+           target="_blank"
+           rel="noopener noreferrer">
+          🔒 Güvenli Ödeme ile Satın Al
+        </a>
+
+        <div class="secure-note">
+          <span>🔒</span> PayTR güvenli ödeme · Kredi kartı / Banka kartı / Havale
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="container">
+      <h2 class="section-title">Sık Sorulan <span class="accent">Sorular</span></h2>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Eğitime nasıl erişeceğim?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Ödeme tamamlandığında size özel bir erişim linki gönderilir. Eğitimleri istediğiniz zaman, istediğiniz cihazdan izleyebilirsiniz. Ömür boyu erişim haklarınız vardır.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>İade garantisi nasıl çalışıyor?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Eğitime başladıktan sonraki <strong style="color:var(--gold)">14 gün içinde</strong> memnun kalmazsanız, hiçbir soru sormadan paranızı geri iade ediyoruz. Risksiz bir yatırım.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Eğitim ne kadar sürüyor?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Toplam içerik yaklaşık 10–12 saat. Kendi temponuzda izleyebilirsiniz. Önerimiz: bir hafta içinde sistemi kuracak şekilde planlamak. İlk satışınızı 7–14 gün içinde almanız mümkün.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Sektörüm farklı, eğitim bana uyar mı?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Eğitim, hizmet/danışmanlık/uzmanlık satan herkese hitap eder. E-ticaret veya fiziksel ürün satışıyla ilgilenmiyorsanız, bilgilerin %90'ı sektörünüze uyarlanabilir. Görüşmemiz için <a href="index.html#randevu" style="color:var(--gold)">ana sayfadaki formu</a> doldurabilirsiniz.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Ödemede sorun yaşarsam ne yapacağım?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              PayTR Türkiye'nin lider ödeme altyapılarından biridir. Sorun yaşarsanız WhatsApp üzerinden bana ulaşabilirsiniz: <a href="https://wa.me/905394931144" target="_blank" style="color:var(--gold)">+90 539 493 11 44</a>.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Bu fiyat ne kadar geçerli?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Bu lansmana özel bir fiyat. Normal değer 24.000 ₺. Bonusu hediye olarak veriyoruz çünkü ilk eğitim grubundan referans + geri bildirim almak istiyoruz. Fiyat birkaç hafta içinde normale dönecek.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">Satış Laboratuvarı · Faruk Oğuz</div>
+      <div class="footer-copy">© 2026 Tüm Hakları Saklıdır · Türkiye</div>
+      <div class="footer-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="satis-egitimleri.html">Satış Eğitimleri</a>
+        <a href="https://wa.me/905394931144" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.instagram.com/mfarukoguz/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Header shrink on scroll */
+    (function() {
+      const header = document.querySelector('header');
+      if (!header) return;
+      let ticking = false;
+      function update() {
+        header.classList.toggle('is-scrolled', window.scrollY > 20);
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          requestAnimationFrame(update);
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+
+    /* FAQ accordion */
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const q = item.querySelector('.faq-question');
+      const a = item.querySelector('.faq-answer');
+      q.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-answer').style.maxHeight = null;
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

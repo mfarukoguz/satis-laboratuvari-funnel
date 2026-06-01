@@ -230,6 +230,21 @@
       transform: translateY(-2px);
       box-shadow: 0 12px 30px rgba(229, 9, 20, 0.4);
     }
+    .nav-link {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 50px;
+      transition: all 0.25s;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+    }
+    .nav-link:hover {
+      color: var(--gold-bright);
+      background: rgba(229, 9, 20, 0.06);
+    }
 
     /* ---------------- HERO ---------------- */
     .hero {
@@ -1500,6 +1515,8 @@
       .logo-mark { font-size: 18px; }
       .logo-sub { font-size: 9px; letter-spacing: 1px; }
       .nav-cta { font-size: 11px; padding: 10px 16px; }
+      .nav-link { font-size: 11px; padding: 6px 10px; }
+      .nav-actions { gap: 6px; }
       .hero { padding: 60px 0 70px; }
       .stats { grid-template-columns: 1fr; gap: 14px; }
       .grid { grid-template-columns: 1fr; }
@@ -1521,6 +1538,7 @@
         <span class="logo-sub">Faruk Oğuz</span>
       </a>
       <div class="nav-actions">
+        <a href="satis-egitimleri.html" class="nav-link">Satış Eğitimleri</a>
         <a href="https://www.instagram.com/mfarukoguz/" class="nav-ig" target="_blank" rel="noopener noreferrer" aria-label="Faruk Oğuz Instagram profili">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
