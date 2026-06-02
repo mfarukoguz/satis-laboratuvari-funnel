@@ -383,16 +383,19 @@
     /* What you build (3 systems) */
     .systems-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      max-width: 1100px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1180px;
       margin: 0 auto;
+    }
+    @media (max-width: 1024px) {
+      .systems-grid { grid-template-columns: repeat(2, 1fr); }
     }
     .system-card {
       background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
       border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 42px 32px;
+      border-radius: var(--radius-lg);
+      padding: 32px 26px;
       transition: all 0.4s cubic-bezier(.2,.8,.2,1);
       position: relative;
       overflow: hidden;
@@ -414,31 +417,208 @@
     .system-card:hover::before { opacity: 1; }
     .system-num {
       font-family: var(--font-serif);
-      font-size: 60px;
+      font-size: 48px;
       font-weight: 600;
       line-height: 1;
       background: linear-gradient(135deg, var(--gold-bright), var(--gold-soft));
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
     .system-card h3 {
       font-family: var(--font-serif);
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 600;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       line-height: 1.2;
     }
     .system-card p {
       color: var(--text-muted);
-      font-size: 15px;
-      line-height: 1.7;
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     /* Education cards */
     .edu-cards {
       background: var(--bg);
+    }
+    .main-edu-card {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 0;
+      max-width: 1180px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(229, 9, 20, 0.1);
+    }
+    .main-edu-image {
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+    }
+    .main-edu-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .main-edu-content {
+      padding: 56px 48px;
+    }
+    .main-edu-content h3 {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 26px;
+      line-height: 1.1;
+    }
+    .main-edu-list {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 32px;
+    }
+    .main-edu-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+    .main-edu-list li::before {
+      content: '✓';
+      color: var(--gold-bright);
+      font-weight: 800;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+    .main-edu-list li strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+    .main-edu-list li:last-child { border-bottom: none; }
+    .main-edu-stat {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding-top: 28px;
+      border-top: 1px dashed var(--border-gold);
+    }
+    .main-edu-stat .stat-num {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--gold-bright);
+      line-height: 1;
+    }
+    .main-edu-stat .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+    }
+    @media (max-width: 900px) {
+      .main-edu-card { grid-template-columns: 1fr; }
+      .main-edu-image img { height: 280px; }
+      .main-edu-content { padding: 36px 28px; }
+    }
+
+    /* Bonus card section */
+    .bonus-section {
+      padding: 100px 0;
+      background: var(--bg-2);
+    }
+    .bonus-reveal {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px;
+    }
+    .bonus-flash {
+      display: inline-block;
+      padding: 8px 22px;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      border-radius: 50px;
+      margin-bottom: 22px;
+      box-shadow: 0 10px 30px rgba(229, 9, 20, 0.3);
+      animation: bonus-pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes bonus-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    .bonus-card {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 0;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    }
+    .bonus-card-content {
+      padding: 48px 40px;
+    }
+    .bonus-card-content h3 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+    .bonus-card-content .bonus-sub {
+      font-size: 14px;
+      color: var(--gold-bright);
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      margin-bottom: 22px;
+      text-transform: uppercase;
+    }
+    .bonus-card-content ul {
+      list-style: none;
+      padding: 0;
+    }
+    .bonus-card-content li {
+      padding: 8px 0;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+    .bonus-card-content li::before {
+      content: '✓';
+      color: var(--gold-bright);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .bonus-card-image {
+      overflow: hidden;
+    }
+    .bonus-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .bonus-card { grid-template-columns: 1fr; }
+      .bonus-card-image { order: -1; }
+      .bonus-card-image img { height: 260px; }
+      .bonus-card-content { padding: 36px 28px; }
     }
     .edu-grid {
       display: grid;
@@ -880,21 +1060,18 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <span class="hero-eyebrow">Lansmana Özel · Sınırlı Süre</span>
+      <span class="hero-eyebrow">Satış Master Class · 7 Adımlı Sistem</span>
       <h1>
-        7 Günde Düzenli <span class="accent">Müşteri Akışı</span> ve <span class="accent">Satış Sistemi</span> Kur
+        "Düşüneyim" Diyen <span class="accent">Müşteriyi</span><br>
+        "Hemen Başlayalım" Diyene <span class="accent">Çevir</span>
       </h1>
       <p class="hero-sub">
-        İşletmene düzenli müşteri çeken bir sistem kur, satış görüşmelerini dönüşüme çevir,
-        rakamlarla yöneten bir satış makinesi inşa et. Sadece bilgi değil — <strong style="color:var(--text)">uygulanabilir sistem.</strong>
+        Aynı reklam bütçesiyle <strong style="color:var(--text)">2 kat daha fazla satış kapatan</strong> sistemi öğren.
+        İtirazları çözen, "Düşüneyim" demeyi bitiren, kapanış oranını %40–50 seviyelerine çıkaran
+        <strong style="color:var(--text)">7 adımlı satış formülü</strong>.
       </p>
-      <div class="price-strip">
-        <span class="old">24.000 ₺</span>
-        <span class="new">7.900 ₺</span>
-        <span class="save">%67 İNDİRİM</span>
-      </div>
       <div>
-        <a href="#satin-al" class="btn-primary">Eğitime Hemen Başla →</a>
+        <a href="#satin-al" class="btn-primary">Detayları Gör ↓</a>
       </div>
     </div>
   </section>
@@ -902,94 +1079,215 @@
   <!-- PROBLEMS -->
   <section class="problems">
     <div class="container">
-      <h2 class="section-title">Bu Sorunlar <span class="accent">Tanıdık</span> Geliyorsa…</h2>
-      <p class="section-sub">Sorun ürün veya hizmetinde değil. Sorun: bir <strong style="color:var(--text)">sistemin olmaması</strong>.</p>
+      <h2 class="section-title">Bu Sahneler <span class="accent">Tanıdık</span> mı?</h2>
+      <p class="section-sub">Reklam çalışıyor. Randevular geliyor. Ama satışlar bir türlü kapanmıyor.</p>
 
       <div class="problem-list">
         <div class="problem-item">
           <div class="problem-icon">×</div>
-          <div class="problem-text">Düzenli müşteri bulmakta zorlanıyorsun, ay sonunu hep zar-zor kapatıyorsun</div>
+          <div class="problem-text">Görüşmenin sonunda "<strong style="color:var(--text)">düşüneyim, dönerim</strong>" duyuyor ve bir daha haber alamıyorsun</div>
         </div>
         <div class="problem-item">
           <div class="problem-icon">×</div>
-          <div class="problem-text">Görüşmelere giriyorsun ama satış kapatamıyor, "düşüneyim" duyup kaybediyorsun</div>
+          <div class="problem-text">Müşteri "<strong style="color:var(--text)">fiyat çok pahalı</strong>" diyince ne diyeceğini bilemiyor, sessiz kalıyorsun</div>
         </div>
         <div class="problem-item">
           <div class="problem-icon">×</div>
-          <div class="problem-text">Reklam veriyorsun ama bütçen yanıyor, sonuç gelmiyor</div>
+          <div class="problem-text">İyi reklamlar geliyor, sıcak başvurular var ama görüşmeleri <strong style="color:var(--text)">satışa çeviremiyorsun</strong></div>
         </div>
         <div class="problem-item">
           <div class="problem-icon">×</div>
-          <div class="problem-text">Sosyal medyada içerik üretiyorsun ama müşteri akışı oluşmuyor</div>
+          <div class="problem-text">İhtiyacı olduğu belli müşteriyi ikna edemeden bırakıyor, sonra başkasından aldığını duyuyorsun</div>
         </div>
         <div class="problem-item">
           <div class="problem-icon">×</div>
-          <div class="problem-text">Hangi rakamı takip edeceğini bilmiyor, körlemesine çalışıyorsun</div>
+          <div class="problem-text">"<strong style="color:var(--text)">Pazarlık yapacağım</strong>" deyip kâr marjını sürekli kemiriyor, sonunda yorulup pes ediyorsun</div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">×</div>
+          <div class="problem-text">Görüşmede ne soracağını, hangi sırayla anlatacağını bilmiyor — her seferinde sıfırdan içgüdüyle satıyorsun</div>
         </div>
       </div>
+
+      <p style="text-align:center; margin-top:48px; font-size:18px; max-width:680px; margin-left:auto; margin-right:auto; color:var(--text-muted);">
+        Sorun ürününde değil. Sorun: <strong style="color:var(--text); font-style:italic;">satışı bitirmeyi öğrenmemiş olmanda.</strong><br>
+        Ve bu öğrenilebilir bir beceri.
+      </p>
     </div>
   </section>
 
-  <!-- WHAT YOU BUILD (3 systems) -->
+  <!-- SOLUTION INTRO -->
   <section>
     <div class="container">
-      <h2 class="section-title">Bu Programda <span class="accent">3 Sistem</span> Kuruyorsun</h2>
-      <p class="section-sub">Bilgi değil — uygulanabilir, ölçeklenebilir 3 sistem.</p>
+      <h2 class="section-title">Çözüm: <span class="accent">7 Adımlı Satış Sistemi</span></h2>
+      <p class="section-sub">
+        Müşterinin "düşüneyim" demediği, satın almak isteyene dönüştüğü, içgüdüyle değil
+        <strong style="color:var(--text)">tekrarlanabilir bir formülle</strong> çalışan satış sistemi.
+      </p>
 
       <div class="systems-grid">
         <div class="system-card">
           <div class="system-num">01</div>
-          <h3>Müşteri Akışı Sistemi</h3>
-          <p>Potansiyel müşterilerin seni bulduğu, takip ettiği ve seninle iletişime geçtiği otomatik bir akış. Reklam, içerik, otomasyon — tek sistem altında.</p>
+          <h3>Müşteri Psikolojisi</h3>
+          <p>İnsan neden satın alır? Mantıkla değil duyguyla karar verip mantıkla onaylar. Bu süreci yönetmeyi öğreniyorsun — kapanış oranı buradan başlar.</p>
         </div>
         <div class="system-card">
           <div class="system-num">02</div>
-          <h3>Satış Sistemi</h3>
-          <p>Görüşmelerde ne söyleyeceğini, itirazları nasıl yöneteceğini, randevuyu satışa nasıl çevireceğini adım adım öğreniyorsun.</p>
+          <h3>İhtiyaç Açığa Çıkarma</h3>
+          <p>Doğru soruları sorarak müşterinin gerçek problemini onun bile fark etmediği bir derinlikte ortaya çıkarıyorsun. Satış burada %80 kapanır.</p>
         </div>
         <div class="system-card">
           <div class="system-num">03</div>
-          <h3>KPI & Takip Sistemi</h3>
-          <p>Hangi rakamı, hangi sıklıkla takip edeceğini öğrenerek büyümeyi şansa bırakmıyorsun. Sayılarla yöneten bir işletme oluyorsun.</p>
+          <h3>Çözümü Sunma</h3>
+          <p>Ürünü anlatmıyorsun — onun problemine özel çözümü gösteriyorsun. "Bana hitap ediyor" hissi yaratıyorsun.</p>
+        </div>
+        <div class="system-card">
+          <div class="system-num">04</div>
+          <h3>Fiyat Sunumu</h3>
+          <p>"Pahalı" itirazını fiyatı söylemeden önce çözmenin yolları. Değer-fiyat dengesini doğru kurarsan, fiyat itirazı gelmez.</p>
+        </div>
+        <div class="system-card">
+          <div class="system-num">05</div>
+          <h3>İtiraz Yönetimi</h3>
+          <p>"Düşüneyim, eşime danışayım, başka teklif var…" — Tüm yaygın itirazlara hazır cevap çerçeveleri ve manevralar.</p>
+        </div>
+        <div class="system-card">
+          <div class="system-num">06</div>
+          <h3>Kapanış Teknikleri</h3>
+          <p>Satışı bitirmenin 5 farklı yöntemi. Hangi müşteride hangisi işe yarar — okuyup uygulamayı öğreniyorsun.</p>
+        </div>
+        <div class="system-card">
+          <div class="system-num">07</div>
+          <h3>Takip & KPI</h3>
+          <p>Hangi sayıyı, hangi sıklıkta takip edeceğini öğreniyorsun. Kapanmayan görüşmeleri geri kazanma sistemi de dahil.</p>
+        </div>
+        <div class="system-card" style="background: linear-gradient(180deg, rgba(229,9,20,0.08), rgba(229,9,20,0.03)); border-color: var(--border-gold);">
+          <div class="system-num">∞</div>
+          <h3>Script + Şablonlar</h3>
+          <p>Hazır görüşme script'leri, itiraz cevap çerçeveleri, mesaj şablonları. Bugün öğren, yarın uygula.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- EDUCATION CARDS -->
+  <!-- MAIN EDUCATION CARD (Satış Master Class — Hero of the program) -->
   <section class="edu-cards">
     <div class="container">
-      <h2 class="section-title">Eğitim <span class="accent">İçeriği</span></h2>
-      <p class="section-sub">Bir ana eğitim + bir tam değerli bonus. Toplamda <strong style="color:var(--text)">24.000 ₺ değerinde</strong> içerik.</p>
+      <span class="hero-eyebrow" style="display:flex; margin: 0 auto 28px; width:fit-content;">Ana Eğitim · 12.000 ₺ Değerinde</span>
+      <h2 class="section-title">Tanışın: <span class="accent">Satış Master Class</span></h2>
+      <p class="section-sub">
+        10+ yıllık ajans tecrübemden damıttığım, <strong style="color:var(--text)">100'den fazla işletme ile uyguladığım</strong>
+        ve test edilmiş satış sistemini A'dan Z'ye öğreniyorsun.
+      </p>
 
-      <div class="edu-grid">
-        <div class="edu-card">
+      <div class="main-edu-card">
+        <div class="main-edu-image">
           <img src="images/egitim/satis-master-class.jpg" alt="Satış Master Class" loading="lazy">
-          <div class="edu-card-body">
-            <h3>Satış Master Class</h3>
-            <ul>
-              <li>Satış psikolojisi ve müşteri davranışı</li>
-              <li>7 adımlı satış sistemi (script + uygulama)</li>
-              <li>İtiraz yönetimi ve cevap çerçeveleri</li>
-              <li>Randevu → satış dönüşüm oranı artırma</li>
-              <li>KPI sistemi ve performans takibi</li>
-            </ul>
+        </div>
+        <div class="main-edu-content">
+          <h3>Eğitimde Neler Var?</h3>
+          <ul class="main-edu-list">
+            <li><strong>Satış Psikolojisi:</strong> Müşteri neden satın alır, neden direnir, nasıl yumuşar?</li>
+            <li><strong>7 Adımlı Görüşme Akışı:</strong> Selamlama'dan kapanışa kadar her cümle ve geçiş</li>
+            <li><strong>İhtiyaç Tespit Soruları:</strong> Müşterinin gerçek problemini açığa çıkaran 25+ soru</li>
+            <li><strong>Fiyat Sunumu Teknikleri:</strong> Fiyatı söyleme zamanı + "pahalı" itirazını önleyen yapı</li>
+            <li><strong>10+ İtiraz Cevabı:</strong> "Düşüneyim, danışayım, başka teklif var, ekonomi kötü…"</li>
+            <li><strong>5 Farklı Kapanış Tekniği:</strong> Müşteri tipine göre seçeceğin kapanış yöntemleri</li>
+            <li><strong>Hazır Script + Şablonlar:</strong> Bugün öğren, yarınki görüşmende uygula</li>
+            <li><strong>KPI Sistemi:</strong> Hangi rakamı, hangi sıklıkta takip edeceksin?</li>
+            <li><strong>Geri Kazanma Sistemi:</strong> Kapanmayan görüşmeleri satışa çevirme</li>
+          </ul>
+          <div class="main-edu-stat">
+            <div>
+              <div class="stat-num">10+ saat</div>
+              <div class="stat-label">video içerik</div>
+            </div>
+            <div>
+              <div class="stat-num">50+</div>
+              <div class="stat-label">hazır şablon</div>
+            </div>
+            <div>
+              <div class="stat-num">Ömür boyu</div>
+              <div class="stat-label">erişim</div>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="edu-card">
+  <!-- WHATSAPP PROOFS (Marquee) -->
+  <section class="whatsapp-proofs">
+    <div class="container">
+      <h2 class="section-title">İşte <span class="accent">Gerçek Sonuçlar</span></h2>
+      <p class="section-sub">
+        Bu sistemi kullanan markalardan gelen WhatsApp mesajları. Söz değil — sonuç.
+      </p>
+    </div>
+
+    <div class="wp-marquee">
+      <div class="wp-marquee-track">
+        <!-- Orijinal set -->
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_0576.jpg" alt="Müşteri mesajı" decoding="async"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_1023.jpg" alt="Müşteri mesajı" decoding="async"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_1284.jpg" alt="Müşteri mesajı" decoding="async"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9465.jpg" alt="Müşteri mesajı" decoding="async"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9600.jpg" alt="Müşteri mesajı" decoding="async"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9616.jpg" alt="Müşteri mesajı" decoding="async"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9617.jpg" alt="Müşteri mesajı" decoding="async"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9810.jpg" alt="Müşteri mesajı" decoding="async"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9845.jpg" alt="Müşteri mesajı" decoding="async"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9894.jpg" alt="Müşteri mesajı" decoding="async"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9998.jpg" alt="Müşteri mesajı" decoding="async"></div>
+        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9999.jpg" alt="Müşteri mesajı" decoding="async"></div>
+
+        <!-- Duplicate set (seamless loop için) -->
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_0576.jpg" alt="" decoding="async"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_1023.jpg" alt="" decoding="async"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_1284.jpg" alt="" decoding="async"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9465.jpg" alt="" decoding="async"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9600.jpg" alt="" decoding="async"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9616.jpg" alt="" decoding="async"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9617.jpg" alt="" decoding="async"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9810.jpg" alt="" decoding="async"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9845.jpg" alt="" decoding="async"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9894.jpg" alt="" decoding="async"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9998.jpg" alt="" decoding="async"></div>
+        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9999.jpg" alt="" decoding="async"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BONUS REVEAL -->
+  <section class="bonus-section">
+    <div class="container">
+      <div class="bonus-reveal">
+        <span class="bonus-flash">⚡ BİR DE BONUS VAR</span>
+        <h2 class="section-title">"Satabilirim. Ama Önce <span class="accent">Görüşme Lazım</span>."</h2>
+        <p class="section-sub">
+          Satış sistemini öğrendin, harika. Peki görüşmeleri nereden bulacaksın?
+          Eğitime ek olarak <strong style="color:var(--text)">tamamen hediye</strong> bir bonus paket veriyoruz.
+        </p>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-card-content">
+          <div class="bonus-sub">BONUS · 12.000 ₺ Değerinde</div>
+          <h3>7 Günde Sınırsız Müşteri Akışı</h3>
+          <ul>
+            <li>Doğru hedef kitleyi tespit etme</li>
+            <li>Çekici teklif (offer) oluşturma</li>
+            <li>İçerik üretim sistemi (kalıcı akış)</li>
+            <li>Meta reklam kurulumu A'dan Z'ye</li>
+            <li>ManyChat otomasyonu kurulumu</li>
+            <li>Referans + müşteri ekosistemi</li>
+          </ul>
+          <p style="margin-top:24px; font-size:14px; color:var(--text-dim); font-style:italic;">
+            Tek başına 12.000 ₺ değerinde — Satış Master Class ile birlikte alanlara hediye.
+          </p>
+        </div>
+        <div class="bonus-card-image">
           <img src="images/egitim/musteri-akisi.jpg" alt="7 Günde Sınırsız Müşteri Akışı" loading="lazy">
-          <div class="edu-card-body">
-            <h3>7 Günde Müşteri Akışı (BONUS)</h3>
-            <ul>
-              <li>Doğru hedef kitleyi tespit etme</li>
-              <li>Çekici teklif (offer) oluşturma</li>
-              <li>İçerik üretim sistemi (kalıcı akış)</li>
-              <li>Meta reklam kurulumu A'dan Z'ye</li>
-              <li>ManyChat otomasyonu + referans sistemi</li>
-              <li>Müşteri ekosistemi kurulumu</li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
@@ -1030,69 +1328,37 @@
     </div>
   </section>
 
-  <!-- WHATSAPP PROOFS (Marquee) -->
-  <section class="whatsapp-proofs">
-    <div class="container">
-      <h2 class="section-title">Müşterilerimizden <span class="accent">Gerçek Mesajlar</span></h2>
-      <p class="section-sub">
-        Çalıştığımız markalardan gelen WhatsApp mesajları. Söz değil, sonuç.
-      </p>
-    </div>
-
-    <div class="wp-marquee">
-      <div class="wp-marquee-track">
-        <!-- Orijinal set -->
-        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_0576.jpg" alt="Müşteri mesajı" decoding="async"></div>
-        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_1023.jpg" alt="Müşteri mesajı" decoding="async"></div>
-        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_1284.jpg" alt="Müşteri mesajı" decoding="async"></div>
-        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9465.jpg" alt="Müşteri mesajı" decoding="async"></div>
-        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9600.jpg" alt="Müşteri mesajı" decoding="async"></div>
-        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9616.jpg" alt="Müşteri mesajı" decoding="async"></div>
-        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9617.jpg" alt="Müşteri mesajı" decoding="async"></div>
-        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9810.jpg" alt="Müşteri mesajı" decoding="async"></div>
-        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9845.jpg" alt="Müşteri mesajı" decoding="async"></div>
-        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9894.jpg" alt="Müşteri mesajı" decoding="async"></div>
-        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9998.jpg" alt="Müşteri mesajı" decoding="async"></div>
-        <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9999.jpg" alt="Müşteri mesajı" decoding="async"></div>
-
-        <!-- Duplicate set (seamless loop için) -->
-        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_0576.jpg" alt="" decoding="async"></div>
-        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_1023.jpg" alt="" decoding="async"></div>
-        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_1284.jpg" alt="" decoding="async"></div>
-        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9465.jpg" alt="" decoding="async"></div>
-        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9600.jpg" alt="" decoding="async"></div>
-        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9616.jpg" alt="" decoding="async"></div>
-        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9617.jpg" alt="" decoding="async"></div>
-        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9810.jpg" alt="" decoding="async"></div>
-        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9845.jpg" alt="" decoding="async"></div>
-        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9894.jpg" alt="" decoding="async"></div>
-        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9998.jpg" alt="" decoding="async"></div>
-        <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9999.jpg" alt="" decoding="async"></div>
-      </div>
-    </div>
-  </section>
-
   <!-- OFFER / PRICING -->
   <section class="offer" id="satin-al">
     <div class="container">
-      <h2 class="section-title">Lansmana <span class="accent">Özel Fiyat</span></h2>
-      <p class="section-sub">İki eğitim, tek ücret. Bonus tamamen hediye.</p>
+      <h2 class="section-title">Şimdi <span class="accent">Karar Verme</span> Vakti</h2>
+      <p class="section-sub">
+        Aynı reklam bütçesiyle 2 kat daha fazla satış kapatma yolunda sadece bir adım var:
+        <strong style="color:var(--text)">başlamak</strong>.
+      </p>
 
       <div class="offer-card">
-        <div class="offer-badge">SINIRLI SÜRELİ</div>
+        <div class="offer-badge">LANSMANA ÖZEL</div>
 
         <div class="value-stack">
           <div class="value-stack-item">
             <div class="value-stack-name">
               <strong>Satış Master Class</strong>
-              <small>7 adımlı satış sistemi + KPI</small>
+              <small>Ana eğitim · 7 adımlı sistem · 10+ saat video · 50+ şablon</small>
             </div>
             <div class="value-stack-price crossed">12.000 ₺</div>
           </div>
           <div class="value-stack-item">
             <div class="value-stack-name">
               <strong>7 Günde Sınırsız Müşteri Akışı</strong>
-              <small>Reklam + funnel + otomasyon</small>
+              <small>Bonus paket · Reklam + funnel + otomasyon</small>
+            </div>
+            <div class="value-stack-price bonus">HEDİYE ✨</div>
+          </div>
+          <div class="value-stack-item">
+            <div class="value-stack-name">
+              <strong>Hazır Script + Şablonlar</strong>
+              <small>İtiraz cevapları, görüşme akışları, mesaj şablonları</small>
             </div>
             <div class="value-stack-price bonus">HEDİYE ✨</div>
           </div>
@@ -1105,7 +1371,7 @@
 
         <div class="final-price-label">LANSMANA ÖZEL FİYAT</div>
         <div class="final-price">7.900 ₺</div>
-        <div class="final-price-note">Tek seferlik ödeme · Ömür boyu erişim · 14 gün iade garantisi</div>
+        <div class="final-price-note">Tek seferlik ödeme · Ömür boyu erişim · 14 gün koşulsuz iade garantisi</div>
 
         <!-- PayTR Payment Button -->
         <a href="https://www.paytr.com/link/VLFlhj0"
