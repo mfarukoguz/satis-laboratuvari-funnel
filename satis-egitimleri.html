@@ -1030,6 +1030,673 @@
       font-weight: 600;
     }
 
+    /* =================================================================
+       7G SATIŞ KAMPI — yeni funnel için ek sınıflar (Faz 1)
+       ================================================================= */
+
+    /* Hero CTA mikro-not */
+    .hero-cta-note {
+      display: block;
+      margin-top: 18px;
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+    .hero-cta-note strong { color: var(--gold-bright); font-weight: 700; }
+
+    /* Problem section — kapanış cümlesi vurgusu */
+    .problem-close {
+      text-align: center;
+      max-width: 720px;
+      margin: 56px auto 0;
+      padding: 32px 28px;
+      background: linear-gradient(180deg, rgba(229, 9, 20, 0.05), transparent);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    .problem-close em {
+      font-style: italic;
+      font-family: var(--font-serif);
+      color: var(--gold-bright);
+      font-size: 22px;
+    }
+
+    /* =====================================================
+       ZITLIK (Cennet vs Cehennem) — iki sütun karşılaştırma
+       ===================================================== */
+    .contrast-section {
+      padding: 100px 0;
+      background: linear-gradient(180deg, var(--bg), var(--bg-2));
+    }
+    .contrast-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .contrast-col {
+      border-radius: var(--radius-xl);
+      padding: 44px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .contrast-col-bad {
+      background: linear-gradient(180deg, #1a0d0d, #120808);
+      border: 1px solid rgba(229, 9, 20, 0.18);
+    }
+    .contrast-col-good {
+      background: linear-gradient(180deg, #0e1414, #0a0f0f);
+      border: 1px solid rgba(100, 200, 150, 0.22);
+      box-shadow: 0 0 60px rgba(100, 200, 150, 0.08);
+    }
+    .contrast-col-header {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 28px;
+      padding-bottom: 22px;
+      border-bottom: 1px dashed rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .contrast-col-bad .contrast-col-header { color: #ff6675; }
+    .contrast-col-good .contrast-col-header { color: #88e0b5; }
+    .contrast-col-header-icon {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+    .contrast-col-bad .contrast-col-header-icon {
+      background: rgba(229, 9, 20, 0.15);
+      border: 1px solid rgba(229, 9, 20, 0.3);
+    }
+    .contrast-col-good .contrast-col-header-icon {
+      background: rgba(100, 200, 150, 0.12);
+      border: 1px solid rgba(100, 200, 150, 0.3);
+    }
+    .contrast-row {
+      padding: 12px 0;
+      font-size: 15px;
+      line-height: 1.55;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--text);
+    }
+    .contrast-row + .contrast-row {
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .contrast-row-mark {
+      flex-shrink: 0;
+      font-weight: 800;
+      width: 22px;
+      text-align: center;
+      margin-top: 1px;
+    }
+    .contrast-col-bad .contrast-row-mark { color: #ff6675; }
+    .contrast-col-good .contrast-row-mark { color: #88e0b5; }
+
+    /* =====================================================
+       DÜŞMAN / MANİFESTO bölümü
+       ===================================================== */
+    .enemy-section {
+      padding: 110px 0;
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(229, 9, 20, 0.08), transparent 50%),
+        var(--bg);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .enemy-eyebrow {
+      display: inline-block;
+      padding: 8px 22px;
+      background: rgba(229, 9, 20, 0.12);
+      border: 1px solid var(--border-gold);
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 28px;
+    }
+    .enemy-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.1;
+      letter-spacing: -1.2px;
+      max-width: 900px;
+      margin: 0 auto 36px;
+      font-weight: 500;
+    }
+    .enemy-headline em {
+      font-style: italic;
+      color: var(--text-muted);
+      display: block;
+      font-size: 0.55em;
+      margin-bottom: 18px;
+      letter-spacing: 0;
+    }
+    .enemy-headline .accent {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .enemy-body {
+      max-width: 720px;
+      margin: 0 auto 48px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+    .enemy-body strong { color: var(--text); font-weight: 700; }
+
+    /* Manifesto kutusu — sayfada birden çok yerde kullanılabilir */
+    .manifesto-box {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 44px;
+      background: linear-gradient(180deg, rgba(229, 9, 20, 0.08), rgba(229, 9, 20, 0.02));
+      border: 2px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      position: relative;
+      text-align: left;
+    }
+    .manifesto-mark {
+      position: absolute;
+      top: -22px;
+      left: 36px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 64px;
+      color: var(--gold-bright);
+      line-height: 1;
+      background: var(--bg);
+      padding: 0 14px;
+    }
+    .manifesto-quote {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      line-height: 1.5;
+      color: var(--text);
+      font-weight: 500;
+      letter-spacing: -0.3px;
+    }
+    .manifesto-quote em {
+      font-style: italic;
+      color: var(--gold-bright);
+    }
+    .manifesto-sign {
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px dashed var(--border-gold);
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      font-weight: 700;
+    }
+
+    /* =====================================================
+       YENİ FIRSAT — 3 fark kartı
+       ===================================================== */
+    .new-way-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .new-way-card {
+      padding: 36px 30px;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      text-align: center;
+      transition: all 0.35s cubic-bezier(.2,.8,.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .new-way-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-gold);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 40px rgba(229, 9, 20, 0.12);
+    }
+    .new-way-old {
+      display: block;
+      font-size: 13px;
+      color: var(--text-dim);
+      text-decoration: line-through;
+      text-decoration-color: rgba(229, 9, 20, 0.5);
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    .new-way-arrow {
+      font-size: 24px;
+      color: var(--gold-bright);
+      margin: 10px 0;
+      display: block;
+    }
+    .new-way-new {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .new-way-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* =====================================================
+       14 GÜNLÜK MÜFREDAT — timeline grid
+       ===================================================== */
+    .curriculum-section {
+      padding: 110px 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(229, 9, 20, 0.04), transparent 50%),
+        var(--bg-2);
+    }
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .day-card {
+      padding: 24px 22px;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      transition: all 0.3s;
+      position: relative;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+    }
+    .day-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-gold);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
+    .day-number {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 10px;
+    }
+    .day-title {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .day-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      flex: 1;
+    }
+    .day-hw {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(229, 9, 20, 0.18);
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .day-card.day-special {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(229, 9, 20, 0.18), rgba(229, 9, 20, 0.04));
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 60px rgba(229, 9, 20, 0.15);
+    }
+    .day-card.day-special .day-title {
+      font-size: 26px;
+    }
+    .day-card.day-special .day-number {
+      color: #fff;
+    }
+    .curriculum-note {
+      text-align: center;
+      max-width: 720px;
+      margin: 56px auto 0;
+      padding: 28px 32px;
+      background: rgba(229, 9, 20, 0.05);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+    .curriculum-note strong { color: var(--gold-bright); }
+
+    /* =====================================================
+       BU KAMP KİMLER İÇİN — segment seslenişler
+       ===================================================== */
+    .segments-section {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .segments-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .segment-card {
+      padding: 26px 28px;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      transition: all 0.3s;
+    }
+    .segment-card:hover {
+      transform: translateX(6px);
+      border-color: var(--border-gold);
+    }
+    .segment-emoji {
+      flex-shrink: 0;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(229, 9, 20, 0.1);
+      border: 1px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+    .segment-body {
+      flex: 1;
+    }
+    .segment-trigger {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--gold-bright);
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+    .segment-message {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* =====================================================
+       EĞİTMEN OTORİTESİ — Faruk Oğuz hikâye bölümü
+       ===================================================== */
+    .instructor-section {
+      padding: 110px 0;
+      background: var(--bg-2);
+    }
+    .instructor-card {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 0;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+    }
+    .instructor-image {
+      background: linear-gradient(180deg, var(--bg-warm), var(--bg-card));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      min-height: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+    .instructor-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(229, 9, 20, 0.12), transparent 60%);
+    }
+    .instructor-image-placeholder {
+      position: relative;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 28px;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.3;
+    }
+    .instructor-image-placeholder small {
+      display: block;
+      font-style: normal;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--text-dim);
+      margin-top: 16px;
+      text-transform: uppercase;
+    }
+    .instructor-content {
+      padding: 48px 44px;
+    }
+    .instructor-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      margin-bottom: 14px;
+    }
+    .instructor-name {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 22px;
+      letter-spacing: -0.5px;
+    }
+    .instructor-bio {
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+    .instructor-bio strong { color: var(--text); font-weight: 700; }
+    .instructor-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding-top: 24px;
+      border-top: 1px dashed var(--border-gold);
+    }
+    .instructor-stat {
+      text-align: left;
+    }
+    .instructor-stat .num {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--gold-bright);
+      line-height: 1;
+    }
+    .instructor-stat .lbl {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* =====================================================
+       ROI BLOĞU — risk tersine çevirme cümlesi
+       ===================================================== */
+    .roi-box {
+      max-width: 720px;
+      margin: 36px auto 0;
+      padding: 28px 32px;
+      background: linear-gradient(135deg, rgba(229, 9, 20, 0.08), rgba(229, 9, 20, 0.02));
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      font-size: 16.5px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+    .roi-box strong {
+      color: var(--gold-bright);
+      font-weight: 700;
+    }
+    .roi-box em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--text);
+      display: block;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    /* =====================================================
+       SON CTA — "Bir yıl sonra iki kişi" anlatısı
+       ===================================================== */
+    .final-cta-section {
+      padding: 130px 0;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(229, 9, 20, 0.1), transparent 60%),
+        linear-gradient(180deg, var(--bg-2), var(--bg));
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .year-later-block {
+      max-width: 760px;
+      margin: 0 auto 56px;
+      padding: 48px 44px;
+      background: rgba(10, 6, 6, 0.6);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      backdrop-filter: blur(10px);
+      font-family: var(--font-serif);
+      font-size: 22px;
+      line-height: 1.55;
+      color: var(--text);
+      font-weight: 500;
+      text-align: left;
+      position: relative;
+    }
+    .year-later-block::before {
+      content: '"';
+      position: absolute;
+      top: -30px;
+      left: 30px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 100px;
+      color: var(--gold-bright);
+      line-height: 1;
+    }
+    .year-later-block strong {
+      font-style: italic;
+      color: var(--gold-bright);
+      font-weight: 600;
+    }
+    .year-later-block .underline {
+      text-decoration: underline;
+      text-decoration-color: var(--gold);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+    .final-cta-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      margin-bottom: 28px;
+      font-weight: 500;
+    }
+    .final-cta-headline .accent {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .final-cta-urgency {
+      margin-top: 28px;
+      font-size: 14px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+    }
+    .final-cta-urgency strong { color: var(--gold-bright); font-weight: 700; }
+
+    /* =====================================================
+       RESPONSIVE — yeni bölümlerin mobil davranışı
+       ===================================================== */
+    @media (max-width: 1024px) {
+      .curriculum-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .instructor-card { grid-template-columns: 1fr; }
+      .instructor-image { min-height: 260px; }
+      .instructor-content { padding: 36px 28px; }
+    }
+    @media (max-width: 768px) {
+      .contrast-grid { grid-template-columns: 1fr; gap: 18px; }
+      .contrast-col { padding: 32px 24px; }
+      .new-way-grid { grid-template-columns: 1fr; gap: 16px; }
+      .curriculum-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .day-card { min-height: 160px; padding: 20px 18px; }
+      .day-card.day-special { grid-column: span 2; }
+      .day-card.day-special .day-title { font-size: 22px; }
+      .segments-grid { grid-template-columns: 1fr; gap: 14px; }
+      .manifesto-box { padding: 36px 28px; }
+      .manifesto-mark { font-size: 48px; top: -16px; left: 24px; }
+      .manifesto-quote { font-size: 18px; }
+      .year-later-block {
+        padding: 36px 28px;
+        font-size: 18px;
+      }
+      .year-later-block::before { font-size: 70px; top: -20px; left: 18px; }
+      .enemy-section { padding: 80px 0; }
+      .curriculum-section { padding: 80px 0; }
+      .contrast-section { padding: 80px 0; }
+      .instructor-section { padding: 80px 0; }
+      .final-cta-section { padding: 90px 0; }
+      .instructor-stats { grid-template-columns: 1fr; gap: 14px; }
+      .instructor-name { font-size: 28px; }
+    }
+
     @media (max-width: 768px) {
       .nav { padding: 14px 18px; }
       .nav-link { padding: 8px 12px; font-size: 12px; }
