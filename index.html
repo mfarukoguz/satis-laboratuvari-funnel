@@ -1526,7 +1526,49 @@
       .date-grid { grid-template-columns: repeat(3, 1fr); }
       .time-grid { grid-template-columns: repeat(3, 1fr); }
     }
+
+    /* ============ CALENDLY EMBED ============ */
+    .calendly-wrap {
+      margin-top: 36px;
+      padding: 28px 24px 24px;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+      display: none;
+    }
+    .calendly-wrap.is-open { display: block; }
+    .calendly-wrap-heading {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--gold-bright);
+      margin-bottom: 8px;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .calendly-wrap-sub {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .calendly-inline-widget {
+      min-width: 320px;
+      width: 100%;
+      height: 720px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #0a0606;
+    }
+    @media (max-width: 768px) {
+      .calendly-inline-widget { height: 900px; }
+      .calendly-wrap { padding: 18px 12px 12px; }
+    }
   </style>
+
+  <!-- Calendly widget -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
 
@@ -2326,42 +2368,22 @@
             <input type="email" id="email" name="email" class="form-input" placeholder="E-posta adresiniz" style="margin-top:12px" />
           </div>
 
-          <!-- 7. Date -->
-          <div class="form-group">
-            <div class="date-picker">
-              <div class="picker-title">Randevu Tarihinizi Seçin</div>
-              <div class="date-grid" id="date-grid"></div>
-            </div>
-          </div>
-
-          <!-- 8. Time -->
-          <div class="form-group">
-            <div class="time-picker">
-              <div class="picker-title">Randevu Saatinizi Seçin</div>
-              <div class="time-grid" id="time-grid">
-                <label class="pick-option time-option"><input type="radio" name="time" value="10:00"><span>10:00</span></label>
-                <label class="pick-option time-option"><input type="radio" name="time" value="11:00"><span>11:00</span></label>
-                <label class="pick-option time-option"><input type="radio" name="time" value="13:00"><span>13:00</span></label>
-                <label class="pick-option time-option"><input type="radio" name="time" value="14:00"><span>14:00</span></label>
-                <label class="pick-option time-option"><input type="radio" name="time" value="15:00"><span>15:00</span></label>
-                <label class="pick-option time-option"><input type="radio" name="time" value="16:00"><span>16:00</span></label>
-                <label class="pick-option time-option"><input type="radio" name="time" value="17:00"><span>17:00</span></label>
-                <label class="pick-option time-option"><input type="radio" name="time" value="18:00"><span>18:00</span></label>
-              </div>
-            </div>
-          </div>
-
-          <div class="selected-summary" id="summary">Seçilen Randevu: <strong>Henüz seçim yapılmadı</strong></div>
-
           <div class="form-error" id="form-error"></div>
 
-          <button type="submit" class="form-submit">Şimdi Randevu Al →</button>
+          <button type="submit" class="form-submit">Müsait Saatleri Gör →</button>
 
           <p class="form-disclaimer">
-            Forma butona bastığınızda <span>WhatsApp üzerinden</span> tarafımıza ulaşacaksınız.
-            Verdiğiniz cevapları görüşme öncesi dikkatle inceliyoruz, böylece görüşmemiz çok daha verimli geçiyor.
+            Bilgileri doldurup butona bastığınızda <span>aşağıda müsait tarih ve saatler</span> görünecek.
+            Verdiğiniz cevapları görüşme öncesi dikkatle inceliyoruz; böylece görüşmemiz çok daha verimli geçiyor.
           </p>
         </form>
+
+        <!-- Calendly inline widget — form geçince burası açılır -->
+        <div class="calendly-wrap" id="calendly-wrap">
+          <div class="calendly-wrap-heading">Sıra <span style="font-style:italic;">saatte</span> 🗓️</div>
+          <div class="calendly-wrap-sub">Aşağıdan müsait olan tarih ve saati seç — onayın e-postana otomatik gelecek.</div>
+          <div class="calendly-inline-widget" id="calendly-inline"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -2496,8 +2518,8 @@
   </div>
   <div class="modal-overlay" id="modal-success" onclick="closeModalIfBg(event,'success')">
     <div class="modal">
-      <h3>Harika!</h3>
-      <p>Başvurunuz WhatsApp üzerinden hazırlandı. <strong style="color:var(--gold)">Mesajı göndererek</strong> başvurunuzu tamamlamayı unutmayın — birkaç saniye içinde size dönüş yapacağız.</p>
+      <h3>Randevun onaylandı!</h3>
+      <p>Onay e-postası adresine gönderildi — <strong style="color:var(--gold)">Google Meet linki</strong> ve hatırlatma da içinde. Görüşmeden önce randevuyu takvimine eklemeyi unutma.</p>
       <button class="modal-close" onclick="closeModal('success')">Tamam</button>
     </div>
   </div>
@@ -2615,65 +2637,7 @@
       });
     })();
 
-    /* ---------- DATE PICKER (önümüzdeki 10 iş günü) ---------- */
-    const aylar = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
-    const gunler = ['Pazar','Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi'];
-    function generateDates() {
-      const grid = document.getElementById('date-grid');
-      const today = new Date();
-      let added = 0, offset = 1;
-      while (added < 10) {
-        const d = new Date(today);
-        d.setDate(today.getDate() + offset);
-        const weekday = d.getDay();
-        // Pazar'ı (0) atla
-        if (weekday !== 0) {
-          const value = d.toISOString().split('T')[0];
-          const label = `${d.getDate()} ${aylar[d.getMonth()]} ${gunler[weekday]}`;
-          const html = `
-            <label class="pick-option date-option">
-              <input type="radio" name="date" value="${label}">
-              <span class="pick-day">${d.getDate()}</span>
-              <span class="pick-month">${aylar[d.getMonth()]}</span>
-              <span class="pick-weekday">${gunler[weekday]}</span>
-            </label>`;
-          grid.insertAdjacentHTML('beforeend', html);
-          added++;
-        }
-        offset++;
-      }
-    }
-    generateDates();
-
-    /* ---------- PICK OPTION SELECTION ---------- */
-    function setupPicker(name) {
-      document.querySelectorAll(`input[name="${name}"]`).forEach(radio => {
-        radio.addEventListener('change', () => {
-          document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
-            r.closest('.pick-option').classList.toggle('selected', r.checked);
-          });
-          updateSummary();
-        });
-      });
-    }
-    setupPicker('date');
-    setupPicker('time');
-
-    /* ---------- SUMMARY ---------- */
-    function updateSummary() {
-      const date = document.querySelector('input[name="date"]:checked')?.value;
-      const time = document.querySelector('input[name="time"]:checked')?.value;
-      const s = document.getElementById('summary');
-      if (date && time) {
-        s.innerHTML = `Seçilen Randevu: <strong>${date} · Saat ${time}</strong>`;
-      } else if (date) {
-        s.innerHTML = `Seçilen Randevu: <strong>${date}</strong> · Lütfen saat seçin`;
-      } else if (time) {
-        s.innerHTML = `Seçilen Randevu: <strong>Saat ${time}</strong> · Lütfen tarih seçin`;
-      } else {
-        s.innerHTML = `Seçilen Randevu: <strong>Henüz seçim yapılmadı</strong>`;
-      }
-    }
+    /* ---------- (Tarih/saat picker'ları kaldırıldı — Calendly canlı müsaitlik yönetiyor) ---------- */
 
     /* ---------- FAQ ACCORDION ---------- */
     document.querySelectorAll('.faq-item').forEach(item => {
@@ -2697,7 +2661,28 @@
     function closeModal(id) { document.getElementById('modal-' + id).classList.remove('show'); }
     function closeModalIfBg(e, id) { if (e.target.classList.contains('modal-overlay')) closeModal(id); }
 
-    /* ---------- FORM SUBMIT → WHATSAPP ---------- */
+    /* ---------- FORM SUBMIT → CALENDLY (Google Calendar bağlı) ---------- */
+    const CALENDLY_URL = 'https://calendly.com/frk-ogz-06/30min';
+
+    function buildCalendlyNotes({ problems, future, sector, budget, web, phone }) {
+      const SEP = '━━━━━━━━━━━━━━━━';
+      const lines = [
+        'YENİ BAŞVURU · Satış Laboratuvarı',
+        SEP,
+        sector ? `Sektör: ${sector}` : null,
+        budget ? `Aylık bütçe: ${budget}` : null,
+        phone ? `Telefon: ${phone}` : null,
+        web ? `Web / Sosyal: ${web}` : null,
+        '',
+        'KARŞILAŞTIĞI SORUNLAR',
+        ...problems.map(p => `• ${p}`),
+        '',
+        'GÖRÜŞME ÖNCESİ NOTLAR',
+        future,
+      ];
+      return lines.filter(Boolean).join('\n');
+    }
+
     document.getElementById('lead-form').addEventListener('submit', (e) => {
       e.preventDefault();
       const errBox = document.getElementById('form-error');
@@ -2711,8 +2696,6 @@
       const name = document.getElementById('name').value.trim();
       const phone = document.getElementById('phone').value.trim();
       const email = document.getElementById('email').value.trim();
-      const date = document.querySelector('input[name="date"]:checked')?.value;
-      const time = document.querySelector('input[name="time"]:checked')?.value;
 
       const missing = [];
       if (problems.length === 0) missing.push('Karşılaştığınız sorunlar');
@@ -2722,8 +2705,6 @@
       if (!name) missing.push('Ad Soyad');
       if (!phone) missing.push('Telefon');
       if (!email) missing.push('E-posta');
-      if (!date) missing.push('Randevu tarihi');
-      if (!time) missing.push('Randevu saati');
 
       if (missing.length) {
         errBox.textContent = 'Lütfen şu alanları doldurun: ' + missing.join(', ');
@@ -2732,48 +2713,54 @@
         return;
       }
 
-      const SEP = '━━━━━━━━━━━━━━━━';
-      const lines = [
-        '*YENİ BAŞVURU*',
-        '_Satış Laboratuvarı · Faruk Oğuz_',
-        '',
-        `*${name}*`,
-        sector,
-        `${budget} aylık bütçe`,
-        '',
-        SEP,
-        '',
-        '*İLETİŞİM*',
-        `• Telefon: ${phone}`,
-        `• E-posta: ${email}`,
-        web ? `• Web / Sosyal: ${web}` : null,
-        '',
-        SEP,
-        '',
-        '*KARŞILAŞTIĞI SORUNLAR*',
-        '',
-        ...problems.map(p => `— ${p}`),
-        '',
-        SEP,
-        '',
-        '*GÖRÜŞME ÖNCESİ NOTLARI*',
-        '',
-        future,
-        '',
-        SEP,
-        '',
-        '*TALEP EDİLEN RANDEVU*',
-        `${date}  ·  ${time}`,
-        '',
-        SEP,
-        '',
-        '_Bu başvuru Satış Laboratuvarı funnel sayfasından otomatik olarak iletilmiştir._',
-      ].filter(Boolean);
+      const wrap = document.getElementById('calendly-wrap');
+      const parent = document.getElementById('calendly-inline');
+      // Önceki widget içeriğini temizle (tekrar açılışlarda)
+      parent.innerHTML = '';
+      wrap.classList.add('is-open');
 
-      const msg = encodeURIComponent(lines.join('\n'));
-      const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
-      window.open(url, '_blank');
-      openModal('success');
+      const notes = buildCalendlyNotes({ problems, future, sector, budget, web, phone });
+
+      // Calendly script yüklendiyse JS API ile başlat, yoksa data-url fallback
+      function initCalendly() {
+        if (window.Calendly && typeof window.Calendly.initInlineWidget === 'function') {
+          window.Calendly.initInlineWidget({
+            url: CALENDLY_URL + '?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0606&text_color=f5f0eb&primary_color=e50914',
+            parentElement: parent,
+            prefill: {
+              name: name,
+              email: email,
+              customAnswers: {
+                a1: notes
+              }
+            },
+            utm: {
+              utmSource: 'satis-laboratuvari-funnel',
+              utmMedium: 'website',
+              utmCampaign: 'strateji-gorusmesi'
+            }
+          });
+        } else {
+          // Fallback: script henüz yüklenmediyse 200 ms bekle
+          setTimeout(initCalendly, 200);
+        }
+      }
+      initCalendly();
+
+      // Smooth scroll
+      setTimeout(() => {
+        wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    });
+
+    /* ---------- CALENDLY EVENT LISTENERS (booking confirmation) ---------- */
+    window.addEventListener('message', (e) => {
+      if (e.data && typeof e.data.event === 'string' && e.data.event.indexOf('calendly') === 0) {
+        // event_scheduled = booking tamamlandı → teşekkür modalı aç
+        if (e.data.event === 'calendly.event_scheduled') {
+          openModal('success');
+        }
+      }
     });
   </script>
 </body>
