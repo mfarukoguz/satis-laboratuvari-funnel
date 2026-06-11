@@ -1558,7 +1558,25 @@
       height: 720px;
       border-radius: var(--radius);
       overflow: hidden;
-      background: #0a0606;
+      background: #fff;
+      position: relative;
+    }
+    .calendly-inline-widget::before {
+      content: 'Takvim yükleniyor...';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-family: var(--font-display);
+      font-size: 14px;
+      letter-spacing: 1px;
+      z-index: 0;
+    }
+    .calendly-inline-widget iframe {
+      position: relative;
+      z-index: 1;
     }
     @media (max-width: 768px) {
       .calendly-inline-widget { height: 900px; }
@@ -2715,37 +2733,34 @@
 
       const wrap = document.getElementById('calendly-wrap');
       const parent = document.getElementById('calendly-inline');
-      // Önceki widget içeriğini temizle (tekrar açılışlarda)
-      parent.innerHTML = '';
       wrap.classList.add('is-open');
 
       const notes = buildCalendlyNotes({ problems, future, sector, budget, web, phone });
 
-      // Calendly script yüklendiyse JS API ile başlat, yoksa data-url fallback
-      function initCalendly() {
-        if (window.Calendly && typeof window.Calendly.initInlineWidget === 'function') {
-          window.Calendly.initInlineWidget({
-            url: CALENDLY_URL + '?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a0606&text_color=f5f0eb&primary_color=e50914',
-            parentElement: parent,
-            prefill: {
-              name: name,
-              email: email,
-              customAnswers: {
-                a1: notes
-              }
-            },
-            utm: {
-              utmSource: 'satis-laboratuvari-funnel',
-              utmMedium: 'website',
-              utmCampaign: 'strateji-gorusmesi'
-            }
-          });
-        } else {
-          // Fallback: script henüz yüklenmediyse 200 ms bekle
-          setTimeout(initCalendly, 200);
-        }
-      }
-      initCalendly();
+      // Doğrudan iframe — Calendly JS API'ye veya tema parametrelerine bağımlı değil
+      const params = new URLSearchParams({
+        hide_event_type_details: '1',
+        hide_gdpr_banner: '1',
+        embed_domain: location.host,
+        embed_type: 'Inline',
+        name: name,
+        email: email,
+        a1: notes,
+        utm_source: 'satis-laboratuvari-funnel',
+        utm_medium: 'website',
+        utm_campaign: 'strateji-gorusmesi'
+      });
+      const iframeUrl = CALENDLY_URL + '?' + params.toString();
+
+      parent.innerHTML = `<iframe
+        src="${iframeUrl}"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        title="Randevu takvimi"
+        style="border:0;border-radius:14px;background:#fff;"
+        allow="fullscreen"
+      ></iframe>`;
 
       // Smooth scroll
       setTimeout(() => {
