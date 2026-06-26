@@ -21,23 +21,23 @@
 
   <style>
     :root {
-      --bg: #1B2632;
-      --bg-2: #21303E;
-      --bg-card: #2C3B4D;
-      --bg-card-2: #34465A;
-      --bg-warm: #3D5168;
-      --gold: #FFB162;
-      --gold-bright: #FFC78A;
-      --gold-soft: #A35139;
-      --gold-deep: #6B3424;
-      --gold-glow: rgba(255, 177, 98, 0.22);
+      --bg: #080606;
+      --bg-2: #110a0a;
+      --bg-card: #1a1010;
+      --bg-card-2: #221414;
+      --bg-warm: #2a1818;
+      --gold: #e50914;
+      --gold-bright: #ff3344;
+      --gold-soft: #b30810;
+      --gold-deep: #780510;
+      --gold-glow: rgba(229, 9, 20, 0.22);
       --green: #ffc864;
       --green-glow: rgba(255, 200, 100, 0.14);
-      --text: #EEE9DF;
-      --text-muted: #C9C1B1;
-      --text-dim: #8A8478;
-      --border: #3D5168;
-      --border-gold: rgba(255, 177, 98, 0.32);
+      --text: #f5f0eb;
+      --text-muted: #a89090;
+      --text-dim: #6f5555;
+      --border: #2a1818;
+      --border-gold: rgba(229, 9, 20, 0.32);
       --radius: 14px;
       --radius-lg: 22px;
       --radius-xl: 28px;
@@ -124,7 +124,7 @@
     }
     .nav-link:hover { color: var(--gold-bright); }
     .nav-link.is-active {
-      background: rgba(255, 177, 98, 0.12);
+      background: rgba(229, 9, 20, 0.12);
       color: var(--gold-bright);
       border: 1px solid var(--border-gold);
     }
@@ -149,7 +149,7 @@
     .nav-ig svg { width: 20px; height: 20px; }
     .nav-cta {
       background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 100%);
-      color: #FFF8F0;
+      color: #fff5f5;
       font-weight: 700;
       font-size: 13px;
       padding: 13px 24px;
@@ -159,11 +159,11 @@
       transition: all 0.3s;
       border: none;
       white-space: nowrap;
-      box-shadow: 0 6px 20px rgba(255, 177, 98, 0.25);
+      box-shadow: 0 6px 20px rgba(229, 9, 20, 0.25);
     }
     .nav-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(255, 177, 98, 0.4);
+      box-shadow: 0 12px 30px rgba(229, 9, 20, 0.4);
     }
 
     /* HERO */
@@ -179,8 +179,8 @@
       position: absolute;
       inset: -10%;
       background:
-        radial-gradient(ellipse 60% 50% at 30% 30%, rgba(255, 177, 98, 0.28), transparent 60%),
-        radial-gradient(ellipse 50% 40% at 70% 70%, rgba(255, 177, 98, 0.15), transparent 60%);
+        radial-gradient(ellipse 60% 50% at 30% 30%, rgba(229, 9, 20, 0.28), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 70% 70%, rgba(229, 9, 20, 0.15), transparent 60%);
       filter: blur(40px);
       animation: aurora 18s ease-in-out infinite alternate;
       z-index: 0;
@@ -253,7 +253,7 @@
       align-items: center;
       gap: 24px;
       padding: 18px 32px;
-      background: rgba(255, 177, 98, 0.06);
+      background: rgba(229, 9, 20, 0.06);
       border: 1px solid var(--border-gold);
       border-radius: 50px;
       backdrop-filter: blur(10px);
@@ -263,7 +263,7 @@
       font-size: 18px;
       color: var(--text-dim);
       text-decoration: line-through;
-      text-decoration-color: rgba(255, 177, 98, 0.8);
+      text-decoration-color: rgba(229, 9, 20, 0.8);
       text-decoration-thickness: 2px;
     }
     .price-strip .new {
@@ -300,12 +300,12 @@
       border: none;
       cursor: pointer;
       box-shadow:
-        0 16px 45px rgba(255, 177, 98, 0.4),
+        0 16px 45px rgba(229, 9, 20, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
     .btn-primary:hover {
       transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 24px 60px rgba(255, 177, 98, 0.55);
+      box-shadow: 0 24px 60px rgba(229, 9, 20, 0.55);
     }
 
     /* Sections */
@@ -341,7 +341,7 @@
     /* Problem section */
     .problems {
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(255, 177, 98, 0.04), transparent 50%),
+        radial-gradient(ellipse at 50% 0%, rgba(229, 9, 20, 0.04), transparent 50%),
         var(--bg-2);
     }
     .problem-list {
@@ -369,7 +369,7 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: rgba(255, 177, 98, 0.12);
+      background: rgba(229, 9, 20, 0.12);
       border: 1px solid var(--border-gold);
       display: flex;
       align-items: center;
@@ -453,7 +453,7 @@
       border: 1px solid var(--border-gold);
       border-radius: var(--radius-xl);
       overflow: hidden;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(255, 177, 98, 0.1);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(229, 9, 20, 0.1);
     }
     .main-edu-image {
       overflow: hidden;
@@ -553,7 +553,7 @@
       letter-spacing: 3px;
       border-radius: 50px;
       margin-bottom: 22px;
-      box-shadow: 0 10px 30px rgba(255, 177, 98, 0.3);
+      box-shadow: 0 10px 30px rgba(229, 9, 20, 0.3);
       animation: bonus-pulse 2.4s ease-in-out infinite;
     }
     @keyframes bonus-pulse {
@@ -646,7 +646,7 @@
     .edu-card:hover {
       transform: translateY(-8px);
       border-color: var(--border-gold);
-      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 60px rgba(255, 177, 98, 0.2);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 60px rgba(229, 9, 20, 0.2);
     }
     .edu-card img {
       width: 100%;
@@ -720,7 +720,7 @@
     .offer {
       padding: 120px 0;
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(255, 177, 98, 0.1), transparent 50%),
+        radial-gradient(ellipse at 50% 0%, rgba(229, 9, 20, 0.1), transparent 50%),
         linear-gradient(180deg, var(--bg), var(--bg-2));
       text-align: center;
     }
@@ -732,8 +732,8 @@
       border-radius: var(--radius-xl);
       padding: 56px 48px;
       box-shadow:
-        0 30px 80px rgba(255, 177, 98, 0.25),
-        0 0 60px rgba(255, 177, 98, 0.15);
+        0 30px 80px rgba(229, 9, 20, 0.25),
+        0 0 60px rgba(229, 9, 20, 0.15);
       position: relative;
     }
     .offer-badge {
@@ -748,7 +748,7 @@
       padding: 8px 22px;
       border-radius: 50px;
       letter-spacing: 2px;
-      box-shadow: 0 8px 20px rgba(255, 177, 98, 0.4);
+      box-shadow: 0 8px 20px rgba(229, 9, 20, 0.4);
     }
     .value-stack {
       margin-bottom: 32px;
@@ -775,7 +775,7 @@
     }
     .value-stack-price.crossed {
       text-decoration: line-through;
-      text-decoration-color: rgba(255, 177, 98, 0.6);
+      text-decoration-color: rgba(229, 9, 20, 0.6);
       text-decoration-thickness: 2px;
     }
     .value-stack-price.bonus {
@@ -803,7 +803,7 @@
       font-size: 28px;
       color: var(--text-dim);
       text-decoration: line-through;
-      text-decoration-color: rgba(255, 177, 98, 0.6);
+      text-decoration-color: rgba(229, 9, 20, 0.6);
       text-decoration-thickness: 2px;
     }
     .final-price-label {
@@ -825,7 +825,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 6px 30px rgba(255, 177, 98, 0.3));
+      filter: drop-shadow(0 6px 30px rgba(229, 9, 20, 0.3));
     }
     .final-price-note {
       font-size: 13px;
@@ -852,12 +852,12 @@
       border: none;
       cursor: pointer;
       box-shadow:
-        0 16px 45px rgba(255, 177, 98, 0.4),
+        0 16px 45px rgba(229, 9, 20, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
     }
     .offer-cta:hover {
       transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 24px 60px rgba(255, 177, 98, 0.6);
+      box-shadow: 0 24px 60px rgba(229, 9, 20, 0.6);
     }
     .secure-note {
       margin-top: 20px;
@@ -873,7 +873,7 @@
     .whatsapp-proofs {
       padding: 100px 0;
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(255, 177, 98, 0.05), transparent 50%),
+        radial-gradient(ellipse at 50% 0%, rgba(229, 9, 20, 0.05), transparent 50%),
         var(--bg);
       overflow: hidden;
       position: relative;
@@ -925,7 +925,7 @@
       border-color: var(--border-gold);
       box-shadow:
         0 18px 40px rgba(0, 0, 0, 0.55),
-        0 0 30px rgba(255, 177, 98, 0.25);
+        0 0 30px rgba(229, 9, 20, 0.25);
       z-index: 2;
     }
     .wp-card img {
@@ -1003,7 +1003,7 @@
 
     /* Footer */
     footer {
-      background: #0F1820;
+      background: #050505;
       border-top: 1px solid var(--border);
       padding: 50px 0 30px;
       text-align: center;
@@ -1050,7 +1050,7 @@
       max-width: 720px;
       margin: 56px auto 0;
       padding: 32px 28px;
-      background: linear-gradient(180deg, rgba(255, 177, 98, 0.05), transparent);
+      background: linear-gradient(180deg, rgba(229, 9, 20, 0.05), transparent);
       border: 1px solid var(--border-gold);
       border-radius: var(--radius-lg);
       font-size: 19px;
@@ -1086,7 +1086,7 @@
     }
     .contrast-col-bad {
       background: linear-gradient(180deg, #1a0d0d, #120808);
-      border: 1px solid rgba(255, 177, 98, 0.18);
+      border: 1px solid rgba(229, 9, 20, 0.18);
     }
     .contrast-col-good {
       background: linear-gradient(180deg, #0e1414, #0a0f0f);
@@ -1105,7 +1105,7 @@
       align-items: center;
       gap: 12px;
     }
-    .contrast-col-bad .contrast-col-header { color: #FFD0A0; }
+    .contrast-col-bad .contrast-col-header { color: #ff6675; }
     .contrast-col-good .contrast-col-header { color: #88e0b5; }
     .contrast-col-header-icon {
       width: 36px;
@@ -1118,8 +1118,8 @@
       font-size: 18px;
     }
     .contrast-col-bad .contrast-col-header-icon {
-      background: rgba(255, 177, 98, 0.15);
-      border: 1px solid rgba(255, 177, 98, 0.3);
+      background: rgba(229, 9, 20, 0.15);
+      border: 1px solid rgba(229, 9, 20, 0.3);
     }
     .contrast-col-good .contrast-col-header-icon {
       background: rgba(100, 200, 150, 0.12);
@@ -1144,7 +1144,7 @@
       text-align: center;
       margin-top: 1px;
     }
-    .contrast-col-bad .contrast-row-mark { color: #FFD0A0; }
+    .contrast-col-bad .contrast-row-mark { color: #ff6675; }
     .contrast-col-good .contrast-row-mark { color: #88e0b5; }
 
     /* =====================================================
@@ -1153,7 +1153,7 @@
     .enemy-section {
       padding: 110px 0;
       background:
-        radial-gradient(ellipse at 50% 30%, rgba(255, 177, 98, 0.08), transparent 50%),
+        radial-gradient(ellipse at 50% 30%, rgba(229, 9, 20, 0.08), transparent 50%),
         var(--bg);
       text-align: center;
       position: relative;
@@ -1162,7 +1162,7 @@
     .enemy-eyebrow {
       display: inline-block;
       padding: 8px 22px;
-      background: rgba(255, 177, 98, 0.12);
+      background: rgba(229, 9, 20, 0.12);
       border: 1px solid var(--border-gold);
       border-radius: 50px;
       font-size: 11px;
@@ -1210,7 +1210,7 @@
       max-width: 800px;
       margin: 0 auto;
       padding: 48px 44px;
-      background: linear-gradient(180deg, rgba(255, 177, 98, 0.08), rgba(255, 177, 98, 0.02));
+      background: linear-gradient(180deg, rgba(229, 9, 20, 0.08), rgba(229, 9, 20, 0.02));
       border: 2px solid var(--border-gold);
       border-radius: var(--radius-xl);
       position: relative;
@@ -1274,14 +1274,14 @@
     .new-way-card:hover {
       transform: translateY(-6px);
       border-color: var(--border-gold);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 40px rgba(255, 177, 98, 0.12);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 40px rgba(229, 9, 20, 0.12);
     }
     .new-way-old {
       display: block;
       font-size: 13px;
       color: var(--text-dim);
       text-decoration: line-through;
-      text-decoration-color: rgba(255, 177, 98, 0.5);
+      text-decoration-color: rgba(229, 9, 20, 0.5);
       margin-bottom: 8px;
       letter-spacing: 0.5px;
     }
@@ -1311,7 +1311,7 @@
     .curriculum-section {
       padding: 110px 0;
       background:
-        radial-gradient(ellipse at 50% 0%, rgba(255, 177, 98, 0.04), transparent 50%),
+        radial-gradient(ellipse at 50% 0%, rgba(229, 9, 20, 0.04), transparent 50%),
         var(--bg-2);
     }
     .curriculum-grid {
@@ -1363,7 +1363,7 @@
     .day-hw {
       margin-top: 14px;
       padding-top: 12px;
-      border-top: 1px dashed rgba(255, 177, 98, 0.18);
+      border-top: 1px dashed rgba(229, 9, 20, 0.18);
       font-size: 11px;
       letter-spacing: 1.2px;
       text-transform: uppercase;
@@ -1372,9 +1372,9 @@
     }
     .day-card.day-special {
       grid-column: span 2;
-      background: linear-gradient(135deg, rgba(255, 177, 98, 0.18), rgba(255, 177, 98, 0.04));
+      background: linear-gradient(135deg, rgba(229, 9, 20, 0.18), rgba(229, 9, 20, 0.04));
       border: 2px solid var(--gold);
-      box-shadow: 0 0 60px rgba(255, 177, 98, 0.15);
+      box-shadow: 0 0 60px rgba(229, 9, 20, 0.15);
     }
     .day-card.day-special .day-title {
       font-size: 26px;
@@ -1387,7 +1387,7 @@
       max-width: 720px;
       margin: 56px auto 0;
       padding: 28px 32px;
-      background: rgba(255, 177, 98, 0.05);
+      background: rgba(229, 9, 20, 0.05);
       border: 1px solid var(--border-gold);
       border-radius: var(--radius-lg);
       font-size: 16px;
@@ -1429,7 +1429,7 @@
       width: 52px;
       height: 52px;
       border-radius: 14px;
-      background: rgba(255, 177, 98, 0.1);
+      background: rgba(229, 9, 20, 0.1);
       border: 1px solid var(--border-gold);
       display: flex;
       align-items: center;
@@ -1486,7 +1486,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center, rgba(255, 177, 98, 0.12), transparent 60%);
+      background: radial-gradient(ellipse at center, rgba(229, 9, 20, 0.12), transparent 60%);
     }
     .instructor-image-placeholder {
       position: relative;
@@ -1566,7 +1566,7 @@
       max-width: 720px;
       margin: 36px auto 0;
       padding: 28px 32px;
-      background: linear-gradient(135deg, rgba(255, 177, 98, 0.08), rgba(255, 177, 98, 0.02));
+      background: linear-gradient(135deg, rgba(229, 9, 20, 0.08), rgba(229, 9, 20, 0.02));
       border: 1px solid var(--border-gold);
       border-radius: var(--radius-lg);
       text-align: center;
@@ -1593,7 +1593,7 @@
     .final-cta-section {
       padding: 130px 0;
       background:
-        radial-gradient(ellipse at 50% 50%, rgba(255, 177, 98, 0.1), transparent 60%),
+        radial-gradient(ellipse at 50% 50%, rgba(229, 9, 20, 0.1), transparent 60%),
         linear-gradient(180deg, var(--bg-2), var(--bg));
       text-align: center;
       position: relative;
@@ -1891,155 +1891,102 @@
     </div>
   </section>
 
-  <!-- YENİ FIRSAT — 7G Satış Sistemi tanıtımı -->
+  <!-- SOLUTION INTRO -->
   <section>
     <div class="container">
-      <span class="enemy-eyebrow" style="display:block; width:fit-content; margin:0 auto 24px;">Çözüm</span>
-      <h2 class="section-title">
-        7G Satış Sistemi — <span class="accent">Yeni Bir Yol</span>
-      </h2>
+      <h2 class="section-title">Çözüm: <span class="accent">7 Adımlı Satış Sistemi</span></h2>
       <p class="section-sub">
-        Eski kurslar <em>bilgi</em> verir, sen unutursun.<br>
-        7G <strong style="color:var(--text)">sistem inşa eder, sen uygularsın.</strong><br>
-        Bu yüzden "daha iyi bir kurs" değil — <strong style="color:var(--text)">yeni bir yol</strong>.
+        Müşterinin "düşüneyim" demediği, satın almak isteyene dönüştüğü, içgüdüyle değil
+        <strong style="color:var(--text)">tekrarlanabilir bir formülle</strong> çalışan satış sistemi.
       </p>
 
-      <div class="new-way-grid">
-        <div class="new-way-card">
-          <span class="new-way-old">Bilgi yığını</span>
-          <span class="new-way-arrow">↓</span>
-          <div class="new-way-new">Tekrarlanabilir Sistem</div>
-          <p class="new-way-desc">
-            Her görüşmede yeniden icat etme. 7 adımlık formülü bir kez öğren —
-            her müşteriye, her sektöre uyarla.
-          </p>
+      <div class="systems-grid">
+        <div class="system-card">
+          <div class="system-num">01</div>
+          <h3>Müşteri Psikolojisi</h3>
+          <p>İnsan neden satın alır? Mantıkla değil duyguyla karar verip mantıkla onaylar. Bu süreci yönetmeyi öğreniyorsun — kapanış oranı buradan başlar.</p>
         </div>
-        <div class="new-way-card">
-          <span class="new-way-old">Pasif izleme</span>
-          <span class="new-way-arrow">↓</span>
-          <div class="new-way-new">Günlük Uygulama + Ödev</div>
-          <p class="new-way-desc">
-            Sadece izlemiyorsun. Her gün bir ödev veriyorum. Geri bildirim alıyorsun.
-            Sahada hata değil, <strong style="color:var(--text)">eğitimde hata yapıyorsun.</strong>
-          </p>
+        <div class="system-card">
+          <div class="system-num">02</div>
+          <h3>İhtiyaç Açığa Çıkarma</h3>
+          <p>Doğru soruları sorarak müşterinin gerçek problemini onun bile fark etmediği bir derinlikte ortaya çıkarıyorsun. Satış burada %80 kapanır.</p>
         </div>
-        <div class="new-way-card">
-          <span class="new-way-old">Tek başına çabalama</span>
-          <span class="new-way-arrow">↓</span>
-          <div class="new-way-new">Rehberle Yolculuk</div>
-          <p class="new-way-desc">
-            14 gün yanında duruyorum. Soruların var — cevap geliyor. Takıldığın yer var —
-            açıyoruz. Tek başına değilsin.
-          </p>
+        <div class="system-card">
+          <div class="system-num">03</div>
+          <h3>Çözümü Sunma</h3>
+          <p>Ürünü anlatmıyorsun — onun problemine özel çözümü gösteriyorsun. "Bana hitap ediyor" hissi yaratıyorsun.</p>
+        </div>
+        <div class="system-card">
+          <div class="system-num">04</div>
+          <h3>Fiyat Sunumu</h3>
+          <p>"Pahalı" itirazını fiyatı söylemeden önce çözmenin yolları. Değer-fiyat dengesini doğru kurarsan, fiyat itirazı gelmez.</p>
+        </div>
+        <div class="system-card">
+          <div class="system-num">05</div>
+          <h3>İtiraz Yönetimi</h3>
+          <p>"Düşüneyim, eşime danışayım, başka teklif var…" — Tüm yaygın itirazlara hazır cevap çerçeveleri ve manevralar.</p>
+        </div>
+        <div class="system-card">
+          <div class="system-num">06</div>
+          <h3>Kapanış Teknikleri</h3>
+          <p>Satışı bitirmenin 5 farklı yöntemi. Hangi müşteride hangisi işe yarar — okuyup uygulamayı öğreniyorsun.</p>
+        </div>
+        <div class="system-card">
+          <div class="system-num">07</div>
+          <h3>Takip & KPI</h3>
+          <p>Hangi sayıyı, hangi sıklıkta takip edeceğini öğreniyorsun. Kapanmayan görüşmeleri geri kazanma sistemi de dahil.</p>
+        </div>
+        <div class="system-card" style="background: linear-gradient(180deg, rgba(229,9,20,0.08), rgba(229,9,20,0.03)); border-color: var(--border-gold);">
+          <div class="system-num">∞</div>
+          <h3>Script + Şablonlar</h3>
+          <p>Hazır görüşme script'leri, itiraz cevap çerçeveleri, mesaj şablonları. Bugün öğren, yarın uygula.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 14 GÜNLÜK MÜFREDAT -->
-  <section class="curriculum-section">
+  <!-- MAIN EDUCATION CARD (Satış Master Class — Hero of the program) -->
+  <section class="edu-cards">
     <div class="container">
-      <span class="enemy-eyebrow" style="display:block; width:fit-content; margin:0 auto 24px;">Müfredat · 14 Gün</span>
-      <h2 class="section-title">
-        14 Günde <span class="accent">Neler Olacak?</span>
-      </h2>
+      <span class="hero-eyebrow" style="display:flex; margin: 0 auto 28px; width:fit-content;">Ana Eğitim · 12.000 ₺ Değerinde</span>
+      <h2 class="section-title">Tanışın: <span class="accent">Satış Master Class</span></h2>
       <p class="section-sub">
-        Her gün bir adım. Her adımın sonunda bir ödev.
-        <strong style="color:var(--text)">14. günde mezuniyet.</strong>
+        10+ yıllık ajans tecrübemden damıttığım, <strong style="color:var(--text)">100'den fazla işletme ile uyguladığım</strong>
+        ve test edilmiş satış sistemini A'dan Z'ye öğreniyorsun.
       </p>
 
-      <div class="curriculum-grid">
-        <div class="day-card">
-          <div class="day-number">Gün 01</div>
-          <div class="day-title">Satışın Bilimi</div>
-          <p class="day-desc">"Yetenek miti"ni yık. Satışın gerçek temeli: sistem, psikoloji ve tekrar.</p>
-          <div class="day-hw">Ödev: Kendi mitlerin</div>
+      <div class="main-edu-card">
+        <div class="main-edu-image">
+          <img src="images/egitim/satis-master-class.jpg?v=3" alt="Satış Master Class" loading="lazy">
         </div>
-        <div class="day-card">
-          <div class="day-number">Gün 02</div>
-          <div class="day-title">Müşteri Psikolojisi</div>
-          <p class="day-desc">İnsan neden satın alır, neden direnir, nasıl yumuşar? Karar verme süreci.</p>
-          <div class="day-hw">Ödev: 3 müşteri analizi</div>
+        <div class="main-edu-content">
+          <h3>Eğitimde Neler Var?</h3>
+          <ul class="main-edu-list">
+            <li><strong>Satış Psikolojisi:</strong> Müşteri neden satın alır, neden direnir, nasıl yumuşar?</li>
+            <li><strong>7 Adımlı Görüşme Akışı:</strong> Selamlama'dan kapanışa kadar her cümle ve geçiş</li>
+            <li><strong>İhtiyaç Tespit Soruları:</strong> Müşterinin gerçek problemini açığa çıkaran 25+ soru</li>
+            <li><strong>Fiyat Sunumu Teknikleri:</strong> Fiyatı söyleme zamanı + "pahalı" itirazını önleyen yapı</li>
+            <li><strong>10+ İtiraz Cevabı:</strong> "Düşüneyim, danışayım, başka teklif var, ekonomi kötü…"</li>
+            <li><strong>5 Farklı Kapanış Tekniği:</strong> Müşteri tipine göre seçeceğin kapanış yöntemleri</li>
+            <li><strong>Hazır Script + Şablonlar:</strong> Bugün öğren, yarınki görüşmende uygula</li>
+            <li><strong>KPI Sistemi:</strong> Hangi rakamı, hangi sıklıkta takip edeceksin?</li>
+            <li><strong>Geri Kazanma Sistemi:</strong> Kapanmayan görüşmeleri satışa çevirme</li>
+          </ul>
+          <div class="main-edu-stat">
+            <div>
+              <div class="stat-num">10+ saat</div>
+              <div class="stat-label">video içerik</div>
+            </div>
+            <div>
+              <div class="stat-num">50+</div>
+              <div class="stat-label">hazır şablon</div>
+            </div>
+            <div>
+              <div class="stat-num">Ömür boyu</div>
+              <div class="stat-label">erişim</div>
+            </div>
+          </div>
         </div>
-        <div class="day-card">
-          <div class="day-number">Gün 03</div>
-          <div class="day-title">İhtiyaç Tespiti</div>
-          <p class="day-desc">Müşterinin gerçek derdini açığa çıkaran 25+ soru. Satışın %80'i burada kapanır.</p>
-          <div class="day-hw">Ödev: Soru bankası</div>
-        </div>
-        <div class="day-card">
-          <div class="day-number">Gün 04</div>
-          <div class="day-title">Çözüm Sunumu</div>
-          <p class="day-desc">Ürünü değil — onun problemine özel çözümü göster. "Bana hitap ediyor" hissi.</p>
-          <div class="day-hw">Ödev: Çözüm sunumu</div>
-        </div>
-        <div class="day-card">
-          <div class="day-number">Gün 05</div>
-          <div class="day-title">Fiyat Sunumu</div>
-          <p class="day-desc">"Pahalı" itirazını fiyatı söylemeden çöz. Değer-fiyat dengesini doğru kur.</p>
-          <div class="day-hw">Ödev: Fiyat çerçevesi</div>
-        </div>
-        <div class="day-card">
-          <div class="day-number">Gün 06</div>
-          <div class="day-title">İtiraz Yönetimi</div>
-          <p class="day-desc">"Düşüneyim, danışayım, başka teklif var, ekonomi kötü" — 10+ hazır cevap.</p>
-          <div class="day-hw">Ödev: İtiraz cevap matrisi</div>
-        </div>
-        <div class="day-card">
-          <div class="day-number">Gün 07</div>
-          <div class="day-title">Kapanış Teknikleri</div>
-          <p class="day-desc">5 farklı kapanış yöntemi. Hangi müşteride hangisi işler — okumayı öğren.</p>
-          <div class="day-hw">Ödev: Kapanış pratiği</div>
-        </div>
-        <div class="day-card">
-          <div class="day-number">Gün 08</div>
-          <div class="day-title">Rol Play I</div>
-          <p class="day-desc">Canlı uygulama. Gerçek senaryolar üzerinde dur, düşün, dene, düzelt.</p>
-          <div class="day-hw">Ödev: 2 rol play kaydı</div>
-        </div>
-        <div class="day-card">
-          <div class="day-number">Gün 09</div>
-          <div class="day-title">Rol Play II — İtirazlar</div>
-          <p class="day-desc">En zorlu itirazları sahnele. Donmadan, takılmadan cevap verme refleksi.</p>
-          <div class="day-hw">Ödev: İtiraz simülasyonu</div>
-        </div>
-        <div class="day-card">
-          <div class="day-number">Gün 10</div>
-          <div class="day-title">Takip & Geri Kazanma</div>
-          <p class="day-desc">Kaybolan müşteriyi geri kazan. Kapanmayan görüşmeleri satışa çevirme sistemi.</p>
-          <div class="day-hw">Ödev: Takip script'i</div>
-        </div>
-        <div class="day-card">
-          <div class="day-number">Gün 11</div>
-          <div class="day-title">KPI Sistemi</div>
-          <p class="day-desc">Hangi sayıyı, hangi sıklıkta takip et? Sayılarla yöneten satıcı vs. içgüdüyle.</p>
-          <div class="day-hw">Ödev: Kendi KPI tablon</div>
-        </div>
-        <div class="day-card">
-          <div class="day-number">Gün 12</div>
-          <div class="day-title">Reddedilme Psikolojisi</div>
-          <p class="day-desc">"Hayır"ı saldırı değil, satışın parçası gör. Psikolojik zırh + yeniden ayağa kalkma.</p>
-          <div class="day-hw">Ödev: 5 ret analizi</div>
-        </div>
-        <div class="day-card">
-          <div class="day-number">Gün 13</div>
-          <div class="day-title">Sistemin Birleşimi</div>
-          <p class="day-desc">7 adımı kendi sektörüne göre birleştir. Sana özel satış script'in hazır.</p>
-          <div class="day-hw">Ödev: Kendi script'in</div>
-        </div>
-        <div class="day-card day-special">
-          <div class="day-number">Gün 14 · Final</div>
-          <div class="day-title">🎓 Mezuniyet Yayını</div>
-          <p class="day-desc">
-            Canlı mezuniyet yayını. Sertifika. Yolculuğun özeti.
-            Bundan sonra "şansa mahkûm satıcı" değil — <strong style="color:var(--text)">Sistemin Efendisi.</strong>
-          </p>
-        </div>
-      </div>
-
-      <div class="curriculum-note">
-        Her günün sonunda <strong>bireysel ödev</strong> ve <strong>geri bildirim</strong> var.
-        Sadece izleyip geçmek YOK. <strong>Uygulamak — sahada değil, eğitimde hata yapmak — esastır.</strong>
       </div>
     </div>
   </section>
