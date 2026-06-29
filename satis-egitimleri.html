@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Satış Eğitimleri | Satış Laboratuvarı — Faruk Oğuz</title>
-  <meta name="description" content="7 günde işletmene düzenli müşteri akışı kuran ve satış oranını arttıran sistem. Satış Master Class + Bonus Hediye. Lansmana özel 7.900₺." />
+  <meta name="description" content="7G Satış Sistemi · 'Düşüneyim' duvarını yıkan, kapanış oranını ikiye katlayan 7 adımlı satış sistemi. Ücretsiz strateji görüşmesi için yerini ayır." />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mfarukoguz.github.io/satis-laboratuvari-funnel/satis-egitimleri.html" />
   <meta property="og:title" content="7 Günde Müşteri Akışı + Satış Master Class | Satış Laboratuvarı" />
-  <meta property="og:description" content="Satış sistemini kuran, müşteri akışını başlatan ve dönüşüm oranlarını arttıran online eğitim. Lansmana özel fiyat: 7.900₺ (normal 24.000₺)." />
+  <meta property="og:description" content="7G Satış Sistemi · Satışı şanstan kurtar, kontrolü eline al. Ücretsiz strateji görüşmesi için yerini ayır — Google Meet üzerinden." />
   <meta property="og:image" content="https://mfarukoguz.github.io/satis-laboratuvari-funnel/images/og-image.jpg" />
   <meta property="og:site_name" content="Satış Laboratuvarı · Faruk Oğuz" />
   <meta property="og:locale" content="tr_TR" />
@@ -1707,7 +1707,242 @@
       .edu-grid { grid-template-columns: 1fr; gap: 24px; }
       .offer-card { padding: 40px 28px; }
     }
+
+    /* =================================================================
+       FEATURED TESTIMONIAL (Sinemnur Hanım sosyal kanıt videosu)
+       ================================================================= */
+    .featured-testimonial {
+      padding: 100px 0;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(229, 9, 20, 0.05), transparent 50%),
+        var(--bg-2);
+    }
+    .ft-video-wrap {
+      max-width: 720px;
+      margin: 56px auto 0;
+      position: relative;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 60px rgba(229, 9, 20, 0.15);
+    }
+    .ft-video-wrap video {
+      width: 100%;
+      display: block;
+      background: #000;
+    }
+    .ft-facade {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 0.3s;
+      z-index: 2;
+    }
+    .ft-facade.is-hidden { opacity: 0; pointer-events: none; }
+    .ft-facade::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.6));
+    }
+    .ft-play-btn {
+      position: relative;
+      z-index: 1;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 50px rgba(229, 9, 20, 0.5), 0 0 0 8px rgba(255,255,255,0.08);
+      transition: transform 0.3s;
+    }
+    .ft-facade:hover .ft-play-btn { transform: scale(1.08); }
+    .ft-play-btn svg { width: 36px; height: 36px; color: #fff; margin-left: 4px; }
+    .ft-meta {
+      padding: 22px 28px;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .ft-name {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .ft-handle {
+      font-size: 13px;
+      color: var(--gold-bright);
+      letter-spacing: 0.5px;
+    }
+    .ft-handle a { color: inherit; text-decoration: none; }
+    .ft-handle a:hover { text-decoration: underline; }
+
+    /* =================================================================
+       APPOINTMENT (booking — eski offer/pricing yerini aldı)
+       ================================================================= */
+    .booking-form {
+      max-width: 680px;
+      margin: 48px auto 0;
+      padding: 40px 36px;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), 0 0 60px rgba(229, 9, 20, 0.1);
+    }
+    .booking-form .form-group { margin-bottom: 18px; }
+    .booking-form label.form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: 0.3px;
+    }
+    .booking-form .req { color: var(--gold-bright); }
+    .booking-form .form-input,
+    .booking-form .form-textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 15px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .booking-form .form-input:focus,
+    .booking-form .form-textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.06);
+    }
+    .booking-form .form-textarea {
+      min-height: 100px;
+      resize: vertical;
+      font-family: inherit;
+    }
+    .booking-form .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .booking-form .form-error {
+      display: none;
+      padding: 12px 16px;
+      background: rgba(229, 9, 20, 0.1);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius);
+      color: var(--gold-bright);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+    .booking-form .form-error.show { display: block; }
+    .booking-form .form-submit {
+      width: 100%;
+      padding: 18px 30px;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-soft));
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 16px 40px rgba(229, 9, 20, 0.35);
+    }
+    .booking-form .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 55px rgba(229, 9, 20, 0.5);
+    }
+    .booking-disclaimer {
+      max-width: 680px;
+      margin: 18px auto 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .booking-disclaimer strong { color: var(--gold-bright); }
+
+    /* Calendly inline embed */
+    .calendly-wrap {
+      margin: 36px auto 0;
+      max-width: 800px;
+      padding: 22px 18px;
+      background: linear-gradient(180deg, var(--bg-card), var(--bg-card-2));
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.45);
+      display: none;
+    }
+    .calendly-wrap.is-open { display: block; }
+    .calendly-wrap-heading {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--gold-bright);
+      margin-bottom: 6px;
+      text-align: center;
+    }
+    .calendly-wrap-sub {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .calendly-inline-widget {
+      min-width: 320px;
+      width: 100%;
+      height: 720px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+      position: relative;
+    }
+    .calendly-inline-widget::before {
+      content: 'Takvim yükleniyor...';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-family: var(--font-display);
+      font-size: 14px;
+      letter-spacing: 1px;
+      z-index: 0;
+    }
+    .calendly-inline-widget iframe {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    @media (max-width: 768px) {
+      .calendly-inline-widget { height: 880px; }
+      .booking-form { padding: 28px 22px; }
+      .booking-form .form-row { grid-template-columns: 1fr; }
+      .ft-play-btn { width: 68px; height: 68px; }
+    }
   </style>
+
+  <!-- Calendly widget -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
 
@@ -1727,7 +1962,7 @@
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
           </svg>
         </a>
-        <a href="#satin-al" class="nav-cta">Satın Al</a>
+        <a href="#satin-al" class="nav-cta">Randevu Al</a>
       </div>
     </nav>
   </header>
@@ -1747,7 +1982,7 @@
         Sonunda mezuniyet.
       </p>
       <div>
-        <a href="#satin-al" class="btn-primary">Yerimi Ayır →</a>
+        <a href="#satin-al" class="btn-primary">Ücretsiz Görüşme Ayırt →</a>
         <span class="hero-cta-note">Bu dönem <strong>kontenjan sınırlı</strong> · Tek seferlik ödeme</span>
       </div>
     </div>
@@ -2033,6 +2268,41 @@
     </div>
   </section>
 
+  <!-- FEATURED TESTIMONIAL — Sinemnur Hanım sosyal kanıt videosu -->
+  <section class="featured-testimonial">
+    <div class="container">
+      <span class="enemy-eyebrow" style="display:block; width:fit-content; margin:0 auto 24px;">Müşteri Hikayesi</span>
+      <h2 class="section-title">Sinemnur Hanım <span class="accent">Anlatıyor</span></h2>
+      <p class="section-sub">
+        Sistemi uyguladıktan sonra satış süreçlerinin nasıl değiştiğini kendi ağzından dinle.
+      </p>
+
+      <div class="ft-video-wrap">
+        <video
+          id="vid-sinemnur-ft"
+          controls
+          playsinline
+          preload="metadata"
+          poster="videos/testimonials/sinemnur-tufan-poster.jpg">
+          <source src="videos/testimonials/sinemnur-tufan.mp4" type="video/mp4">
+          Tarayıcınız video oynatmayı desteklemiyor.
+        </video>
+        <div class="ft-facade" id="ft-facade" role="button" tabindex="0" aria-label="Sinemnur Tufan Duman yorumunu oynat"
+             style="background-image:url('videos/testimonials/sinemnur-tufan-poster.jpg');">
+          <button class="ft-play-btn" type="button" tabindex="-1" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+        </div>
+        <div class="ft-meta">
+          <div class="ft-name">Sinemnur Tufan Duman</div>
+          <div class="ft-handle">
+            <a href="https://www.instagram.com/dyt.sinemnur/" target="_blank" rel="noopener noreferrer">@dyt.sinemnur · Uzman Diyetisyen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- BONUS REVEAL -->
   <section class="bonus-section">
     <div class="container">
@@ -2111,62 +2381,54 @@
     </div>
   </section>
 
-  <!-- OFFER / PRICING -->
+  <!-- BOOKING — strateji görüşmesi randevusu -->
   <section class="offer" id="satin-al">
     <div class="container">
-      <h2 class="section-title">Şimdi <span class="accent">Karar Verme</span> Vakti</h2>
+      <h2 class="section-title">Önce <span class="accent">Tanışalım</span></h2>
       <p class="section-sub">
-        Aynı reklam bütçesiyle 2 kat daha fazla satış kapatma yolunda sadece bir adım var:
-        <strong style="color:var(--text)">başlamak</strong>.
+        Kısa bir görüşmede satış sürecini birlikte konuşalım — eğitimin sana uygun olup olmadığına birlikte karar verelim.
+        <strong style="color:var(--text)">Bilgilerini doldur, müsait olduğun saati seç.</strong>
       </p>
 
-      <div class="offer-card">
-        <div class="offer-badge">LANSMANA ÖZEL</div>
+      <form id="booking-form" class="booking-form" novalidate>
+        <div class="form-group">
+          <label class="form-label">Ad Soyad <span class="req">*</span></label>
+          <input type="text" id="bf-name" name="name" class="form-input" placeholder="Adın ve soyadın" required>
+        </div>
 
-        <div class="value-stack">
-          <div class="value-stack-item">
-            <div class="value-stack-name">
-              <strong>Satış Master Class</strong>
-              <small>Ana eğitim · 7 adımlı sistem · 10+ saat video · 50+ şablon</small>
-            </div>
-            <div class="value-stack-price crossed">12.000 ₺</div>
-          </div>
-          <div class="value-stack-item">
-            <div class="value-stack-name">
-              <strong>7 Günde Sınırsız Müşteri Akışı</strong>
-              <small>Bonus paket · Reklam + funnel + otomasyon</small>
-            </div>
-            <div class="value-stack-price bonus">HEDİYE ✨</div>
-          </div>
-          <div class="value-stack-item">
-            <div class="value-stack-name">
-              <strong>Hazır Script + Şablonlar</strong>
-              <small>İtiraz cevapları, görüşme akışları, mesaj şablonları</small>
-            </div>
-            <div class="value-stack-price bonus">HEDİYE ✨</div>
+        <div class="form-group">
+          <label class="form-label">İletişim <span class="req">*</span></label>
+          <div class="form-row">
+            <input type="email" id="bf-email" name="email" class="form-input" placeholder="E-posta adresin" required>
+            <input type="tel" id="bf-phone" name="phone" class="form-input" placeholder="Telefon (05XX...)" required>
           </div>
         </div>
 
-        <div class="total-value">
-          <span class="total-value-name">TOPLAM DEĞER</span>
-          <span class="total-value-price">24.000 ₺</span>
+        <div class="form-group">
+          <label class="form-label" for="bf-challenge">Satışta seni en çok zorlayan şey ne? <span class="req">*</span></label>
+          <textarea id="bf-challenge" name="challenge" class="form-textarea" placeholder="Örn: Görüşmelerimi kapatamıyorum, müşteri 'düşüneyim' deyince ne yapacağımı bilmiyorum, fiyat sunumunda donup kalıyorum..."></textarea>
         </div>
 
-        <div class="final-price-label">LANSMANA ÖZEL FİYAT</div>
-        <div class="final-price">7.900 ₺</div>
-        <div class="final-price-note">Tek seferlik ödeme · Ömür boyu erişim · Anında erişim</div>
-
-        <!-- PayTR Payment Button -->
-        <a href="https://www.paytr.com/link/VLFlhj0"
-           class="offer-cta"
-           target="_blank"
-           rel="noopener noreferrer">
-          🔒 Güvenli Ödeme ile Satın Al
-        </a>
-
-        <div class="secure-note">
-          <span>🔒</span> PayTR güvenli ödeme · Kredi kartı / Banka kartı / Havale
+        <div class="form-group">
+          <label class="form-label" for="bf-context">Şu an ne iş yapıyorsun? <span style="color:var(--text-dim); font-weight:400;">(opsiyonel)</span></label>
+          <input type="text" id="bf-context" name="context" class="form-input" placeholder="Örn: Diyetisyen / Emlak danışmanı / Online koç / Network marketing">
         </div>
+
+        <div class="form-error" id="bf-error"></div>
+
+        <button type="submit" class="form-submit">Müsait Saatleri Gör →</button>
+      </form>
+
+      <p class="booking-disclaimer">
+        Bilgileri doldurup butona bastığında <strong>aşağıda müsait tarih ve saatler</strong> görünecek.
+        Görüşme <strong>Google Meet üzerinden</strong> — onayın e-postana otomatik gelecek.
+      </p>
+
+      <!-- Calendly inline widget — form submit edilince burası açılır -->
+      <div class="calendly-wrap" id="bf-calendly-wrap">
+        <div class="calendly-wrap-heading">Sıra <span style="font-style:italic;">saatte</span> 🗓️</div>
+        <div class="calendly-wrap-sub">Aşağıdan müsait olan tarih ve saati seç — onayın e-postana otomatik gelecek.</div>
+        <div class="calendly-inline-widget" id="bf-calendly-inline"></div>
       </div>
     </div>
   </section>
@@ -2179,12 +2441,36 @@
       <div class="faq-list">
         <div class="faq-item">
           <div class="faq-question">
-            <span>Eğitime nasıl erişeceğim?</span>
+            <span>Görüşme nasıl yapılıyor?</span>
             <span class="arrow">▼</span>
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Ödeme tamamlandığında size özel bir erişim linki gönderilir. Eğitimleri istediğiniz zaman, istediğiniz cihazdan izleyebilirsiniz. Ömür boyu erişim haklarınız vardır.
+              Tamamen online — <strong style="color:var(--text)">Google Meet</strong> üzerinden. Randevu onaylandığında link e-postanla gelir. Görüşme yaklaşık <strong style="color:var(--gold)">30 dakika</strong> sürüyor.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Görüşme ücretli mi?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <strong style="color:var(--gold)">Hayır, tamamen ücretsiz.</strong> Bu görüşmenin amacı seni tanımak, satış sürecini birlikte konuşmak ve eğitimin sana uygun olup olmadığına birlikte karar vermek. Baskı yok — bilgi, fikir, yol haritası alıyorsun.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Görüşmede ne konuşacağız?</span>
+            <span class="arrow">▼</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Şu an satışta nerede tıkandığını, hangi adımlarda kayıp yaşadığını birlikte analiz ediyoruz. Sonra <strong style="color:var(--text)">7G Satış Sistemi'nin senin sürecine nasıl uygulanacağını</strong> somut adımlarla anlatıyorum. Sonunda sana özel bir yol haritası çıkıyor.
             </div>
           </div>
         </div>
@@ -2210,48 +2496,24 @@
 
         <div class="faq-item">
           <div class="faq-question">
-            <span>Eğitim ne kadar sürüyor?</span>
+            <span>Sektörüm farklı, sistem bana uyar mı?</span>
             <span class="arrow">▼</span>
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Toplam içerik yaklaşık 10–12 saat. Kendi temponuzda izleyebilirsiniz. Önerimiz: bir hafta içinde sistemi kuracak şekilde planlamak. İlk satışınızı 7–14 gün içinde almanız mümkün.
+              7G Satış Sistemi <strong style="color:var(--text)">insan psikolojisi üzerine kurulu</strong> — sektör fark etmez. Hizmet, danışmanlık, eğitim, koçluk, emlak, sigorta, oto, network marketing, e-ticaret… kapanış sürecinin temel mantığı aynı. Görüşmede senin sektörüne nasıl uyarlanacağını birlikte konuşuyoruz.
             </div>
           </div>
         </div>
 
         <div class="faq-item">
           <div class="faq-question">
-            <span>Sektörüm farklı, eğitim bana uyar mı?</span>
+            <span>Randevuyu iptal edebilir / değiştirebilir miyim?</span>
             <span class="arrow">▼</span>
           </div>
           <div class="faq-answer">
             <div class="faq-answer-inner">
-              Eğitim, hizmet/danışmanlık/uzmanlık satan herkese hitap eder. E-ticaret veya fiziksel ürün satışıyla ilgilenmiyorsanız, bilgilerin %90'ı sektörünüze uyarlanabilir. Görüşmemiz için <a href="index.html#randevu" style="color:var(--gold)">ana sayfadaki formu</a> doldurabilirsiniz.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Ödemede sorun yaşarsam ne yapacağım?</span>
-            <span class="arrow">▼</span>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              PayTR Türkiye'nin lider ödeme altyapılarından biridir. Sorun yaşarsanız WhatsApp üzerinden bana ulaşabilirsiniz: <a href="https://wa.me/905394931144" target="_blank" style="color:var(--gold)">+90 539 493 11 44</a>.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Bu fiyat ne kadar geçerli?</span>
-            <span class="arrow">▼</span>
-          </div>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Bu lansmana özel bir fiyat. Normal değer 24.000 ₺. Bonusu hediye olarak veriyoruz çünkü ilk eğitim grubundan referans + geri bildirim almak istiyoruz. Fiyat birkaç hafta içinde normale dönecek.
+              Tabii — onay e-postanın altındaki <strong style="color:var(--gold)">"Reschedule"</strong> ya da <strong style="color:var(--gold)">"Cancel"</strong> linkinden istediğin zaman değiştirebilirsin. Sistem otomatik, ek bir şey yapmana gerek yok.
             </div>
           </div>
         </div>
@@ -2306,6 +2568,94 @@
           a.style.maxHeight = a.scrollHeight + 'px';
         }
       });
+    });
+
+    /* Featured testimonial video — click-to-play facade */
+    (function() {
+      const facade = document.getElementById('ft-facade');
+      const video = document.getElementById('vid-sinemnur-ft');
+      if (!facade || !video) return;
+      function play() {
+        facade.classList.add('is-hidden');
+        video.play().catch(() => {});
+      }
+      facade.addEventListener('click', play);
+      facade.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+      });
+    })();
+
+    /* Booking form → Calendly (aynı URL ana sayfayla — Google Takvim'e bağlı) */
+    const CALENDLY_URL = 'https://calendly.com/frk-ogz-06/30min';
+
+    document.getElementById('booking-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const errBox = document.getElementById('bf-error');
+      errBox.classList.remove('show');
+
+      const name = document.getElementById('bf-name').value.trim();
+      const email = document.getElementById('bf-email').value.trim();
+      const phone = document.getElementById('bf-phone').value.trim();
+      const challenge = document.getElementById('bf-challenge').value.trim();
+      const context = document.getElementById('bf-context').value.trim();
+
+      const missing = [];
+      if (!name) missing.push('Ad Soyad');
+      if (!email) missing.push('E-posta');
+      if (!phone) missing.push('Telefon');
+      if (!challenge) missing.push('Satışta zorlandığın şey');
+
+      if (missing.length) {
+        errBox.textContent = 'Lütfen şu alanları doldur: ' + missing.join(', ');
+        errBox.classList.add('show');
+        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Calendly notes — tüm form bilgisi tek metin halinde
+      const SEP = '━━━━━━━━━━━━━━━━';
+      const notesLines = [
+        'YENİ BAŞVURU · Satış Eğitimi Sayfası',
+        SEP,
+        `Telefon: ${phone}`,
+        context ? `Mevcut iş: ${context}` : null,
+        '',
+        'SATIŞTA EN ÇOK ZORLANDIĞI ŞEY',
+        challenge,
+      ].filter(Boolean);
+      const notes = notesLines.join('\n');
+
+      const wrap = document.getElementById('bf-calendly-wrap');
+      const parent = document.getElementById('bf-calendly-inline');
+      wrap.classList.add('is-open');
+
+      const params = new URLSearchParams({
+        hide_event_type_details: '1',
+        hide_gdpr_banner: '1',
+        embed_domain: location.host,
+        embed_type: 'Inline',
+        name: name,
+        email: email,
+        a1: notes,
+        utm_source: 'satis-laboratuvari-funnel',
+        utm_medium: 'website',
+        utm_campaign: 'satis-egitimi-sayfasi'
+      });
+      const iframeUrl = CALENDLY_URL + '?' + params.toString();
+
+      parent.innerHTML = `<iframe
+        src="${iframeUrl}"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        title="Randevu takvimi"
+        style="border:0;border-radius:14px;background:#fff;"
+        allow="fullscreen"
+      ></iframe>`;
+
+      setTimeout(() => {
+        wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
     });
   </script>
 </body>
