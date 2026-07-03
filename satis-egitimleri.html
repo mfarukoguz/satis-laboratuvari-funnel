@@ -38,6 +38,10 @@
       --text-dim: #808080;
       --border: #1F1F1F;
       --border-gold: rgba(229, 164, 74, 0.32);
+      /* Semantic accents (OTU tarzı — kırmızı/yeşil/sarı) */
+      --danger: #EF4444;          /* problem × işareti, negatif vurgu */
+      --success: #22C55E;         /* ✓ işareti, pozitif vurgu */
+      --yellow-highlight: #F5D42E; /* aciliyet vurgusu */
       --radius: 14px;
       --radius-lg: 22px;
       --radius-xl: 28px;
@@ -369,12 +373,12 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      background: rgba(229, 164, 74, 0.12);
-      border: 1px solid var(--border-gold);
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--gold-bright);
+      color: var(--danger);
       font-weight: 800;
       flex-shrink: 0;
     }
@@ -1042,7 +1046,7 @@
       color: var(--text-muted);
       letter-spacing: 0.5px;
     }
-    .hero-cta-note strong { color: var(--gold-bright); font-weight: 700; }
+    .hero-cta-note strong { color: var(--yellow-highlight); font-weight: 700; }
 
     /* Problem section — kapanış cümlesi vurgusu */
     .problem-close {
@@ -1085,18 +1089,19 @@
       overflow: hidden;
     }
     .contrast-col-bad {
-      background: linear-gradient(180deg, #1a0d0d, #120808);
-      border: 1px solid rgba(229, 164, 74, 0.18);
+      background: linear-gradient(180deg, #1a0808, #120404);
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      box-shadow: 0 0 60px rgba(239, 68, 68, 0.06);
     }
     .contrast-col-good {
-      background: linear-gradient(180deg, #0e1414, #0a0f0f);
-      border: 1px solid rgba(100, 200, 150, 0.22);
-      box-shadow: 0 0 60px rgba(100, 200, 150, 0.08);
+      background: linear-gradient(180deg, #071410, #030f0a);
+      border: 1px solid rgba(34, 197, 94, 0.28);
+      box-shadow: 0 0 60px rgba(34, 197, 94, 0.1);
     }
     .contrast-col-header {
       font-family: var(--font-serif);
       font-size: 24px;
-      font-weight: 600;
+      font-weight: 700;
       line-height: 1.15;
       margin-bottom: 28px;
       padding-bottom: 22px;
@@ -1105,8 +1110,8 @@
       align-items: center;
       gap: 12px;
     }
-    .contrast-col-bad .contrast-col-header { color: #F87171; }
-    .contrast-col-good .contrast-col-header { color: #88e0b5; }
+    .contrast-col-bad .contrast-col-header { color: var(--danger); }
+    .contrast-col-good .contrast-col-header { color: var(--success); }
     .contrast-col-header-icon {
       width: 36px;
       height: 36px;
@@ -1118,12 +1123,12 @@
       font-size: 18px;
     }
     .contrast-col-bad .contrast-col-header-icon {
-      background: rgba(229, 164, 74, 0.15);
-      border: 1px solid rgba(229, 164, 74, 0.3);
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.35);
     }
     .contrast-col-good .contrast-col-header-icon {
-      background: rgba(100, 200, 150, 0.12);
-      border: 1px solid rgba(100, 200, 150, 0.3);
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.35);
     }
     .contrast-row {
       padding: 12px 0;
@@ -1144,8 +1149,8 @@
       text-align: center;
       margin-top: 1px;
     }
-    .contrast-col-bad .contrast-row-mark { color: #F87171; }
-    .contrast-col-good .contrast-row-mark { color: #88e0b5; }
+    .contrast-col-bad .contrast-row-mark { color: var(--danger); }
+    .contrast-col-good .contrast-row-mark { color: var(--success); }
 
     /* =====================================================
        DÜŞMAN / MANİFESTO bölümü
