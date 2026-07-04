@@ -777,6 +777,54 @@
       font-weight: 700;
       font-size: 15px;
     }
+
+    /* Marka altındaki kurucu yorumu bloğu */
+    .brand-testimonial {
+      width: 100%;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(229, 164, 74, 0.22);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .brand-quote {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--text);
+      font-style: italic;
+      position: relative;
+      padding-left: 14px;
+    }
+    .brand-quote::before {
+      content: '"';
+      position: absolute;
+      left: -2px;
+      top: -4px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 32px;
+      line-height: 1;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .brand-founder {
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold-bright);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-founder::before {
+      content: '';
+      width: 18px;
+      height: 1px;
+      background: var(--gold);
+    }
+
     @media (max-width: 600px) {
       .brand-card { flex: 0 1 100%; max-width: 320px; }
     }
@@ -1696,6 +1744,10 @@
             <div class="brand-name">Rehberim Sensin</div>
             <div class="brand-desc">Türkiye'nin En Gelişmiş Öğrenci Koçluğu</div>
             <div class="brand-followers"><strong>167K</strong> takipçi</div>
+            <div class="brand-testimonial">
+              <div class="brand-quote">Satış sürecimizi Faruk beyle birlikte sisteme bağladıktan sonra kayıtlarımızda ciddi bir artış yakaladık; ekibimiz artık çok daha rahat çalışıyor.</div>
+              <div class="brand-founder">Alihan Solak · Kurucu</div>
+            </div>
           </a>
 
           <!-- 2. @beratkizilel -->
@@ -1706,6 +1758,10 @@
             <div class="brand-name">Berat Kızılel</div>
             <div class="brand-desc">Girişimci · Dijital Pazarlama / Satış Stratejisi</div>
             <div class="brand-followers"><strong>3.2K</strong> takipçi</div>
+            <div class="brand-testimonial">
+              <div class="brand-quote">Faruk bey klasik bir ajans değil; birlikte kurduğumuz satış akışıyla dönüşüm oranlarımı gözle görülür şekilde yükselttik.</div>
+              <div class="brand-founder">Berat Kızılel · Kurucu</div>
+            </div>
           </a>
 
           <!-- 3. @dcamazonn -->
@@ -1716,6 +1772,10 @@
             <div class="brand-name">DC Amazon</div>
             <div class="brand-desc">Amazon Yazılımları · Eğitim Akademisi · 6 Yıllık Tecrübe</div>
             <div class="brand-followers"><strong>6.9K</strong> takipçi</div>
+            <div class="brand-testimonial">
+              <div class="brand-quote">Canlı yayınlarımızdaki kapanış oranları Faruk beyin sistemiyle birlikte ciddi bir sıçrama yaptı; artık her yayında ne bekleyeceğimizi biliyoruz.</div>
+              <div class="brand-founder">Yavuz &amp; Furkan Karabulut · Kurucular</div>
+            </div>
           </a>
 
           <!-- 4. @panda.german -->
@@ -1726,6 +1786,10 @@
             <div class="brand-name">Panda International</div>
             <div class="brand-desc">Dil Eğitimi & Konuşma Kulübü · Online Almanca</div>
             <div class="brand-followers"><strong>10.5K</strong> takipçi</div>
+            <div class="brand-testimonial">
+              <div class="brand-quote">Reklamdan gelen ilgiyi satışa çevirmekte zorlanıyorduk; Faruk beyin kurduğu satış akışıyla kayıt oranımız çok kısa sürede katlandı.</div>
+              <div class="brand-founder">Mustafa Kerem Yüksel · Kurucu</div>
+            </div>
           </a>
 
           <!-- 5. @diyetisyenintabagi -->
@@ -1736,6 +1800,10 @@
             <div class="brand-name">Dyt. Pınar Dağhan Bayram</div>
             <div class="brand-desc">Bakırköy · Fonksiyonel Beslenme Diyetisyeni</div>
             <div class="brand-followers"><strong>32K</strong> takipçi</div>
+            <div class="brand-testimonial">
+              <div class="brand-quote">Danışan başvurularımızı düzenli bir sisteme oturttuk; ekibim satış sürecini artık rahatça yönetiyor, gönül rahatlığıyla tavsiye ederim.</div>
+              <div class="brand-founder">Pınar Dağhan Bayram · Kurucu</div>
+            </div>
           </a>
 
         </div>
