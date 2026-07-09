@@ -716,6 +716,276 @@
     }
 
     /* =====================================================
+       BÖLÜM 7 — HİKÂYE & OTORİTE
+       ===================================================== */
+    .story-section {
+      padding: 100px 0;
+      background: linear-gradient(180deg, var(--cream), var(--cream-warm) 40%, var(--cream));
+      position: relative;
+      overflow: hidden;
+    }
+    .story-section::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(180, 145, 70, 0.1), transparent 70%);
+      pointer-events: none;
+    }
+    .story-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+      position: relative;
+    }
+    .speech-bubble {
+      display: inline-block;
+      padding: 18px 34px;
+      background: white;
+      border: 2px solid var(--gold);
+      border-radius: 60px;
+      font-size: clamp(17px, 1.9vw, 22px);
+      font-weight: 700;
+      color: var(--dark);
+      box-shadow: 0 10px 24px rgba(180, 145, 70, 0.18);
+      position: relative;
+      margin-bottom: 40px;
+    }
+    .speech-bubble strong {
+      color: var(--gold-deep);
+      font-weight: 800;
+    }
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-right: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+    }
+    .story-body {
+      font-size: clamp(16px, 1.7vw, 20px);
+      line-height: 1.75;
+      color: var(--text);
+      margin: 28px auto 0;
+      max-width: 720px;
+    }
+    .story-body p + p { margin-top: 14px; }
+    .story-body strong {
+      color: var(--dark);
+      font-weight: 700;
+    }
+    .story-realizations {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      text-align: left;
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 32px 34px;
+      background: white;
+      border-left: 4px solid var(--gold);
+      border-radius: 6px;
+      box-shadow: 0 14px 34px rgba(42, 36, 25, 0.1);
+      counter-reset: story-item;
+    }
+    .story-realizations li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: clamp(15px, 1.5vw, 18px);
+      line-height: 1.55;
+      color: var(--text);
+      counter-increment: story-item;
+      padding: 4px 0;
+    }
+    .story-realizations li::before {
+      content: counter(story-item, decimal-leading-zero);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold));
+      color: white;
+      border-radius: 50%;
+      font-weight: 800;
+      font-size: 13px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(180, 145, 70, 0.35);
+    }
+    .story-realizations li strong {
+      color: var(--dark);
+      font-weight: 700;
+    }
+    .story-statement {
+      font-size: clamp(20px, 2.4vw, 28px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.3;
+      margin-top: 36px;
+      letter-spacing: -0.5px;
+    }
+    .story-statement em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold-deep));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* =====================================================
+       BÖLÜM 8 — 14 GÜN MÜFREDAT (koyu tema)
+       ===================================================== */
+    .curriculum-section {
+      padding: 100px 0;
+      background: var(--dark-2);
+      color: var(--cream-light);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .curriculum-section::before,
+    .curriculum-section::after {
+      content: '';
+      position: absolute;
+      background: var(--gold);
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    .curriculum-section::before {
+      top: 0; left: -10%;
+      width: 60%; height: 3px;
+      transform: skewY(-2deg);
+    }
+    .curriculum-section::after {
+      bottom: 0; right: -10%;
+      width: 60%; height: 3px;
+      transform: skewY(-2deg);
+    }
+    .curriculum-section .section-eyebrow {
+      background: rgba(201, 167, 92, 0.15);
+      border-color: rgba(201, 167, 92, 0.4);
+      color: var(--gold-bright);
+    }
+    .curriculum-section .section-title {
+      color: var(--cream-light);
+    }
+    .curriculum-section .section-title em {
+      color: var(--gold-bright);
+    }
+    .curriculum-section .section-sub {
+      color: var(--cream-dark);
+      margin: 0 auto;
+    }
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      max-width: 1180px;
+      margin: 52px auto 0;
+      padding: 0 24px;
+      text-align: left;
+    }
+    .day-card {
+      padding: 24px 22px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(201, 167, 92, 0.2);
+      border-radius: var(--radius-lg);
+      transition: all 0.3s;
+      position: relative;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+    }
+    .day-card:hover {
+      background: rgba(201, 167, 92, 0.08);
+      border-color: rgba(201, 167, 92, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    .day-number {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      color: var(--gold-bright);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .day-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--cream-light);
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .day-desc {
+      font-size: 13.5px;
+      color: var(--cream-dark);
+      line-height: 1.55;
+      flex: 1;
+    }
+    .day-hw {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(201, 167, 92, 0.3);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: var(--gold-bright);
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .day-card.day-special {
+      grid-column: span 2;
+      background: linear-gradient(135deg, rgba(201, 167, 92, 0.25), rgba(180, 145, 70, 0.08));
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 50px rgba(201, 167, 92, 0.2);
+      justify-content: center;
+      text-align: center;
+    }
+    .day-card.day-special .day-number { color: white; margin-bottom: 8px; }
+    .day-card.day-special .day-title {
+      font-size: 28px;
+      color: white;
+      margin-bottom: 14px;
+    }
+    .day-card.day-special .day-desc {
+      color: rgba(255,255,255,0.85);
+      font-size: 15px;
+    }
+    .day-card.day-special .day-desc strong { color: var(--gold-bright); }
+    .curriculum-note {
+      max-width: 760px;
+      margin: 46px auto 0;
+      padding: 26px 32px;
+      background: rgba(201, 167, 92, 0.08);
+      border: 1px solid rgba(201, 167, 92, 0.28);
+      border-radius: var(--radius-lg);
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--cream-light);
+    }
+    .curriculum-note strong { color: var(--gold-bright); font-weight: 700; }
+    @media (max-width: 1024px) {
+      .curriculum-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .curriculum-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+      .day-card { min-height: 180px; padding: 20px 18px; }
+      .day-card.day-special { grid-column: span 2; }
+      .day-card.day-special .day-title { font-size: 24px; }
+    }
+
+    /* =====================================================
        PLACEHOLDER SECTION — sonraki fazlarda dolacak
        ===================================================== */
     .phase-notice {
@@ -1046,22 +1316,177 @@
     </div>
   </section>
 
-  <!-- =========== PLACEHOLDER — Faz 3-5'te gelecek bölümler =========== -->
+  <!-- =========== BÖLÜM 7: HİKÂYE & OTORİTE =========== -->
+  <section class="story-section">
+    <div class="story-inner">
+      <div class="speech-bubble">
+        <strong>10+ Yıldır</strong> Bu Alanda Çalışıyorum.
+      </div>
+
+      <h2 class="section-title">Bu Sistem <em>Nasıl</em> Oluştu?</h2>
+
+      <div class="story-body">
+        <p>Sahada başladım. <strong>Kapıya geri gönderildim.</strong> Telefonlar yüzüme kapandı. Yüzlerce "düşüneyim" dinledim.</p>
+        <p>Sonra ekipler kurdum. Ekiplerin nerede tıkandığını gördüm. 100+ marka için satış sistemi tasarladım.</p>
+        <p>Ve fark ettim:</p>
+      </div>
+
+      <ul class="story-realizations">
+        <li><span>İçgüdüyle satan, hep <strong>aynı yerde</strong> tıkanıyor. Ay bekliyor, para gelmiyor.</span></li>
+        <li><span>Sistem kuran, <strong>aynı bütçeyle 2 kat</strong> daha fazla kapatıyor. Uyuyor rahat.</span></li>
+        <li><span><strong>Doğuştan yetenek diye bir şey yok</strong> — sadece tekrarlanabilir bir formül.</span></li>
+        <li><span>"Düşüneyim" herkesin ağzından <strong>aynı sebeple</strong> çıkıyor: satıcı süreçte çuvalladı.</span></li>
+      </ul>
+
+      <p class="story-statement">
+        İşte bu sebeple <em>7G Satış Sistemi</em>'ni kurdum.
+      </p>
+
+      <div class="brush-container" style="justify-content: center; margin-top: 26px;">
+        <span class="brush-stroke">14 Gün · Adım Adım · Sana Özel Geri Bildirim</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-row">
+      <a href="index.html#randevu" class="pill-cta">
+        Şimdi 7G Satış Kampında Yerini Ayır
+      </a>
+    </div>
+  </section>
+
+  <!-- =========== BÖLÜM 8: 14 GÜN MÜFREDAT =========== -->
+  <section class="curriculum-section">
+    <div class="container">
+      <span class="section-eyebrow">14 Günlük Program</span>
+      <h2 class="section-title">Kamp Boyunca <em>Neler Öğreneceksin?</em></h2>
+      <p class="section-sub" style="margin: 0 auto;">
+        Her gün bir adım. Her adımın sonunda uygulama + geri bildirim.
+        Sonunda mezuniyet.
+      </p>
+
+      <div class="curriculum-grid">
+        <div class="day-card">
+          <div class="day-number">Gün 01</div>
+          <div class="day-title">Satışın Bilimi</div>
+          <p class="day-desc">"Yetenek miti"ni yık. Gerçek temel: sistem, psikoloji, tekrar.</p>
+          <div class="day-hw">Ödev: Kendi mitlerin</div>
+        </div>
+        <div class="day-card">
+          <div class="day-number">Gün 02</div>
+          <div class="day-title">Müşteri Psikolojisi</div>
+          <p class="day-desc">İnsan neden satın alır, neden direnir, nasıl yumuşar?</p>
+          <div class="day-hw">Ödev: 3 müşteri analizi</div>
+        </div>
+        <div class="day-card">
+          <div class="day-number">Gün 03</div>
+          <div class="day-title">İhtiyaç Tespiti</div>
+          <p class="day-desc">Gerçek derdi açığa çıkaran 25+ soru. Satış burada %80 kapanır.</p>
+          <div class="day-hw">Ödev: Soru bankası</div>
+        </div>
+        <div class="day-card">
+          <div class="day-number">Gün 04</div>
+          <div class="day-title">Çözüm Sunumu</div>
+          <p class="day-desc">Ürünü değil — problemine özel çözümü göster. "Bana hitap ediyor" hissi.</p>
+          <div class="day-hw">Ödev: Çözüm sunumu</div>
+        </div>
+        <div class="day-card">
+          <div class="day-number">Gün 05</div>
+          <div class="day-title">Fiyat Sunumu</div>
+          <p class="day-desc">"Pahalı" itirazını fiyatı söylemeden çöz. Değer-fiyat dengesi.</p>
+          <div class="day-hw">Ödev: Fiyat çerçevesi</div>
+        </div>
+        <div class="day-card">
+          <div class="day-number">Gün 06</div>
+          <div class="day-title">İtiraz Yönetimi</div>
+          <p class="day-desc">"Düşüneyim, danışayım, başka teklif var" — 10+ hazır cevap.</p>
+          <div class="day-hw">Ödev: İtiraz matrisi</div>
+        </div>
+        <div class="day-card">
+          <div class="day-number">Gün 07</div>
+          <div class="day-title">Kapanış Teknikleri</div>
+          <p class="day-desc">5 farklı kapanış yöntemi. Hangi müşteride hangisi işler?</p>
+          <div class="day-hw">Ödev: Kapanış pratiği</div>
+        </div>
+        <div class="day-card">
+          <div class="day-number">Gün 08</div>
+          <div class="day-title">Rol Play I</div>
+          <p class="day-desc">Canlı uygulama. Gerçek senaryolarla dur, düşün, dene, düzelt.</p>
+          <div class="day-hw">Ödev: 2 rol play kaydı</div>
+        </div>
+        <div class="day-card">
+          <div class="day-number">Gün 09</div>
+          <div class="day-title">Rol Play II — İtirazlar</div>
+          <p class="day-desc">En zorlu itirazları sahnele. Donmadan cevap verme refleksi.</p>
+          <div class="day-hw">Ödev: İtiraz simülasyonu</div>
+        </div>
+        <div class="day-card">
+          <div class="day-number">Gün 10</div>
+          <div class="day-title">Takip & Geri Kazanma</div>
+          <p class="day-desc">Kaybolan müşteriyi geri kazan. Kapanmayanı satışa çevirme sistemi.</p>
+          <div class="day-hw">Ödev: Takip script'i</div>
+        </div>
+        <div class="day-card">
+          <div class="day-number">Gün 11</div>
+          <div class="day-title">KPI Sistemi</div>
+          <p class="day-desc">Hangi sayıyı takip et? Sayılarla yöneten vs içgüdüyle satan.</p>
+          <div class="day-hw">Ödev: KPI tablon</div>
+        </div>
+        <div class="day-card">
+          <div class="day-number">Gün 12</div>
+          <div class="day-title">Reddedilme Psikolojisi</div>
+          <p class="day-desc">"Hayır"ı saldırı değil, satışın parçası gör. Psikolojik zırh oluştur.</p>
+          <div class="day-hw">Ödev: 5 ret analizi</div>
+        </div>
+        <div class="day-card">
+          <div class="day-number">Gün 13</div>
+          <div class="day-title">Sistemin Birleşimi</div>
+          <p class="day-desc">7 adımı kendi sektörüne göre birleştir. Sana özel satış script'in.</p>
+          <div class="day-hw">Ödev: Kendi script'in</div>
+        </div>
+        <div class="day-card day-special">
+          <div class="day-number">Gün 14 · Final</div>
+          <div class="day-title">🎓 Mezuniyet Yayını</div>
+          <p class="day-desc">
+            Canlı mezuniyet yayını. Sertifika. Yolculuğun özeti.
+            Bundan sonra <strong>"Şansa Mahkûm Satıcı" değil — Sistemin Efendisi.</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="curriculum-note">
+        Sadece izleyip geçmek yok. <strong>Uygulamak esas.</strong>
+        Her günün sonunda ödev + birebir geri bildirim.
+        Sahada değil — eğitimde hata yapıyorsun.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-row">
+      <a href="index.html#randevu" class="pill-cta">
+        Şimdi 7G Satış Kampında Yerini Ayır
+      </a>
+    </div>
+  </section>
+
+  <!-- =========== PLACEHOLDER — Faz 4-5'te gelecek bölümler =========== -->
   <section class="phase-notice">
     <div class="phase-notice-inner">
-      <span class="phase-notice-eyebrow">Faz 2 tamamlandı · 6 bölüm daha kaldı</span>
+      <span class="phase-notice-eyebrow">Faz 3 tamamlandı · 4 bölüm daha kaldı</span>
       <h3>Bir Sonraki Fazda Gelecek</h3>
       <p>
-        Şu ana kadar: <strong>Hero → CTA → Amplifier → Derin Problem → Zıtlık → Konumlandırma</strong>.
-        Kalan 6 bölüm sonraki fazlarda ekleniyor:
+        Şu ana kadar: <strong>Hero → Amplifier → Derin Problem → Zıtlık → Konumlandırma → Hikâye → Müfredat</strong>.
+        Kalan 4 bölüm:
       </p>
       <ul class="phase-notice-list">
-        <li><strong>7. Hikâye & Otorite</strong>Bu Sistem Nasıl Oluştu?</li>
-        <li><strong>8. 14 Gün Müfredat</strong>Kamp Programı</li>
-        <li><strong>9. Kısıtlı Kontenjan</strong>Neden Sınırlı?</li>
+        <li><strong>9. Kısıtlı Kontenjan</strong>Neden Sınırlı Sayıda Alım?</li>
         <li><strong>10. Refleksiyon</strong>Bir Yıl Sonra İki Kişi</li>
         <li><strong>11. Sosyal Kanıt</strong>Harekete Geçenler Ne Dediler?</li>
-        <li><strong>12. Final CTA</strong>Karar Vakti</li>
+        <li><strong>12. Final CTA</strong>Karar Vakti + Calendly</li>
       </ul>
     </div>
   </section>
