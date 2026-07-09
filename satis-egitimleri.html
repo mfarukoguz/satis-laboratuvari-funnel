@@ -426,6 +426,296 @@
     }
 
     /* =====================================================
+       BÖLÜM 4-6 için ORTAK section stilleri
+       ===================================================== */
+    .section-eyebrow {
+      display: inline-block;
+      padding: 6px 18px;
+      background: rgba(180, 145, 70, 0.12);
+      border: 1px solid rgba(180, 145, 70, 0.3);
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      margin-bottom: 22px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+    }
+    .section-title strong {
+      color: var(--gold-deep);
+      font-weight: 800;
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--gold-deep);
+      font-weight: 800;
+    }
+    .section-sub {
+      font-size: clamp(15px, 1.6vw, 19px);
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 720px;
+    }
+
+    /* =====================================================
+       BÖLÜM 4 — DERİN PROBLEM
+       ===================================================== */
+    .deep-problem {
+      padding: 90px 0;
+      background: var(--cream);
+      position: relative;
+    }
+    .deep-problem-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .diamond-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 36px 0 0;
+    }
+    .diamond-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      font-size: clamp(16px, 1.6vw, 20px);
+      line-height: 1.55;
+      color: var(--text);
+      padding: 4px 0;
+    }
+    .diamond-list li::before {
+      content: '';
+      display: block;
+      width: 12px;
+      height: 12px;
+      background: var(--gold);
+      transform: rotate(45deg) translateY(6px);
+      flex-shrink: 0;
+      box-shadow: 0 2px 4px rgba(138, 110, 50, 0.3);
+    }
+    .diamond-list li strong {
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .arrow-callout {
+      margin-top: 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .arrow-callout::before {
+      content: '';
+      display: block;
+      width: 46px;
+      height: 22px;
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 22' fill='none' stroke='%238A6E32' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M2 11 L36 11' stroke-dasharray='3 4'/%3E%3Cpath d='M32 5 L42 11 L32 17'/%3E%3C/svg%3E") no-repeat center/contain;
+      flex-shrink: 0;
+    }
+    .arrow-callout p {
+      font-size: clamp(18px, 2vw, 24px);
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.3;
+    }
+    .arrow-callout p em {
+      font-style: italic;
+      color: var(--gold-deep);
+    }
+    .brush-container {
+      margin-top: 22px;
+      display: flex;
+    }
+
+    /* =====================================================
+       BÖLÜM 5 — ZITLIK TABLOSU
+       ===================================================== */
+    .contrast-section {
+      padding: 90px 0;
+      background: linear-gradient(180deg, var(--cream-light), var(--cream));
+      position: relative;
+    }
+    .contrast-section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .contrast-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      margin-top: 52px;
+      text-align: left;
+    }
+    .contrast-card {
+      background: white;
+      border-radius: var(--radius-xl);
+      padding: 32px 30px;
+      box-shadow: 0 20px 44px rgba(42, 36, 25, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .contrast-card-good {
+      border: 2px solid var(--success);
+      background: linear-gradient(180deg, #F7FAF5 0%, #FFFFFF 100%);
+    }
+    .contrast-card-bad {
+      border: 2px solid rgba(231, 76, 60, 0.5);
+      background: linear-gradient(180deg, #FDF5F4 0%, #FFFFFF 100%);
+    }
+    .contrast-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid;
+      margin-bottom: 22px;
+    }
+    .contrast-card-good .contrast-card-header {
+      border-color: var(--success);
+    }
+    .contrast-card-bad .contrast-card-header {
+      border-color: var(--danger);
+    }
+    .contrast-card-header h3 {
+      font-size: clamp(19px, 2vw, 24px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.2;
+    }
+    .contrast-card-good .contrast-card-header h3 strong {
+      color: var(--success);
+    }
+    .contrast-card-bad .contrast-card-header h3 strong {
+      color: var(--danger);
+    }
+    .contrast-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .contrast-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: clamp(14.5px, 1.4vw, 16px);
+      line-height: 1.55;
+      color: var(--text);
+      padding: 8px 0;
+    }
+    .contrast-list li + li {
+      border-top: 1px dashed rgba(42, 36, 25, 0.08);
+    }
+    .contrast-list li::before {
+      display: block;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 24px;
+      margin-top: 1px;
+    }
+    .contrast-card-good .contrast-list li::before {
+      content: '✓';
+      background: var(--success);
+      color: white;
+    }
+    .contrast-card-bad .contrast-list li::before {
+      content: '×';
+      background: var(--danger);
+      color: white;
+      font-size: 18px;
+      line-height: 22px;
+    }
+    .contrast-list li strong {
+      font-weight: 700;
+      color: var(--dark);
+    }
+    @media (max-width: 768px) {
+      .contrast-grid { grid-template-columns: 1fr; gap: 18px; }
+    }
+
+    /* =====================================================
+       BÖLÜM 6 — KONUMLANDIRMA
+       ===================================================== */
+    .positioning {
+      padding: 100px 0;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .positioning::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: -10%;
+      width: 120%;
+      height: 60%;
+      background:
+        radial-gradient(ellipse 40% 50% at 50% 50%, rgba(180, 145, 70, 0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .positioning-inner {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .positioning .dark-badge {
+      margin: 0 auto;
+      transform: rotate(-1.2deg);
+    }
+    .positioning-sub {
+      margin: 32px 0 34px;
+      font-size: clamp(22px, 2.8vw, 32px);
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.25;
+      letter-spacing: -0.5px;
+    }
+    .positioning-sub .divider {
+      color: var(--gold-deep);
+      margin: 0 6px;
+    }
+    .positioning-body {
+      font-size: clamp(16px, 1.7vw, 20px);
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 28px;
+    }
+    .positioning-body strong {
+      display: block;
+      color: var(--dark);
+      font-weight: 800;
+      margin-top: 12px;
+    }
+    .positioning .brush-container {
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .positioning .brush-stroke {
+      transform: rotate(-0.5deg);
+    }
+
+    /* =====================================================
        PLACEHOLDER SECTION — sonraki fazlarda dolacak
        ===================================================== */
     .phase-notice {
@@ -619,19 +909,153 @@
     </div>
   </section>
 
-  <!-- =========== PLACEHOLDER — Faz 2-5'te gelecek bölümler =========== -->
+  <!-- =========== BÖLÜM 4: DERİN PROBLEM =========== -->
+  <section class="deep-problem">
+    <div class="deep-problem-inner">
+      <span class="section-eyebrow">Fark et</span>
+      <h2 class="section-title">
+        Bunları Yaşıyorsan,<br>
+        Sorun Sandığından <strong>Daha Derin</strong>
+      </h2>
+      <p class="section-sub">
+        Aşağıdaki cümlelerden bir tanesi bile sana tanıdık geliyorsa — bu bir tesadüf değil.
+      </p>
+
+      <ul class="diamond-list">
+        <li>Görüşmeye giriyorsun, sonunda <strong>"Düşüneyim"</strong> duyup donuyorsun</li>
+        <li>Müşteri <strong>"pahalı"</strong> dediğinde ne diyeceğini bilmiyor, sessiz kalıyorsun</li>
+        <li>10 görüşmenin ancak <strong>1-2'sini kapatabiliyorsun</strong> — gerisi kayboluyor</li>
+        <li>Geliriniz dalgalı — <strong>şansa ve ruh haline</strong> bağlı satıyorsun</li>
+        <li>Reklamdan gelen ilgi <strong>satışa dönmüyor</strong>, bütçe eriyor</li>
+        <li>İtiraz gelince <strong>hazırlıksız</strong> yakalanıyor, savunmaya geçiyorsun</li>
+        <li>İçten içe <strong>"belki bende bir eksiklik var"</strong> diye düşünmeye başladın</li>
+      </ul>
+
+      <div class="arrow-callout">
+        <p><em>Bu bir yetenek meselesi değil.</em></p>
+      </div>
+
+      <div class="brush-container">
+        <span class="brush-stroke">
+          Bu, satışı hâlâ şansa bırakmanın sonucu.
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-row">
+      <a href="index.html#randevu" class="pill-cta">
+        Şimdi 7G Satış Kampında Yerini Ayır
+      </a>
+    </div>
+  </section>
+
+  <!-- =========== BÖLÜM 5: ZITLIK TABLOSU =========== -->
+  <section class="contrast-section">
+    <div class="contrast-section-inner">
+      <span class="section-eyebrow">İki Yol</span>
+      <h2 class="section-title">
+        Aynı Piyasa, Aynı Müşteri.<br>
+        <em>Farklı Sonuç.</em>
+      </h2>
+      <p class="section-sub" style="margin: 0 auto;">
+        İki satıcı, aynı ürün, aynı reklamlar. Biri hep kaybediyor, öteki hep kazanıyor.
+        Aradaki fark hediye değil — <strong>sistem</strong>.
+      </p>
+
+      <div class="contrast-grid">
+        <!-- Sistemin Efendisi -->
+        <div class="contrast-card contrast-card-good">
+          <div class="contrast-card-header">
+            <h3><strong>Sistemin Efendisi</strong></h3>
+          </div>
+          <ul class="contrast-list">
+            <li><span><strong>Donanımlı</strong> — sistemli, tekrarlanabilir</span></li>
+            <li><span>"Düşüneyim"i <strong>daha çıkmadan çözüyor</strong></span></li>
+            <li>Geliri <strong>istikrarlı</strong>, sisteme bağlı</li>
+            <li>"Pahalı" itirazını <strong>önceden çerçeveliyor</strong></li>
+            <li>Reddedilmeyi <strong>satışın parçası</strong> görüyor</li>
+            <li>Kafasında: <strong>"Bu sistem işliyor"</strong></li>
+            <li>1 yıl sonra: <strong>yeni hayat, artan gelir</strong></li>
+          </ul>
+        </div>
+
+        <!-- Şansa Mahkûm Satıcı -->
+        <div class="contrast-card contrast-card-bad">
+          <div class="contrast-card-header">
+            <h3><strong>Şansa Mahkûm Satıcı</strong></h3>
+          </div>
+          <ul class="contrast-list">
+            <li><strong>Hazırlıksız</strong> — dağınık, içgüdüyle satıyor</li>
+            <li>"Düşüneyim" duvarına <strong>çarpıyor</strong></li>
+            <li>Geliri <strong>dalgalı</strong>, şansa bağlı</li>
+            <li>"Pahalı" duyduğunda <strong>donuyor</strong></li>
+            <li>Her "hayır" onu <strong>biraz daha eziyor</strong></li>
+            <li>Kafasında: <strong>"Bende bir eksiklik var"</strong></li>
+            <li>1 yıl sonra: <strong>aynı yerde, bir yaş büyük</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-row">
+      <a href="index.html#randevu" class="pill-cta">
+        Sistemin Efendisi Olmak İçin Yerini Ayır
+      </a>
+    </div>
+  </section>
+
+  <!-- =========== BÖLÜM 6: KONUMLANDIRMA =========== -->
+  <section class="positioning">
+    <div class="positioning-inner">
+      <div class="dark-badge">
+        Bu <u>Farkı</u> Bugüne Kadar<br>
+        <em>Kimse</em> Öğretmedi!
+      </div>
+
+      <div class="positioning-sub">
+        Ne Aile <span class="divider">·</span> Ne Okul <span class="divider">·</span> Ne İş Hayatı
+      </div>
+
+      <p class="positioning-body">
+        Satış manipülasyon sanıldı. Doğuştan gelen bir yetenek olduğu söylendi.
+        Bu bir <em style="color:var(--gold-deep); font-style:italic; font-weight:700;">yalan</em>.
+        Dürüst insanların kaybetmesine, satmayı bilenlerin kazanmasına sebep olan yalan.
+        <strong>Satış bir bilimdir. Bilim öğrenilir. Ve bu bilim herkesin hakkıdır.</strong>
+      </p>
+
+      <div class="brush-container">
+        <span class="brush-stroke">
+          Satışın Bilimini Öğrenmek İstiyorsan!
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-row">
+      <a href="index.html#randevu" class="pill-cta">
+        Şimdi 7G Satış Kampında Yerini Ayır
+      </a>
+    </div>
+  </section>
+
+  <!-- =========== PLACEHOLDER — Faz 3-5'te gelecek bölümler =========== -->
   <section class="phase-notice">
     <div class="phase-notice-inner">
-      <span class="phase-notice-eyebrow">Faz 1 · 12 Bölümlük Sayfa</span>
-      <h3>Sayfa Şu An Yeniden Kurgulanıyor</h3>
+      <span class="phase-notice-eyebrow">Faz 2 tamamlandı · 6 bölüm daha kaldı</span>
+      <h3>Bir Sonraki Fazda Gelecek</h3>
       <p>
-        ClickFunnels tarzı satış copywriting mimarisi + 7G Satış Kampı içeriği.
-        Kalan 9 bölüm önümüzdeki fazlarda ekleniyor:
+        Şu ana kadar: <strong>Hero → CTA → Amplifier → Derin Problem → Zıtlık → Konumlandırma</strong>.
+        Kalan 6 bölüm sonraki fazlarda ekleniyor:
       </p>
       <ul class="phase-notice-list">
-        <li><strong>4. Derin Problem</strong>Bunları Yaşıyorsan…</li>
-        <li><strong>5. Zıtlık Tablosu</strong>Şansa Mahkûm vs Sistemin Efendisi</li>
-        <li><strong>6. Konumlandırma</strong>Bu Farkı Kimse Öğretmedi</li>
         <li><strong>7. Hikâye & Otorite</strong>Bu Sistem Nasıl Oluştu?</li>
         <li><strong>8. 14 Gün Müfredat</strong>Kamp Programı</li>
         <li><strong>9. Kısıtlı Kontenjan</strong>Neden Sınırlı?</li>
@@ -639,15 +1063,6 @@
         <li><strong>11. Sosyal Kanıt</strong>Harekete Geçenler Ne Dediler?</li>
         <li><strong>12. Final CTA</strong>Karar Vakti</li>
       </ul>
-    </div>
-  </section>
-
-  <!-- Ana sayfaya yönlendirici CTA -->
-  <section class="cta-section">
-    <div class="cta-row">
-      <a href="index.html#randevu" class="pill-cta">
-        Şu An Randevu Almak İçin Tıkla
-      </a>
     </div>
   </section>
 
