@@ -986,6 +986,218 @@
     }
 
     /* =====================================================
+       BÖLÜM 9 — KISITLI KONTENJAN (Scarcity)
+       ===================================================== */
+    .scarcity {
+      padding: 100px 0;
+      background: var(--cream);
+      position: relative;
+      text-align: center;
+    }
+    .scarcity-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .scarcity-title {
+      display: inline-block;
+      background:
+        linear-gradient(90deg,
+          transparent 0%,
+          var(--gold-deep) 6%,
+          var(--gold-bright) 50%,
+          var(--gold-deep) 94%,
+          transparent 100%);
+      color: var(--cream-light);
+      padding: 22px 56px;
+      font-weight: 800;
+      font-size: clamp(22px, 3.2vw, 38px);
+      line-height: 1.2;
+      border-radius: 4px;
+      transform: rotate(-0.8deg);
+      box-shadow: 0 12px 30px rgba(138, 110, 50, 0.4);
+      margin-bottom: 36px;
+      letter-spacing: -0.5px;
+      max-width: 100%;
+    }
+    .scarcity-body {
+      font-size: clamp(16px, 1.7vw, 20px);
+      line-height: 1.75;
+      color: var(--text);
+      margin: 0 auto;
+      max-width: 640px;
+    }
+    .scarcity-body strong { color: var(--dark); font-weight: 700; }
+    .scarcity-body em {
+      font-style: italic;
+      color: var(--gold-deep);
+      font-weight: 700;
+    }
+    .scarcity-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+      max-width: 580px;
+      margin: 30px auto;
+    }
+    .scarcity-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: clamp(15px, 1.5vw, 17px);
+      color: var(--text);
+      padding: 14px 20px;
+      background: white;
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(42, 36, 25, 0.04);
+      line-height: 1.5;
+    }
+    .scarcity-list li::before {
+      content: '✓';
+      color: var(--success);
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* =====================================================
+       BÖLÜM 10 — REFLEKSİYON (Bir Yıl Sonra İki Kişi)
+       ===================================================== */
+    .reflection {
+      padding: 120px 0;
+      background: linear-gradient(180deg, var(--cream-warm), var(--cream) 45%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .reflection::before {
+      content: '';
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(180, 145, 70, 0.09), transparent 70%);
+      pointer-events: none;
+    }
+    .reflection-inner {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .reflection .dark-badge {
+      margin: 0 auto 40px;
+      transform: rotate(-1deg);
+    }
+    .reflection-narrative {
+      font-size: clamp(20px, 2.4vw, 28px);
+      line-height: 1.5;
+      color: var(--text);
+      font-weight: 500;
+      max-width: 720px;
+      margin: 0 auto 34px;
+      letter-spacing: -0.3px;
+    }
+    .reflection-narrative strong {
+      color: var(--dark);
+      font-weight: 800;
+    }
+    .reflection-narrative em {
+      font-style: italic;
+      color: var(--gold-deep);
+      font-weight: 700;
+    }
+    .reflection-choice {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 22px;
+      align-items: stretch;
+      max-width: 860px;
+      margin: 44px auto;
+    }
+    .reflection-side {
+      padding: 28px 26px;
+      background: white;
+      border-radius: var(--radius-xl);
+      border: 2px solid;
+      text-align: left;
+      box-shadow: 0 16px 34px rgba(42, 36, 25, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .reflection-side-a {
+      border-color: rgba(231, 76, 60, 0.5);
+      background: linear-gradient(180deg, #FDF5F4, #FFFFFF);
+    }
+    .reflection-side-b {
+      border-color: rgba(76, 175, 80, 0.6);
+      background: linear-gradient(180deg, #F5FAF3, #FFFFFF);
+    }
+    .reflection-side-title {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+    .reflection-side-a .reflection-side-title { color: var(--danger); }
+    .reflection-side-b .reflection-side-title { color: var(--success); }
+    .reflection-side-quote {
+      font-family: var(--font-body);
+      font-style: italic;
+      font-size: clamp(15px, 1.6vw, 17px);
+      color: var(--dark);
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .reflection-side-body {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+    .reflection-side-body strong {
+      color: var(--dark);
+      font-weight: 700;
+    }
+    .reflection-divider {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--gold-deep);
+      align-self: center;
+      justify-self: center;
+      transform: rotate(0deg);
+    }
+    .reflection-key {
+      margin-top: 42px;
+      font-size: clamp(20px, 2.4vw, 30px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.35;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      letter-spacing: -0.4px;
+    }
+    .reflection-key em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold-deep));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    @media (max-width: 768px) {
+      .reflection-choice { grid-template-columns: 1fr; gap: 16px; }
+      .reflection-divider { transform: rotate(90deg); font-size: 26px; }
+    }
+
+    /* =====================================================
        PLACEHOLDER SECTION — sonraki fazlarda dolacak
        ===================================================== */
     .phase-notice {
@@ -1473,20 +1685,102 @@
     </div>
   </section>
 
-  <!-- =========== PLACEHOLDER — Faz 4-5'te gelecek bölümler =========== -->
+  <!-- =========== BÖLÜM 9: KISITLI KONTENJAN =========== -->
+  <section class="scarcity">
+    <div class="scarcity-inner">
+      <span class="scarcity-title">
+        Bu Kampa Sınırlı Sayıda Alım Yapıyoruz
+      </span>
+
+      <p class="scarcity-body">
+        Çünkü her katılımcıyla <strong>birebir ilgileniyoruz</strong>.
+        Ödevini kontrol ediyoruz, senaryolarını dinliyoruz, seninle takılan yeri çözüyoruz.
+      </p>
+
+      <ul class="scarcity-list">
+        <li>Nerede tıkandığını tek tek <strong>tespit ediyoruz</strong></li>
+        <li>Sana özel bir <strong>yol haritası</strong> çıkarıyoruz</li>
+        <li>Her ödevine <strong>kişisel geri bildirim</strong> veriyoruz</li>
+        <li>Sen sorduğunda cevap veren bir <strong>mentor</strong> bulacaksın</li>
+      </ul>
+
+      <p class="scarcity-body">
+        <strong>Kontenjan dolduğunda</strong> yeni yer açılmıyor.
+        Bir sonraki döneme kadar bekliyor — ve <em>bir dönem daha kaybediyorsun</em>.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-row">
+      <a href="index.html#randevu" class="pill-cta">
+        Şimdi 7G Satış Kampında Yerini Ayır
+      </a>
+    </div>
+  </section>
+
+  <!-- =========== BÖLÜM 10: REFLEKSİYON (Bir Yıl Sonra İki Kişi) =========== -->
+  <section class="reflection">
+    <div class="reflection-inner">
+      <div class="dark-badge">
+        Şimdi <u>Kendine</u> Şu Soruyu Sor:
+      </div>
+
+      <p class="reflection-narrative">
+        Bir yıl sonrasını hayal et. Karşında <strong>iki kişi</strong> var —
+        ikisi de <em>sensin</em>.
+      </p>
+
+      <div class="reflection-choice">
+        <div class="reflection-side reflection-side-a">
+          <div class="reflection-side-title">Birinci "Sen"</div>
+          <p class="reflection-side-quote">"Sonra bakarım."</p>
+          <p class="reflection-side-body">
+            Bugün "sonra bakarım" dedi. Hâlâ aynı masada, aynı görüşmede, aynı <strong>"düşüneyim"</strong> duvarında.
+            Bir yaş büyük. Bir umut daha az. Gelir yine dalgalı.
+          </p>
+        </div>
+
+        <div class="reflection-divider">↔</div>
+
+        <div class="reflection-side reflection-side-b">
+          <div class="reflection-side-title">İkinci "Sen"</div>
+          <p class="reflection-side-quote">"Tamam, deniyorum."</p>
+          <p class="reflection-side-body">
+            Bugün "tamam, deniyorum" dedi. Satışı <strong>sisteme bağladı</strong>.
+            Gelir istikrarlı. Korku gitti. Kontrol geldi. Yeni bir hayat kurmuş.
+          </p>
+        </div>
+      </div>
+
+      <p class="reflection-key">
+        İkisini ayıran tek şey:<br>
+        <em>bugün verdiğin evet ya da hayır.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-row">
+      <a href="index.html#randevu" class="pill-cta">
+        Şimdi 7G Satış Kampında Yerini Ayır
+      </a>
+    </div>
+  </section>
+
+  <!-- =========== PLACEHOLDER — Faz 5'te gelecek bölümler =========== -->
   <section class="phase-notice">
     <div class="phase-notice-inner">
-      <span class="phase-notice-eyebrow">Faz 3 tamamlandı · 4 bölüm daha kaldı</span>
-      <h3>Bir Sonraki Fazda Gelecek</h3>
+      <span class="phase-notice-eyebrow">Faz 4 tamamlandı · 2 bölüm daha kaldı</span>
+      <h3>Son Fazda Gelecek</h3>
       <p>
-        Şu ana kadar: <strong>Hero → Amplifier → Derin Problem → Zıtlık → Konumlandırma → Hikâye → Müfredat</strong>.
-        Kalan 4 bölüm:
+        Şu ana kadar: <strong>Hero → Amplifier → Derin Problem → Zıtlık → Konumlandırma → Hikâye → Müfredat → Kontenjan → Refleksiyon</strong>.
       </p>
       <ul class="phase-notice-list">
-        <li><strong>9. Kısıtlı Kontenjan</strong>Neden Sınırlı Sayıda Alım?</li>
-        <li><strong>10. Refleksiyon</strong>Bir Yıl Sonra İki Kişi</li>
-        <li><strong>11. Sosyal Kanıt</strong>Harekete Geçenler Ne Dediler?</li>
-        <li><strong>12. Final CTA</strong>Karar Vakti + Calendly</li>
+        <li><strong>11. Sosyal Kanıt</strong>WhatsApp mesajları + Sinemnur video + marka referansları</li>
+        <li><strong>12. Final CTA + Calendly</strong>Randevu Formu (inline)</li>
       </ul>
     </div>
   </section>
