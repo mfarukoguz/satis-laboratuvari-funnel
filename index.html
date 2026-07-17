@@ -1440,67 +1440,68 @@
     }
 
     /* ================================================
-       CALENDLY EMBED
+       SUCCESS STATE (form gonderildikten sonra)
        ================================================ */
-    .calendly-wrap {
-      margin-top: 36px;
-      padding: 28px 24px 24px;
+    .form-submit[disabled] {
+      opacity: 0.75;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .apply-success {
+      max-width: 780px;
+      margin: 50px auto 0;
       background: white;
       border: 1px solid rgba(180, 145, 70, 0.3);
       border-radius: var(--radius-xl);
-      box-shadow: 0 30px 60px rgba(42, 36, 25, 0.15);
-      display: none;
-    }
-    .calendly-wrap.is-open { display: block; }
-    .calendly-wrap-heading {
-      font-size: 22px;
-      color: var(--gold-deep);
-      font-style: italic;
-      font-weight: 800;
-      margin-bottom: 8px;
+      padding: 56px 44px;
       text-align: center;
-      line-height: 1.2;
+      color: var(--dark);
+      box-shadow: 0 30px 60px rgba(42, 36, 25, 0.10);
     }
-    .calendly-wrap-sub {
-      text-align: center;
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-    .calendly-inline-widget {
-      min-width: 320px;
-      width: 100%;
-      height: 720px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: #fff;
-      position: relative;
-    }
-    .calendly-inline-widget::before {
-      content: 'Takvim yukleniyor...';
-      position: absolute;
-      inset: 0;
+    .apply-success-icon {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #888;
+      font-size: 40px;
+      font-weight: 800;
+      box-shadow: var(--shadow-gold);
+    }
+    .apply-success-title {
+      font-size: 30px;
+      font-weight: 800;
+      margin: 0 0 14px;
+      color: var(--dark);
+    }
+    .apply-success-text {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 22px;
+    }
+    .apply-success-note {
+      display: inline-block;
+      padding: 12px 20px;
+      background: rgba(180, 145, 70, 0.1);
+      border: 1px solid rgba(180, 145, 70, 0.35);
+      border-radius: var(--radius);
+      color: var(--gold-deep);
       font-size: 14px;
-      letter-spacing: 1px;
-      z-index: 0;
+      font-weight: 700;
     }
-    .calendly-inline-widget iframe {
-      position: relative;
-      z-index: 1;
-    }
-    @media (max-width: 768px) {
-      .calendly-inline-widget { height: 900px; }
-      .calendly-wrap { padding: 18px 12px 12px; }
+    @media (max-width: 640px) {
+      .apply-success { padding: 42px 26px; }
+      .apply-success-title { font-size: 24px; }
+      .apply-success-text { font-size: 15.5px; }
     }
   </style>
 
-  <!-- Calendly widget -->
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
 </head>
 <body>
 
@@ -1940,19 +1941,24 @@
 
           <div class="form-error" id="form-error"></div>
 
-          <button type="submit" class="form-submit">Müsait Saatleri Gör →</button>
+          <button type="submit" class="form-submit">Başvurumu Gönder</button>
 
           <p class="form-disclaimer">
-            Bilgileri doldurup butona bastığınızda <span>aşağıda müsait tarih ve saatler</span> görünecek.
-            Verdiğiniz cevapları görüşme öncesi dikkatle inceliyoruz; böylece görüşmemiz çok daha verimli geçiyor.
+            Bilgileri doldurup gönder butonuna bastığınızda başvurunuz ekibimize ulaşır.
+            <span>Verdiğiniz cevapları dikkatle inceleyip 24 saat içinde sizinle iletişime geçiyoruz</span> —
+            böylece görüşmemiz çok daha verimli geçiyor.
           </p>
         </form>
 
-        <!-- Calendly inline widget — form geçince burası açılır -->
-        <div class="calendly-wrap" id="calendly-wrap">
-          <div class="calendly-wrap-heading">Sıra <span style="font-style:italic;">saatte</span> 🗓️</div>
-          <div class="calendly-wrap-sub">Aşağıdan müsait olan tarih ve saati seç — onayın e-postana otomatik gelecek.</div>
-          <div class="calendly-inline-widget" id="calendly-inline"></div>
+        <div class="apply-success" id="lead-success" style="display:none;" role="status" aria-live="polite">
+          <div class="apply-success-icon" aria-hidden="true">✓</div>
+          <h3 class="apply-success-title">Başvurunuz Alındı</h3>
+          <p class="apply-success-text">
+            Teşekkürler <strong id="lead-success-name"></strong>! Bilgileriniz bize ulaştı.
+            Ekibimiz kısa süre içinde <strong id="lead-success-email"></strong> adresi ve
+            verdiğiniz telefon üzerinden sizinle iletişime geçecek.
+          </p>
+          <span class="apply-success-note">Ortalama geri dönüş süresi: 24 saat</span>
         </div>
       </div>
     </div>
@@ -2209,7 +2215,7 @@
       });
     })();
 
-    /* ---------- (Tarih/saat picker'ları kaldırıldı — Calendly canlı müsaitlik yönetiyor) ---------- */
+    /* ---------- (Tarih/saat picker'lari kaldirildi — basvuru Sheet'e dogrudan gidiyor) ---------- */
 
     /* ---------- FAQ ACCORDION ---------- */
     document.querySelectorAll('.faq-item').forEach(item => {
@@ -2233,32 +2239,14 @@
     function closeModal(id) { document.getElementById('modal-' + id).classList.remove('show'); }
     function closeModalIfBg(e, id) { if (e.target.classList.contains('modal-overlay')) closeModal(id); }
 
-    /* ---------- FORM SUBMIT → CALENDLY (Google Calendar bağlı) ---------- */
-    const CALENDLY_URL = 'https://calendly.com/frk-ogz-06/30min';
+    /* ---------- FORM SUBMIT → GOOGLE SHEETS (Apps Script Web App) ---------- */
+    const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw3fQGXCOiNJhdlxZqZ32iipN4qMPiPfb7g-d71t6CL5w-po_prC3ZJy4zJv6BjhtW-/exec';
 
-    function buildCalendlyNotes({ problems, future, sector, budget, web, phone }) {
-      const SEP = '━━━━━━━━━━━━━━━━';
-      const lines = [
-        'YENİ BAŞVURU · Satış Laboratuvarı',
-        SEP,
-        sector ? `Sektör: ${sector}` : null,
-        budget ? `Aylık bütçe: ${budget}` : null,
-        phone ? `Telefon: ${phone}` : null,
-        web ? `Web / Sosyal: ${web}` : null,
-        '',
-        'KARŞILAŞTIĞI SORUNLAR',
-        ...problems.map(p => `• ${p}`),
-        '',
-        'GÖRÜŞME ÖNCESİ NOTLAR',
-        future,
-      ];
-      return lines.filter(Boolean).join('\n');
-    }
-
-    document.getElementById('lead-form').addEventListener('submit', (e) => {
+    document.getElementById('lead-form').addEventListener('submit', async (e) => {
       e.preventDefault();
       const errBox = document.getElementById('form-error');
       errBox.classList.remove('show');
+      errBox.textContent = '';
 
       const problems = [...document.querySelectorAll('input[name="problems"]:checked')].map(c => c.value);
       const future = document.getElementById('future').value.trim();
@@ -2285,50 +2273,61 @@
         return;
       }
 
-      const wrap = document.getElementById('calendly-wrap');
-      const parent = document.getElementById('calendly-inline');
-      wrap.classList.add('is-open');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errBox.textContent = 'Lütfen geçerli bir e-posta adresi girin.';
+        errBox.classList.add('show');
+        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
 
-      const notes = buildCalendlyNotes({ problems, future, sector, budget, web, phone });
+      const submitBtn = document.querySelector('#lead-form .form-submit');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Gönderiliyor…';
 
-      // Doğrudan iframe — Calendly JS API'ye veya tema parametrelerine bağımlı değil
-      const params = new URLSearchParams({
-        hide_event_type_details: '1',
-        hide_gdpr_banner: '1',
-        embed_domain: location.host,
-        embed_type: 'Inline',
-        name: name,
-        email: email,
-        a1: notes,
-        utm_source: 'satis-laboratuvari-funnel',
-        utm_medium: 'website',
-        utm_campaign: 'strateji-gorusmesi'
+      const problemBundle = [
+        'KARŞILAŞTIĞI SORUNLAR:',
+        ...problems.map(p => '• ' + p),
+        '',
+        'GÖRÜŞME ÖNCESİ NOTLAR:',
+        future
+      ].join('\n');
+
+      const payload = new URLSearchParams({
+        timestamp: new Date().toISOString(),
+        name,
+        phone,
+        email,
+        job: sector,
+        role: '',
+        product: web,
+        price: budget,
+        challenge: problemBundle,
+        commit: '',
+        source: 'index.html'
       });
-      const iframeUrl = CALENDLY_URL + '?' + params.toString();
 
-      parent.innerHTML = `<iframe
-        src="${iframeUrl}"
-        width="100%"
-        height="100%"
-        frameborder="0"
-        title="Randevu takvimi"
-        style="border:0;border-radius:14px;background:#fff;"
-        allow="fullscreen"
-      ></iframe>`;
+      try {
+        await fetch(SHEETS_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          body: payload
+        });
 
-      // Smooth scroll
-      setTimeout(() => {
-        wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-    });
+        document.getElementById('lead-success-name').textContent = name;
+        document.getElementById('lead-success-email').textContent = email;
 
-    /* ---------- CALENDLY EVENT LISTENERS (booking confirmation) ---------- */
-    window.addEventListener('message', (e) => {
-      if (e.data && typeof e.data.event === 'string' && e.data.event.indexOf('calendly') === 0) {
-        // event_scheduled = booking tamamlandı → teşekkür modalı aç
-        if (e.data.event === 'calendly.event_scheduled') {
-          openModal('success');
-        }
+        document.getElementById('lead-form').style.display = 'none';
+        const success = document.getElementById('lead-success');
+        success.style.display = 'block';
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        console.error('[Basvuru] Gonderim hatasi:', err);
+        errBox.textContent = 'Gönderim sırasında bir hata oluştu. Lütfen birkaç saniye sonra tekrar deneyin.';
+        errBox.classList.add('show');
+        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
       }
     });
   </script>
