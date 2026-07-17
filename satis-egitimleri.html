@@ -1215,6 +1215,63 @@
       line-height: 1.55;
       text-align: center;
     }
+    .form-submit[disabled] {
+      opacity: 0.75;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .apply-success {
+      background: var(--cream-light);
+      border-radius: var(--radius-lg);
+      padding: 56px 42px;
+      text-align: center;
+      color: var(--dark);
+      box-shadow: 0 24px 48px rgba(10, 9, 6, 0.3);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .apply-success-icon {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      font-weight: 800;
+      box-shadow: var(--shadow-gold);
+    }
+    .apply-success-title {
+      font-size: 30px;
+      font-weight: 800;
+      margin: 0 0 14px;
+      color: var(--dark);
+    }
+    .apply-success-text {
+      font-size: 17px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 22px;
+    }
+    .apply-success-note {
+      display: inline-block;
+      padding: 12px 20px;
+      background: rgba(180, 145, 70, 0.1);
+      border: 1px solid rgba(180, 145, 70, 0.35);
+      border-radius: var(--radius-md);
+      color: var(--gold-deep);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    @media (max-width: 640px) {
+      .apply-success { padding: 42px 26px; }
+      .apply-success-title { font-size: 24px; }
+      .apply-success-text { font-size: 15.5px; }
+    }
 
     /* ================================================
        BÖLÜM 14 — SSS
@@ -2097,9 +2154,10 @@
       <div class="container">
         <div class="center">
           <span class="section-eyebrow">Başvuru</span>
-          <h2 class="section-title">7G Satış Görüşmesine <em>Başvur</em></h2>
+          <h2 class="section-title">7G Satış Kampına <em>Başvur</em></h2>
           <p class="section-sub">
-            Bilgilerini doldur. Ekibimiz başvurunu değerlendirerek seninle iletişime geçsin.
+            Formu doldur. Ekibimiz başvurunu inceleyip programın sana uygunluğunu
+            değerlendirmek için seninle iletişime geçsin.
           </p>
         </div>
 
@@ -2186,6 +2244,17 @@
             programın sana uygun olup olmadığını belirlemek için seninle iletişime geçecektir.
           </p>
         </form>
+
+        <div class="apply-success" id="applySuccess" style="display:none;" role="status" aria-live="polite">
+          <div class="apply-success-icon" aria-hidden="true">✓</div>
+          <h3 class="apply-success-title">Başvurun Alındı</h3>
+          <p class="apply-success-text">
+            Teşekkürler <strong id="successName"></strong>! Bilgilerin bize ulaştı.
+            Ekibimiz kısa süre içinde <strong id="successEmail"></strong> adresi
+            ve verdiğin telefon üzerinden seninle iletişime geçecek.
+          </p>
+          <span class="apply-success-note">Ortalama geri dönüş süresi: 24 saat</span>
+        </div>
       </div>
     </section>
 
@@ -2489,10 +2558,17 @@
       });
     });
 
-    /* ============ FORM SUBMIT → CALENDLY (mevcut Calendly linkine yönlendir) ============ */
-    const CALENDLY_URL = 'https://calendly.com/frk-ogz-06/30min';
+    /* ============ FORM SUBMIT → GOOGLE SHEETS (Apps Script Web App) ============
+       Kurulum:
+       1) Google Sheet oluştur, ilk satır başlıkları: Zaman | Ad Soyad | Telefon |
+          E-posta | Meslek | Durum | Ürün | Fiyat | Problem | Uygulama Vakti | Kaynak
+       2) Extensions → Apps Script → aşağıdaki Apps Script kodunu yapıştır
+       3) Deploy → New deployment → Web app → "Anyone" ile paylaş
+       4) Kopyaladığın URL'i SHEETS_ENDPOINT'e yapıştır
+    ============================================================================ */
+    const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/PASTE_YOUR_APPS_SCRIPT_URL_HERE/exec';
 
-    document.getElementById('applyForm').addEventListener('submit', (e) => {
+    document.getElementById('applyForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const errBox = document.getElementById('formError');
       errBox.classList.remove('show');
@@ -2526,7 +2602,6 @@
         return;
       }
 
-      // Basit e-posta kontrolü
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         errBox.textContent = 'Lütfen geçerli bir e-posta adresi gir.';
         errBox.classList.add('show');
@@ -2534,32 +2609,51 @@
         return;
       }
 
-      const SEP = '━━━━━━━━━━━━━━━━';
-      const notes = [
-        '7G BAŞVURUSU · Satış Eğitimleri Sayfası',
-        SEP,
-        `Meslek/Sektör: ${job}`,
-        `Durum: ${role}`,
-        `Ürün/Hizmet: ${product}`,
-        price ? `Ortalama fiyat: ${price}` : null,
-        `Telefon: ${phone}`,
-        '',
-        'EN BÜYÜK SATIŞ PROBLEMİ',
-        challenge,
-        '',
-        `14 gün uygulama vakti: ${commit}`,
-      ].filter(Boolean).join('\n');
+      const submitBtn = f.querySelector('.form-submit');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Gönderiliyor…';
 
-      const params = new URLSearchParams({
+      const payload = new URLSearchParams({
+        timestamp: new Date().toISOString(),
         name,
+        phone,
         email,
-        a1: notes,
-        utm_source: 'satis-laboratuvari-funnel',
-        utm_medium: 'website',
-        utm_campaign: 'satis-egitimleri-7g'
+        job,
+        role,
+        product,
+        price,
+        challenge,
+        commit,
+        source: 'satis-egitimleri.html'
       });
 
-      window.location.href = CALENDLY_URL + '?' + params.toString();
+      try {
+        if (SHEETS_ENDPOINT.includes('PASTE_YOUR_APPS_SCRIPT_URL_HERE')) {
+          console.warn('[Başvuru] SHEETS_ENDPOINT henüz kurulmadı. Payload:', Object.fromEntries(payload));
+        } else {
+          await fetch(SHEETS_ENDPOINT, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: payload
+          });
+        }
+
+        document.getElementById('successName').textContent = name;
+        document.getElementById('successEmail').textContent = email;
+
+        f.style.display = 'none';
+        const success = document.getElementById('applySuccess');
+        success.style.display = 'block';
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } catch (err) {
+        console.error('[Başvuru] Gönderim hatası:', err);
+        errBox.textContent = 'Gönderim sırasında bir hata oluştu. Lütfen birkaç saniye sonra tekrar dene.';
+        errBox.classList.add('show');
+        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
     });
   </script>
 </body>
