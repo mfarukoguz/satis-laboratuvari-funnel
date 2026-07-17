@@ -985,6 +985,74 @@
     }
 
     /* ================================================
+       BÖLÜM 10.5 — WHATSAPP MARQUEE (sosyal kanit)
+       ================================================ */
+    .wp-proofs {
+      padding: 90px 0 100px;
+      background: var(--cream-light);
+      overflow: hidden;
+      position: relative;
+    }
+    .wp-marquee {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 40px;
+      padding: 16px 0;
+      mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+    .wp-marquee-track {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      animation: wp-scroll-right 90s linear infinite;
+      will-change: transform;
+    }
+    .wp-marquee:hover .wp-marquee-track { animation-play-state: paused; }
+    @keyframes wp-scroll-right {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
+    .wp-card {
+      flex: 0 0 auto;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(42, 36, 25, 0.08);
+      background: white;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+    .wp-card:hover {
+      transform: translateY(-4px) scale(1.03);
+      border-color: rgba(180, 145, 70, 0.4);
+      box-shadow: var(--shadow-card-hover);
+      z-index: 2;
+    }
+    .wp-card img {
+      height: 100%;
+      width: auto;
+      min-width: 220px;
+      display: block;
+      pointer-events: none;
+      object-fit: cover;
+    }
+    @supports not (mask-image: linear-gradient(90deg, black, black)) {
+      .wp-marquee {
+        mask-image: none;
+        -webkit-mask-image: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .wp-proofs { padding: 70px 0 80px; }
+      .wp-card { height: 150px; }
+      .wp-card img { min-width: 150px; }
+      .wp-marquee-track { animation-duration: 60s; gap: 12px; }
+    }
+
+    /* ================================================
        BÖLÜM 11 — PROGRAM İÇERİĞİ / TEKLİF
        ================================================ */
     .offer { background: var(--cream); }
@@ -2059,6 +2127,46 @@
               <div class="testimonial-role">Kamp Sonrası Deneyim</div>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BÖLÜM 10.5 — WHATSAPP MARQUEE (sosyal kanıt) ============ -->
+    <section class="wp-proofs">
+      <div class="container">
+        <div class="center">
+          <span class="section-eyebrow">Sosyal Kanıt</span>
+          <h2 class="section-title">Katılımcılardan <em>Gerçek Mesajlar</em></h2>
+          <p class="section-sub">Kamp süresince ve sonrasında gelen WhatsApp geri bildirimleri — söz değil, satışta yaşanan değişim.</p>
+        </div>
+      </div>
+
+      <div class="wp-marquee">
+        <div class="wp-marquee-track">
+          <div class="wp-card"><img src="images/whatsapp-proofs/IMG_0576.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy"></div>
+          <div class="wp-card"><img src="images/whatsapp-proofs/IMG_1023.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy"></div>
+          <div class="wp-card"><img src="images/whatsapp-proofs/IMG_1284.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy"></div>
+          <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9465.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy"></div>
+          <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9600.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy"></div>
+          <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9616.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy"></div>
+          <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9617.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy"></div>
+          <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9810.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy"></div>
+          <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9845.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy"></div>
+          <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9894.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy"></div>
+          <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9998.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy"></div>
+          <div class="wp-card"><img src="images/whatsapp-proofs/IMG_9999.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy"></div>
+          <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_0576.jpg" alt="" decoding="async" loading="lazy"></div>
+          <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_1023.jpg" alt="" decoding="async" loading="lazy"></div>
+          <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_1284.jpg" alt="" decoding="async" loading="lazy"></div>
+          <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9465.jpg" alt="" decoding="async" loading="lazy"></div>
+          <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9600.jpg" alt="" decoding="async" loading="lazy"></div>
+          <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9616.jpg" alt="" decoding="async" loading="lazy"></div>
+          <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9617.jpg" alt="" decoding="async" loading="lazy"></div>
+          <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9810.jpg" alt="" decoding="async" loading="lazy"></div>
+          <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9845.jpg" alt="" decoding="async" loading="lazy"></div>
+          <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9894.jpg" alt="" decoding="async" loading="lazy"></div>
+          <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9998.jpg" alt="" decoding="async" loading="lazy"></div>
+          <div class="wp-card" aria-hidden="true"><img src="images/whatsapp-proofs/IMG_9999.jpg" alt="" decoding="async" loading="lazy"></div>
         </div>
       </div>
     </section>
