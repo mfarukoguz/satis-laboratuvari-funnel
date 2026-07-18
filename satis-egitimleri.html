@@ -915,17 +915,13 @@
     }
     .instructor-photo {
       width: 100%;
-      max-width: 340px;
-      justify-self: end;
-      align-self: center;
+      position: relative;
     }
     .instructor-photo img {
       width: 100%;
-      aspect-ratio: 5 / 6;
-      object-fit: cover;
-      object-position: center 28%;
+      height: auto;
       border-radius: var(--radius-lg);
-      box-shadow: 0 24px 48px rgba(42, 36, 25, 0.14);
+      box-shadow: 0 30px 60px rgba(42, 36, 25, 0.20);
     }
     .instructor-content .section-title {
       margin-bottom: 22px;
@@ -1888,7 +1884,7 @@
       .problem-grid { grid-template-columns: repeat(2, 1fr); }
       .experience-grid { grid-template-columns: repeat(2, 1fr); }
       .instructor-grid { grid-template-columns: 1fr; gap: 32px; }
-      .instructor-photo { max-width: 380px; margin: 0 auto; justify-self: center; }
+      .instructor-photo { max-width: 360px; margin: 0 auto; justify-self: center; }
       .testimonial-grid { grid-template-columns: repeat(2, 1fr); max-width: 640px; }
       .offer-grid { grid-template-columns: repeat(2, 1fr); }
       .process-steps { grid-template-columns: 1fr; }
