@@ -1516,7 +1516,7 @@
       display: none;
       align-items: flex-start;
       justify-content: center;
-      padding: 40px 20px;
+      padding: 24px 16px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
@@ -1534,9 +1534,9 @@
       position: relative;
       z-index: 1;
       background: var(--cream-light);
-      border-radius: var(--radius-xl);
-      padding: 40px 40px 34px;
-      max-width: 720px;
+      border-radius: var(--radius-lg);
+      padding: 26px 28px 22px;
+      max-width: 520px;
       width: 100%;
       box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
       margin: auto 0;
@@ -1544,15 +1544,15 @@
     }
     .apply-modal-close {
       position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 40px;
-      height: 40px;
+      top: 10px;
+      right: 10px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       background: rgba(42, 36, 25, 0.06);
       border: none;
       cursor: pointer;
-      font-size: 22px;
+      font-size: 20px;
       line-height: 1;
       color: var(--text-muted);
       display: flex;
@@ -1568,26 +1568,30 @@
     }
     .apply-modal-header {
       text-align: center;
-      margin-bottom: 26px;
+      margin-bottom: 18px;
     }
-    .apply-modal-header .section-eyebrow { margin-bottom: 10px; }
+    .apply-modal-header .section-eyebrow {
+      margin-bottom: 6px;
+      font-size: 10px;
+      letter-spacing: 2px;
+    }
     .apply-modal-title {
-      font-size: clamp(22px, 2.8vw, 32px);
+      font-size: clamp(18px, 2.2vw, 24px);
       font-weight: 800;
       color: var(--dark);
-      margin: 0 0 12px;
+      margin: 0 0 8px;
       line-height: 1.2;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.4px;
     }
     .apply-modal-title em {
       font-style: italic;
       color: var(--gold-deep);
     }
     .apply-modal-sub {
-      font-size: 15px;
+      font-size: 13.5px;
       color: var(--text-muted);
-      line-height: 1.55;
-      max-width: 520px;
+      line-height: 1.5;
+      max-width: 420px;
       margin: 0 auto;
     }
     .apply-modal .form-card {
@@ -1595,12 +1599,57 @@
       background: transparent;
       box-shadow: none;
       max-width: none;
+      margin: 0;
+    }
+    .apply-modal .form-group { margin-bottom: 12px; }
+    .apply-modal .form-label {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+    .apply-modal .form-input,
+    .apply-modal .form-textarea,
+    .apply-modal .form-select {
+      padding: 10px 12px;
+      font-size: 13.5px;
+    }
+    .apply-modal .form-textarea { min-height: 66px; }
+    .apply-modal .form-row { gap: 10px; }
+    .apply-modal .form-radio-group { gap: 6px; }
+    .apply-modal .form-radio { padding: 10px 12px; gap: 10px; }
+    .apply-modal .form-radio span { font-size: 13px; }
+    .apply-modal .form-error {
+      padding: 9px 12px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .apply-modal .form-submit {
+      padding: 14px 22px;
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    .apply-modal .form-disclaimer {
+      margin-top: 12px;
+      font-size: 11.5px;
     }
     .apply-modal .apply-success {
-      padding: 24px 0 0;
+      padding: 22px 0 4px;
       box-shadow: none;
       background: transparent;
       max-width: none;
+    }
+    .apply-modal .apply-success-icon {
+      width: 58px;
+      height: 58px;
+      font-size: 30px;
+      margin-bottom: 14px;
+    }
+    .apply-modal .apply-success-title {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    .apply-modal .apply-success-text {
+      font-size: 14.5px;
+      margin-bottom: 16px;
     }
     body.is-modal-open {
       overflow: hidden;
@@ -1618,11 +1667,12 @@
       .apply-modal-content { animation: none; }
     }
     @media (max-width: 640px) {
-      .apply-modal { padding: 20px 12px; }
-      .apply-modal-content { padding: 32px 20px 24px; }
-      .apply-modal-title { font-size: 22px; }
-      .apply-modal-sub { font-size: 14px; }
-      .apply-modal-close { top: 10px; right: 10px; width: 36px; height: 36px; }
+      .apply-modal { padding: 16px 10px; }
+      .apply-modal-content { padding: 22px 18px 20px; }
+      .apply-modal-title { font-size: 18px; }
+      .apply-modal-sub { font-size: 13px; }
+      .apply-modal-close { width: 30px; height: 30px; }
+      .apply-modal .form-row { grid-template-columns: 1fr; }
     }
 
     /* ================================================
@@ -3099,20 +3149,31 @@
       window.openApplyModal = openApplyModal;
       window.closeApplyModal = closeApplyModal;
 
-      // Auto-popup: sayfaya girenin karşısına her 20 saniyede bir açılır.
-      // Form gönderilirse (success görünürse) döngü durur, tekrar rahatsız edilmez.
-      const AUTO_POPUP_INTERVAL_MS = 20000;
-      const autoPopupTimer = setInterval(() => {
-        // Modal zaten açıksa yeniden tetikleme
-        if (modal.classList.contains('is-open')) return;
-        // Kullanıcı başvuruyu tamamladıysa daha fazla açma
+      // Auto-popup schedule: ilk gösterim 20sn, sonraki 30sn sonra, ondan sonra 35sn'de bir.
+      // Modal zaten açıksa o tetikleme atlanır (schedule ilerlemeye devam eder).
+      // Kullanıcı başvuruyu tamamlarsa (success görünürse) döngü durur.
+      const FIRST_DELAY_MS = 20000;
+      const SECOND_DELAY_MS = 30000;
+      const REPEAT_EVERY_MS = 35000;
+      let repeatTimer = null;
+
+      function tryAutoOpen() {
         const success = document.getElementById('applySuccess');
-        if (success && success.style.display === 'block') {
-          clearInterval(autoPopupTimer);
-          return;
-        }
+        if (success && success.style.display === 'block') return 'stop';
+        if (modal.classList.contains('is-open')) return 'skip';
         openApplyModal();
-      }, AUTO_POPUP_INTERVAL_MS);
+        return 'shown';
+      }
+
+      setTimeout(function firstFire() {
+        if (tryAutoOpen() === 'stop') return;
+        setTimeout(function secondFire() {
+          if (tryAutoOpen() === 'stop') return;
+          repeatTimer = setInterval(function () {
+            if (tryAutoOpen() === 'stop') clearInterval(repeatTimer);
+          }, REPEAT_EVERY_MS);
+        }, SECOND_DELAY_MS);
+      }, FIRST_DELAY_MS);
     })();
 
     /* ============ FORM SUBMIT → GOOGLE SHEETS (Apps Script Web App) ============
