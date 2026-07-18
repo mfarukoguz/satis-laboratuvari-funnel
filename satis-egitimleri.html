@@ -1049,10 +1049,10 @@
     .testimonials { background: var(--cream-light); }
     .testimonial-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 26px;
       margin-top: 46px;
-      max-width: 760px;
+      max-width: 1080px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -2508,6 +2508,29 @@
                 Tarayıcınız video oynatmayı desteklemiyor.
               </video>
               <div class="testimonial-facade" data-target="vid-katilimci-2" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
+                <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="testimonial-meta">
+              <div class="testimonial-name">7G Katılımcısı</div>
+              <div class="testimonial-role">Kamp Sonrası Deneyim</div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-video-wrap">
+              <video
+                id="vid-katilimci-3"
+                controls
+                playsinline
+                preload="metadata"
+                poster="videos/testimonials/katilimci-3-poster.jpg">
+                <source src="videos/testimonials/katilimci-3.mp4" type="video/mp4">
+                Tarayıcınız video oynatmayı desteklemiyor.
+              </video>
+              <div class="testimonial-facade" data-target="vid-katilimci-3" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
                 <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                 </button>
