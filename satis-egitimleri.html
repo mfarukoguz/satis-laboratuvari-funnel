@@ -215,17 +215,19 @@
        HERO
        ================================================ */
     .hero {
-      padding: 70px 0 90px;
+      padding: 90px 0 100px;
       position: relative;
       overflow: hidden;
+      background: var(--dark);
+      color: var(--cream-light);
     }
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 55% 45% at 30% 20%, rgba(255, 240, 210, 0.5), transparent 60%),
-        radial-gradient(ellipse 50% 40% at 80% 85%, rgba(180, 145, 70, 0.10), transparent 60%);
+        radial-gradient(ellipse 55% 45% at 25% 15%, rgba(180, 145, 70, 0.24), transparent 65%),
+        radial-gradient(ellipse 50% 40% at 80% 90%, rgba(180, 145, 70, 0.14), transparent 65%);
       pointer-events: none;
       z-index: 0;
     }
@@ -244,86 +246,108 @@
       width: 100%;
       height: auto;
       border-radius: var(--radius-lg);
-      box-shadow: 0 30px 60px rgba(42, 36, 25, 0.15);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(180, 145, 70, 0.18);
+    }
+    .hero-copy {
+      text-align: center;
     }
     .hero-eyebrow {
       display: inline-block;
       padding: 8px 18px;
-      background: white;
+      background: rgba(180, 145, 70, 0.12);
       border: 1px solid var(--gold);
-      color: var(--gold-deep);
+      color: var(--gold-bright);
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2.5px;
       text-transform: uppercase;
       border-radius: var(--radius-pill);
-      margin-bottom: 22px;
+      margin-bottom: 26px;
+    }
+    .hero-hook {
+      display: inline-block;
+      padding: 22px 30px;
+      background: rgba(10, 9, 6, 0.72);
+      border: 1px solid rgba(180, 145, 70, 0.35);
+      border-radius: var(--radius-lg);
+      transform: rotate(-1.2deg);
+      box-shadow: 0 22px 48px rgba(0, 0, 0, 0.45);
+      max-width: 100%;
     }
     .hero-title {
-      font-size: clamp(32px, 4.6vw, 58px);
+      font-size: clamp(24px, 3vw, 36px);
       font-weight: 800;
-      color: var(--dark);
-      line-height: 1.08;
-      letter-spacing: -1.5px;
-      margin-bottom: 22px;
+      color: var(--cream-light);
+      line-height: 1.22;
+      letter-spacing: -0.5px;
+      margin: 0;
     }
     .hero-title em {
       font-style: italic;
-      color: var(--gold-deep);
-      font-weight: 800;
+      color: var(--gold-bright);
+      font-weight: 900;
+      border-bottom: 3px solid var(--gold);
+      padding-bottom: 3px;
     }
-    .hero-sub {
-      font-size: clamp(15px, 1.5vw, 18px);
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 24px;
-      max-width: 620px;
+    .hero-arrow-svg {
+      display: block;
+      margin: 26px auto;
+      color: var(--gold);
+      width: 42px;
+      height: 62px;
+      opacity: 0.75;
     }
     .hero-reframe {
-      margin: 22px 0 24px;
-      padding-left: 20px;
-      border-left: 3px solid var(--gold);
-      max-width: 620px;
+      margin: 0;
+      padding: 0;
+      border-left: 0;
+      max-width: none;
     }
     .hero-reframe-strike {
-      font-size: clamp(14px, 1.35vw, 16px);
-      color: var(--text-muted);
+      font-size: clamp(14px, 1.4vw, 16px);
+      color: var(--cream-dark);
       font-style: italic;
       opacity: 0.72;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       line-height: 1.5;
     }
     .hero-reframe-truth {
-      font-size: clamp(17px, 1.85vw, 22px);
+      font-size: clamp(18px, 2.1vw, 24px);
       font-weight: 800;
-      color: var(--dark);
+      color: var(--cream-light);
       line-height: 1.35;
       letter-spacing: -0.3px;
     }
     .hero-reframe-truth em {
       font-style: italic;
-      color: var(--gold-deep);
-      font-weight: 800;
+      color: var(--gold-bright);
+      font-weight: 900;
     }
     .hero-teaching {
-      font-size: clamp(16px, 1.65vw, 20px);
-      color: var(--text);
-      font-weight: 600;
+      font-size: clamp(16px, 1.75vw, 20px);
+      color: var(--cream-light);
+      font-weight: 700;
       line-height: 1.5;
-      margin-bottom: 30px;
-      max-width: 620px;
+      margin: 0 auto;
+      max-width: none;
     }
     .hero-teaching em {
       font-style: italic;
-      color: var(--gold-deep);
-      font-weight: 700;
+      color: var(--gold-bright);
+      font-weight: 800;
     }
     .hero-cta-lead {
-      font-size: clamp(14px, 1.35vw, 16px);
-      color: var(--text-muted);
+      font-size: clamp(15px, 1.55vw, 18px);
+      color: var(--cream-dark);
       font-weight: 600;
-      margin-bottom: 12px;
+      margin: 32px 0 14px;
       letter-spacing: 0.3px;
+    }
+    .hero .cta-microcopy {
+      color: var(--cream-dark);
+      opacity: 0.75;
+      margin-left: auto;
+      margin-right: auto;
     }
     .hero-benefits {
       list-style: none;
@@ -1632,16 +1656,11 @@
       .nav-menu.is-open a:last-child { border-bottom: 0; }
 
       .section-pad, .section-pad-lg { padding: 70px 0; }
-      .hero { padding: 40px 0 70px; }
-      .hero-title { font-size: 32px; letter-spacing: -0.8px; }
-      .hero-benefits li { font-size: 14px; }
+      .hero { padding: 50px 0 70px; }
+      .hero-hook { padding: 18px 22px; transform: rotate(-0.8deg); }
+      .hero-title { font-size: clamp(20px, 5vw, 26px); letter-spacing: -0.4px; }
+      .hero-arrow-svg { margin: 20px auto; width: 34px; height: 50px; }
       .cta-primary { width: 100%; padding: 18px 24px; }
-      .hero-trust {
-        flex-direction: column;
-        gap: 12px;
-        padding: 20px;
-      }
-      .hero-trust-sep { display: none; }
 
       .problem-grid { grid-template-columns: 1fr; gap: 14px; }
       .oldvnew-grid { grid-template-columns: 1fr; gap: 16px; }
@@ -1740,9 +1759,16 @@
           <div class="hero-copy">
             <span class="hero-eyebrow">14 Günlük Uygulamalı 7G Satış Kampı</span>
 
-            <h1 class="hero-title">
-              Müşteri itiraz ettiğinde <em>satışı kapatamıyorsan..</em>
-            </h1>
+            <div class="hero-hook">
+              <h1 class="hero-title">
+                Müşteri itiraz ettiğinde <em>satışı kapatamıyorsan..</em>
+              </h1>
+            </div>
+
+            <svg class="hero-arrow-svg" viewBox="0 0 60 90" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M 32 4 C 32 22, 12 30, 18 52 S 34 74, 38 82" />
+              <path d="M 38 82 L 30 74 M 38 82 L 46 74" />
+            </svg>
 
             <div class="hero-reframe">
               <div class="hero-reframe-strike">Sorun itiraz karşılama tekniklerini bilmemen değil</div>
@@ -1750,6 +1776,11 @@
                 Sorun itiraz geldikten sonra <em>müşteriyi ikna etmeye çalışıyor olman.</em>
               </div>
             </div>
+
+            <svg class="hero-arrow-svg" viewBox="0 0 60 90" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M 28 4 C 28 22, 48 30, 42 52 S 26 74, 22 82" />
+              <path d="M 22 82 L 30 74 M 22 82 L 14 74" />
+            </svg>
 
             <p class="hero-teaching">
               Daha fazla konuşarak değil, <em>müşterinin satın alma nedenini ortaya çıkararak</em> sat.
@@ -1759,12 +1790,6 @@
             <a href="#basvuru" class="cta-primary">7G Satış Sistemine Başvur</a>
             <span class="cta-microcopy">Telefon veya Zoom üzerinden yapılacak ön görüşme için başvur.</span>
           </div>
-        </div>
-
-        <div class="hero-trust">
-          <span class="hero-trust-item">Telefon <span class="hero-trust-sep"></span> Zoom <span class="hero-trust-sep"></span> Yüz Yüze <strong>görüşmelerde uygulanabilir</strong></span>
-          <span class="hero-trust-sep"></span>
-          <span class="hero-trust-item"><strong>Satış Oranlarını %50 Seviyelerine Yükselt</strong></span>
         </div>
       </div>
     </section>
