@@ -3098,6 +3098,21 @@
       // Expose for potential future auto-open logic
       window.openApplyModal = openApplyModal;
       window.closeApplyModal = closeApplyModal;
+
+      // Auto-popup: sayfaya girenin karşısına her 20 saniyede bir açılır.
+      // Form gönderilirse (success görünürse) döngü durur, tekrar rahatsız edilmez.
+      const AUTO_POPUP_INTERVAL_MS = 20000;
+      const autoPopupTimer = setInterval(() => {
+        // Modal zaten açıksa yeniden tetikleme
+        if (modal.classList.contains('is-open')) return;
+        // Kullanıcı başvuruyu tamamladıysa daha fazla açma
+        const success = document.getElementById('applySuccess');
+        if (success && success.style.display === 'block') {
+          clearInterval(autoPopupTimer);
+          return;
+        }
+        openApplyModal();
+      }, AUTO_POPUP_INTERVAL_MS);
     })();
 
     /* ============ FORM SUBMIT → GOOGLE SHEETS (Apps Script Web App) ============
