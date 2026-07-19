@@ -3236,31 +3236,18 @@
       window.openApplyModal = openApplyModal;
       window.closeApplyModal = closeApplyModal;
 
-      // Auto-popup schedule: ilk gösterim 20sn, sonraki 30sn sonra, ondan sonra 35sn'de bir.
-      // Modal zaten açıksa o tetikleme atlanır (schedule ilerlemeye devam eder).
-      // Kullanıcı başvuruyu tamamlarsa (success görünürse) döngü durur.
-      const FIRST_DELAY_MS = 20000;
-      const SECOND_DELAY_MS = 30000;
-      const REPEAT_EVERY_MS = 35000;
-      let repeatTimer = null;
-
-      function tryAutoOpen() {
+      // Auto-popup: her 45 saniyede bir açılır (kullanıcı kapatsa bile 45 sn sonra tekrar).
+      // Modal zaten açıksa o tetikleme atlanır. Başvuru tamamlandıysa (success görünürse) döngü durur.
+      const AUTO_POPUP_INTERVAL_MS = 45000;
+      const autoPopupTimer = setInterval(() => {
         const success = document.getElementById('applySuccess');
-        if (success && success.style.display === 'block') return 'stop';
-        if (modal.classList.contains('is-open')) return 'skip';
+        if (success && success.style.display === 'block') {
+          clearInterval(autoPopupTimer);
+          return;
+        }
+        if (modal.classList.contains('is-open')) return;
         openApplyModal();
-        return 'shown';
-      }
-
-      setTimeout(function firstFire() {
-        if (tryAutoOpen() === 'stop') return;
-        setTimeout(function secondFire() {
-          if (tryAutoOpen() === 'stop') return;
-          repeatTimer = setInterval(function () {
-            if (tryAutoOpen() === 'stop') clearInterval(repeatTimer);
-          }, REPEAT_EVERY_MS);
-        }, SECOND_DELAY_MS);
-      }, FIRST_DELAY_MS);
+      }, AUTO_POPUP_INTERVAL_MS);
     })();
 
     /* ============ FORM SUBMIT → GOOGLE SHEETS (Apps Script Web App) ============
