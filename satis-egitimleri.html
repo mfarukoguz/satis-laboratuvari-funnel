@@ -1191,6 +1191,18 @@
       .wp-card { height: 150px; }
       .wp-card img { min-width: 150px; }
       .wp-marquee-track { animation-duration: 60s; gap: 12px; }
+      /* Mobilde edge-fade mask kartlari silik gosteriyor — sadece cok dar bir alanda kalsin */
+      .wp-marquee {
+        mask-image: linear-gradient(90deg, transparent 0, black 3%, black 97%, transparent 100%);
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, black 3%, black 97%, transparent 100%);
+      }
+    }
+    @media (max-width: 480px) {
+      /* Cok dar ekranlarda mask'i tamamen kaldir — fade alani kartlarin görünürlüğünü boyuyor */
+      .wp-marquee {
+        mask-image: none;
+        -webkit-mask-image: none;
+      }
     }
 
     /* ================================================
