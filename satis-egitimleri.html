@@ -1855,6 +1855,165 @@
     }
 
     /* ================================================
+       COUNTDOWN BAR (evergreen 48h)
+       ================================================ */
+    .countdown-bar {
+      background: linear-gradient(90deg, #0A0906, #1A1610 50%, #0A0906);
+      color: var(--cream-light);
+      padding: 8px 16px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      border-bottom: 1px solid rgba(180, 145, 70, 0.25);
+      line-height: 1.4;
+    }
+    .countdown-bar .cd-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--danger);
+      margin-right: 8px;
+      vertical-align: middle;
+      animation: cd-pulse 1.5s infinite;
+    }
+    .countdown-bar .cd-time {
+      color: var(--gold-bright);
+      font-family: 'Courier New', ui-monospace, monospace;
+      font-weight: 800;
+      margin-left: 8px;
+      font-size: 14px;
+      letter-spacing: 1.2px;
+    }
+    .countdown-bar a.cd-cta {
+      color: white;
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      margin-left: 12px;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 10px rgba(180, 145, 70, 0.3);
+    }
+    .countdown-bar a.cd-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(180, 145, 70, 0.45);
+    }
+    @keyframes cd-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.45; transform: scale(1.25); }
+    }
+    @media (max-width: 640px) {
+      .countdown-bar { font-size: 11px; padding: 6px 8px; }
+      .countdown-bar .cd-time { font-size: 12px; letter-spacing: 0.6px; margin-left: 4px; }
+      .countdown-bar a.cd-cta { font-size: 10px; padding: 3px 8px; margin-left: 6px; }
+      .countdown-bar .cd-dot { width: 6px; height: 6px; margin-right: 4px; }
+    }
+
+    /* ================================================
+       ACTIVITY TOASTS (Live application notifications)
+       ================================================ */
+    .toast-container {
+      position: fixed;
+      bottom: 96px;
+      right: 16px;
+      z-index: 150;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+      max-width: calc(100vw - 32px);
+    }
+    .toast {
+      background: white;
+      color: var(--dark);
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.20);
+      border-left: 3px solid var(--gold);
+      width: 300px;
+      max-width: 100%;
+      pointer-events: auto;
+      animation: toast-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s;
+    }
+    .toast.leaving {
+      transform: translateX(120%);
+      opacity: 0;
+    }
+    .toast-content {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .toast-icon {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(180, 145, 70, 0.14);
+      color: var(--gold-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .toast-text {
+      font-size: 13px;
+      line-height: 1.4;
+      flex: 1;
+      min-width: 0;
+    }
+    .toast-name { font-weight: 700; color: var(--dark); }
+    .toast-city { color: var(--text-muted); font-weight: 500; }
+    .toast-action { color: var(--text); font-size: 12.5px; margin-top: 1px; }
+    .toast-time {
+      color: var(--gold-deep);
+      font-size: 11px;
+      margin-top: 3px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+    .toast-close {
+      flex-shrink: 0;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+      padding: 0 0 0 4px;
+    }
+    .toast-close:hover { color: var(--dark); }
+    @keyframes toast-in {
+      from { transform: translateX(120%); opacity: 0; }
+      to   { transform: translateX(0);    opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .toast, .cd-dot { animation: none !important; }
+    }
+    @media (max-width: 640px) {
+      .toast-container {
+        bottom: 88px;
+        right: 8px;
+        left: 8px;
+        align-items: flex-end;
+      }
+      .toast {
+        width: 100%;
+        max-width: 340px;
+        padding: 10px 14px;
+      }
+      .toast-icon { width: 28px; height: 28px; font-size: 13px; }
+      .toast-text { font-size: 12.5px; }
+    }
+
+    /* ================================================
        MOBILE STICKY CTA
        ================================================ */
     .sticky-cta {
@@ -2064,6 +2223,12 @@
 
   <!-- ============ HEADER / NAV ============ -->
   <header>
+    <div class="countdown-bar" role="status" aria-live="polite">
+      <span class="cd-dot" aria-hidden="true"></span>
+      Ücretsiz görüşme kaydı için son
+      <span class="cd-time" id="cdTime">48:00:00</span>
+      <a href="#basvuru" class="cd-cta">Şimdi Başvur →</a>
+    </div>
     <nav class="nav" aria-label="Ana menü">
       <a href="index.html" class="logo" aria-label="Satış Laboratuvarı — Ana sayfa">
         <span class="logo-mark">Satış Laboratuvarı</span>
@@ -3020,6 +3185,9 @@
     <a href="#basvuru">7G'ye Başvur</a>
   </div>
 
+  <!-- ============ ACTIVITY TOASTS ============ -->
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
   <!-- ============ BAŞVURU MODAL (popup) ============ -->
   <div class="apply-modal" id="applyModal" role="dialog" aria-labelledby="applyModalTitle" aria-modal="true" hidden>
     <div class="apply-modal-backdrop" data-close aria-hidden="true"></div>
@@ -3374,6 +3542,106 @@
         submitBtn.textContent = originalBtnText;
       }
     });
+
+    /* ============ COUNTDOWN TIMER (evergreen 48h, per-visitor) ============
+       Kullanicinin ilk ziyaretinde 48 saatlik sayac baslar, localStorage'a
+       kaydedilir. Sayfa yenilense de devam eder. Sifira dustugunde yeni bir
+       48 saatlik tur baslar — sayfada "her zaman aciliyet" hissi yaratir.
+    ============================================================================ */
+    (function() {
+      const STORAGE_KEY = 'sl-cd-end';
+      const DURATION_MS = 48 * 60 * 60 * 1000; // 48 saat
+      const el = document.getElementById('cdTime');
+      if (!el) return;
+
+      let endAt = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
+      const now = Date.now();
+      if (!endAt || endAt < now) {
+        endAt = now + DURATION_MS;
+        localStorage.setItem(STORAGE_KEY, String(endAt));
+      }
+
+      function update() {
+        let remaining = Math.max(0, endAt - Date.now());
+        if (remaining === 0) {
+          // Sayac bitti — yeni tur
+          endAt = Date.now() + DURATION_MS;
+          localStorage.setItem(STORAGE_KEY, String(endAt));
+          remaining = DURATION_MS;
+        }
+        const totalSec = Math.floor(remaining / 1000);
+        const h = String(Math.floor(totalSec / 3600)).padStart(2, '0');
+        const m = String(Math.floor((totalSec % 3600) / 60)).padStart(2, '0');
+        const s = String(totalSec % 60).padStart(2, '0');
+        el.textContent = h + ':' + m + ':' + s;
+      }
+      update();
+      setInterval(update, 1000);
+    })();
+
+    /* ============ ACTIVITY TOASTS (Live application notifications) ============
+       Sayfa acildiginda alt sag koseden sirayla 6 adet basvuru toast'i
+       gorunur — kullaniciya sosyal kanit hissi verir.
+
+       Onemli: RECENT_ACTIVITY arrayini Faruk kendi gercek katilimci
+       verileriyle guncelleyebilir (isim + sehir + kac dk once). Placeholder
+       veriler gecici — hangi zaman gerceklerle degistirilse toast'lar
+       cikmaya devam eder, kod degismez.
+    ============================================================================ */
+    (function() {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+
+      const RECENT_ACTIVITY = [
+        { name: 'Berat K.',   city: 'İstanbul', minutesAgo: 4  },
+        { name: 'Elif S.',    city: 'Ankara',   minutesAgo: 11 },
+        { name: 'Mert D.',    city: 'İzmir',    minutesAgo: 23 },
+        { name: 'Zeynep A.',  city: 'Bursa',    minutesAgo: 38 },
+        { name: 'Ahmet Y.',   city: 'Antalya',  minutesAgo: 47 },
+        { name: 'Sinem T.',   city: 'Konya',    minutesAgo: 62 }
+      ];
+
+      // Her toast'in tetiklenme zamani (ms, sayfa yuklendikten sonra)
+      const FIRE_DELAYS = [18000, 52000, 92000, 138000, 190000, 250000];
+
+      function formatTime(min) {
+        if (min < 60) return min + ' dakika önce';
+        const hr = Math.floor(min / 60);
+        return hr + ' saat önce';
+      }
+
+      function dismiss(toast) {
+        if (toast.classList.contains('leaving')) return;
+        toast.classList.add('leaving');
+        setTimeout(() => toast.remove(), 400);
+      }
+
+      function showToast(entry) {
+        const toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.setAttribute('role', 'status');
+        toast.innerHTML =
+          '<div class="toast-content">' +
+            '<div class="toast-icon" aria-hidden="true">✓</div>' +
+            '<div class="toast-text">' +
+              '<div><span class="toast-name">' + entry.name + '</span> <span class="toast-city">· ' + entry.city + '</span></div>' +
+              '<div class="toast-action">7G Satış Kampı\'na başvurdu</div>' +
+              '<div class="toast-time">' + formatTime(entry.minutesAgo) + '</div>' +
+            '</div>' +
+            '<button class="toast-close" type="button" aria-label="Kapat">×</button>' +
+          '</div>';
+
+        toast.querySelector('.toast-close').addEventListener('click', () => dismiss(toast));
+        container.appendChild(toast);
+        setTimeout(() => dismiss(toast), 7000);
+      }
+
+      FIRE_DELAYS.forEach((delay, i) => {
+        if (i < RECENT_ACTIVITY.length) {
+          setTimeout(() => showToast(RECENT_ACTIVITY[i]), delay);
+        }
+      });
+    })();
   </script>
 </body>
 </html>
