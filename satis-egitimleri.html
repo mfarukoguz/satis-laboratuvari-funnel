@@ -337,11 +337,13 @@
       font-weight: 800;
     }
     .hero-cta-lead {
-      font-size: clamp(15px, 1.55vw, 18px);
-      color: var(--cream-dark);
-      font-weight: 600;
-      margin: 20px 0 12px;
-      letter-spacing: 0.3px;
+      font-size: clamp(17px, 1.9vw, 22px);
+      color: var(--cream-light);
+      font-weight: 700;
+      margin: 22px auto 14px;
+      letter-spacing: 0.2px;
+      max-width: 560px;
+      line-height: 1.3;
     }
     .hero .cta-microcopy {
       color: var(--cream-dark);
@@ -1609,6 +1611,100 @@
       max-width: none;
       margin: 0;
     }
+
+    /* Two-step form */
+    .form-progress {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(42, 36, 25, 0.08);
+    }
+    .form-progress-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      color: var(--gold-deep);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .form-progress-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(42, 36, 25, 0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .form-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-bright), var(--gold));
+      border-radius: 3px;
+      transition: width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .form-step { display: block; }
+    .form-step.hidden { display: none; }
+    .form-step-continue {
+      width: 100%;
+      padding: 14px 22px;
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      color: white;
+      border: none;
+      border-radius: var(--radius-pill);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      box-shadow: var(--shadow-gold);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 4px;
+    }
+    .form-step-continue:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(180, 145, 70, 0.45);
+    }
+    .form-step-continue::after { content: ' →'; font-weight: 900; }
+    .form-step-hint {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+    .form-step-recap {
+      background: rgba(180, 145, 70, 0.08);
+      border: 1px solid rgba(180, 145, 70, 0.22);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      font-size: 12px;
+      color: var(--text);
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .form-step-recap-info {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 0;
+    }
+    .form-step-recap strong { color: var(--dark); font-weight: 700; }
+    .form-step-recap-back {
+      background: none;
+      border: none;
+      color: var(--gold-deep);
+      font-weight: 700;
+      font-size: 11px;
+      cursor: pointer;
+      padding: 3px 7px;
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .form-step-recap-back:hover { background: rgba(180, 145, 70, 0.15); }
     .apply-modal .form-group { margin-bottom: 12px; }
     .apply-modal .form-label {
       font-size: 12px;
@@ -1855,165 +1951,6 @@
     }
 
     /* ================================================
-       COUNTDOWN BAR (evergreen 48h)
-       ================================================ */
-    .countdown-bar {
-      background: linear-gradient(90deg, #0A0906, #1A1610 50%, #0A0906);
-      color: var(--cream-light);
-      padding: 8px 16px;
-      text-align: center;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      border-bottom: 1px solid rgba(180, 145, 70, 0.25);
-      line-height: 1.4;
-    }
-    .countdown-bar .cd-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--danger);
-      margin-right: 8px;
-      vertical-align: middle;
-      animation: cd-pulse 1.5s infinite;
-    }
-    .countdown-bar .cd-time {
-      color: var(--gold-bright);
-      font-family: 'Courier New', ui-monospace, monospace;
-      font-weight: 800;
-      margin-left: 8px;
-      font-size: 14px;
-      letter-spacing: 1.2px;
-    }
-    .countdown-bar a.cd-cta {
-      color: white;
-      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
-      margin-left: 12px;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
-      font-size: 12px;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-block;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 10px rgba(180, 145, 70, 0.3);
-    }
-    .countdown-bar a.cd-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 14px rgba(180, 145, 70, 0.45);
-    }
-    @keyframes cd-pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%      { opacity: 0.45; transform: scale(1.25); }
-    }
-    @media (max-width: 640px) {
-      .countdown-bar { font-size: 11px; padding: 6px 8px; }
-      .countdown-bar .cd-time { font-size: 12px; letter-spacing: 0.6px; margin-left: 4px; }
-      .countdown-bar a.cd-cta { font-size: 10px; padding: 3px 8px; margin-left: 6px; }
-      .countdown-bar .cd-dot { width: 6px; height: 6px; margin-right: 4px; }
-    }
-
-    /* ================================================
-       ACTIVITY TOASTS (Live application notifications)
-       ================================================ */
-    .toast-container {
-      position: fixed;
-      bottom: 96px;
-      right: 16px;
-      z-index: 150;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      pointer-events: none;
-      max-width: calc(100vw - 32px);
-    }
-    .toast {
-      background: white;
-      color: var(--dark);
-      padding: 12px 16px;
-      border-radius: var(--radius);
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.20);
-      border-left: 3px solid var(--gold);
-      width: 300px;
-      max-width: 100%;
-      pointer-events: auto;
-      animation: toast-in 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.4s;
-    }
-    .toast.leaving {
-      transform: translateX(120%);
-      opacity: 0;
-    }
-    .toast-content {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .toast-icon {
-      flex-shrink: 0;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(180, 145, 70, 0.14);
-      color: var(--gold-deep);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-      font-weight: 800;
-    }
-    .toast-text {
-      font-size: 13px;
-      line-height: 1.4;
-      flex: 1;
-      min-width: 0;
-    }
-    .toast-name { font-weight: 700; color: var(--dark); }
-    .toast-city { color: var(--text-muted); font-weight: 500; }
-    .toast-action { color: var(--text); font-size: 12.5px; margin-top: 1px; }
-    .toast-time {
-      color: var(--gold-deep);
-      font-size: 11px;
-      margin-top: 3px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-    }
-    .toast-close {
-      flex-shrink: 0;
-      border: none;
-      background: transparent;
-      color: var(--text-muted);
-      cursor: pointer;
-      font-size: 18px;
-      line-height: 1;
-      padding: 0 0 0 4px;
-    }
-    .toast-close:hover { color: var(--dark); }
-    @keyframes toast-in {
-      from { transform: translateX(120%); opacity: 0; }
-      to   { transform: translateX(0);    opacity: 1; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .toast, .cd-dot { animation: none !important; }
-    }
-    @media (max-width: 640px) {
-      .toast-container {
-        bottom: 88px;
-        right: 8px;
-        left: 8px;
-        align-items: flex-end;
-      }
-      .toast {
-        width: 100%;
-        max-width: 340px;
-        padding: 10px 14px;
-      }
-      .toast-icon { width: 28px; height: 28px; font-size: 13px; }
-      .toast-text { font-size: 12.5px; }
-    }
-
-    /* ================================================
        MOBILE STICKY CTA
        ================================================ */
     .sticky-cta {
@@ -2132,9 +2069,10 @@
         line-height: 1.3;
       }
       .hero-cta-lead {
-        font-size: 9.5px;
-        margin: 12px 0 6px;
+        font-size: 11.5px;
+        margin: 14px 0 8px;
         letter-spacing: 0.2px;
+        line-height: 1.3;
       }
       .cta-primary {
         padding: 10px 12px;
@@ -2223,12 +2161,6 @@
 
   <!-- ============ HEADER / NAV ============ -->
   <header>
-    <div class="countdown-bar" role="status" aria-live="polite">
-      <span class="cd-dot" aria-hidden="true"></span>
-      Ücretsiz görüşme kaydı için son
-      <span class="cd-time" id="cdTime">48:00:00</span>
-      <a href="#basvuru" class="cd-cta">Şimdi Başvur →</a>
-    </div>
     <nav class="nav" aria-label="Ana menü">
       <a href="index.html" class="logo" aria-label="Satış Laboratuvarı — Ana sayfa">
         <span class="logo-mark">Satış Laboratuvarı</span>
@@ -2297,7 +2229,7 @@
               Daha fazla konuşarak değil, <em>müşterinin satın alma nedenini ortaya çıkararak</em> sat.
             </p>
 
-            <div class="hero-cta-lead">Satışlarını arttırmak istiyorsan</div>
+            <div class="hero-cta-lead">Satış Kapatma Oranlarını %50 Seviyesine Yükselt</div>
             <a href="#basvuru" class="cta-primary">7G Satış Sistemine Başvur</a>
             <span class="cta-microcopy">Telefon veya Zoom üzerinden yapılacak ön görüşme için başvur.</span>
           </div>
@@ -3185,9 +3117,6 @@
     <a href="#basvuru">7G'ye Başvur</a>
   </div>
 
-  <!-- ============ ACTIVITY TOASTS ============ -->
-  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
-
   <!-- ============ BAŞVURU MODAL (popup) ============ -->
   <div class="apply-modal" id="applyModal" role="dialog" aria-labelledby="applyModalTitle" aria-modal="true" hidden>
     <div class="apply-modal-backdrop" data-close aria-hidden="true"></div>
@@ -3204,87 +3133,114 @@
       </div>
 
       <form class="form-card" id="applyForm" novalidate>
-        <div class="form-group">
-          <label class="form-label" for="fname">Ad Soyad <span class="req">*</span></label>
-          <input type="text" id="fname" name="name" class="form-input" placeholder="Adın ve soyadın" required autocomplete="name">
+
+        <!-- Progress bar -->
+        <div class="form-progress">
+          <span class="form-progress-label" id="stepLabel">Adım 1/2</span>
+          <div class="form-progress-track">
+            <div class="form-progress-fill" id="stepFill" style="width: 50%;"></div>
+          </div>
         </div>
 
-        <div class="form-group">
-          <div class="form-row">
-            <div>
-              <label class="form-label" for="fphone">Telefon <span class="req">*</span></label>
-              <input type="tel" id="fphone" name="phone" class="form-input" placeholder="05XX..." required autocomplete="tel">
+        <!-- STEP 1: Ad + Telefon (mikro-commitment) -->
+        <div class="form-step" id="formStep1">
+          <div class="form-group">
+            <label class="form-label" for="fname">Ad Soyad <span class="req">*</span></label>
+            <input type="text" id="fname" name="name" class="form-input" placeholder="Adın ve soyadın" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="fphone">Telefon <span class="req">*</span></label>
+            <input type="tel" id="fphone" name="phone" class="form-input" placeholder="05XX..." required autocomplete="tel">
+          </div>
+
+          <div class="form-error" id="formError1"></div>
+
+          <button type="button" class="form-step-continue" id="stepContinueBtn">Devam Et</button>
+
+          <p class="form-step-hint">
+            Sıradaki adımda görüşmemizi verimli yapacak 6 kısa soru var.
+          </p>
+        </div>
+
+        <!-- STEP 2: Detay bilgiler -->
+        <div class="form-step hidden" id="formStep2">
+          <div class="form-step-recap">
+            <div class="form-step-recap-info">
+              <strong id="recapName">—</strong> · <span id="recapPhone">—</span>
             </div>
-            <div>
-              <label class="form-label" for="femail">E-posta <span class="req">*</span></label>
-              <input type="email" id="femail" name="email" class="form-input" placeholder="ornek@mail.com" required autocomplete="email">
+            <button type="button" class="form-step-recap-back" id="stepBackBtn">← Değiştir</button>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="femail">E-posta <span class="req">*</span></label>
+            <input type="email" id="femail" name="email" class="form-input" placeholder="ornek@mail.com" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="fjob">Meslek / Sektör <span class="req">*</span></label>
+            <input type="text" id="fjob" name="job" class="form-input" placeholder="Örn: Diyetisyen, Emlak danışmanı, Ajans sahibi..." required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Durumun <span class="req">*</span></label>
+            <div class="form-radio-group">
+              <label class="form-radio">
+                <input type="radio" name="role" value="Kendi ürünümü satıyorum" required>
+                <span>Kendi ürünümü / hizmetimi satıyorum</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="role" value="Satış ekibinde çalışıyorum" required>
+                <span>Bir satış ekibinde çalışıyorum</span>
+              </label>
             </div>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label class="form-label" for="fjob">Meslek / Sektör <span class="req">*</span></label>
-          <input type="text" id="fjob" name="job" class="form-input" placeholder="Örn: Diyetisyen, Emlak danışmanı, Ajans sahibi..." required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Durumun <span class="req">*</span></label>
-          <div class="form-radio-group">
-            <label class="form-radio">
-              <input type="radio" name="role" value="Kendi ürünümü satıyorum" required>
-              <span>Kendi ürünümü / hizmetimi satıyorum</span>
-            </label>
-            <label class="form-radio">
-              <input type="radio" name="role" value="Satış ekibinde çalışıyorum" required>
-              <span>Bir satış ekibinde çalışıyorum</span>
-            </label>
+          <div class="form-group">
+            <label class="form-label" for="fproduct">Sattığın Ürün veya Hizmet <span class="req">*</span></label>
+            <input type="text" id="fproduct" name="product" class="form-input" placeholder="Kısa bir açıklama" required>
           </div>
-        </div>
 
-        <div class="form-group">
-          <label class="form-label" for="fproduct">Sattığın Ürün veya Hizmet <span class="req">*</span></label>
-          <input type="text" id="fproduct" name="product" class="form-input" placeholder="Kısa bir açıklama" required>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="fprice">Ortalama Ürün / Hizmet Fiyatı</label>
-          <select id="fprice" name="price" class="form-select">
-            <option value="">Seçiniz…</option>
-            <option value="0-5.000 ₺">0 – 5.000 ₺</option>
-            <option value="5.000-15.000 ₺">5.000 – 15.000 ₺</option>
-            <option value="15.000-50.000 ₺">15.000 – 50.000 ₺</option>
-            <option value="50.000-150.000 ₺">50.000 – 150.000 ₺</option>
-            <option value="150.000 ₺ +">150.000 ₺ +</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="fchallenge">En Büyük Satış Problemin <span class="req">*</span></label>
-          <textarea id="fchallenge" name="challenge" class="form-textarea" placeholder="Örn: Görüşmelerim 'düşüneyim' ile bitiyor, fiyat sunumunda geriliyorum, itiraz gelince ne diyeceğimi bilmiyorum..." required></textarea>
-        </div>
-
-        <div class="form-group">
-          <label class="form-label">Uygulama İçin Günde 1 Saat Ayırabilir Misin? <span class="req">*</span></label>
-          <div class="form-radio-group">
-            <label class="form-radio">
-              <input type="radio" name="commit" value="Evet, günde 1 saat ayırabilirim" required>
-              <span>Evet, günde 1 saat ayırabilirim</span>
-            </label>
-            <label class="form-radio">
-              <input type="radio" name="commit" value="Emin değilim" required>
-              <span>Emin değilim, görüşmede birlikte değerlendirmek istiyorum</span>
-            </label>
+          <div class="form-group">
+            <label class="form-label" for="fprice">Ortalama Ürün / Hizmet Fiyatı</label>
+            <select id="fprice" name="price" class="form-select">
+              <option value="">Seçiniz…</option>
+              <option value="0-5.000 ₺">0 – 5.000 ₺</option>
+              <option value="5.000-15.000 ₺">5.000 – 15.000 ₺</option>
+              <option value="15.000-50.000 ₺">15.000 – 50.000 ₺</option>
+              <option value="50.000-150.000 ₺">50.000 – 150.000 ₺</option>
+              <option value="150.000 ₺ +">150.000 ₺ +</option>
+            </select>
           </div>
+
+          <div class="form-group">
+            <label class="form-label" for="fchallenge">En Büyük Satış Problemin <span class="req">*</span></label>
+            <textarea id="fchallenge" name="challenge" class="form-textarea" placeholder="Örn: Görüşmelerim 'düşüneyim' ile bitiyor, fiyat sunumunda geriliyorum, itiraz gelince ne diyeceğimi bilmiyorum..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Uygulama İçin Günde 1 Saat Ayırabilir Misin? <span class="req">*</span></label>
+            <div class="form-radio-group">
+              <label class="form-radio">
+                <input type="radio" name="commit" value="Evet, günde 1 saat ayırabilirim" required>
+                <span>Evet, günde 1 saat ayırabilirim</span>
+              </label>
+              <label class="form-radio">
+                <input type="radio" name="commit" value="Emin değilim" required>
+                <span>Emin değilim, görüşmede birlikte değerlendirmek istiyorum</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-error" id="formError"></div>
+
+          <button type="submit" class="form-submit">Başvurumu Tamamla</button>
+
+          <p class="form-disclaimer">
+            Başvurunun ardından ekibimiz mevcut satış sürecini değerlendirmek ve
+            programın sana uygun olup olmadığını belirlemek için seninle iletişime geçecektir.
+          </p>
         </div>
-
-        <div class="form-error" id="formError"></div>
-
-        <button type="submit" class="form-submit">Başvurumu Tamamla</button>
-
-        <p class="form-disclaimer">
-          Başvurunun ardından ekibimiz mevcut satış sürecini değerlendirmek ve
-          programın sana uygun olup olmadığını belirlemek için seninle iletişime geçecektir.
-        </p>
       </form>
 
       <div class="apply-success" id="applySuccess" style="display:none;" role="status" aria-live="polite">
@@ -3362,6 +3318,36 @@
 
       let lastFocused = null;
 
+      // Two-step form navigation
+      function goToStep(step) {
+        const step1 = document.getElementById('formStep1');
+        const step2 = document.getElementById('formStep2');
+        const label = document.getElementById('stepLabel');
+        const fill  = document.getElementById('stepFill');
+        if (!step1 || !step2) return;
+        if (step === 1) {
+          step1.classList.remove('hidden');
+          step2.classList.add('hidden');
+          if (label) label.textContent = 'Adım 1/2';
+          if (fill)  fill.style.width  = '50%';
+        } else {
+          step1.classList.add('hidden');
+          step2.classList.remove('hidden');
+          if (label) label.textContent = 'Adım 2/2';
+          if (fill)  fill.style.width  = '100%';
+          const nameVal  = (document.getElementById('fname').value  || '').trim();
+          const phoneVal = (document.getElementById('fphone').value || '').trim();
+          const rn = document.getElementById('recapName');
+          const rp = document.getElementById('recapPhone');
+          if (rn) rn.textContent = nameVal || '—';
+          if (rp) rp.textContent = phoneVal || '—';
+          setTimeout(() => {
+            const email = document.getElementById('femail');
+            if (email && !email.value) email.focus();
+          }, 80);
+        }
+      }
+
       function openApplyModal() {
         lastFocused = document.activeElement;
         modal.classList.add('is-open');
@@ -3379,6 +3365,7 @@
             submitBtn.disabled = false;
             submitBtn.textContent = 'Başvurumu Tamamla';
           }
+          goToStep(1);
         }
         // focus close button for keyboard users
         setTimeout(() => {
@@ -3394,6 +3381,39 @@
         if (lastFocused && lastFocused.focus) {
           try { lastFocused.focus(); } catch (e) {}
         }
+      }
+
+      // Step 1 → 2 (Devam Et)
+      const continueBtn = document.getElementById('stepContinueBtn');
+      if (continueBtn) {
+        continueBtn.addEventListener('click', () => {
+          const errBox = document.getElementById('formError1');
+          errBox.classList.remove('show');
+          errBox.textContent = '';
+          const nameVal  = (document.getElementById('fname').value  || '').trim();
+          const phoneVal = (document.getElementById('fphone').value || '').trim();
+          const missing = [];
+          if (!nameVal)  missing.push('Ad Soyad');
+          if (!phoneVal) missing.push('Telefon');
+          if (missing.length) {
+            errBox.textContent = 'Lütfen şu alanları doldur: ' + missing.join(', ') + '.';
+            errBox.classList.add('show');
+            return;
+          }
+          const cleanPhone = phoneVal.replace(/\D/g, '');
+          if (cleanPhone.length < 10) {
+            errBox.textContent = 'Lütfen geçerli bir telefon numarası gir (en az 10 hane).';
+            errBox.classList.add('show');
+            return;
+          }
+          goToStep(2);
+        });
+      }
+
+      // Step 2 → 1 (Değiştir / geri)
+      const backBtn = document.getElementById('stepBackBtn');
+      if (backBtn) {
+        backBtn.addEventListener('click', () => goToStep(1));
       }
 
       // Global click delegation — any link with href="#basvuru" opens the modal
@@ -3543,105 +3563,6 @@
       }
     });
 
-    /* ============ COUNTDOWN TIMER (evergreen 48h, per-visitor) ============
-       Kullanicinin ilk ziyaretinde 48 saatlik sayac baslar, localStorage'a
-       kaydedilir. Sayfa yenilense de devam eder. Sifira dustugunde yeni bir
-       48 saatlik tur baslar — sayfada "her zaman aciliyet" hissi yaratir.
-    ============================================================================ */
-    (function() {
-      const STORAGE_KEY = 'sl-cd-end';
-      const DURATION_MS = 48 * 60 * 60 * 1000; // 48 saat
-      const el = document.getElementById('cdTime');
-      if (!el) return;
-
-      let endAt = parseInt(localStorage.getItem(STORAGE_KEY) || '0', 10);
-      const now = Date.now();
-      if (!endAt || endAt < now) {
-        endAt = now + DURATION_MS;
-        localStorage.setItem(STORAGE_KEY, String(endAt));
-      }
-
-      function update() {
-        let remaining = Math.max(0, endAt - Date.now());
-        if (remaining === 0) {
-          // Sayac bitti — yeni tur
-          endAt = Date.now() + DURATION_MS;
-          localStorage.setItem(STORAGE_KEY, String(endAt));
-          remaining = DURATION_MS;
-        }
-        const totalSec = Math.floor(remaining / 1000);
-        const h = String(Math.floor(totalSec / 3600)).padStart(2, '0');
-        const m = String(Math.floor((totalSec % 3600) / 60)).padStart(2, '0');
-        const s = String(totalSec % 60).padStart(2, '0');
-        el.textContent = h + ':' + m + ':' + s;
-      }
-      update();
-      setInterval(update, 1000);
-    })();
-
-    /* ============ ACTIVITY TOASTS (Live application notifications) ============
-       Sayfa acildiginda alt sag koseden sirayla 6 adet basvuru toast'i
-       gorunur — kullaniciya sosyal kanit hissi verir.
-
-       Onemli: RECENT_ACTIVITY arrayini Faruk kendi gercek katilimci
-       verileriyle guncelleyebilir (isim + sehir + kac dk once). Placeholder
-       veriler gecici — hangi zaman gerceklerle degistirilse toast'lar
-       cikmaya devam eder, kod degismez.
-    ============================================================================ */
-    (function() {
-      const container = document.getElementById('toastContainer');
-      if (!container) return;
-
-      const RECENT_ACTIVITY = [
-        { name: 'Berat K.',   city: 'İstanbul', minutesAgo: 4  },
-        { name: 'Elif S.',    city: 'Ankara',   minutesAgo: 11 },
-        { name: 'Mert D.',    city: 'İzmir',    minutesAgo: 23 },
-        { name: 'Zeynep A.',  city: 'Bursa',    minutesAgo: 38 },
-        { name: 'Ahmet Y.',   city: 'Antalya',  minutesAgo: 47 },
-        { name: 'Sinem T.',   city: 'Konya',    minutesAgo: 62 }
-      ];
-
-      // Her toast'in tetiklenme zamani (ms, sayfa yuklendikten sonra)
-      const FIRE_DELAYS = [18000, 52000, 92000, 138000, 190000, 250000];
-
-      function formatTime(min) {
-        if (min < 60) return min + ' dakika önce';
-        const hr = Math.floor(min / 60);
-        return hr + ' saat önce';
-      }
-
-      function dismiss(toast) {
-        if (toast.classList.contains('leaving')) return;
-        toast.classList.add('leaving');
-        setTimeout(() => toast.remove(), 400);
-      }
-
-      function showToast(entry) {
-        const toast = document.createElement('div');
-        toast.className = 'toast';
-        toast.setAttribute('role', 'status');
-        toast.innerHTML =
-          '<div class="toast-content">' +
-            '<div class="toast-icon" aria-hidden="true">✓</div>' +
-            '<div class="toast-text">' +
-              '<div><span class="toast-name">' + entry.name + '</span> <span class="toast-city">· ' + entry.city + '</span></div>' +
-              '<div class="toast-action">7G Satış Kampı\'na başvurdu</div>' +
-              '<div class="toast-time">' + formatTime(entry.minutesAgo) + '</div>' +
-            '</div>' +
-            '<button class="toast-close" type="button" aria-label="Kapat">×</button>' +
-          '</div>';
-
-        toast.querySelector('.toast-close').addEventListener('click', () => dismiss(toast));
-        container.appendChild(toast);
-        setTimeout(() => dismiss(toast), 7000);
-      }
-
-      FIRE_DELAYS.forEach((delay, i) => {
-        if (i < RECENT_ACTIVITY.length) {
-          setTimeout(() => showToast(RECENT_ACTIVITY[i]), delay);
-        }
-      });
-    })();
   </script>
 </body>
 </html>
