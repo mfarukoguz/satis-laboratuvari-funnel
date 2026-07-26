@@ -3128,7 +3128,7 @@
         <h2 class="apply-modal-title" id="applyModalTitle">7G Satış Kampına <em>Başvur</em></h2>
         <p class="apply-modal-sub">
           Satışlarını arttırmak için formu doldur ve uzman ekibimizle
-          ücretsiz görüşme yap.
+          ücretsiz analiz görüşmesi yap.
         </p>
       </div>
 
@@ -3142,7 +3142,7 @@
           </div>
         </div>
 
-        <!-- STEP 1: Ad + Telefon (mikro-commitment) -->
+        <!-- STEP 1: Ad + Telefon + E-posta (mikro-commitment) -->
         <div class="form-step" id="formStep1">
           <div class="form-group">
             <label class="form-label" for="fname">Ad Soyad <span class="req">*</span></label>
@@ -3152,6 +3152,11 @@
           <div class="form-group">
             <label class="form-label" for="fphone">Telefon <span class="req">*</span></label>
             <input type="tel" id="fphone" name="phone" class="form-input" placeholder="05XX..." required autocomplete="tel">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="femail">E-posta <span class="req">*</span></label>
+            <input type="email" id="femail" name="email" class="form-input" placeholder="ornek@mail.com" required autocomplete="email">
           </div>
 
           <div class="form-error" id="formError1"></div>
@@ -3167,14 +3172,9 @@
         <div class="form-step hidden" id="formStep2">
           <div class="form-step-recap">
             <div class="form-step-recap-info">
-              <strong id="recapName">—</strong> · <span id="recapPhone">—</span>
+              <strong id="recapName">—</strong> · <span id="recapPhone">—</span> · <span id="recapEmail">—</span>
             </div>
             <button type="button" class="form-step-recap-back" id="stepBackBtn">← Değiştir</button>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="femail">E-posta <span class="req">*</span></label>
-            <input type="email" id="femail" name="email" class="form-input" placeholder="ornek@mail.com" required autocomplete="email">
           </div>
 
           <div class="form-group">
@@ -3337,13 +3337,16 @@
           if (fill)  fill.style.width  = '100%';
           const nameVal  = (document.getElementById('fname').value  || '').trim();
           const phoneVal = (document.getElementById('fphone').value || '').trim();
+          const emailVal = (document.getElementById('femail').value || '').trim();
           const rn = document.getElementById('recapName');
           const rp = document.getElementById('recapPhone');
-          if (rn) rn.textContent = nameVal || '—';
+          const re = document.getElementById('recapEmail');
+          if (rn) rn.textContent = nameVal  || '—';
           if (rp) rp.textContent = phoneVal || '—';
+          if (re) re.textContent = emailVal || '—';
           setTimeout(() => {
-            const email = document.getElementById('femail');
-            if (email && !email.value) email.focus();
+            const job = document.getElementById('fjob');
+            if (job && !job.value) job.focus();
           }, 80);
         }
       }
@@ -3392,9 +3395,11 @@
           errBox.textContent = '';
           const nameVal  = (document.getElementById('fname').value  || '').trim();
           const phoneVal = (document.getElementById('fphone').value || '').trim();
+          const emailVal = (document.getElementById('femail').value || '').trim();
           const missing = [];
           if (!nameVal)  missing.push('Ad Soyad');
           if (!phoneVal) missing.push('Telefon');
+          if (!emailVal) missing.push('E-posta');
           if (missing.length) {
             errBox.textContent = 'Lütfen şu alanları doldur: ' + missing.join(', ') + '.';
             errBox.classList.add('show');
@@ -3403,6 +3408,11 @@
           const cleanPhone = phoneVal.replace(/\D/g, '');
           if (cleanPhone.length < 10) {
             errBox.textContent = 'Lütfen geçerli bir telefon numarası gir (en az 10 hane).';
+            errBox.classList.add('show');
+            return;
+          }
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+            errBox.textContent = 'Lütfen geçerli bir e-posta adresi gir.';
             errBox.classList.add('show');
             return;
           }
