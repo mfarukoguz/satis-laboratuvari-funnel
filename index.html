@@ -898,6 +898,53 @@
     .testimonial-card.is-extra { display: none; }
     .testimonial-grid.is-expanded .testimonial-card.is-extra { display: block; }
 
+    /* Founder pair — Alihan video + Rehberim Sensin brand card yan yana */
+    .testimonial-grid.is-founder-pair {
+      grid-template-columns: 1fr 1fr;
+      max-width: 780px;
+      align-items: stretch;
+      gap: 20px;
+    }
+    @media (max-width: 700px) {
+      .testimonial-grid.is-founder-pair {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
+    }
+    /* Brand-card dark override (sadece .testimonials içindeki instance için) */
+    .testimonials .brand-card {
+      background: var(--dark-2);
+      border-color: rgba(201, 167, 92, 0.18);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      color: var(--cream-light);
+      flex: 1 1 auto;
+      padding: 32px 24px 26px;
+      justify-content: flex-start;
+    }
+    .testimonials .brand-card:hover {
+      border-color: rgba(201, 167, 92, 0.45);
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.5);
+    }
+    .testimonials .brand-ig-icon { color: rgba(201, 167, 92, 0.55); }
+    .testimonials .brand-card:hover .brand-ig-icon { color: var(--gold-bright); }
+    .testimonials .brand-avatar {
+      border-color: var(--dark-3);
+      background: var(--dark-3);
+    }
+    .testimonials .brand-handle { color: var(--gold-bright); }
+    .testimonials .brand-name { color: var(--cream-light); }
+    .testimonials .brand-desc { color: var(--cream-dark); }
+    .testimonials .brand-followers {
+      color: var(--cream-dark);
+      border-top-color: rgba(201, 167, 92, 0.14);
+    }
+    .testimonials .brand-followers strong { color: var(--gold-bright); }
+    .testimonials .brand-testimonial { border-top-color: rgba(201, 167, 92, 0.28); }
+    .testimonials .brand-quote { color: var(--cream-dark); }
+    .testimonials .brand-quote::before { color: var(--gold-bright); }
+    .testimonials .brand-founder { color: var(--gold-bright); }
+    .testimonials .brand-founder::before { background: var(--gold-bright); }
+
     @media (max-width: 900px) {
       .testimonial-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
     }
@@ -2147,7 +2194,7 @@
       <p class="section-sub" style="margin-bottom: 36px;">
         Ekiplerini kurduğumuz kurucular ne diyor — sürecin kısa özeti kendi ağzından.
       </p>
-      <div class="testimonial-grid" style="grid-template-columns: 1fr; max-width: 420px;">
+      <div class="testimonial-grid is-founder-pair">
         <div class="testimonial-card">
           <div class="testimonial-video-wrap">
             <video
@@ -2173,6 +2220,20 @@
             </a>
           </div>
         </div>
+
+        <!-- Rehberim Sensin Instagram brand card -->
+        <a href="https://www.instagram.com/rehberimsensin/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Rehberim Sensin Instagram profili">
+          <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/rehberimsensin.png" alt="Rehberim Sensin" loading="lazy"></div>
+          <div class="brand-handle">@rehberimsensin</div>
+          <div class="brand-name">Rehberim Sensin</div>
+          <div class="brand-desc">Türkiye'nin En Gelişmiş Öğrenci Koçluğu</div>
+          <div class="brand-followers"><strong>167K</strong> takipçi</div>
+          <div class="brand-testimonial">
+            <div class="brand-quote">Satış sürecimizi Faruk beyle birlikte sisteme bağladıktan sonra kayıtlarımızda ciddi bir artış yakaladık; ekibimiz artık çok daha rahat çalışıyor.</div>
+            <div class="brand-founder">Alihan Solak · Kurucu</div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
