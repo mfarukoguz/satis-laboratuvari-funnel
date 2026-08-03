@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kariyer — Satış Danışmanı Ol | Satış Laboratuvarı</title>
+  <meta name="description" content="Danışmanlık verdiğimiz şirketlerde satış uzmanı ihtiyacı doğduğunda seni doğru markayla eşleştiriyoruz. Uzaktan çalışma, sabit maaş + komisyon + prim, sıfırdan 7G Satış Sistemi eğitimi." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mfarukoguz.github.io/satis-laboratuvari-funnel/kariyer.html" />
+  <meta property="og:title" content="Kariyer — Satış Danışmanı Ol | Satış Laboratuvarı · Faruk Oğuz" />
+  <meta property="og:description" content="Deneyimli ya da yeni başlayan satış uzmanları — uzaktan çalışma, maaş + komisyon + prim, saha eğitimi." />
+  <meta property="og:image" content="https://mfarukoguz.github.io/satis-laboratuvari-funnel/images/og-image.jpg" />
+  <meta property="og:locale" content="tr_TR" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================
+       ROOT — Cream premium palette (satis-egitimleri ile hizali)
+       ================================================ */
+    :root {
+      --cream: #EBE4D3;
+      --cream-light: #F5EEDD;
+      --cream-dark: #DDD3BC;
+      --cream-warm: #E8DDC7;
+
+      --dark: #0A0906;
+      --dark-2: #1A1610;
+      --dark-3: #2A2419;
+
+      --text: #2A2419;
+      --text-muted: #5A4F42;
+      --text-dim: #7A6F5E;
+
+      --gold: #B49146;
+      --gold-bright: #C9A75C;
+      --gold-deep: #8A6E32;
+      --gold-soft: rgba(180, 145, 70, 0.14);
+
+      --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
+
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --radius-pill: 100px;
+
+      --shadow-card: 0 8px 24px rgba(42, 36, 25, 0.06);
+      --shadow-card-hover: 0 14px 40px rgba(42, 36, 25, 0.10);
+      --shadow-gold: 0 12px 28px rgba(180, 145, 70, 0.28);
+
+      --container: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ::selection { background: var(--gold); color: white; }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============ HEADER ============ */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(235, 228, 211, 0.88);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-bottom: 1px solid transparent;
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    header.is-scrolled {
+      background: rgba(235, 228, 211, 0.96);
+      border-bottom-color: rgba(180, 145, 70, 0.2);
+      box-shadow: 0 8px 24px rgba(42, 36, 25, 0.06);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 24px;
+      max-width: 1320px;
+      margin: 0 auto;
+      transition: padding 0.3s;
+    }
+    header.is-scrolled .nav { padding: 12px 24px; }
+    .logo { display: flex; flex-direction: column; gap: 2px; text-decoration: none; }
+    .logo-mark {
+      font-style: italic;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .logo-sub {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .nav-link {
+      display: inline-block;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      border-radius: var(--radius-sm);
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-link:hover { color: var(--gold-deep); background: rgba(180, 145, 70, 0.08); }
+    .nav-ig {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(42, 36, 25, 0.04);
+      border: 1px solid rgba(42, 36, 25, 0.10);
+      color: var(--text);
+      transition: all 0.25s;
+    }
+    .nav-ig:hover {
+      background: var(--dark);
+      color: var(--cream-light);
+      border-color: var(--dark);
+      transform: translateY(-1px);
+    }
+    .nav-ig svg { width: 18px; height: 18px; }
+    .nav-cta {
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      color: white;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      padding: 12px 22px;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+      box-shadow: var(--shadow-gold);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 16px 32px rgba(180, 145, 70, 0.35); }
+
+    /* ============ HERO ============ */
+    .hero {
+      padding: 80px 0 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 45% at 30% 20%, rgba(255, 240, 210, 0.5), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 80% 85%, rgba(180, 145, 70, 0.10), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero > * { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-block;
+      padding: 8px 18px;
+      background: white;
+      border: 1px solid var(--gold);
+      color: var(--gold-deep);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(34px, 5.2vw, 64px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 22px;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero h1 .accent,
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-deep);
+      font-weight: 800;
+      background: none;
+      -webkit-text-fill-color: currentColor;
+    }
+    .hero-sub {
+      font-size: clamp(15px, 1.5vw, 18px);
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .hero-sub strong { color: var(--dark); font-weight: 700; }
+
+    /* ============ SECTION TITLES ============ */
+    .section-title {
+      font-size: clamp(28px, 3.6vw, 44px);
+      font-weight: 800;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 18px;
+      line-height: 1.15;
+      letter-spacing: -1px;
+    }
+    .section-title .accent,
+    .section-title em {
+      font-style: italic;
+      color: var(--gold-deep);
+      background: none;
+      -webkit-text-fill-color: currentColor;
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 52px;
+      font-size: clamp(15px, 1.4vw, 17px);
+      line-height: 1.7;
+    }
+
+    /* ============ BRAND GRID (calisilan markalar + kurucu yorumlari) ============ */
+    .brand-section {
+      padding: 90px 0;
+      background: var(--cream-light);
+    }
+    .brand-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 22px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .brand-card {
+      flex: 0 1 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      background: white;
+      border: 1px solid rgba(42, 36, 25, 0.06);
+      border-radius: var(--radius-lg);
+      padding: 30px 22px 24px;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      color: var(--text);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .brand-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(180, 145, 70, 0.35);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .brand-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .brand-card:hover::before { opacity: 1; }
+    .brand-ig-icon {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 22px;
+      height: 22px;
+      color: var(--text-dim);
+      transition: color 0.25s, transform 0.25s;
+    }
+    .brand-card:hover .brand-ig-icon {
+      color: var(--gold);
+      transform: scale(1.15);
+    }
+    .brand-avatar-wrap {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin-bottom: 18px;
+    }
+    .brand-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--cream);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--gold);
+      display: block;
+    }
+    .brand-handle {
+      font-size: 13px;
+      color: var(--gold-deep);
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: 0.3px;
+    }
+    .brand-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .brand-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+      min-height: 40px;
+    }
+    .brand-followers {
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(42, 36, 25, 0.08);
+      padding-top: 14px;
+      width: 100%;
+    }
+    .brand-followers strong {
+      color: var(--gold-deep);
+      font-weight: 800;
+      font-size: 15px;
+    }
+    .brand-testimonial {
+      width: 100%;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(180, 145, 70, 0.32);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .brand-quote {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--text);
+      font-style: italic;
+      position: relative;
+      padding-left: 14px;
+      text-align: left;
+    }
+    .brand-quote::before {
+      content: '"';
+      position: absolute;
+      left: -2px;
+      top: -4px;
+      font-style: italic;
+      font-size: 32px;
+      line-height: 1;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .brand-founder {
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+    }
+    .brand-founder::before {
+      content: '';
+      width: 18px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    @media (max-width: 600px) {
+      .brand-card { flex: 0 1 100%; max-width: 340px; }
+    }
+
+    /* ============ TESTIMONIALS ============ */
+    .testimonials {
+      padding: 90px 0;
+      background: var(--cream);
+    }
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .testimonial-card {
+      background: white;
+      border: 1px solid rgba(42, 36, 25, 0.06);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      box-shadow: var(--shadow-card);
+    }
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(180, 145, 70, 0.35);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .testimonial-video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: var(--dark);
+      overflow: hidden;
+    }
+    .testimonial-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .testimonial-video-facade {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      transition: opacity 0.3s;
+      z-index: 2;
+    }
+    .testimonial-video-facade.is-hidden { opacity: 0; pointer-events: none; }
+    .testimonial-video-facade::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,9,6,0.1) 30%, rgba(10,9,6,0.5));
+    }
+    .testimonial-play-btn {
+      position: relative;
+      z-index: 1;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 44px rgba(180, 145, 70, 0.45), 0 0 0 8px rgba(255,255,255,0.14);
+      transition: transform 0.3s;
+    }
+    .testimonial-video-facade:hover .testimonial-play-btn { transform: scale(1.08); }
+    .testimonial-play-btn svg { width: 30px; height: 30px; color: white; margin-left: 3px; }
+    .testimonial-meta {
+      padding: 20px 24px;
+      text-align: center;
+      border-top: 1px solid rgba(42, 36, 25, 0.06);
+    }
+    .testimonial-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .testimonial-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--gold-deep);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .testimonial-brand:hover { color: var(--gold); }
+    .testimonial-brand svg { width: 14px; height: 14px; }
+
+    @media (max-width: 900px) {
+      .testimonial-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    }
+    @media (max-width: 600px) {
+      .testimonial-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============ WHATSAPP MARQUEE ============ */
+    .whatsapp-proofs {
+      padding: 90px 0;
+      background: var(--cream-light);
+      overflow: hidden;
+      position: relative;
+    }
+    .wp-marquee {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 40px;
+      padding: 16px 0;
+      mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 5%, black 95%, transparent 100%);
+    }
+    .wp-marquee-track {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      animation: wp-scroll-right 90s linear infinite;
+      will-change: transform;
+    }
+    .wp-marquee:hover .wp-marquee-track { animation-play-state: paused; }
+    @keyframes wp-scroll-right {
+      from { transform: translateX(-50%); }
+      to   { transform: translateX(0); }
+    }
+    .wp-card {
+      flex: 0 0 auto;
+      height: 200px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(42, 36, 25, 0.08);
+      background: white;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+    .wp-card:hover {
+      transform: translateY(-4px) scale(1.03);
+      border-color: rgba(180, 145, 70, 0.4);
+      box-shadow: var(--shadow-card-hover);
+      z-index: 2;
+    }
+    .wp-card img {
+      height: 100%;
+      width: auto;
+      min-width: 220px;
+      display: block;
+      pointer-events: none;
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      .wp-card { height: 150px; }
+      .wp-card img { min-width: 150px; }
+      .wp-marquee-track { animation-duration: 60s; gap: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wp-marquee-track { animation: none; }
+    }
+
+    /* ============ CTA (bottom) ============ */
+    .final-cta {
+      padding: 100px 0 120px;
+      text-align: center;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(180, 145, 70, 0.14), transparent 60%);
+      pointer-events: none;
+    }
+    .final-cta > * { position: relative; z-index: 1; }
+    .final-cta h2 {
+      font-size: clamp(28px, 3.8vw, 46px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .final-cta h2 .accent,
+    .final-cta h2 em {
+      font-style: italic;
+      color: var(--gold-deep);
+      background: none;
+      -webkit-text-fill-color: currentColor;
+    }
+    .final-cta p {
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto 40px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      color: white;
+      font-weight: 800;
+      font-size: clamp(14px, 1.5vw, 17px);
+      padding: 20px 44px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 14px 32px rgba(180, 145, 70, 0.35), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 44px rgba(180, 145, 70, 0.5), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+
+    /* ============ FOOTER (dark section, satis-egitimleri ile hizali) ============ */
+    footer {
+      background: var(--dark);
+      color: var(--cream-light);
+      border-top: 1px solid rgba(180, 145, 70, 0.15);
+      padding: 50px 0 34px;
+      text-align: center;
+    }
+    .footer-brand {
+      font-style: italic;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--gold-bright);
+      margin-bottom: 8px;
+    }
+    .footer-copy { color: var(--cream-dark); font-size: 12px; margin-bottom: 18px; opacity: 0.75; }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--gold-bright);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: white; }
+
+    @media (max-width: 768px) {
+      .nav { padding: 14px 18px; gap: 8px; }
+      .nav-link { padding: 8px 12px; font-size: 12px; }
+      .nav-cta { font-size: 11px; padding: 10px 16px; }
+      .nav-ig { width: 38px; height: 38px; }
+      .hero { padding: 60px 0 40px; }
+      .brand-section, .testimonials, .whatsapp-proofs { padding: 60px 0; }
+      .final-cta { padding: 70px 0 90px; }
+      .section-sub { margin-bottom: 40px; }
+    }
+  </style>
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3988359247973358');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3988359247973358&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header>
+    <nav class="nav">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">Satış Laboratuvarı</span>
+        <span class="logo-sub">Faruk Oğuz</span>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="nav-link">Ana Sayfa</a>
+        <a href="satis-egitimleri.html" class="nav-link">Satış Eğitimleri</a>
+        <a href="referanslar.html" class="nav-link">Referanslar</a>
+        <a href="https://www.instagram.com/mfarukoguz/" class="nav-ig" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="index.html#randevu" class="nav-cta">Randevu Al</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" style="background: var(--dark); color: var(--cream-light); padding: 80px 0 100px; position: relative; overflow: hidden;">
+    <div class="container" style="max-width: 900px; text-align: center; position: relative; z-index: 2;">
+      <span class="hero-eyebrow" style="background: rgba(201, 167, 92, 0.08); border: 1px solid rgba(201, 167, 92, 0.35); color: var(--gold-bright); display: inline-block; padding: 8px 18px; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; border-radius: var(--radius-pill); margin-bottom: 24px;">Kariyer</span>
+      <h1 style="color: var(--cream-light); font-size: clamp(30px, 5vw, 56px); font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 22px;">
+        Satış Danışmanı Olarak <span class="accent" style="color: var(--gold-bright); font-style: italic;">Bizimle Çalış</span>
+      </h1>
+      <p class="hero-sub" style="color: var(--cream-dark); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.65; max-width: 720px; margin: 0 auto 40px; font-weight: 500;">
+        Danışmanlık verdiğimiz şirketlerde satış uzmanı ihtiyacı doğuyor.
+        Deneyimli ya da yeni başlayan — <strong style="color: var(--gold-bright); font-weight: 800;">uzaktan çalışma</strong>,
+        <strong style="color: var(--gold-bright); font-weight: 800;">maaş + komisyon + prim</strong> ve
+        <strong style="color: var(--gold-bright); font-weight: 800;">saha eğitimi</strong> ile
+        seni doğru markayla eşleştiriyoruz.
+      </p>
+
+      <div class="kariyer-video-wrap" style="max-width: 340px; margin: 0 auto 36px; border-radius: var(--radius-lg); overflow: hidden; background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.25); box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 6px rgba(180, 145, 70, 0.08);">
+        <video controls playsinline preload="metadata" poster="videos/kariyer/kariyer-hero-poster.jpg" style="width: 100%; height: auto; display: block; aspect-ratio: 9/16; object-fit: cover; background: var(--dark);">
+          <source src="videos/kariyer/kariyer-hero.mp4" type="video/mp4">
+          Tarayıcınız video oynatmayı desteklemiyor.
+        </video>
+      </div>
+
+      <a href="#basvuru" class="btn-primary" style="display: inline-flex;">Başvuru Detayları →</a>
+    </div>
+  </section>
+
+  <!-- ============ KİMLER İÇİN? ============ -->
+  <section style="background: var(--cream-light); padding: 90px 0;">
+    <div class="container">
+      <h2 class="section-title">Bu Fırsat <span class="accent">Kimler İçin?</span></h2>
+      <p class="section-sub" style="margin-bottom: 48px;">Kapı geniş — deneyim şart değil, hazır olduğun noktadan başlıyoruz.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1080px; margin: 0 auto;">
+        <div class="kariyer-who-card" style="background: white; border: 1px solid rgba(42, 36, 25, 0.06); border-radius: var(--radius-xl); padding: 32px 26px; text-align: center; box-shadow: var(--shadow-card); transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;">
+          <div style="font-size: 40px; margin-bottom: 16px;">🚀</div>
+          <h3 style="font-size: 19px; font-weight: 800; color: var(--dark); margin-bottom: 10px; letter-spacing: -0.3px;">Deneyimli Satışçılar</h3>
+          <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.6;">Portföyünü büyütmek isteyen, sektör değişikliği düşünen ya da uzaktan pozisyon arayan satış uzmanları için ideal fırsat.</p>
+        </div>
+
+        <div class="kariyer-who-card" style="background: white; border: 1px solid rgba(42, 36, 25, 0.06); border-radius: var(--radius-xl); padding: 32px 26px; text-align: center; box-shadow: var(--shadow-card); transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;">
+          <div style="font-size: 40px; margin-bottom: 16px;">🌱</div>
+          <h3 style="font-size: 19px; font-weight: 800; color: var(--dark); margin-bottom: 10px; letter-spacing: -0.3px;">Deneyimsiz Adaylar</h3>
+          <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.6;">İlk satış işini arıyorsan da olur — 7G Satış Sistemi ile sıfırdan eğitim veriyor, hazır sistemle sahaya çıkarıyoruz.</p>
+        </div>
+
+        <div class="kariyer-who-card" style="background: white; border: 1px solid rgba(42, 36, 25, 0.06); border-radius: var(--radius-xl); padding: 32px 26px; text-align: center; box-shadow: var(--shadow-card); transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;">
+          <div style="font-size: 40px; margin-bottom: 16px;">🏠</div>
+          <h3 style="font-size: 19px; font-weight: 800; color: var(--dark); margin-bottom: 10px; letter-spacing: -0.3px;">Uzaktan Çalışmak İsteyenler</h3>
+          <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.6;">Pozisyonların büyük çoğunluğu uzaktan (Zoom + telefon üzerinden). Şehir sınırı yok, bilgisayar + net internet yeterli.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NE SUNUYORUZ? (DARK) ============ -->
+  <section style="background: var(--dark); color: var(--cream-light); padding: 90px 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201, 167, 92, 0.10), transparent 55%); pointer-events: none;"></div>
+    <div class="container" style="position: relative;">
+      <h2 class="section-title" style="color: var(--cream-light);">Ne <span class="accent" style="color: var(--gold-bright);">Sunuyoruz?</span></h2>
+      <p class="section-sub" style="color: var(--cream-dark); margin-bottom: 48px;">Sadece iş değil — sürdürülebilir bir satış kariyeri.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1080px; margin: 0 auto;">
+        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
+          <div style="font-size: 32px; font-weight: 900; color: var(--gold-bright); letter-spacing: -1px; margin-bottom: 12px; line-height: 1;">01</div>
+          <h3 style="font-size: 18px; font-weight: 800; color: var(--cream-light); margin-bottom: 10px;">Sabit Maaş</h3>
+          <p style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Aylık düzenli ödeme — motive edici prim ve komisyon yapısı ile birlikte.</p>
+        </div>
+
+        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
+          <div style="font-size: 32px; font-weight: 900; color: var(--gold-bright); letter-spacing: -1px; margin-bottom: 12px; line-height: 1;">02</div>
+          <h3 style="font-size: 18px; font-weight: 800; color: var(--cream-light); margin-bottom: 10px;">Satış Komisyonu</h3>
+          <p style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Her kapatılan satışta komisyon — performansın direkt kazancına yansıyor.</p>
+        </div>
+
+        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
+          <div style="font-size: 32px; font-weight: 900; color: var(--gold-bright); letter-spacing: -1px; margin-bottom: 12px; line-height: 1;">03</div>
+          <h3 style="font-size: 18px; font-weight: 800; color: var(--cream-light); margin-bottom: 10px;">Hedef Primi</h3>
+          <p style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Aylık ve dönemsel hedefler geçildiğinde ekstra kazanç — çabanın karşılığı.</p>
+        </div>
+
+        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
+          <div style="font-size: 32px; font-weight: 900; color: var(--gold-bright); letter-spacing: -1px; margin-bottom: 12px; line-height: 1;">04</div>
+          <h3 style="font-size: 18px; font-weight: 800; color: var(--cream-light); margin-bottom: 10px;">Uzaktan Çalışma</h3>
+          <p style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Evinden, kafeden, kendi setup'ından çalış — pozisyonların çoğu uzaktan.</p>
+        </div>
+
+        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
+          <div style="font-size: 32px; font-weight: 900; color: var(--gold-bright); letter-spacing: -1px; margin-bottom: 12px; line-height: 1;">05</div>
+          <h3 style="font-size: 18px; font-weight: 800; color: var(--cream-light); margin-bottom: 10px;">7G Satış Eğitimi</h3>
+          <p style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Deneyimsiz de olsan hazır sistemli eğitim + sürekli saha koçluğu.</p>
+        </div>
+
+        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
+          <div style="font-size: 32px; font-weight: 900; color: var(--gold-bright); letter-spacing: -1px; margin-bottom: 12px; line-height: 1;">06</div>
+          <h3 style="font-size: 18px; font-weight: 800; color: var(--cream-light); margin-bottom: 10px;">Doğru Marka Eşleşmesi</h3>
+          <p style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Danışmanlık verdiğimiz şirketler arasından profiline uygun olanla seni buluşturuyoruz.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SÜREÇ NASIL İŞLİYOR? ============ -->
+  <section style="background: var(--cream); padding: 90px 0;">
+    <div class="container">
+      <h2 class="section-title">Süreç <span class="accent">Nasıl İşliyor?</span></h2>
+      <p class="section-sub" style="margin-bottom: 56px;">3 adımda — başvurudan sahada satış yapmaya kadar.</p>
+
+      <div style="max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
+        <div class="kariyer-step" style="display: flex; gap: 22px; background: white; border: 1px solid rgba(42, 36, 25, 0.06); border-radius: var(--radius-xl); padding: 28px 30px; box-shadow: var(--shadow-card); align-items: flex-start;">
+          <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-bright), var(--gold)); color: white; font-size: 22px; font-weight: 900; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-gold);">1</div>
+          <div>
+            <h3 style="font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.3px;">Başvuruyu Bize Yaparsın</h3>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.65;">2-3 dakikalık kendini tanıttığın bir video + özgeçmişini <a href="mailto:info@mfarukoguz.com" style="color: var(--gold-deep); font-weight: 700;">info@mfarukoguz.com</a> adresine gönderirsin.</p>
+          </div>
+        </div>
+
+        <div class="kariyer-step" style="display: flex; gap: 22px; background: white; border: 1px solid rgba(42, 36, 25, 0.06); border-radius: var(--radius-xl); padding: 28px 30px; box-shadow: var(--shadow-card); align-items: flex-start;">
+          <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-bright), var(--gold)); color: white; font-size: 22px; font-weight: 900; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-gold);">2</div>
+          <div>
+            <h3 style="font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.3px;">Şirket Eşleştirmesi</h3>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.65;">Profilini danışmanlık verdiğimiz şirketlerin ihtiyaçlarıyla eşleştirir, seni sektörüne ve deneyimine uygun markayla buluştururuz.</p>
+          </div>
+        </div>
+
+        <div class="kariyer-step" style="display: flex; gap: 22px; background: white; border: 1px solid rgba(42, 36, 25, 0.06); border-radius: var(--radius-xl); padding: 28px 30px; box-shadow: var(--shadow-card); align-items: flex-start;">
+          <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-bright), var(--gold)); color: white; font-size: 22px; font-weight: 900; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-gold);">3</div>
+          <div>
+            <h3 style="font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.3px;">Eğitim + Sahaya İniş</h3>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.65;">7G Satış Sistemi eğitimi ile başlar, sürekli koçlukla desteklenirsin. Deneyimli ya da yeni — hazır sistemle güvenle satış yaparsın.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BAŞVURU (DARK CTA) ============ -->
+  <section id="basvuru" style="background: var(--dark); color: var(--cream-light); padding: 90px 0; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201, 167, 92, 0.12), transparent 55%); pointer-events: none;"></div>
+    <div class="container" style="position: relative; max-width: 780px; text-align: center;">
+      <h2 class="section-title" style="color: var(--cream-light);">Nasıl <span class="accent" style="color: var(--gold-bright);">Başvurursun?</span></h2>
+      <p class="section-sub" style="color: var(--cream-dark); margin-bottom: 40px;">3 basit adım — hazırla, gönder, geri dönüşü bekle.</p>
+
+      <div style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.22); border-radius: var(--radius-xl); padding: 40px 34px; box-shadow: 0 20px 44px rgba(0,0,0,0.45); text-align: left;">
+        <div style="display: flex; gap: 16px; align-items: flex-start; margin-bottom: 22px;">
+          <span style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--gold-bright); color: var(--dark); font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center;">1</span>
+          <div>
+            <strong style="display: block; color: var(--cream-light); font-size: 16px; margin-bottom: 4px;">Kendini tanıtan 2-3 dakikalık bir video çek</strong>
+            <span style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Kim olduğun, satış deneyimin (varsa) ve neden bu işi istediğin — kısa ve samimi.</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 16px; align-items: flex-start; margin-bottom: 22px;">
+          <span style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--gold-bright); color: var(--dark); font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center;">2</span>
+          <div>
+            <strong style="display: block; color: var(--cream-light); font-size: 16px; margin-bottom: 4px;">Özgeçmişini hazırla</strong>
+            <span style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">PDF formatında güncel CV — daha önce yaptığın işler, aldığın eğitimler.</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 16px; align-items: flex-start; margin-bottom: 28px;">
+          <span style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--gold-bright); color: var(--dark); font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center;">3</span>
+          <div>
+            <strong style="display: block; color: var(--cream-light); font-size: 16px; margin-bottom: 4px;">info@mfarukoguz.com adresine gönder</strong>
+            <span style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Video + CV tek mailde. Uygun bulduğumuz adaylarla 5 iş günü içinde iletişime geçiyoruz.</span>
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="mailto:info@mfarukoguz.com?subject=Satış%20Danışmanı%20Başvurusu" class="btn-primary" style="display: inline-flex;">Başvurmak İçin Mail At →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">Satış Laboratuvarı · Faruk Oğuz</div>
+      <div class="footer-copy">© 2026 Tüm Hakları Saklıdır · Türkiye</div>
+      <div class="footer-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="satis-egitimleri.html">Satış Eğitimleri</a>
+        <a href="referanslar.html">Referanslar</a>
+        <a href="https://wa.me/905394931144" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.instagram.com/mfarukoguz/" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* Header shrink on scroll */
+    (function() {
+      const header = document.querySelector('header');
+      if (!header) return;
+      let ticking = false;
+      function update() {
+        header.classList.toggle('is-scrolled', window.scrollY > 20);
+        ticking = false;
+      }
+      window.addEventListener('scroll', () => {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+      }, { passive: true });
+    })();
+
+    /* Testimonial video facades — click to play */
+    document.querySelectorAll('.testimonial-video-facade').forEach(facade => {
+      const videoId = facade.dataset.target;
+      const video = document.getElementById(videoId);
+      if (!video) return;
+      function play() {
+        facade.classList.add('is-hidden');
+        video.play().catch(() => {});
+      }
+      facade.addEventListener('click', play);
+      facade.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+      });
+    });
+  </script>
+</body>
+</html>
