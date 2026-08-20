@@ -918,12 +918,28 @@
     .instructor-photo {
       width: 100%;
       position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(42, 36, 25, 0.20);
+      background: var(--dark-3);
     }
     .instructor-photo img {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: auto;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 30px 60px rgba(42, 36, 25, 0.20);
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      transition: opacity 1.1s ease;
+    }
+    .instructor-photo img.is-active,
+    .instructor-photo img:only-child {
+      opacity: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .instructor-photo img { transition: none; }
     }
     .instructor-content .section-title {
       margin-bottom: 22px;
@@ -1130,13 +1146,13 @@
     /* Carousel — horizontal scroll, snap, sağ/sol ok butonları */
     .testimonial-carousel {
       position: relative;
-      max-width: 1180px;
+      max-width: 1080px;
       margin: 46px auto 0;
-      padding: 0 56px;
+      padding: 0 60px;
     }
     .testimonial-track {
       display: flex;
-      gap: 22px;
+      gap: 20px;
       overflow-x: auto;
       overflow-y: visible;
       scroll-snap-type: x mandatory;
@@ -1145,20 +1161,29 @@
       -ms-overflow-style: none;
       padding: 8px 4px 20px;
       -webkit-overflow-scrolling: touch;
-      scroll-padding-left: 4px;
+      scroll-padding: 0;
+      /* Yanlarda fade — peek kart arka plana karışsın */
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
     }
     .testimonial-track::-webkit-scrollbar { display: none; }
     .testimonial-track .testimonial-card {
-      flex: 0 0 320px;
-      max-width: 320px;
-      scroll-snap-align: start;
+      flex: 0 0 240px;
+      max-width: 240px;
+      scroll-snap-align: center;
+      /* Default: kenardaki peek kartlar hafif blur — ok'a basınca merkeze gelince netleşir */
+      filter: blur(3px) brightness(0.85);
+      transition: filter 0.4s ease, transform 0.3s ease;
+    }
+    .testimonial-track .testimonial-card.is-in-view {
+      filter: blur(0) brightness(1);
     }
     .testimonial-carousel-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 46px;
-      height: 46px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       background: white;
       color: var(--dark);
@@ -1172,7 +1197,7 @@
       transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
       padding: 0;
     }
-    .testimonial-carousel-btn svg { width: 22px; height: 22px; }
+    .testimonial-carousel-btn svg { width: 20px; height: 20px; }
     .testimonial-carousel-btn:hover {
       background: linear-gradient(180deg, var(--gold-bright), var(--gold));
       color: white;
@@ -1180,14 +1205,17 @@
       transform: translateY(-50%) scale(1.06);
       box-shadow: 0 14px 30px rgba(180, 145, 70, 0.4);
     }
-    .testimonial-carousel-btn--prev { left: 6px; }
-    .testimonial-carousel-btn--next { right: 6px; }
+    .testimonial-carousel-btn--prev { left: 8px; }
+    .testimonial-carousel-btn--next { right: 8px; }
+    @media (prefers-reduced-motion: reduce) {
+      .testimonial-track .testimonial-card { transition: none; filter: none; }
+    }
     @media (max-width: 640px) {
-      .testimonial-carousel { padding: 0 12px; }
-      .testimonial-carousel-btn { width: 38px; height: 38px; }
-      .testimonial-carousel-btn--prev { left: -4px; }
-      .testimonial-carousel-btn--next { right: -4px; }
-      .testimonial-track .testimonial-card { flex: 0 0 78vw; max-width: 78vw; }
+      .testimonial-carousel { padding: 0 16px; max-width: 100%; }
+      .testimonial-carousel-btn { width: 36px; height: 36px; }
+      .testimonial-carousel-btn--prev { left: -2px; }
+      .testimonial-carousel-btn--next { right: -2px; }
+      .testimonial-track .testimonial-card { flex: 0 0 72vw; max-width: 72vw; }
     }
 
     /* ================================================
@@ -2824,8 +2852,13 @@
     <section class="instructor">
       <div class="container">
         <div class="instructor-grid">
-          <div class="instructor-photo">
-            <img src="images/hero/faruk-banner.jpg?v=2" alt="Faruk Oğuz — Satış Laboratuvarı" loading="lazy" width="800" height="900">
+          <div class="instructor-photo" data-slideshow data-slideshow-interval="3000">
+            <img src="images/instructor/faruk-1.jpg" alt="Faruk Oğuz — Satış Laboratuvarı" class="is-active" loading="eager">
+            <img src="images/instructor/faruk-2.jpg" alt="" loading="lazy">
+            <img src="images/instructor/faruk-3.jpg" alt="" loading="lazy">
+            <img src="images/instructor/faruk-4.jpg" alt="" loading="lazy">
+            <img src="images/instructor/faruk-5.jpg" alt="" loading="lazy">
+            <img src="images/instructor/faruk-6.jpg" alt="" loading="lazy">
           </div>
           <div class="instructor-content">
             <span class="section-eyebrow">Eğitmen</span>
@@ -3457,20 +3490,53 @@
       });
     });
 
-    /* ============ TESTIMONIAL CAROUSEL (sağ/sol ok butonları) ============ */
+    /* ============ INSTRUCTOR PHOTO SLIDESHOW (3sn'de bir geçiş) ============ */
+    (function() {
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      document.querySelectorAll('[data-slideshow]').forEach(root => {
+        const slides = Array.from(root.querySelectorAll('img'));
+        if (slides.length < 2 || reduce) return;
+        const interval = parseInt(root.dataset.slideshowInterval, 10) || 3000;
+        let i = 0;
+        setInterval(() => {
+          slides[i].classList.remove('is-active');
+          i = (i + 1) % slides.length;
+          slides[i].classList.add('is-active');
+        }, interval);
+      });
+    })();
+
+    /* ============ TESTIMONIAL CAROUSEL (sağ/sol ok + peek blur) ============ */
     document.querySelectorAll('.testimonial-carousel').forEach(carousel => {
       const track = carousel.querySelector('.testimonial-track');
       const prev  = carousel.querySelector('.testimonial-carousel-btn--prev');
       const next  = carousel.querySelector('.testimonial-carousel-btn--next');
       if (!track) return;
+
+      // Prev/next scroll
       function step(dir) {
         const firstCard = track.querySelector('.testimonial-card');
-        const gap = parseInt(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 22, 10);
-        const cardWidth = firstCard ? firstCard.getBoundingClientRect().width + gap : 340;
+        const gap = parseInt(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 20, 10);
+        const cardWidth = firstCard ? firstCard.getBoundingClientRect().width + gap : 260;
         track.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
       }
       if (prev) prev.addEventListener('click', () => step(-1));
       if (next) next.addEventListener('click', () => step(1));
+
+      // Peek blur — viewport içinde >=85% görünen kartlar netleşir, kenar peek kartlar blurlu
+      const cards = Array.from(track.querySelectorAll('.testimonial-card'));
+      if (!cards.length) return;
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            e.target.classList.toggle('is-in-view', e.intersectionRatio >= 0.85);
+          });
+        }, { root: track, threshold: [0, 0.5, 0.85, 1] });
+        cards.forEach(c => io.observe(c));
+      } else {
+        // Fallback: tüm kartları net göster
+        cards.forEach(c => c.classList.add('is-in-view'));
+      }
     });
 
     /* ============ FAQ (native details but keep .open class for arrow) ============ */
