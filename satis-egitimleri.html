@@ -1127,6 +1127,69 @@
       font-weight: 600;
     }
 
+    /* Carousel — horizontal scroll, snap, sağ/sol ok butonları */
+    .testimonial-carousel {
+      position: relative;
+      max-width: 1180px;
+      margin: 46px auto 0;
+      padding: 0 56px;
+    }
+    .testimonial-track {
+      display: flex;
+      gap: 22px;
+      overflow-x: auto;
+      overflow-y: visible;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 8px 4px 20px;
+      -webkit-overflow-scrolling: touch;
+      scroll-padding-left: 4px;
+    }
+    .testimonial-track::-webkit-scrollbar { display: none; }
+    .testimonial-track .testimonial-card {
+      flex: 0 0 320px;
+      max-width: 320px;
+      scroll-snap-align: start;
+    }
+    .testimonial-carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: white;
+      color: var(--dark);
+      border: 1px solid rgba(180, 145, 70, 0.45);
+      box-shadow: 0 8px 22px rgba(42, 36, 25, 0.15);
+      cursor: pointer;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+      padding: 0;
+    }
+    .testimonial-carousel-btn svg { width: 22px; height: 22px; }
+    .testimonial-carousel-btn:hover {
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      color: white;
+      border-color: transparent;
+      transform: translateY(-50%) scale(1.06);
+      box-shadow: 0 14px 30px rgba(180, 145, 70, 0.4);
+    }
+    .testimonial-carousel-btn--prev { left: 6px; }
+    .testimonial-carousel-btn--next { right: 6px; }
+    @media (max-width: 640px) {
+      .testimonial-carousel { padding: 0 12px; }
+      .testimonial-carousel-btn { width: 38px; height: 38px; }
+      .testimonial-carousel-btn--prev { left: -4px; }
+      .testimonial-carousel-btn--next { right: -4px; }
+      .testimonial-track .testimonial-card { flex: 0 0 78vw; max-width: 78vw; }
+    }
+
     /* ================================================
        BÖLÜM 10.5 — WHATSAPP MARQUEE (sosyal kanit)
        ================================================ */
@@ -2344,6 +2407,182 @@
     </section>
 
     <!-- ============ BÖLÜM 5 — KİMLER İÇİN ============ -->
+    <!-- ============ BÖLÜM — SOSYAL KANIT / KATILIMCI SONUÇLARI ============ -->
+    <section id="katilimci-sonuclari" class="testimonials section-pad">
+      <div class="container">
+        <div class="center">
+          <span class="section-eyebrow">Sosyal Kanıt</span>
+          <h2 class="section-title">7G'yi Uygulayanlar <em>Ne Fark Etti?</em></h2>
+          <p class="section-sub">
+            Birlikte çalıştığımız kurucular ve 7G kampını tamamlayan katılımcıların
+            kendi ağızlarından deneyimleri. Sağ/sol oklarla tüm yorumları izleyebilirsin.
+          </p>
+        </div>
+
+        <div class="testimonial-carousel">
+          <button class="testimonial-carousel-btn testimonial-carousel-btn--prev" type="button" aria-label="Önceki yorum">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+
+          <div class="testimonial-track" id="testimonialTrack">
+
+            <!-- 1. Alihan Solak — Rehberim Sensin Kurucusu -->
+            <article class="testimonial-card">
+              <div class="testimonial-video-wrap">
+                <video
+                  id="vid-alihan-satis"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  poster="videos/testimonials/alihan-solak-2-poster.jpg">
+                  <source src="videos/testimonials/alihan-solak-2.mp4" type="video/mp4">
+                  Tarayıcınız video oynatmayı desteklemiyor.
+                </video>
+                <div class="testimonial-facade" data-target="vid-alihan-satis" role="button" tabindex="0" aria-label="Alihan Solak yorumunu oynat">
+                  <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="testimonial-meta">
+                <div class="testimonial-name">Alihan Solak</div>
+                <div class="testimonial-role">Rehberim Sensin Kurucusu</div>
+              </div>
+            </article>
+
+            <!-- 2. Katılımcı 1 -->
+            <article class="testimonial-card">
+              <div class="testimonial-video-wrap">
+                <video
+                  id="vid-katilimci-1"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  poster="videos/testimonials/katilimci-1-poster.jpg">
+                  <source src="videos/testimonials/katilimci-1.mp4" type="video/mp4">
+                  Tarayıcınız video oynatmayı desteklemiyor.
+                </video>
+                <div class="testimonial-facade" data-target="vid-katilimci-1" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
+                  <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="testimonial-meta">
+                <div class="testimonial-name">7G Katılımcısı</div>
+                <div class="testimonial-role">Kamp Sonrası Deneyim</div>
+              </div>
+            </article>
+
+            <!-- 3. Katılımcı 2 -->
+            <article class="testimonial-card">
+              <div class="testimonial-video-wrap">
+                <video
+                  id="vid-katilimci-2"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  poster="videos/testimonials/katilimci-2-poster.jpg">
+                  <source src="videos/testimonials/katilimci-2.mp4" type="video/mp4">
+                  Tarayıcınız video oynatmayı desteklemiyor.
+                </video>
+                <div class="testimonial-facade" data-target="vid-katilimci-2" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
+                  <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="testimonial-meta">
+                <div class="testimonial-name">7G Katılımcısı</div>
+                <div class="testimonial-role">Kamp Sonrası Deneyim</div>
+              </div>
+            </article>
+
+            <!-- 4. Katılımcı 3 -->
+            <article class="testimonial-card">
+              <div class="testimonial-video-wrap">
+                <video
+                  id="vid-katilimci-3"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  poster="videos/testimonials/katilimci-3-poster.jpg">
+                  <source src="videos/testimonials/katilimci-3.mp4" type="video/mp4">
+                  Tarayıcınız video oynatmayı desteklemiyor.
+                </video>
+                <div class="testimonial-facade" data-target="vid-katilimci-3" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
+                  <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="testimonial-meta">
+                <div class="testimonial-name">7G Katılımcısı</div>
+                <div class="testimonial-role">Kamp Sonrası Deneyim</div>
+              </div>
+            </article>
+
+            <!-- 5. Katılımcı 4 -->
+            <article class="testimonial-card">
+              <div class="testimonial-video-wrap">
+                <video
+                  id="vid-katilimci-4"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  poster="videos/testimonials/katilimci-4-poster.jpg">
+                  <source src="videos/testimonials/katilimci-4.mp4" type="video/mp4">
+                  Tarayıcınız video oynatmayı desteklemiyor.
+                </video>
+                <div class="testimonial-facade" data-target="vid-katilimci-4" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
+                  <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="testimonial-meta">
+                <div class="testimonial-name">7G Katılımcısı</div>
+                <div class="testimonial-role">Kamp Sonrası Deneyim</div>
+              </div>
+            </article>
+
+            <!-- 6. Katılımcı 5 -->
+            <article class="testimonial-card">
+              <div class="testimonial-video-wrap">
+                <video
+                  id="vid-katilimci-5"
+                  controls
+                  playsinline
+                  preload="metadata"
+                  poster="videos/testimonials/katilimci-5-poster.jpg">
+                  <source src="videos/testimonials/katilimci-5.mp4" type="video/mp4">
+                  Tarayıcınız video oynatmayı desteklemiyor.
+                </video>
+                <div class="testimonial-facade" data-target="vid-katilimci-5" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
+                  <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  </button>
+                </div>
+              </div>
+              <div class="testimonial-meta">
+                <div class="testimonial-name">7G Katılımcısı</div>
+                <div class="testimonial-role">Kamp Sonrası Deneyim</div>
+              </div>
+            </article>
+
+          </div>
+
+          <button class="testimonial-carousel-btn testimonial-carousel-btn--next" type="button" aria-label="Sonraki yorum">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
+          </button>
+        </div>
+
+        <div class="section-cta">
+          <a href="#basvuru" class="cta-primary">7G Satış Sistemine Başvur</a>
+        </div>
+      </div>
+    </section>
+
     <section id="kimler-icin" class="audience section-pad">
       <div class="container">
         <div class="center">
@@ -2637,141 +2876,6 @@
               <li>Satış Laboratuvarı üzerinden geliştirilen <strong>7G Satış Sistemi eğitmenliği</strong></li>
             </ul>
           </div>
-        </div>
-
-        <div class="section-cta">
-          <a href="#basvuru" class="cta-primary">7G Satış Sistemine Başvur</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ BÖLÜM 10 — REFERANSLAR / VİDEO ============ -->
-    <section id="katilimci-sonuclari" class="testimonials section-pad">
-      <div class="container">
-        <div class="center">
-          <span class="section-eyebrow">Katılımcı Sonuçları</span>
-          <h2 class="section-title">7G'yi Uygulayanlar <em>Ne Fark Etti?</em></h2>
-          <p class="section-sub">
-            Katılımcılarımızın kendi ağızlarından deneyimleri.
-            Görüşmelerinde neyi değiştirdiklerini kısa videolarda anlatıyorlar.
-          </p>
-        </div>
-
-        <div class="testimonial-grid">
-          <article class="testimonial-card">
-            <div class="testimonial-video-wrap">
-              <video
-                id="vid-katilimci-1"
-                controls
-                playsinline
-                preload="metadata"
-                poster="videos/testimonials/katilimci-1-poster.jpg">
-                <source src="videos/testimonials/katilimci-1.mp4" type="video/mp4">
-                Tarayıcınız video oynatmayı desteklemiyor.
-              </video>
-              <div class="testimonial-facade" data-target="vid-katilimci-1" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
-                <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                </button>
-              </div>
-            </div>
-            <div class="testimonial-meta">
-              <div class="testimonial-name">7G Katılımcısı</div>
-              <div class="testimonial-role">Kamp Sonrası Deneyim</div>
-            </div>
-          </article>
-
-          <article class="testimonial-card">
-            <div class="testimonial-video-wrap">
-              <video
-                id="vid-katilimci-2"
-                controls
-                playsinline
-                preload="metadata"
-                poster="videos/testimonials/katilimci-2-poster.jpg">
-                <source src="videos/testimonials/katilimci-2.mp4" type="video/mp4">
-                Tarayıcınız video oynatmayı desteklemiyor.
-              </video>
-              <div class="testimonial-facade" data-target="vid-katilimci-2" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
-                <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                </button>
-              </div>
-            </div>
-            <div class="testimonial-meta">
-              <div class="testimonial-name">7G Katılımcısı</div>
-              <div class="testimonial-role">Kamp Sonrası Deneyim</div>
-            </div>
-          </article>
-
-          <article class="testimonial-card">
-            <div class="testimonial-video-wrap">
-              <video
-                id="vid-katilimci-3"
-                controls
-                playsinline
-                preload="metadata"
-                poster="videos/testimonials/katilimci-3-poster.jpg">
-                <source src="videos/testimonials/katilimci-3.mp4" type="video/mp4">
-                Tarayıcınız video oynatmayı desteklemiyor.
-              </video>
-              <div class="testimonial-facade" data-target="vid-katilimci-3" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
-                <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                </button>
-              </div>
-            </div>
-            <div class="testimonial-meta">
-              <div class="testimonial-name">7G Katılımcısı</div>
-              <div class="testimonial-role">Kamp Sonrası Deneyim</div>
-            </div>
-          </article>
-
-          <article class="testimonial-card">
-            <div class="testimonial-video-wrap">
-              <video
-                id="vid-katilimci-4"
-                controls
-                playsinline
-                preload="metadata"
-                poster="videos/testimonials/katilimci-4-poster.jpg">
-                <source src="videos/testimonials/katilimci-4.mp4" type="video/mp4">
-                Tarayıcınız video oynatmayı desteklemiyor.
-              </video>
-              <div class="testimonial-facade" data-target="vid-katilimci-4" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
-                <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                </button>
-              </div>
-            </div>
-            <div class="testimonial-meta">
-              <div class="testimonial-name">7G Katılımcısı</div>
-              <div class="testimonial-role">Kamp Sonrası Deneyim</div>
-            </div>
-          </article>
-
-          <article class="testimonial-card">
-            <div class="testimonial-video-wrap">
-              <video
-                id="vid-katilimci-5"
-                controls
-                playsinline
-                preload="metadata"
-                poster="videos/testimonials/katilimci-5-poster.jpg">
-                <source src="videos/testimonials/katilimci-5.mp4" type="video/mp4">
-                Tarayıcınız video oynatmayı desteklemiyor.
-              </video>
-              <div class="testimonial-facade" data-target="vid-katilimci-5" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
-                <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-                </button>
-              </div>
-            </div>
-            <div class="testimonial-meta">
-              <div class="testimonial-name">7G Katılımcısı</div>
-              <div class="testimonial-role">Kamp Sonrası Deneyim</div>
-            </div>
-          </article>
         </div>
 
         <div class="section-cta">
@@ -3351,6 +3455,22 @@
       facade.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
       });
+    });
+
+    /* ============ TESTIMONIAL CAROUSEL (sağ/sol ok butonları) ============ */
+    document.querySelectorAll('.testimonial-carousel').forEach(carousel => {
+      const track = carousel.querySelector('.testimonial-track');
+      const prev  = carousel.querySelector('.testimonial-carousel-btn--prev');
+      const next  = carousel.querySelector('.testimonial-carousel-btn--next');
+      if (!track) return;
+      function step(dir) {
+        const firstCard = track.querySelector('.testimonial-card');
+        const gap = parseInt(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 22, 10);
+        const cardWidth = firstCard ? firstCard.getBoundingClientRect().width + gap : 340;
+        track.scrollBy({ left: dir * cardWidth, behavior: 'smooth' });
+      }
+      if (prev) prev.addEventListener('click', () => step(-1));
+      if (next) next.addEventListener('click', () => step(1));
     });
 
     /* ============ FAQ (native details but keep .open class for arrow) ============ */
