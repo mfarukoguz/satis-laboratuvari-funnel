@@ -3687,9 +3687,9 @@
       window.openApplyModal = openApplyModal;
       window.closeApplyModal = closeApplyModal;
 
-      // Auto-popup: her 45 saniyede bir açılır (kullanıcı kapatsa bile 45 sn sonra tekrar).
+      // Auto-popup: her 60 saniyede bir açılır (kullanıcı kapatsa bile 60 sn sonra tekrar).
       // Modal zaten açıksa o tetikleme atlanır. Başvuru tamamlandıysa (success görünürse) döngü durur.
-      const AUTO_POPUP_INTERVAL_MS = 45000;
+      const AUTO_POPUP_INTERVAL_MS = 60000;
       const autoPopupTimer = setInterval(() => {
         const success = document.getElementById('applySuccess');
         if (success && success.style.display === 'block') {
