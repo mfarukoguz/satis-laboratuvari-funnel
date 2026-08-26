@@ -263,6 +263,31 @@
       max-width: 1100px;
       margin: 0 auto;
     }
+    /* Yanyana horizontal scroll (kullanıcı isteği: hepsi bir satırda) */
+    .brand-grid.is-scroll {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: visible;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      justify-content: flex-start;
+      align-items: stretch;
+      max-width: 100%;
+      padding: 8px 4px 24px;
+      -webkit-overflow-scrolling: touch;
+      mask-image: linear-gradient(90deg, transparent, black 3%, black 97%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, black 3%, black 97%, transparent);
+    }
+    .brand-grid.is-scroll::-webkit-scrollbar { display: none; }
+    .brand-grid.is-scroll .brand-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+    }
+    @media (max-width: 640px) {
+      .brand-grid.is-scroll .brand-card { flex: 0 0 78vw; max-width: 78vw; }
+    }
     .brand-card {
       flex: 0 1 300px;
       display: flex;
@@ -739,7 +764,7 @@
       <h2 class="section-title">Çalıştığımız <span class="accent">Markalar</span></h2>
       <p class="section-sub">Bizimle çalışan işletmelerin sahipleri kendi ağızlarından ne dediler?</p>
 
-      <div class="brand-grid">
+      <div class="brand-grid is-scroll">
 
         <!-- 1. @rehberimsensin -->
         <a href="https://www.instagram.com/rehberimsensin/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Rehberim Sensin Instagram profili">
@@ -783,32 +808,24 @@
           </div>
         </a>
 
-        <!-- 4. @panda.german -->
-        <a href="https://www.instagram.com/panda.german/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Panda International Instagram profili">
+        <!-- 4. @selimgecimli -->
+        <a href="https://www.instagram.com/selimgecimli/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Selim Geçimli Instagram profili">
           <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-          <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/panda.german.png?v=2" alt="Panda International" loading="lazy"></div>
-          <div class="brand-handle">@panda.german</div>
-          <div class="brand-name">Panda International</div>
-          <div class="brand-desc">Dil Eğitimi & Konuşma Kulübü · Online Almanca</div>
-          <div class="brand-followers"><strong>10.5K</strong> takipçi</div>
-          <div class="brand-testimonial">
-            <div class="brand-quote">Reklamdan gelen ilgiyi satışa çevirmekte zorlanıyorduk; Faruk beyin kurduğu satış akışıyla kayıt oranımız çok kısa sürede katlandı.</div>
-            <div class="brand-founder">Mustafa Kerem Yüksel · Kurucu</div>
-          </div>
+          <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/selimgecimli.png" alt="Selim Geçimli" loading="lazy"></div>
+          <div class="brand-handle">@selimgecimli</div>
+          <div class="brand-name">Selim Geçimli</div>
+          <div class="brand-desc">Mentör · Yazar · Kendini Savunma ve Saygı Eğitimi</div>
+          <div class="brand-followers"><strong>805K</strong> takipçi</div>
         </a>
 
-        <!-- 5. @diyetisyenintabagi -->
-        <a href="https://www.instagram.com/diyetisyenintabagi/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Dyt. Pınar Dağhan Bayram Instagram profili">
+        <!-- 5. @rehberimsensinakademi -->
+        <a href="https://www.instagram.com/rehberimsensinakademi/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Rehberim Sensin Akademi Instagram profili">
           <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-          <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/diyetisyenintabagi.png" alt="Dyt. Pınar Dağhan Bayram" loading="lazy"></div>
-          <div class="brand-handle">@diyetisyenintabagi</div>
-          <div class="brand-name">Dyt. Pınar Dağhan Bayram</div>
-          <div class="brand-desc">Bakırköy · Fonksiyonel Beslenme Diyetisyeni</div>
-          <div class="brand-followers"><strong>32K</strong> takipçi</div>
-          <div class="brand-testimonial">
-            <div class="brand-quote">Faruk beyle 9 aydır birlikte çalışıyoruz; cirolarımızı %1560 oranında arttırdı. Satış ve pazarlama konusunda çok etkili sistemleri var.</div>
-            <div class="brand-founder">Pınar Dağhan Bayram · Kurucu</div>
-          </div>
+          <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/rehberimsensinakademi.png" alt="Rehberim Sensin Akademi" loading="lazy"></div>
+          <div class="brand-handle">@rehberimsensinakademi</div>
+          <div class="brand-name">Rehberim Sensin Akademi</div>
+          <div class="brand-desc">Metakognitif Öğrenci Danışmanlığı · PDR & Psikolog Eğitimi</div>
+          <div class="brand-followers"><strong>13.2K</strong> takipçi</div>
         </a>
 
       </div>

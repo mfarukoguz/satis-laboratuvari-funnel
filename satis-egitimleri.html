@@ -2226,6 +2226,186 @@
       }
       html { scroll-behavior: auto; }
     }
+
+    /* ============ BRAND CARDS (Çalıştığımız Markalar) ============ */
+    .brand-section {
+      background: var(--cream);
+      padding: 80px 0 90px;
+    }
+    .brand-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 22px;
+      max-width: 1100px;
+      margin: 46px auto 0;
+    }
+    /* Yanyana horizontal scroll (kullanıcı isteği) */
+    .brand-grid.is-scroll {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: visible;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      justify-content: flex-start;
+      align-items: stretch;
+      max-width: 100%;
+      padding: 8px 4px 24px;
+      -webkit-overflow-scrolling: touch;
+      mask-image: linear-gradient(90deg, transparent, black 3%, black 97%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, black 3%, black 97%, transparent);
+    }
+    .brand-grid.is-scroll::-webkit-scrollbar { display: none; }
+    .brand-grid.is-scroll .brand-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+    }
+    @media (max-width: 640px) {
+      .brand-grid.is-scroll .brand-card { flex: 0 0 78vw; max-width: 78vw; }
+    }
+    .brand-card {
+      flex: 0 1 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      background: white;
+      border: 1px solid rgba(42, 36, 25, 0.06);
+      border-radius: var(--radius-lg);
+      padding: 30px 22px 24px;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      color: var(--text);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .brand-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(180, 145, 70, 0.35);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .brand-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .brand-card:hover::before { opacity: 1; }
+    .brand-ig-icon {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 22px;
+      height: 22px;
+      color: var(--text-dim);
+      transition: color 0.25s, transform 0.25s;
+    }
+    .brand-card:hover .brand-ig-icon {
+      color: var(--gold);
+      transform: scale(1.15);
+    }
+    .brand-avatar-wrap {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      margin-bottom: 18px;
+    }
+    .brand-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--cream);
+      border: 3px solid white;
+      box-shadow: 0 0 0 2px var(--gold);
+      display: block;
+    }
+    .brand-handle {
+      font-size: 13px;
+      color: var(--gold-deep);
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: 0.3px;
+    }
+    .brand-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .brand-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+      min-height: 40px;
+    }
+    .brand-followers {
+      font-size: 13px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(42, 36, 25, 0.08);
+      padding-top: 14px;
+      width: 100%;
+    }
+    .brand-followers strong {
+      color: var(--gold-deep);
+      font-weight: 800;
+      font-size: 15px;
+    }
+    .brand-testimonial {
+      width: 100%;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(180, 145, 70, 0.32);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .brand-quote {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--text);
+      font-style: italic;
+      position: relative;
+      padding-left: 14px;
+      text-align: left;
+    }
+    .brand-quote::before {
+      content: '"';
+      position: absolute;
+      left: -2px;
+      top: -4px;
+      font-style: italic;
+      font-size: 32px;
+      line-height: 1;
+      color: var(--gold);
+      font-weight: 700;
+    }
+    .brand-founder {
+      font-size: 11px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold-deep);
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: left;
+    }
+    .brand-founder::before {
+      content: '';
+      width: 18px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
   </style>
 
   <!-- Meta Pixel Code -->
@@ -2962,6 +3142,83 @@
       <div class="container">
         <div class="section-cta">
           <a href="#basvuru" class="cta-primary">7G Satış Sistemine Başvur</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BÖLÜM 10.6 — ÇALIŞTIĞIMIZ MARKALAR (brand grid, yanyana) ============ -->
+    <section class="brand-section">
+      <div class="container">
+        <div class="center">
+          <span class="section-eyebrow">Referanslar</span>
+          <h2 class="section-title">Birlikte <em>Büyüdüğümüz</em> Markalar</h2>
+          <p class="section-sub">Çalıştığımız markaların Instagram profillerine göz atın.</p>
+        </div>
+
+        <div class="brand-grid is-scroll">
+
+          <!-- 1. @rehberimsensin -->
+          <a href="https://www.instagram.com/rehberimsensin/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Rehberim Sensin Instagram profili">
+            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/rehberimsensin.png" alt="Rehberim Sensin" loading="lazy"></div>
+            <div class="brand-handle">@rehberimsensin</div>
+            <div class="brand-name">Rehberim Sensin</div>
+            <div class="brand-desc">Türkiye'nin En Gelişmiş Öğrenci Koçluğu</div>
+            <div class="brand-followers"><strong>167K</strong> takipçi</div>
+            <div class="brand-testimonial">
+              <div class="brand-quote">Satış sürecimizi Faruk beyle birlikte sisteme bağladıktan sonra kayıtlarımızda ciddi bir artış yakaladık; ekibimiz artık çok daha rahat çalışıyor.</div>
+              <div class="brand-founder">Alihan Solak · Kurucu</div>
+            </div>
+          </a>
+
+          <!-- 2. @beratkizilel -->
+          <a href="https://www.instagram.com/beratkizilel/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Berat Kızılel Instagram profili">
+            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/beratkizilel.png" alt="Berat Kızılel" loading="lazy"></div>
+            <div class="brand-handle">@beratkizilel</div>
+            <div class="brand-name">Berat Kızılel</div>
+            <div class="brand-desc">Girişimci · Dijital Pazarlama / Satış Stratejisi</div>
+            <div class="brand-followers"><strong>3.2K</strong> takipçi</div>
+            <div class="brand-testimonial">
+              <div class="brand-quote">Faruk bey klasik bir ajans değil; birlikte kurduğumuz satış akışıyla dönüşüm oranlarımı gözle görülür şekilde yükselttik.</div>
+              <div class="brand-founder">Berat Kızılel · Kurucu</div>
+            </div>
+          </a>
+
+          <!-- 3. @dcamazonn -->
+          <a href="https://www.instagram.com/dcamazonn/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="DC Amazon Instagram profili">
+            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/dcamazonn.png" alt="DC Amazon" loading="lazy"></div>
+            <div class="brand-handle">@dcamazonn</div>
+            <div class="brand-name">DC Amazon</div>
+            <div class="brand-desc">Amazon Yazılımları · Eğitim Akademisi · 6 Yıllık Tecrübe</div>
+            <div class="brand-followers"><strong>6.9K</strong> takipçi</div>
+            <div class="brand-testimonial">
+              <div class="brand-quote">Faruk bey bize sıfırdan bir satış ekibi kurdu ve her gün satış yapabilir hale getirdi; artık satış departmanımız Faruk beye emanet.</div>
+              <div class="brand-founder">Yavuz &amp; Furkan Karabulut · Kurucular</div>
+            </div>
+          </a>
+
+          <!-- 4. @selimgecimli -->
+          <a href="https://www.instagram.com/selimgecimli/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Selim Geçimli Instagram profili">
+            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/selimgecimli.png" alt="Selim Geçimli" loading="lazy"></div>
+            <div class="brand-handle">@selimgecimli</div>
+            <div class="brand-name">Selim Geçimli</div>
+            <div class="brand-desc">Mentör · Yazar · Kendini Savunma ve Saygı Eğitimi</div>
+            <div class="brand-followers"><strong>805K</strong> takipçi</div>
+          </a>
+
+          <!-- 5. @rehberimsensinakademi -->
+          <a href="https://www.instagram.com/rehberimsensinakademi/" class="brand-card" target="_blank" rel="noopener noreferrer" aria-label="Rehberim Sensin Akademi Instagram profili">
+            <svg class="brand-ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <div class="brand-avatar-wrap"><img class="brand-avatar" src="images/profiles/rehberimsensinakademi.png" alt="Rehberim Sensin Akademi" loading="lazy"></div>
+            <div class="brand-handle">@rehberimsensinakademi</div>
+            <div class="brand-name">Rehberim Sensin Akademi</div>
+            <div class="brand-desc">Metakognitif Öğrenci Danışmanlığı · PDR & Psikolog Eğitimi</div>
+            <div class="brand-followers"><strong>13.2K</strong> takipçi</div>
+          </a>
+
         </div>
       </div>
     </section>
