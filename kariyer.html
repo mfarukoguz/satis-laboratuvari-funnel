@@ -1276,7 +1276,8 @@
       const form = document.getElementById('career-form');
       if (!form) return;
 
-      const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx-3JHo4RrC7iyRbWUFOtI1Z0rnxiceGpbgjqOtA0YbD47mxx3so2NYLj11fjWVfOXCFw/exec';
+      // Kariyer başvurularına özel Apps Script (ayrı sheet: 1cJTVMr1...)
+      const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbw2cwbSCcyHQ-EvxZiC12H4h1ybCiuDJY83amEarMlzgRJXYXOVRG1gSrCrBraToouM8w/exec';
 
       const $ = (id) => document.getElementById(id);
       const step1 = $('formStep1');
@@ -1373,33 +1374,18 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Gönderiliyor…';
 
-        // Map to existing Apps Script schema (Zaman|Ad|Tel|Email|Meslek|Durum|Ürün|Fiyat|Problem|Uygulama Vakti|Kaynak)
-        const roleBundle = city + ' · ' + age + ' yaş · Satış deneyimi: ' + experience;
-        const challengeBundle = [
-          'NEREDE ÇALIŞTI · NE SATTI:',
-          workHistory,
-          '',
-          'NEDEN BU İŞ:',
-          motivation,
-          '',
-          'TANITIM VIDEO:',
-          videoUrl,
-          '',
-          'CV / ÖZGEÇMİŞ:',
-          cvUrl
-        ].join('\n');
-
+        // Yeni Apps Script direkt fields kabul eder — bundling yok, temiz kolonlar.
         const payload = new URLSearchParams({
-          timestamp: new Date().toISOString(),
           name: name,
           phone: phone,
           email: email,
-          job: 'Kariyer Başvurusu · Satış Danışmanı',
-          role: roleBundle,
-          product: workHistory,
-          price: '',
-          challenge: challengeBundle,
-          commit: '',
+          age: age,
+          city: city,
+          experience: experience,
+          work_history: workHistory,
+          motivation: motivation,
+          video_url: videoUrl,
+          cv_url: cvUrl,
           source: 'kariyer.html'
         });
 
