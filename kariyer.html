@@ -676,6 +676,257 @@
       .final-cta { padding: 70px 0 90px; }
       .section-sub { margin-bottom: 40px; }
     }
+
+    /* ============ KARIYER APPLICATION FORM (dark section, inline) ============ */
+    .apply-shell {
+      background: var(--dark-2);
+      border: 1px solid rgba(201, 167, 92, 0.22);
+      border-radius: var(--radius-xl);
+      padding: 40px 34px 34px;
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45);
+      text-align: left;
+      color: var(--cream-light);
+    }
+    .apply-shell h3 {
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 800;
+      color: var(--cream-light);
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+      text-align: center;
+    }
+    .apply-shell h3 em {
+      font-style: italic;
+      color: var(--gold-bright);
+    }
+    .apply-shell .apply-lede {
+      font-size: 14.5px;
+      color: var(--cream-dark);
+      text-align: center;
+      margin-bottom: 28px;
+      line-height: 1.55;
+    }
+
+    .form-progress {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 22px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(201, 167, 92, 0.16);
+    }
+    .form-progress-label {
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      color: var(--gold-bright);
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .form-progress-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(201, 167, 92, 0.14);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .form-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-bright), var(--gold));
+      border-radius: 3px;
+      transition: width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .form-step { display: block; }
+    .form-step.hidden { display: none; }
+
+    .form-group { margin-bottom: 14px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+    .form-label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--cream-light);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+    .form-label .req { color: #F87171; font-weight: 900; }
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--cream-light);
+      color: var(--dark);
+      border: 1.5px solid transparent;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(90, 79, 66, 0.55);
+    }
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      outline: none;
+      border-color: var(--gold-bright);
+      box-shadow: 0 0 0 3px rgba(201, 167, 92, 0.22);
+    }
+    .form-textarea {
+      min-height: 84px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232A2419' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+    }
+    .form-hint {
+      display: block;
+      font-size: 11.5px;
+      color: var(--cream-dark);
+      opacity: 0.75;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .form-hint a { color: var(--gold-bright); text-decoration: underline; }
+
+    .form-step-recap {
+      background: rgba(201, 167, 92, 0.08);
+      border: 1px solid rgba(201, 167, 92, 0.22);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 12.5px;
+      color: var(--cream-light);
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .form-step-recap-info { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+    .form-step-recap strong { color: var(--gold-bright); font-weight: 700; }
+    .form-step-recap-back {
+      background: none;
+      border: none;
+      color: var(--gold-bright);
+      font-weight: 700;
+      font-size: 11.5px;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+      transition: background 0.2s;
+    }
+    .form-step-recap-back:hover { background: rgba(201, 167, 92, 0.15); }
+
+    .form-error {
+      display: none;
+      padding: 10px 14px;
+      background: rgba(248, 113, 113, 0.14);
+      border: 1px solid rgba(248, 113, 113, 0.4);
+      border-radius: var(--radius-sm);
+      color: #FCA5A5;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .form-error.show { display: block; }
+
+    .form-step-continue,
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 28px;
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      color: var(--dark);
+      font-family: inherit;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(201, 167, 92, 0.35), inset 0 1px 0 rgba(255,255,255,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 6px;
+    }
+    .form-step-continue:hover,
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(201, 167, 92, 0.5), inset 0 1px 0 rgba(255,255,255,0.4);
+    }
+    .form-step-continue[disabled],
+    .form-submit[disabled] {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .form-hint-center {
+      display: block;
+      text-align: center;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--cream-dark);
+      opacity: 0.7;
+      line-height: 1.5;
+    }
+
+    .apply-success {
+      display: none;
+      text-align: center;
+      padding: 40px 30px;
+    }
+    .apply-success.show { display: block; }
+    .apply-success-icon {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(201, 167, 92, 0.4);
+    }
+    .apply-success h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--cream-light);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .apply-success p {
+      font-size: 14.5px;
+      color: var(--cream-dark);
+      line-height: 1.6;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .apply-success p strong { color: var(--gold-bright); }
   </style>
 
   <!-- Meta Pixel Code -->
@@ -833,7 +1084,7 @@
           <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-bright), var(--gold)); color: white; font-size: 22px; font-weight: 900; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-gold);">1</div>
           <div>
             <h3 style="font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.3px;">Başvuruyu Bize Yaparsın</h3>
-            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.65;">2-3 dakikalık kendini tanıttığın bir video + özgeçmişini <a href="mailto:info@mfarukoguz.com" style="color: var(--gold-deep); font-weight: 700;">info@mfarukoguz.com</a> adresine gönderirsin.</p>
+            <p style="color: var(--text-muted); font-size: 15px; line-height: 1.65;">Aşağıdaki <a href="#basvuru" style="color: var(--gold-deep); font-weight: 700;">başvuru formunu</a> doldurursun. Kendini tanıttığın 2-3 dakikalık videonu + özgeçmişini Google Drive linki olarak paylaşırsın.</p>
           </div>
         </div>
 
@@ -856,40 +1107,119 @@
     </div>
   </section>
 
-  <!-- ============ BAŞVURU (DARK CTA) ============ -->
+  <!-- ============ BAŞVURU FORMU (DARK SECTION) ============ -->
   <section id="basvuru" style="background: var(--dark); color: var(--cream-light); padding: 90px 0; position: relative; overflow: hidden;">
     <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201, 167, 92, 0.12), transparent 55%); pointer-events: none;"></div>
     <div class="container" style="position: relative; max-width: 780px; text-align: center;">
-      <h2 class="section-title" style="color: var(--cream-light);">Nasıl <span class="accent" style="color: var(--gold-bright);">Başvurursun?</span></h2>
-      <p class="section-sub" style="color: var(--cream-dark); margin-bottom: 40px;">3 basit adım — hazırla, gönder, geri dönüşü bekle.</p>
+      <h2 class="section-title" style="color: var(--cream-light);">Başvuru <span class="accent" style="color: var(--gold-bright);">Formu</span></h2>
+      <p class="section-sub" style="color: var(--cream-dark); margin-bottom: 40px;">İki adımda tamamlanır — bilgilerin bize ulaşır, uygun adaylarla 5 iş günü içinde iletişime geçiyoruz.</p>
 
-      <div style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.22); border-radius: var(--radius-xl); padding: 40px 34px; box-shadow: 0 20px 44px rgba(0,0,0,0.45); text-align: left;">
-        <div style="display: flex; gap: 16px; align-items: flex-start; margin-bottom: 22px;">
-          <span style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--gold-bright); color: var(--dark); font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center;">1</span>
-          <div>
-            <strong style="display: block; color: var(--cream-light); font-size: 16px; margin-bottom: 4px;">Kendini tanıtan 2-3 dakikalık bir video çek</strong>
-            <span style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Kim olduğun, satış deneyimin (varsa) ve neden bu işi istediğin — kısa ve samimi.</span>
+      <div class="apply-shell">
+        <form id="career-form" novalidate>
+
+          <!-- Progress bar -->
+          <div class="form-progress">
+            <span class="form-progress-label" id="stepLabel">Adım 1/2</span>
+            <div class="form-progress-track">
+              <div class="form-progress-fill" id="stepFill" style="width: 50%;"></div>
+            </div>
           </div>
-        </div>
 
-        <div style="display: flex; gap: 16px; align-items: flex-start; margin-bottom: 22px;">
-          <span style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--gold-bright); color: var(--dark); font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center;">2</span>
-          <div>
-            <strong style="display: block; color: var(--cream-light); font-size: 16px; margin-bottom: 4px;">Özgeçmişini hazırla</strong>
-            <span style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">PDF formatında güncel CV — daha önce yaptığın işler, aldığın eğitimler.</span>
+          <!-- STEP 1: Contact -->
+          <div class="form-step" id="formStep1">
+            <div class="form-group">
+              <label class="form-label" for="cf-name">Ad Soyad <span class="req">*</span></label>
+              <input type="text" id="cf-name" name="name" class="form-input" placeholder="Adın ve soyadın" autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-phone">Telefon <span class="req">*</span></label>
+              <input type="tel" id="cf-phone" name="phone" class="form-input" placeholder="05XX..." autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-email">E-posta <span class="req">*</span></label>
+              <input type="email" id="cf-email" name="email" class="form-input" placeholder="ornek@mail.com" autocomplete="email">
+            </div>
+
+            <div class="form-error" id="formError1"></div>
+
+            <button type="button" class="form-step-continue" id="stepContinueBtn">Devam Et →</button>
+            <span class="form-hint-center">Sıradaki adımda 7 kısa soru var — video + CV linklerini hazırla.</span>
           </div>
-        </div>
 
-        <div style="display: flex; gap: 16px; align-items: flex-start; margin-bottom: 28px;">
-          <span style="flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--gold-bright); color: var(--dark); font-weight: 900; font-size: 14px; display: flex; align-items: center; justify-content: center;">3</span>
-          <div>
-            <strong style="display: block; color: var(--cream-light); font-size: 16px; margin-bottom: 4px;">info@mfarukoguz.com adresine gönder</strong>
-            <span style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Video + CV tek mailde. Uygun bulduğumuz adaylarla 5 iş günü içinde iletişime geçiyoruz.</span>
+          <!-- STEP 2: Profile -->
+          <div class="form-step hidden" id="formStep2">
+            <div class="form-step-recap">
+              <div class="form-step-recap-info">
+                <strong id="recapName">—</strong> · <span id="recapPhone">—</span>
+              </div>
+              <button type="button" class="form-step-recap-back" id="stepBackBtn">← Değiştir</button>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="cf-age">Yaş <span class="req">*</span></label>
+                <select id="cf-age" name="age" class="form-select">
+                  <option value="">Seçiniz…</option>
+                  <option value="18-24">18 – 24</option>
+                  <option value="25-30">25 – 30</option>
+                  <option value="31-40">31 – 40</option>
+                  <option value="40+">40+</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="cf-city">Şehir <span class="req">*</span></label>
+                <input type="text" id="cf-city" name="city" class="form-input" placeholder="İstanbul, Ankara, Diğer…">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cf-experience">Satış deneyimi <span class="req">*</span></label>
+              <select id="cf-experience" name="experience" class="form-select">
+                <option value="">Seçiniz…</option>
+                <option value="Yok">Hiç satış deneyimim yok</option>
+                <option value="1-2 yıl">1 – 2 yıl</option>
+                <option value="3-5 yıl">3 – 5 yıl</option>
+                <option value="5+ yıl">5+ yıl</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cf-work-history">Nerelerde çalıştın, hangi ürün ve hizmetleri sattın? <span class="req">*</span></label>
+              <textarea id="cf-work-history" name="work_history" class="form-textarea" placeholder="Şirket / marka isimleri, sattığın ürün veya hizmetler, süreler…"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cf-motivation">Neden bu iş? Kendini kısaca tanıt <span class="req">*</span></label>
+              <textarea id="cf-motivation" name="motivation" class="form-textarea" placeholder="Kim olduğun, neden bu pozisyonu istediğin, güçlü yönlerin…"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cf-video">2-3 dakikalık tanıtım video linki <span class="req">*</span></label>
+              <input type="url" id="cf-video" name="video_url" class="form-input" placeholder="https://drive.google.com/…" inputmode="url">
+              <span class="form-hint">Google Drive'a yükle, herkese açık paylaşım linkini yapıştır. (Kim olduğun · satış deneyimin · neden bu iş)</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="cf-cv">Özgeçmiş (CV) linki <span class="req">*</span></label>
+              <input type="url" id="cf-cv" name="cv_url" class="form-input" placeholder="https://drive.google.com/…" inputmode="url">
+              <span class="form-hint">PDF formatındaki CV'ni Google Drive'a yükle, paylaşım linkini yapıştır.</span>
+            </div>
+
+            <div class="form-error" id="formError2"></div>
+
+            <button type="submit" class="form-submit">Başvurumu Gönder</button>
+            <span class="form-hint-center">Uygun bulduğumuz adaylarla 5 iş günü içinde iletişime geçiyoruz.</span>
           </div>
-        </div>
+        </form>
 
-        <div style="text-align: center;">
-          <a href="mailto:info@mfarukoguz.com?subject=Satış%20Danışmanı%20Başvurusu" class="btn-primary" style="display: inline-flex;">Başvurmak İçin Mail At →</a>
+        <div class="apply-success" id="applySuccess">
+          <div class="apply-success-icon">✓</div>
+          <h3>Başvurun Alındı</h3>
+          <p>
+            Teşekkürler <strong id="successName">—</strong>! Bilgilerin ve linklerin bize ulaştı.
+            Ekibimiz videonu ve özgeçmişini inceleyecek, uygun bulunursan
+            <strong id="successPhone">—</strong> numarasından seninle iletişime geçeceğiz.
+          </p>
         </div>
       </div>
     </div>
@@ -940,6 +1270,164 @@
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
       });
     });
+
+    /* ============ KARIYER FORM — step navigation + Apps Script submit ============ */
+    (function() {
+      const form = document.getElementById('career-form');
+      if (!form) return;
+
+      const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx-3JHo4RrC7iyRbWUFOtI1Z0rnxiceGpbgjqOtA0YbD47mxx3so2NYLj11fjWVfOXCFw/exec';
+
+      const $ = (id) => document.getElementById(id);
+      const step1 = $('formStep1');
+      const step2 = $('formStep2');
+      const stepLabel = $('stepLabel');
+      const stepFill  = $('stepFill');
+
+      function goToStep(n) {
+        if (n === 1) {
+          step1.classList.remove('hidden');
+          step2.classList.add('hidden');
+          stepLabel.textContent = 'Adım 1/2';
+          stepFill.style.width = '50%';
+        } else {
+          step1.classList.add('hidden');
+          step2.classList.remove('hidden');
+          stepLabel.textContent = 'Adım 2/2';
+          stepFill.style.width = '100%';
+          $('recapName').textContent = ($('cf-name').value || '').trim() || '—';
+          $('recapPhone').textContent = ($('cf-phone').value || '').trim() || '—';
+          setTimeout(() => { const el = $('cf-age'); if (el) el.focus(); }, 60);
+        }
+      }
+
+      function showError(box, message) {
+        box.textContent = message;
+        box.classList.add('show');
+        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      function clearError(box) {
+        box.textContent = '';
+        box.classList.remove('show');
+      }
+
+      // Step 1 → 2
+      $('stepContinueBtn').addEventListener('click', () => {
+        const errBox = $('formError1');
+        clearError(errBox);
+        const name  = ($('cf-name').value  || '').trim();
+        const phone = ($('cf-phone').value || '').trim();
+        const email = ($('cf-email').value || '').trim();
+        const missing = [];
+        if (!name)  missing.push('Ad Soyad');
+        if (!phone) missing.push('Telefon');
+        if (!email) missing.push('E-posta');
+        if (missing.length) { showError(errBox, 'Lütfen şu alanları doldur: ' + missing.join(', ')); return; }
+        if (phone.replace(/\D/g, '').length < 10) {
+          showError(errBox, 'Lütfen geçerli bir telefon numarası gir (en az 10 hane).');
+          return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showError(errBox, 'Lütfen geçerli bir e-posta adresi gir.');
+          return;
+        }
+        goToStep(2);
+      });
+
+      // Step 2 → 1
+      $('stepBackBtn').addEventListener('click', () => goToStep(1));
+
+      // Submit
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const errBox = $('formError2');
+        clearError(errBox);
+
+        const name         = ($('cf-name').value         || '').trim();
+        const phone        = ($('cf-phone').value        || '').trim();
+        const email        = ($('cf-email').value        || '').trim();
+        const age          = $('cf-age').value;
+        const city         = ($('cf-city').value         || '').trim();
+        const experience   = $('cf-experience').value;
+        const workHistory  = ($('cf-work-history').value || '').trim();
+        const motivation   = ($('cf-motivation').value   || '').trim();
+        const videoUrl     = ($('cf-video').value        || '').trim();
+        const cvUrl        = ($('cf-cv').value           || '').trim();
+
+        const missing = [];
+        if (!age)         missing.push('Yaş');
+        if (!city)        missing.push('Şehir');
+        if (!experience)  missing.push('Satış deneyimi');
+        if (!workHistory) missing.push('İş geçmişi');
+        if (!motivation)  missing.push('Neden bu iş?');
+        if (!videoUrl)    missing.push('Tanıtım video linki');
+        if (!cvUrl)       missing.push('CV linki');
+        if (missing.length) { showError(errBox, 'Lütfen şu alanları doldur: ' + missing.join(', ')); return; }
+
+        const urlOk = (s) => /^https?:\/\/.+\..+/i.test(s);
+        if (!urlOk(videoUrl)) { showError(errBox, 'Tanıtım video linki geçerli bir URL olmalı (https://... ile başlamalı).'); return; }
+        if (!urlOk(cvUrl))    { showError(errBox, 'CV linki geçerli bir URL olmalı (https://... ile başlamalı).'); return; }
+
+        const submitBtn = form.querySelector('.form-submit');
+        const originalTxt = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Gönderiliyor…';
+
+        // Map to existing Apps Script schema (Zaman|Ad|Tel|Email|Meslek|Durum|Ürün|Fiyat|Problem|Uygulama Vakti|Kaynak)
+        const roleBundle = city + ' · ' + age + ' yaş · Satış deneyimi: ' + experience;
+        const challengeBundle = [
+          'NEREDE ÇALIŞTI · NE SATTI:',
+          workHistory,
+          '',
+          'NEDEN BU İŞ:',
+          motivation,
+          '',
+          'TANITIM VIDEO:',
+          videoUrl,
+          '',
+          'CV / ÖZGEÇMİŞ:',
+          cvUrl
+        ].join('\n');
+
+        const payload = new URLSearchParams({
+          timestamp: new Date().toISOString(),
+          name: name,
+          phone: phone,
+          email: email,
+          job: 'Kariyer Başvurusu · Satış Danışmanı',
+          role: roleBundle,
+          product: workHistory,
+          price: '',
+          challenge: challengeBundle,
+          commit: '',
+          source: 'kariyer.html'
+        });
+
+        try {
+          await fetch(SHEETS_ENDPOINT, { method: 'POST', mode: 'no-cors', body: payload });
+
+          $('successName').textContent = name;
+          $('successPhone').textContent = phone;
+          form.style.display = 'none';
+          const success = document.getElementById('applySuccess');
+          success.classList.add('show');
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          if (typeof fbq === 'function') {
+            fbq('track', 'Lead', {
+              content_name: 'Kariyer Başvurusu',
+              content_category: 'Satış Danışmanı',
+              source: 'kariyer'
+            });
+          }
+        } catch (err) {
+          console.error('[Kariyer Form] Gönderim hatası:', err);
+          showError(errBox, 'Gönderim sırasında bir hata oluştu. Lütfen birkaç saniye sonra tekrar deneyin.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalTxt;
+        }
+      });
+    })();
   </script>
 </body>
 </html>
