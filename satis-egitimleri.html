@@ -1114,6 +1114,24 @@
       background: linear-gradient(180deg, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.55));
     }
     .testimonial-facade.is-hidden { opacity: 0; pointer-events: none; }
+    .testimonial-result {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: 14px;
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      color: var(--dark);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 15px;
+      line-height: 1.25;
+      text-align: center;
+      z-index: 4;
+      pointer-events: none;
+      box-shadow: 0 6px 18px rgba(207, 255, 4, 0.35), 0 0 0 1px rgba(0,0,0,0.08);
+      letter-spacing: 0.2px;
+    }
     .testimonial-play {
       position: relative;
       width: 68px; height: 68px;
@@ -2498,7 +2516,7 @@
               7G Satış Sistemi'ni <em>kullanarak</em>
             </p>
 
-            <div class="hero-cta-lead">Satışlarını Arttır</div>
+            <div class="hero-cta-lead">14 Günde Satışlarını Arttır</div>
             <a href="#basvuru" class="cta-primary">7G Satış Sistemine Başvur</a>
             <span class="cta-microcopy">Telefon veya Zoom üzerinden yapılacak ön görüşme için başvur.</span>
           </div>
@@ -2513,8 +2531,8 @@
           <span class="section-eyebrow">Sosyal Kanıt</span>
           <h2 class="section-title">7G'yi Uygulayanlar <em>Ne Fark Etti?</em></h2>
           <p class="section-sub">
-            Birlikte çalıştığımız kurucular ve 7G kampını tamamlayan katılımcıların
-            kendi ağızlarından deneyimleri. Sağ/sol oklarla tüm yorumları izleyebilirsin.
+            7G kampını tamamlayan katılımcıları dinle.
+            Sağ/sol oklarla tüm yorumları izleyebilirsin.
           </p>
         </div>
 
@@ -2528,6 +2546,7 @@
             <!-- 1. Alihan Solak — Rehberim Sensin Kurucusu -->
             <article class="testimonial-card">
               <div class="testimonial-video-wrap">
+                <div class="testimonial-result">Satış Oranı %40'a Yükseldi</div>
                 <video
                   id="vid-alihan-satis"
                   controls
@@ -2549,9 +2568,10 @@
               </div>
             </article>
 
-            <!-- 2. Katılımcı 1 -->
+            <!-- 2. Hülya Kamay -->
             <article class="testimonial-card">
               <div class="testimonial-video-wrap">
+                <div class="testimonial-result">14 Günde Satışlarını 2'ye Katladı</div>
                 <video
                   id="vid-katilimci-1"
                   controls
@@ -2561,14 +2581,14 @@
                   <source src="videos/testimonials/katilimci-1.mp4" type="video/mp4">
                   Tarayıcınız video oynatmayı desteklemiyor.
                 </video>
-                <div class="testimonial-facade" data-target="vid-katilimci-1" role="button" tabindex="0" aria-label="7G katılımcısı yorumunu oynat">
+                <div class="testimonial-facade" data-target="vid-katilimci-1" role="button" tabindex="0" aria-label="Hülya Kamay yorumunu oynat">
                   <button class="testimonial-play" type="button" tabindex="-1" aria-hidden="true">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
                   </button>
                 </div>
               </div>
               <div class="testimonial-meta">
-                <div class="testimonial-name">7G Katılımcısı</div>
+                <div class="testimonial-name">Hülya Kamay</div>
                 <div class="testimonial-role">Kamp Sonrası Deneyim</div>
               </div>
             </article>
