@@ -563,22 +563,29 @@
        ================================================ */
     /* ==== Alternate koyu/krem section ritmi ==== */
     .oldvnew,
+    .audience,
     .experience,
     .process { background: var(--dark-2); color: var(--cream-light); }
     .oldvnew .section-eyebrow,
+    .audience .section-eyebrow,
     .experience .section-eyebrow,
     .process .section-eyebrow { color: var(--gold-bright); }
     .oldvnew .section-title,
+    .audience .section-title,
     .experience .section-title,
     .process .section-title { color: var(--cream-light); }
     .oldvnew .section-title em,
+    .audience .section-title em,
     .experience .section-title em,
     .process .section-title em { color: var(--gold-bright); }
     .oldvnew .section-sub,
+    .audience .section-sub,
     .experience .section-sub,
     .process .section-sub { color: var(--cream-warm); }
+    .audience .audience-card,
     .experience .experience-card,
     .process .step-card { background: var(--cream-dark); color: var(--text); }
+    .audience .audience-card-title,
     .experience .experience-card h3,
     .process .step-card h3 { color: var(--dark); }
     .experience .experience-card p,
@@ -2272,9 +2279,14 @@
 
     /* ============ BRAND CARDS (Çalıştığımız Markalar) ============ */
     .brand-section {
-      background: var(--cream);
+      background: var(--dark-2);
+      color: var(--cream-light);
       padding: 80px 0 90px;
     }
+    .brand-section .section-title { color: var(--cream-light); }
+    .brand-section .section-title em { color: var(--gold-bright); }
+    .brand-section .section-sub { color: var(--cream-warm); }
+    .brand-section .section-eyebrow { color: var(--gold-bright); }
     .brand-grid {
       display: flex;
       flex-wrap: wrap;
