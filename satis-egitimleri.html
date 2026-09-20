@@ -3989,18 +3989,16 @@
       window.openApplyModal = openApplyModal;
       window.closeApplyModal = closeApplyModal;
 
-      // Auto-popup: her 60 saniyede bir açılır (kullanıcı kapatsa bile 60 sn sonra tekrar).
-      // Modal zaten açıksa o tetikleme atlanır. Başvuru tamamlandıysa (success görünürse) döngü durur.
-      const AUTO_POPUP_INTERVAL_MS = 60000;
-      const autoPopupTimer = setInterval(() => {
+      // Auto-popup: sayfa açıldıktan 65 sn sonra 1. kez, 180 sn sonra 2. kez otomatik açılır.
+      // Başvuru tamamlandıysa (success görünürse) tetikleme atlanır. Modal zaten açıksa atlanır.
+      function tryAutoOpen() {
         const success = document.getElementById('applySuccess');
-        if (success && success.style.display === 'block') {
-          clearInterval(autoPopupTimer);
-          return;
-        }
+        if (success && success.style.display === 'block') return;
         if (modal.classList.contains('is-open')) return;
         openApplyModal();
-      }, AUTO_POPUP_INTERVAL_MS);
+      }
+      setTimeout(tryAutoOpen, 65000);
+      setTimeout(tryAutoOpen, 180000);
     })();
 
     /* ============ FORM SUBMIT → GOOGLE SHEETS (Apps Script Web App) ============
