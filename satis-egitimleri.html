@@ -242,12 +242,31 @@
     }
     .hero-photo {
       position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(207, 255, 4, 0.18);
+      background: var(--cream);
     }
     .hero-photo img {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: auto;
-      border-radius: var(--radius-lg);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(207, 255, 4, 0.18);
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      transition: opacity 1.1s ease;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .hero-photo img.is-active,
+    .hero-photo img:only-child {
+      opacity: 1;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-photo img { transition: none; }
     }
     .hero-copy {
       text-align: center;
@@ -2484,8 +2503,15 @@
     <section class="hero">
       <div class="container">
         <div class="hero-grid">
-          <div class="hero-photo">
-            <img src="images/hero/faruk-banner.jpg?v=2" alt="Faruk Oğuz — Satış Laboratuvarı" loading="eager" width="800" height="900">
+          <div class="hero-photo" data-slideshow data-slideshow-interval="2500">
+            <img src="images/hero/faruk-banner.jpg?v=2" alt="Faruk Oğuz — Satış Laboratuvarı" class="is-active" loading="eager" width="800" height="900">
+            <img src="images/instructor/faruk-1.jpg" alt="" loading="lazy">
+            <img src="images/instructor/faruk-2.jpg" alt="" loading="lazy">
+            <img src="images/instructor/faruk-3.jpg" alt="" loading="lazy">
+            <img src="images/instructor/faruk-4.jpg" alt="" loading="lazy">
+            <img src="images/instructor/faruk-5.jpg" alt="" loading="lazy">
+            <img src="images/instructor/faruk-6.jpg" alt="" loading="lazy">
+            <img src="images/instructor/faruk-7.jpg" alt="" loading="lazy">
           </div>
           <div class="hero-copy">
             <span class="hero-eyebrow">14 Günde</span>
