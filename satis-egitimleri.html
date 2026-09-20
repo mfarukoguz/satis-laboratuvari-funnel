@@ -1327,13 +1327,43 @@
       flex-shrink: 0;
     }
     .wp-card-avatar {
-      width: 36px;
-      height: 36px;
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #E8DDC7, #B49146, #5A4F42);
-      filter: blur(2px);
+      position: relative;
+      overflow: hidden;
       flex-shrink: 0;
+      background: radial-gradient(circle at 50% 80%, #5a3d24 0%, #3a2818 55%, #2a1c11 100%);
+      box-shadow: inset 0 -2px 6px rgba(0,0,0,0.4), 0 0 0 1.5px rgba(255,255,255,0.2);
     }
+    .wp-card-avatar::before {
+      content: '';
+      position: absolute;
+      top: 12%;
+      left: 28%;
+      right: 28%;
+      height: 50%;
+      background: radial-gradient(ellipse at 50% 40%, #e6bd90 0%, #c99870 50%, #a67a52 80%);
+      border-radius: 50%;
+      filter: blur(3px);
+    }
+    .wp-card-avatar::after {
+      content: '';
+      position: absolute;
+      bottom: -6%;
+      left: 8%;
+      right: 8%;
+      height: 65%;
+      background: radial-gradient(ellipse at 50% 20%, #7a533a 0%, #4d3320 55%, transparent 80%);
+      border-radius: 50%;
+      filter: blur(3.5px);
+    }
+    .wp-card[data-tone="warm"] .wp-card-avatar { background: radial-gradient(circle at 50% 80%, #6b4425 0%, #422c17 55%, #2f1e10 100%); }
+    .wp-card[data-tone="warm"] .wp-card-avatar::before { background: radial-gradient(ellipse at 50% 40%, #f0c99e 0%, #d29c72 50%, #a87c56 80%); }
+    .wp-card[data-tone="cool"] .wp-card-avatar { background: radial-gradient(circle at 50% 80%, #3a2f24 0%, #24201a 55%, #17130f 100%); }
+    .wp-card[data-tone="cool"] .wp-card-avatar::before { background: radial-gradient(ellipse at 50% 40%, #d4b598 0%, #b8927a 50%, #8c6b54 80%); }
+    .wp-card[data-tone="warm"] .wp-card-avatar::after { background: radial-gradient(ellipse at 50% 20%, #6b4526 0%, #3d2712 55%, transparent 80%); }
+    .wp-card[data-tone="cool"] .wp-card-avatar::after { background: radial-gradient(ellipse at 50% 20%, #4a382a 0%, #2b1e14 55%, transparent 80%); }
     .wp-card-name {
       flex: 1;
       font-size: 14px;
@@ -3054,7 +3084,7 @@
             <div class="wp-card-header">
               <svg class="wp-card-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <div class="wp-card-avatar"></div>
-              <div class="wp-card-name">Katılımcı 1</div>
+              <div class="wp-card-name">Yusuf Ç.</div>
               <div class="wp-card-actions">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
@@ -3062,11 +3092,11 @@
             </div>
             <img src="images/whatsapp-proofs/IMG_0576.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy">
           </div>
-          <div class="wp-card">
+          <div class="wp-card" data-tone="warm">
             <div class="wp-card-header">
               <svg class="wp-card-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <div class="wp-card-avatar"></div>
-              <div class="wp-card-name">Katılımcı 2</div>
+              <div class="wp-card-name">Yasin B.</div>
               <div class="wp-card-actions">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
@@ -3074,11 +3104,11 @@
             </div>
             <img src="images/whatsapp-proofs/IMG_1023.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy">
           </div>
-          <div class="wp-card">
+          <div class="wp-card" data-tone="cool">
             <div class="wp-card-header">
               <svg class="wp-card-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <div class="wp-card-avatar"></div>
-              <div class="wp-card-name">Katılımcı 3</div>
+              <div class="wp-card-name">Emine B.</div>
               <div class="wp-card-actions">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
@@ -3090,7 +3120,7 @@
             <div class="wp-card-header">
               <svg class="wp-card-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <div class="wp-card-avatar"></div>
-              <div class="wp-card-name">Katılımcı 4</div>
+              <div class="wp-card-name">Ahmet K.</div>
               <div class="wp-card-actions">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
@@ -3098,11 +3128,11 @@
             </div>
             <img src="images/whatsapp-proofs/IMG_9465.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy">
           </div>
-          <div class="wp-card">
+          <div class="wp-card" data-tone="warm">
             <div class="wp-card-header">
               <svg class="wp-card-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <div class="wp-card-avatar"></div>
-              <div class="wp-card-name">Katılımcı 5</div>
+              <div class="wp-card-name">Fatma D.</div>
               <div class="wp-card-actions">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
@@ -3110,11 +3140,11 @@
             </div>
             <img src="images/whatsapp-proofs/IMG_9600.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy">
           </div>
-          <div class="wp-card">
+          <div class="wp-card" data-tone="cool">
             <div class="wp-card-header">
               <svg class="wp-card-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <div class="wp-card-avatar"></div>
-              <div class="wp-card-name">Katılımcı 6</div>
+              <div class="wp-card-name">Mehmet A.</div>
               <div class="wp-card-actions">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
@@ -3126,7 +3156,7 @@
             <div class="wp-card-header">
               <svg class="wp-card-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <div class="wp-card-avatar"></div>
-              <div class="wp-card-name">Katılımcı 7</div>
+              <div class="wp-card-name">Zeynep S.</div>
               <div class="wp-card-actions">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
@@ -3134,11 +3164,11 @@
             </div>
             <img src="images/whatsapp-proofs/IMG_9617.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy">
           </div>
-          <div class="wp-card">
+          <div class="wp-card" data-tone="warm">
             <div class="wp-card-header">
               <svg class="wp-card-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <div class="wp-card-avatar"></div>
-              <div class="wp-card-name">Katılımcı 8</div>
+              <div class="wp-card-name">Ali T.</div>
               <div class="wp-card-actions">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
@@ -3146,11 +3176,11 @@
             </div>
             <img src="images/whatsapp-proofs/IMG_9810.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy">
           </div>
-          <div class="wp-card">
+          <div class="wp-card" data-tone="cool">
             <div class="wp-card-header">
               <svg class="wp-card-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <div class="wp-card-avatar"></div>
-              <div class="wp-card-name">Katılımcı 9</div>
+              <div class="wp-card-name">Ayşe G.</div>
               <div class="wp-card-actions">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
@@ -3162,7 +3192,7 @@
             <div class="wp-card-header">
               <svg class="wp-card-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <div class="wp-card-avatar"></div>
-              <div class="wp-card-name">Katılımcı 10</div>
+              <div class="wp-card-name">Mustafa Ö.</div>
               <div class="wp-card-actions">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
@@ -3170,11 +3200,11 @@
             </div>
             <img src="images/whatsapp-proofs/IMG_9894.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy">
           </div>
-          <div class="wp-card">
+          <div class="wp-card" data-tone="warm">
             <div class="wp-card-header">
               <svg class="wp-card-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <div class="wp-card-avatar"></div>
-              <div class="wp-card-name">Katılımcı 11</div>
+              <div class="wp-card-name">Hatice Y.</div>
               <div class="wp-card-actions">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
@@ -3182,11 +3212,11 @@
             </div>
             <img src="images/whatsapp-proofs/IMG_9998.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy">
           </div>
-          <div class="wp-card">
+          <div class="wp-card" data-tone="cool">
             <div class="wp-card-header">
               <svg class="wp-card-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
               <div class="wp-card-avatar"></div>
-              <div class="wp-card-name">Katılımcı 12</div>
+              <div class="wp-card-name">Hasan E.</div>
               <div class="wp-card-actions">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/></svg>
