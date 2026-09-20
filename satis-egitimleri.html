@@ -561,7 +561,30 @@
     /* ================================================
        BÖLÜM 4 — ESKİ / YENİ
        ================================================ */
-    .oldvnew { background: var(--cream-light); }
+    /* ==== Alternate koyu/krem section ritmi ==== */
+    .oldvnew,
+    .experience,
+    .process { background: var(--dark-2); color: var(--cream-light); }
+    .oldvnew .section-eyebrow,
+    .experience .section-eyebrow,
+    .process .section-eyebrow { color: var(--gold-bright); }
+    .oldvnew .section-title,
+    .experience .section-title,
+    .process .section-title { color: var(--cream-light); }
+    .oldvnew .section-title em,
+    .experience .section-title em,
+    .process .section-title em { color: var(--gold-bright); }
+    .oldvnew .section-sub,
+    .experience .section-sub,
+    .process .section-sub { color: var(--cream-warm); }
+    .experience .experience-card,
+    .process .step-card { background: var(--cream-dark); color: var(--text); }
+    .experience .experience-card h3,
+    .process .step-card h3 { color: var(--dark); }
+    .experience .experience-card p,
+    .process .step-card p { color: var(--text-muted); }
+    .process .process-trust { background: rgba(235, 228, 211, 0.08); color: var(--cream-light); border-color: rgba(180, 145, 70, 0.32); }
+    .process .process-trust strong { color: var(--gold-bright); }
     .oldvnew-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
