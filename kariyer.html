@@ -50,9 +50,9 @@
       --radius-xl: 28px;
       --radius-pill: 100px;
 
-      --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.4);
-      --shadow-card-hover: 0 14px 40px rgba(0, 0, 0, 0.55);
-      --shadow-gold: 0 12px 28px rgba(180, 145, 70, 0.32);
+      --shadow-card: 0 8px 24px rgba(42, 36, 25, 0.06);
+      --shadow-card-hover: 0 14px 40px rgba(42, 36, 25, 0.10);
+      --shadow-gold: 0 12px 28px rgba(180, 145, 70, 0.28);
 
       --container: 1180px;
     }
@@ -84,16 +84,16 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(10, 10, 10, 0.85);
+      background: rgba(235, 228, 211, 0.88);
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
       border-bottom: 1px solid transparent;
       transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
     }
     header.is-scrolled {
-      background: rgba(10, 10, 10, 0.95);
+      background: rgba(235, 228, 211, 0.96);
       border-bottom-color: rgba(180, 145, 70, 0.2);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 8px 24px rgba(42, 36, 25, 0.06);
     }
     .nav {
       display: flex;
@@ -140,8 +140,8 @@
       justify-content: center;
       width: 42px; height: 42px;
       border-radius: 50%;
-      background: rgba(0, 0, 0, 0.04);
-      border: 1px solid rgba(0, 0, 0, 0.10);
+      background: rgba(42, 36, 25, 0.04);
+      border: 1px solid rgba(42, 36, 25, 0.10);
       color: var(--text);
       transition: all 0.25s;
     }
@@ -154,7 +154,7 @@
     .nav-ig svg { width: 18px; height: 18px; }
     .nav-cta {
       background: linear-gradient(180deg, var(--gold-bright), var(--gold));
-      color: var(--cream);
+      color: white;
       font-weight: 700;
       font-size: 13px;
       letter-spacing: 0.5px;
@@ -178,7 +178,7 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 55% 45% at 30% 20%, rgba(180, 145, 70, 0.07), transparent 60%),
+        radial-gradient(ellipse 55% 45% at 30% 20%, rgba(255, 240, 210, 0.5), transparent 60%),
         radial-gradient(ellipse 50% 40% at 80% 85%, rgba(180, 145, 70, 0.10), transparent 60%);
       pointer-events: none;
       z-index: 0;
@@ -187,7 +187,7 @@
     .hero-eyebrow {
       display: inline-block;
       padding: 8px 18px;
-      background: var(--cream-dark);
+      background: white;
       border: 1px solid var(--gold);
       color: var(--gold-deep);
       font-size: 11px;
@@ -271,8 +271,8 @@
       align-items: center;
       text-align: center;
       text-decoration: none;
-      background: var(--cream-dark);
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: white;
+      border: 1px solid rgba(42, 36, 25, 0.06);
       border-radius: var(--radius-lg);
       padding: 30px 22px 24px;
       transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
@@ -321,7 +321,7 @@
       border-radius: 50%;
       object-fit: cover;
       background: var(--cream);
-      border: 3px solid var(--cream-light);
+      border: 3px solid white;
       box-shadow: 0 0 0 2px var(--gold);
       display: block;
     }
@@ -349,7 +349,7 @@
     .brand-followers {
       font-size: 13px;
       color: var(--text-muted);
-      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      border-top: 1px solid rgba(42, 36, 25, 0.08);
       padding-top: 14px;
       width: 100%;
     }
@@ -422,8 +422,8 @@
       margin: 0 auto;
     }
     .testimonial-card {
-      background: var(--cream-dark);
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: white;
+      border: 1px solid rgba(42, 36, 25, 0.06);
       border-radius: var(--radius-xl);
       overflow: hidden;
       transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
@@ -485,7 +485,7 @@
     .testimonial-meta {
       padding: 20px 24px;
       text-align: center;
-      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      border-top: 1px solid rgba(42, 36, 25, 0.06);
     }
     .testimonial-name {
       font-size: 18px;
@@ -545,8 +545,8 @@
       height: 200px;
       border-radius: 10px;
       overflow: hidden;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      background: var(--cream-dark);
+      border: 1px solid rgba(42, 36, 25, 0.08);
+      background: white;
       transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
       box-shadow: var(--shadow-card);
       position: relative;
@@ -620,7 +620,7 @@
       align-items: center;
       gap: 12px;
       background: linear-gradient(180deg, var(--gold-bright), var(--gold));
-      color: var(--cream);
+      color: white;
       font-weight: 800;
       font-size: clamp(14px, 1.5vw, 17px);
       padding: 20px 44px;
@@ -681,7 +681,7 @@
     /* ============ KARIYER APPLICATION FORM (dark section, inline) ============ */
     .apply-shell {
       background: var(--dark-2);
-      border: 1px solid rgba(224, 255, 61, 0.22);
+      border: 1px solid rgba(201, 167, 92, 0.22);
       border-radius: var(--radius-xl);
       padding: 40px 34px 34px;
       box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45);
@@ -714,7 +714,7 @@
       gap: 12px;
       margin-bottom: 22px;
       padding-bottom: 14px;
-      border-bottom: 1px solid rgba(224, 255, 61, 0.16);
+      border-bottom: 1px solid rgba(201, 167, 92, 0.16);
     }
     .form-progress-label {
       font-size: 10.5px;
@@ -727,7 +727,7 @@
     .form-progress-track {
       flex: 1;
       height: 4px;
-      background: rgba(224, 255, 61, 0.14);
+      background: rgba(201, 167, 92, 0.14);
       border-radius: 3px;
       overflow: hidden;
     }
@@ -784,7 +784,7 @@
     .form-select:focus {
       outline: none;
       border-color: var(--gold-bright);
-      box-shadow: 0 0 0 3px rgba(224, 255, 61, 0.22);
+      box-shadow: 0 0 0 3px rgba(201, 167, 92, 0.22);
     }
     .form-textarea {
       min-height: 84px;
@@ -808,8 +808,8 @@
     .form-hint a { color: var(--gold-bright); text-decoration: underline; }
 
     .form-step-recap {
-      background: rgba(224, 255, 61, 0.08);
-      border: 1px solid rgba(224, 255, 61, 0.22);
+      background: rgba(201, 167, 92, 0.08);
+      border: 1px solid rgba(201, 167, 92, 0.22);
       border-radius: var(--radius-sm);
       padding: 10px 14px;
       font-size: 12.5px;
@@ -835,7 +835,7 @@
       flex-shrink: 0;
       transition: background 0.2s;
     }
-    .form-step-recap-back:hover { background: rgba(224, 255, 61, 0.15); }
+    .form-step-recap-back:hover { background: rgba(201, 167, 92, 0.15); }
 
     .form-error {
       display: none;
@@ -868,14 +868,14 @@
       border: none;
       border-radius: var(--radius-pill);
       cursor: pointer;
-      box-shadow: 0 14px 30px rgba(224, 255, 61, 0.35), inset 0 1px 0 rgba(255,255,255,0.35);
+      box-shadow: 0 14px 30px rgba(201, 167, 92, 0.35), inset 0 1px 0 rgba(255,255,255,0.35);
       transition: transform 0.2s, box-shadow 0.2s;
       margin-top: 6px;
     }
     .form-step-continue:hover,
     .form-submit:hover {
       transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(224, 255, 61, 0.5), inset 0 1px 0 rgba(255,255,255,0.4);
+      box-shadow: 0 20px 40px rgba(201, 167, 92, 0.5), inset 0 1px 0 rgba(255,255,255,0.4);
     }
     .form-step-continue[disabled],
     .form-submit[disabled] {
@@ -911,7 +911,7 @@
       justify-content: center;
       font-size: 34px;
       font-weight: 900;
-      box-shadow: 0 12px 30px rgba(224, 255, 61, 0.4);
+      box-shadow: 0 12px 30px rgba(201, 167, 92, 0.4);
     }
     .apply-success h3 {
       font-size: 22px;
@@ -976,7 +976,7 @@
   <!-- ============ HERO ============ -->
   <section class="hero" style="background: var(--dark); color: var(--cream-light); padding: 80px 0 100px; position: relative; overflow: hidden;">
     <div class="container" style="max-width: 900px; text-align: center; position: relative; z-index: 2;">
-      <span class="hero-eyebrow" style="background: rgba(224, 255, 61, 0.08); border: 1px solid rgba(224, 255, 61, 0.35); color: var(--gold-bright); display: inline-block; padding: 8px 18px; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; border-radius: var(--radius-pill); margin-bottom: 24px;">Kariyer</span>
+      <span class="hero-eyebrow" style="background: rgba(201, 167, 92, 0.08); border: 1px solid rgba(201, 167, 92, 0.35); color: var(--gold-bright); display: inline-block; padding: 8px 18px; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; border-radius: var(--radius-pill); margin-bottom: 24px;">Kariyer</span>
       <h1 style="color: var(--cream-light); font-size: clamp(30px, 5vw, 56px); font-weight: 800; line-height: 1.1; letter-spacing: -1px; margin-bottom: 22px;">
         Satış Danışmanı Olarak <span class="accent" style="color: var(--gold-bright); font-style: italic;">Bizimle Çalış</span>
       </h1>
@@ -988,7 +988,7 @@
         seni doğru markayla eşleştiriyoruz.
       </p>
 
-      <div class="kariyer-video-wrap" style="max-width: 640px; margin: 0 auto 36px; border-radius: var(--radius-lg); overflow: hidden; background: var(--dark-2); border: 1px solid rgba(224, 255, 61, 0.25); box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 6px rgba(180, 145, 70, 0.08);">
+      <div class="kariyer-video-wrap" style="max-width: 640px; margin: 0 auto 36px; border-radius: var(--radius-lg); overflow: hidden; background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.25); box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 6px rgba(180, 145, 70, 0.08);">
         <video controls playsinline preload="metadata" poster="videos/kariyer/kariyer-hero-poster.jpg" style="width: 100%; height: auto; display: block; aspect-ratio: 16/9; object-fit: cover; background: var(--dark);">
           <source src="videos/kariyer/kariyer-hero.mp4" type="video/mp4">
           Tarayıcınız video oynatmayı desteklemiyor.
@@ -1006,19 +1006,19 @@
       <p class="section-sub" style="margin-bottom: 48px;">Kapı geniş — deneyim şart değil, hazır olduğun noktadan başlıyoruz.</p>
 
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1080px; margin: 0 auto;">
-        <div class="kariyer-who-card" style="background: var(--cream-dark); border: 1px solid rgba(0, 0, 0, 0.06); border-radius: var(--radius-xl); padding: 32px 26px; text-align: center; box-shadow: var(--shadow-card); transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;">
+        <div class="kariyer-who-card" style="background: white; border: 1px solid rgba(42, 36, 25, 0.06); border-radius: var(--radius-xl); padding: 32px 26px; text-align: center; box-shadow: var(--shadow-card); transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;">
           <div style="font-size: 40px; margin-bottom: 16px;">🚀</div>
           <h3 style="font-size: 19px; font-weight: 800; color: var(--dark); margin-bottom: 10px; letter-spacing: -0.3px;">Deneyimli Satışçılar</h3>
           <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.6;">Portföyünü büyütmek isteyen, sektör değişikliği düşünen ya da uzaktan pozisyon arayan satış uzmanları için ideal fırsat.</p>
         </div>
 
-        <div class="kariyer-who-card" style="background: var(--cream-dark); border: 1px solid rgba(0, 0, 0, 0.06); border-radius: var(--radius-xl); padding: 32px 26px; text-align: center; box-shadow: var(--shadow-card); transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;">
+        <div class="kariyer-who-card" style="background: white; border: 1px solid rgba(42, 36, 25, 0.06); border-radius: var(--radius-xl); padding: 32px 26px; text-align: center; box-shadow: var(--shadow-card); transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;">
           <div style="font-size: 40px; margin-bottom: 16px;">🌱</div>
           <h3 style="font-size: 19px; font-weight: 800; color: var(--dark); margin-bottom: 10px; letter-spacing: -0.3px;">Deneyimsiz Adaylar</h3>
           <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.6;">İlk satış işini arıyorsan da olur — 7G Satış Sistemi ile sıfırdan eğitim veriyor, hazır sistemle sahaya çıkarıyoruz.</p>
         </div>
 
-        <div class="kariyer-who-card" style="background: var(--cream-dark); border: 1px solid rgba(0, 0, 0, 0.06); border-radius: var(--radius-xl); padding: 32px 26px; text-align: center; box-shadow: var(--shadow-card); transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;">
+        <div class="kariyer-who-card" style="background: white; border: 1px solid rgba(42, 36, 25, 0.06); border-radius: var(--radius-xl); padding: 32px 26px; text-align: center; box-shadow: var(--shadow-card); transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;">
           <div style="font-size: 40px; margin-bottom: 16px;">🏠</div>
           <h3 style="font-size: 19px; font-weight: 800; color: var(--dark); margin-bottom: 10px; letter-spacing: -0.3px;">Uzaktan Çalışmak İsteyenler</h3>
           <p style="color: var(--text-muted); font-size: 14.5px; line-height: 1.6;">Pozisyonların büyük çoğunluğu uzaktan (Zoom + telefon üzerinden). Şehir sınırı yok, bilgisayar + net internet yeterli.</p>
@@ -1029,43 +1029,43 @@
 
   <!-- ============ NE SUNUYORUZ? (DARK) ============ -->
   <section style="background: var(--dark); color: var(--cream-light); padding: 90px 0; position: relative; overflow: hidden;">
-    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(224, 255, 61, 0.10), transparent 55%); pointer-events: none;"></div>
+    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201, 167, 92, 0.10), transparent 55%); pointer-events: none;"></div>
     <div class="container" style="position: relative;">
       <h2 class="section-title" style="color: var(--cream-light);">Ne <span class="accent" style="color: var(--gold-bright);">Sunuyoruz?</span></h2>
       <p class="section-sub" style="color: var(--cream-dark); margin-bottom: 48px;">Sadece iş değil — sürdürülebilir bir satış kariyeri.</p>
 
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 1080px; margin: 0 auto;">
-        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(224, 255, 61, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
+        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
           <div style="font-size: 32px; font-weight: 900; color: var(--gold-bright); letter-spacing: -1px; margin-bottom: 12px; line-height: 1;">01</div>
           <h3 style="font-size: 18px; font-weight: 800; color: var(--cream-light); margin-bottom: 10px;">Sabit Maaş</h3>
           <p style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Aylık düzenli ödeme — motive edici prim ve komisyon yapısı ile birlikte.</p>
         </div>
 
-        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(224, 255, 61, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
+        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
           <div style="font-size: 32px; font-weight: 900; color: var(--gold-bright); letter-spacing: -1px; margin-bottom: 12px; line-height: 1;">02</div>
           <h3 style="font-size: 18px; font-weight: 800; color: var(--cream-light); margin-bottom: 10px;">Satış Komisyonu</h3>
           <p style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Her kapatılan satışta komisyon — performansın direkt kazancına yansıyor.</p>
         </div>
 
-        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(224, 255, 61, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
+        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
           <div style="font-size: 32px; font-weight: 900; color: var(--gold-bright); letter-spacing: -1px; margin-bottom: 12px; line-height: 1;">03</div>
           <h3 style="font-size: 18px; font-weight: 800; color: var(--cream-light); margin-bottom: 10px;">Hedef Primi</h3>
           <p style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Aylık ve dönemsel hedefler geçildiğinde ekstra kazanç — çabanın karşılığı.</p>
         </div>
 
-        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(224, 255, 61, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
+        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
           <div style="font-size: 32px; font-weight: 900; color: var(--gold-bright); letter-spacing: -1px; margin-bottom: 12px; line-height: 1;">04</div>
           <h3 style="font-size: 18px; font-weight: 800; color: var(--cream-light); margin-bottom: 10px;">Uzaktan Çalışma</h3>
           <p style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Evinden, kafeden, kendi setup'ından çalış — pozisyonların çoğu uzaktan.</p>
         </div>
 
-        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(224, 255, 61, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
+        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
           <div style="font-size: 32px; font-weight: 900; color: var(--gold-bright); letter-spacing: -1px; margin-bottom: 12px; line-height: 1;">05</div>
           <h3 style="font-size: 18px; font-weight: 800; color: var(--cream-light); margin-bottom: 10px;">7G Satış Eğitimi</h3>
           <p style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Deneyimsiz de olsan hazır sistemli eğitim + sürekli saha koçluğu.</p>
         </div>
 
-        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(224, 255, 61, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
+        <div class="kariyer-offer-item" style="background: var(--dark-2); border: 1px solid rgba(201, 167, 92, 0.18); border-radius: var(--radius-xl); padding: 32px 26px; box-shadow: 0 12px 32px rgba(0,0,0,0.35); transition: transform 0.25s, border-color 0.25s;">
           <div style="font-size: 32px; font-weight: 900; color: var(--gold-bright); letter-spacing: -1px; margin-bottom: 12px; line-height: 1;">06</div>
           <h3 style="font-size: 18px; font-weight: 800; color: var(--cream-light); margin-bottom: 10px;">Doğru Marka Eşleşmesi</h3>
           <p style="color: var(--cream-dark); font-size: 14px; line-height: 1.6;">Danışmanlık verdiğimiz şirketler arasından profiline uygun olanla seni buluşturuyoruz.</p>
@@ -1081,7 +1081,7 @@
       <p class="section-sub" style="margin-bottom: 56px;">3 adımda — başvurudan sahada satış yapmaya kadar.</p>
 
       <div style="max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
-        <div class="kariyer-step" style="display: flex; gap: 22px; background: var(--cream-dark); border: 1px solid rgba(0, 0, 0, 0.06); border-radius: var(--radius-xl); padding: 28px 30px; box-shadow: var(--shadow-card); align-items: flex-start;">
+        <div class="kariyer-step" style="display: flex; gap: 22px; background: white; border: 1px solid rgba(42, 36, 25, 0.06); border-radius: var(--radius-xl); padding: 28px 30px; box-shadow: var(--shadow-card); align-items: flex-start;">
           <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-bright), var(--gold)); color: white; font-size: 22px; font-weight: 900; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-gold);">1</div>
           <div>
             <h3 style="font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.3px;">Başvuruyu Bize Yaparsın</h3>
@@ -1089,7 +1089,7 @@
           </div>
         </div>
 
-        <div class="kariyer-step" style="display: flex; gap: 22px; background: var(--cream-dark); border: 1px solid rgba(0, 0, 0, 0.06); border-radius: var(--radius-xl); padding: 28px 30px; box-shadow: var(--shadow-card); align-items: flex-start;">
+        <div class="kariyer-step" style="display: flex; gap: 22px; background: white; border: 1px solid rgba(42, 36, 25, 0.06); border-radius: var(--radius-xl); padding: 28px 30px; box-shadow: var(--shadow-card); align-items: flex-start;">
           <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-bright), var(--gold)); color: white; font-size: 22px; font-weight: 900; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-gold);">2</div>
           <div>
             <h3 style="font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.3px;">Şirket Eşleştirmesi</h3>
@@ -1097,7 +1097,7 @@
           </div>
         </div>
 
-        <div class="kariyer-step" style="display: flex; gap: 22px; background: var(--cream-dark); border: 1px solid rgba(0, 0, 0, 0.06); border-radius: var(--radius-xl); padding: 28px 30px; box-shadow: var(--shadow-card); align-items: flex-start;">
+        <div class="kariyer-step" style="display: flex; gap: 22px; background: white; border: 1px solid rgba(42, 36, 25, 0.06); border-radius: var(--radius-xl); padding: 28px 30px; box-shadow: var(--shadow-card); align-items: flex-start;">
           <div style="flex-shrink: 0; width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-bright), var(--gold)); color: white; font-size: 22px; font-weight: 900; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-gold);">3</div>
           <div>
             <h3 style="font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.3px;">Eğitim + Sahaya İniş</h3>
@@ -1110,7 +1110,7 @@
 
   <!-- ============ BAŞVURU FORMU (DARK SECTION) ============ -->
   <section id="basvuru" style="background: var(--dark); color: var(--cream-light); padding: 90px 0; position: relative; overflow: hidden;">
-    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(224, 255, 61, 0.12), transparent 55%); pointer-events: none;"></div>
+    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201, 167, 92, 0.12), transparent 55%); pointer-events: none;"></div>
     <div class="container" style="position: relative; max-width: 780px; text-align: center;">
       <h2 class="section-title" style="color: var(--cream-light);">Başvuru <span class="accent" style="color: var(--gold-bright);">Formu</span></h2>
       <p class="section-sub" style="color: var(--cream-dark); margin-bottom: 40px;">İki adımda tamamlanır — bilgilerin bize ulaşır, uygun adaylarla 5 iş günü içinde iletişime geçiyoruz.</p>
