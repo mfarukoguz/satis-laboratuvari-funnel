@@ -1291,6 +1291,16 @@
       .testimonial-carousel-btn--next { right: -2px; }
       .testimonial-track .testimonial-card { flex: 0 0 72vw; max-width: 72vw; }
     }
+    /* Mobil: video kartın üstünden dikey scroll'u serbest bırak,
+       yatay swipe kaybolur — kullanıcı ok butonlarıyla kart geçer. */
+    @media (hover: none) and (pointer: coarse) {
+      .testimonial-track { touch-action: pan-y; }
+      .testimonial-track .testimonial-card,
+      .testimonial-track .testimonial-facade,
+      .testimonial-track .testimonial-video-wrap,
+      .testimonial-track video { touch-action: pan-y; }
+      .testimonial-track { overscroll-behavior-y: auto; }
+    }
 
     /* ================================================
        BÖLÜM 10.5 — WHATSAPP MARQUEE (sosyal kanit)
