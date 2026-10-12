@@ -477,6 +477,100 @@
     section { position: relative; }
     .section-pad { padding: 90px 0; }
     .section-pad-lg { padding: 110px 0; }
+
+    /* ================================================
+       BÖLÜM — 2 YOLU KARŞILAŞTIRMA
+       ================================================ */
+    .compare-ways { background: var(--cream-light); }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .compare-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 56px rgba(42, 36, 25, 0.22), 0 0 0 1px rgba(42, 36, 25, 0.08);
+    }
+    .compare-content .section-eyebrow { color: var(--gold-deep); margin-bottom: 14px; }
+    .compare-content .section-title {
+      text-align: left;
+      margin-bottom: 18px;
+      line-height: 1.15;
+    }
+    .compare-content .section-title em { color: var(--gold-deep); font-style: italic; }
+    .compare-intro {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+    .compare-ways-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .compare-way {
+      padding: 20px 22px;
+      border-radius: var(--radius);
+      background: var(--cream);
+      border: 1px solid rgba(42, 36, 25, 0.08);
+      box-shadow: var(--shadow-card);
+    }
+    .compare-way--old { border-top: 4px solid var(--danger); }
+    .compare-way--new { border-top: 4px solid var(--success); }
+    .compare-way-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .compare-way--old .compare-way-label { color: var(--danger); }
+    .compare-way--new .compare-way-label { color: var(--success); }
+    .compare-way ul { list-style: none; padding: 0; margin: 0; }
+    .compare-way li {
+      font-size: 15px;
+      color: var(--text);
+      padding: 5px 0;
+      font-weight: 600;
+    }
+    .compare-way li strong {
+      color: var(--dark);
+      font-size: 18px;
+      font-weight: 800;
+    }
+    .compare-note {
+      padding: 16px 20px;
+      background: var(--cream);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-sm);
+      font-size: 14.5px;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .compare-close {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.3;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(42, 36, 25, 0.2);
+    }
+    .compare-close em { font-style: italic; color: var(--gold-deep); }
+    @media (max-width: 900px) {
+      .compare-grid { grid-template-columns: 1fr; gap: 36px; }
+      .compare-visual { max-width: 560px; margin: 0 auto; }
+    }
+    @media (max-width: 560px) {
+      .compare-ways-grid { grid-template-columns: 1fr; }
+      .compare-close { font-size: 16px; }
+    }
     .section-eyebrow {
       display: inline-block;
       font-size: 11px;
@@ -2656,6 +2750,52 @@
             </p>
 
             <a href="#basvuru" class="cta-primary">7G Satış Sistemine Başvur</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BÖLÜM — SATIŞI ARTIRMANIN 2 YOLU ============ -->
+    <section class="compare-ways section-pad">
+      <div class="container">
+        <div class="compare-grid">
+          <div class="compare-visual">
+            <img src="images/compare-eski-yeni-yol.jpg" alt="Satış görüşmelerinde eski yol vs yeni yol karşılaştırması" loading="lazy">
+          </div>
+          <div class="compare-content">
+            <span class="section-eyebrow">İki Yol</span>
+            <h2 class="section-title">Satışlarını Artırmanın <em>2 Yolu</em> Var. Hangisi Daha Mantıklı?</h2>
+            <p class="compare-intro">
+              Daha fazla satış yapmak için daha fazla müşteri bulmak zorunda değilsin.
+              İhtiyacın olan şey, mevcut görüşmelerinden daha fazla satış çıkarabilmektir.
+            </p>
+
+            <div class="compare-ways-grid">
+              <div class="compare-way compare-way--old">
+                <div class="compare-way-label">Eski Yol</div>
+                <ul>
+                  <li>100 görüşme</li>
+                  <li>%10 dönüşüm</li>
+                  <li><strong>10 satış</strong></li>
+                </ul>
+              </div>
+              <div class="compare-way compare-way--new">
+                <div class="compare-way-label">Yeni Yol</div>
+                <ul>
+                  <li>100 görüşme</li>
+                  <li>%40 dönüşüm</li>
+                  <li><strong>40 satış</strong></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="compare-note">
+              Aynı 100 görüşme. Farklı satış sonuçları. Aradaki farkı yaratan şey satış görüşmesini nasıl yönettiğindir.
+            </div>
+
+            <p class="compare-close">
+              Daha çok müşteri bulmaya çalışmadan önce, <em>mevcut müşterilerine nasıl satış yaptığını değiştir.</em>
+            </p>
           </div>
         </div>
       </div>
