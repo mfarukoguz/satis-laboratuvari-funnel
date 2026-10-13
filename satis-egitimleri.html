@@ -1412,27 +1412,17 @@
       position: relative;
       overflow: hidden;
     }
-    .wp-scroll {
+    .wp-grid {
       margin-top: 46px;
-      display: flex;
-      gap: 24px;
-      overflow-x: auto;
-      overflow-y: hidden;
-      overscroll-behavior-x: contain;
-      touch-action: pan-x;
-      scroll-snap-type: x proximity;
-      scroll-behavior: smooth;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding: 10px 24px 24px;
-      -webkit-overflow-scrolling: touch;
-      scroll-padding-left: 24px;
+      column-count: 2;
+      column-gap: 24px;
     }
-    .wp-scroll::-webkit-scrollbar { display: none; }
     .wp-card {
-      flex: 0 0 320px;
-      max-width: 320px;
-      scroll-snap-align: start;
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      margin: 0 0 24px;
+      display: block;
       background: transparent;
       border: none;
       box-shadow: none;
@@ -1444,59 +1434,17 @@
       display: block;
       border-radius: 0;
     }
-    /* ---- Prev/Next arrow buttons ---- */
-    .wp-wrap {
-      position: relative;
-    }
-    .wp-nav-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--cream);
-      color: var(--gold-deep);
-      border: 2px solid var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 3;
-      box-shadow: 0 10px 24px rgba(42, 36, 25, 0.22);
-      transition: transform 0.2s, background 0.2s, color 0.2s, box-shadow 0.2s;
-    }
-    .wp-nav-btn:hover {
-      background: var(--gold);
-      color: var(--cream);
-      transform: translateY(-50%) scale(1.06);
-      box-shadow: 0 14px 30px rgba(180, 145, 70, 0.4);
-    }
-    .wp-nav-btn[disabled] {
-      opacity: 0.35;
-      cursor: default;
-      pointer-events: none;
-    }
-    .wp-nav-btn svg { width: 22px; height: 22px; }
-    .wp-nav-btn--prev { left: -12px; }
-    .wp-nav-btn--next { right: -12px; }
     @media (max-width: 900px) {
-      .wp-nav-btn { width: 40px; height: 40px; }
-      .wp-nav-btn--prev { left: 4px; }
-      .wp-nav-btn--next { right: 4px; }
-    }
-    @media (max-width: 560px) {
-      .wp-nav-btn { display: none; }
+      .wp-grid { column-gap: 18px; }
+      .wp-card { margin-bottom: 18px; }
     }
     @media (max-width: 560px) {
       .wp-proofs { padding: 70px 0 80px; }
-      .wp-scroll {
-        gap: 16px;
-        padding: 10px 16px 20px;
-      }
-      .wp-card {
-        flex: 0 0 78vw;
-        max-width: 78vw;
+      .wp-grid {
+        column-count: 1;
+        max-width: 420px;
+        margin-left: auto;
+        margin-right: auto;
       }
     }
 
@@ -3272,14 +3220,7 @@
           <p class="section-sub">Kamp süresince ve sonrasında gelen WhatsApp geri bildirimleri — söz değil, satışta yaşanan değişim.</p>
         </div>
 
-        <div class="wp-wrap">
-          <button class="wp-nav-btn wp-nav-btn--prev" type="button" id="wpPrevBtn" aria-label="Önceki mesaj">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          </button>
-          <button class="wp-nav-btn wp-nav-btn--next" type="button" id="wpNextBtn" aria-label="Sonraki mesaj">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"></polyline></svg>
-          </button>
-          <div class="wp-scroll" id="wpScroll">
+        <div class="wp-grid">
           <div class="wp-card">
             <img src="images/whatsapp-proofs/IMG_0576.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy">
           </div>
@@ -3324,7 +3265,6 @@
           </div>
           <div class="wp-card" data-tone="cool">
             <img src="images/whatsapp-proofs/IMG_9999.jpg" alt="Katılımcı mesajı" decoding="async" loading="lazy">
-          </div>
           </div>
         </div>
 
@@ -3957,37 +3897,6 @@
         cards.forEach(c => c.classList.add('is-in-view'));
       }
     });
-
-    /* ============ WHATSAPP SOSYAL KANIT CAROUSEL (prev/next ok) ============ */
-    (function() {
-      const scroller = document.getElementById('wpScroll');
-      const prev = document.getElementById('wpPrevBtn');
-      const next = document.getElementById('wpNextBtn');
-      if (!scroller || !prev || !next) return;
-
-      function cardStep() {
-        const first = scroller.querySelector('.wp-card');
-        if (!first) return 320;
-        const gap = parseInt(getComputedStyle(scroller).columnGap || getComputedStyle(scroller).gap || 24, 10);
-        return first.getBoundingClientRect().width + gap;
-      }
-
-      function updateDisabled() {
-        const max = scroller.scrollWidth - scroller.clientWidth - 2;
-        prev.disabled = scroller.scrollLeft <= 0;
-        next.disabled = scroller.scrollLeft >= max;
-      }
-
-      prev.addEventListener('click', () => {
-        scroller.scrollBy({ left: -cardStep(), behavior: 'smooth' });
-      });
-      next.addEventListener('click', () => {
-        scroller.scrollBy({ left: cardStep(), behavior: 'smooth' });
-      });
-      scroller.addEventListener('scroll', updateDisabled, { passive: true });
-      window.addEventListener('resize', updateDisabled);
-      updateDisabled();
-    })();
 
     /* ============ FAQ (native details but keep .open class for arrow) ============ */
     document.querySelectorAll('.faq-item').forEach(item => {
