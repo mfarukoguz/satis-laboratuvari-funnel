@@ -1106,7 +1106,14 @@
       color: var(--gold-deep);
       letter-spacing: 1px;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
+    }
+    .instructor-role {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.3px;
+      margin-bottom: 20px;
     }
     .instructor-bio {
       font-size: 16px;
@@ -1115,31 +1122,122 @@
       margin-bottom: 18px;
     }
     .instructor-bio strong { color: var(--dark); font-weight: 700; }
-    .instructor-cred {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .instructor-lede {
+      font-size: 17px;
+      padding: 16px 20px;
+      background: rgba(180, 145, 70, 0.08);
+      border-left: 4px solid var(--gold);
+      border-radius: var(--radius-sm);
+      margin-bottom: 22px;
+    }
+    .instructor-brands {
       margin-top: 24px;
-      padding: 22px 26px;
+      padding: 24px 26px;
       background: white;
       border-radius: var(--radius);
       box-shadow: var(--shadow-card);
     }
-    .instructor-cred li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 15px;
-      color: var(--text);
-      line-height: 1.5;
+    .instructor-brands-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--gold-deep);
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 20px;
     }
-    .instructor-cred li::before {
-      content: '';
-      flex-shrink: 0;
-      width: 20px; height: 20px;
-      margin-top: 2px;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A6E32' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") no-repeat center/contain;
+    .instructor-brands-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .mini-brand-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px 12px 18px;
+      border-radius: var(--radius);
+      background: var(--cream-light);
+      border: 1px solid rgba(42, 36, 25, 0.08);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .mini-brand-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(180, 145, 70, 0.4);
+      box-shadow: 0 10px 24px rgba(42, 36, 25, 0.12);
+    }
+    .mini-brand-ig {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 16px;
+      height: 16px;
+      color: var(--text-dim);
+      opacity: 0.65;
+      transition: color 0.2s, opacity 0.2s;
+    }
+    .mini-brand-card:hover .mini-brand-ig {
+      color: var(--gold-deep);
+      opacity: 1;
+    }
+    .mini-brand-avatar-wrap {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      overflow: hidden;
+      padding: 2px;
+      background: linear-gradient(135deg, #feda75, #d62976, #4f5bd5);
+      margin-bottom: 10px;
+    }
+    .mini-brand-avatar {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--cream);
+    }
+    .mini-brand-avatar--fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--dark);
+      background: var(--cream-dark);
+    }
+    .mini-brand-handle {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--gold-deep);
+      letter-spacing: 0.2px;
+      margin-bottom: 2px;
+      word-break: break-all;
+    }
+    .mini-brand-name {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 6px;
+      line-height: 1.2;
+    }
+    .mini-brand-followers {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .mini-brand-followers strong {
+      color: var(--dark);
+      font-weight: 800;
+    }
+    @media (max-width: 600px) {
+      .instructor-brands-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 400px) {
+      .instructor-brands-grid { grid-template-columns: 1fr; max-width: 260px; margin: 0 auto; }
     }
     .instructor-wins {
       margin: 28px 0 22px;
@@ -3109,48 +3207,101 @@
               7G Satış Sistemi'ni <em>Kimden Öğreneceksin?</em>
             </h2>
             <div class="instructor-name">Faruk Oğuz</div>
-            <p class="instructor-bio">
-              <strong>Esnaf bir ailenin çocuğu</strong> olarak büyüdü;
-              satışla ve pazarlama ile çocukluğunda tanıştı.
-              <strong>3 yıl önce ajansını kurdu</strong>, satış sistemlerini önce
-              kendi şirketinde uygulayıp büyüttü ve şu anda <strong>online eğitim
-              şirketlerine satış departmanları kurarak şirketleri büyütüyor.</strong>
+            <div class="instructor-role">Satış Sistemleri Eğitmeni · Satış Ekibi Yöneticisi</div>
+            <p class="instructor-bio instructor-lede">
+              <strong>Satış tekniklerini yalnızca anlatmıyor.</strong>
+              Bugün <strong>5 farklı şirketin satış ekiplerinde</strong>
+              uyguluyor, yönetiyor ve sonuçlarını ölçüyor.
             </p>
             <p class="instructor-bio">
-              Farklı sektörlerdeki işletmelerle telefon, Zoom ve yüz yüze satış süreçlerinde;
-              görüşme akışı kurma, itiraz yönetimi ve karar rehberliği başlıklarında
-              çalışmalar yürütüyor.
+              Esnaf bir ailenin çocuğu olarak ticaretle erken yaşta tanışan Faruk Oğuz,
+              kurduğu iş geliştirme ajansıyla farklı sektörlerdeki şirketlerin
+              <strong>pazarlama ve satış süreçlerini</strong> yönetmeye başladı.
+            </p>
+            <p class="instructor-bio">
+              Bugün <strong>online eğitim, gayrimenkul ve danışmanlık</strong> gibi sektörlerde
+              5 farklı şirketin satış ekibini aktif olarak yönetiyor; satış ekibinin
+              işe alım ve eğitim süreçleri, satış senaryolarının ve sistemlerin kurulması,
+              ekiplerin geliştirilmesi ve performanslarının artırılması üzerine çalışıyor.
+            </p>
+            <p class="instructor-bio">
+              Geliştirdiği <strong>7G Satış Sistemi</strong>, gerçek satış görüşmelerinde
+              satış uzmanlarına uygulattığı yüksek satışlar getiren ve performans
+              verileriyle takip ettiği yöntemleri <strong>21 günlük uygulamalı eğitim kampında</strong>
+              bir araya getiriyor.
             </p>
 
             <div class="instructor-wins">
-              <div class="instructor-wins-label">Sahada Kanıtlanmış Sonuçlar</div>
+              <div class="instructor-wins-label">Sahada Ölçülen Sonuçlar</div>
               <div class="instructor-wins-grid">
                 <div class="instructor-win">
-                  <div class="instructor-win-metric">%1560</div>
+                  <div class="instructor-win-metric">5</div>
                   <div class="instructor-win-text">
-                    <strong>Diyetisyenin Tabağı</strong>6 ayda ciro artışı
+                    <strong>Aktif Satış Ekibi</strong>Yönetim ve geliştirme
                   </div>
                 </div>
                 <div class="instructor-win">
-                  <div class="instructor-win-metric">%40</div>
+                  <div class="instructor-win-metric">%10→%50</div>
                   <div class="instructor-win-text">
-                    <strong>Rehberim Sensin</strong>satış kapatma oranı
+                    <strong>Satış Kapatma Oranı</strong>Rehberim Sensin · belirli dönemler
                   </div>
                 </div>
                 <div class="instructor-win">
-                  <div class="instructor-win-metric">1000+</div>
+                  <div class="instructor-win-metric">23M+ ₺</div>
                   <div class="instructor-win-text">
-                    <strong>Koçluk sonucu</strong>kapatılan satış görüşmesi
+                    <strong>Gayrimenkul Satış Hacmi</strong>Mehmet Özcan · 60 gün
                   </div>
                 </div>
               </div>
             </div>
 
-            <ul class="instructor-cred">
-              <li>Telefon, Zoom ve yüz yüze satış görüşmeleri üzerine <strong>saha odaklı deneyim</strong></li>
-              <li>Farklı sektörlerdeki <strong>satış ekipleri ve kurucularla birebir çalışma</strong></li>
-              <li>Satış Laboratuvarı üzerinden geliştirilen <strong>7G Satış Sistemi eğitmenliği</strong></li>
-            </ul>
+            <div class="instructor-brands">
+              <div class="instructor-brands-label">Çalıştığım Markalar</div>
+              <div class="instructor-brands-grid">
+                <a href="https://www.instagram.com/osinifresmi/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="O Sınıf Instagram profili">
+                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  <div class="mini-brand-avatar-wrap"><span class="mini-brand-avatar mini-brand-avatar--fallback">O</span></div>
+                  <div class="mini-brand-handle">@osinifresmi</div>
+                  <div class="mini-brand-name">O Sınıf</div>
+                  <div class="mini-brand-followers">— takipçi</div>
+                </a>
+                <a href="https://www.instagram.com/rehberimsensin/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="Rehberim Sensin Instagram profili">
+                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  <div class="mini-brand-avatar-wrap"><img class="mini-brand-avatar" src="images/profiles/rehberimsensin.png" alt="Rehberim Sensin" loading="lazy"></div>
+                  <div class="mini-brand-handle">@rehberimsensin</div>
+                  <div class="mini-brand-name">Rehberim Sensin</div>
+                  <div class="mini-brand-followers"><strong>167K</strong> takipçi</div>
+                </a>
+                <a href="https://www.instagram.com/mehmetozcan.cb/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="Mehmet Özcan Instagram profili">
+                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  <div class="mini-brand-avatar-wrap"><span class="mini-brand-avatar mini-brand-avatar--fallback">M</span></div>
+                  <div class="mini-brand-handle">@mehmetozcan.cb</div>
+                  <div class="mini-brand-name">Mehmet Özcan</div>
+                  <div class="mini-brand-followers">— takipçi</div>
+                </a>
+                <a href="https://www.instagram.com/diyetisyenintabagi/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="Diyetisyenin Tabağı Instagram profili">
+                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  <div class="mini-brand-avatar-wrap"><img class="mini-brand-avatar" src="images/profiles/diyetisyenintabagi.png" alt="Diyetisyenin Tabağı" loading="lazy"></div>
+                  <div class="mini-brand-handle">@diyetisyenintabagi</div>
+                  <div class="mini-brand-name">Diyetisyenin Tabağı</div>
+                  <div class="mini-brand-followers">— takipçi</div>
+                </a>
+                <a href="https://www.instagram.com/dcamazonn/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="DC Amazon Instagram profili">
+                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  <div class="mini-brand-avatar-wrap"><img class="mini-brand-avatar" src="images/profiles/dcamazonn.png" alt="DC Amazon" loading="lazy"></div>
+                  <div class="mini-brand-handle">@dcamazonn</div>
+                  <div class="mini-brand-name">DC Amazon</div>
+                  <div class="mini-brand-followers"><strong>6.9K</strong> takipçi</div>
+                </a>
+                <a href="https://www.instagram.com/beratkizilel/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="Berat Kızılel Instagram profili">
+                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  <div class="mini-brand-avatar-wrap"><img class="mini-brand-avatar" src="images/profiles/beratkizilel.png" alt="Berat Kızılel" loading="lazy"></div>
+                  <div class="mini-brand-handle">@beratkizilel</div>
+                  <div class="mini-brand-name">Berat Kızılel</div>
+                  <div class="mini-brand-followers"><strong>3.2K</strong> takipçi</div>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
