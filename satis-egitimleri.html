@@ -4234,14 +4234,6 @@
           });
         }
 
-        document.getElementById('successName').textContent = name;
-        document.getElementById('successEmail').textContent = email;
-
-        f.style.display = 'none';
-        const success = document.getElementById('applySuccess');
-        success.style.display = 'block';
-        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
         // Meta Pixel — Lead event
         if (typeof fbq === 'function') {
           fbq('track', 'Lead', {
@@ -4250,6 +4242,15 @@
             source: 'satis-egitimleri'
           });
         }
+
+        // Save lead data so tesekkurler.html can bind the appointment back to this applicant
+        try {
+          sessionStorage.setItem('leadApply', JSON.stringify({ name, phone, email }));
+        } catch (e) {}
+
+        // Redirect to the thank-you + appointment page
+        window.location.href = 'tesekkurler.html';
+        return;
       } catch (err) {
         console.error('[Başvuru] Gönderim hatası:', err);
         errBox.textContent = 'Gönderim sırasında bir hata oluştu. Lütfen birkaç saniye sonra tekrar dene.';

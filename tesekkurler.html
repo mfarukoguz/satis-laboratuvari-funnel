@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="facebook-domain-verification" content="gfw9kh1e7v2d2dokux7j23ref3v79m" />
+  <title>Teşekkürler · Randevu Al — 7G Satış Sistemi</title>
+  <meta name="description" content="Başvurun bize ulaştı. Lütfen aşağıdaki videoyu izle, uzman ekibimizle görüşme için uygun tarih ve saati seç." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #EBE4D3;
+      --cream-light: #F5EEDD;
+      --cream-dark: #DDD3BC;
+      --cream-warm: #E8DDC7;
+      --dark: #0A0906;
+      --dark-2: #1A1610;
+      --dark-3: #2A2419;
+      --text: #2A2419;
+      --text-muted: #5A4F42;
+      --gold: #B49146;
+      --gold-bright: #C9A75C;
+      --gold-deep: #8A6E32;
+      --success: #4CAF50;
+      --danger: #E74C3C;
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 20px;
+      --radius-pill: 100px;
+      --font-body: 'Poppins', system-ui, -apple-system, sans-serif;
+      --container: 920px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; overflow-x: clip; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold-deep); text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font-family: inherit; cursor: pointer; }
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      background: rgba(235, 228, 211, 0.9);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
+      border-bottom: 1px solid rgba(42, 36, 25, 0.08);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .logo-mark {
+      font-style: italic;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .logo-sub {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .nav-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      background: var(--dark);
+      color: var(--cream-light);
+      text-decoration: none;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-back:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero {
+      padding: 50px 0 20px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+      color: var(--success);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.15;
+      letter-spacing: -0.8px;
+      margin-bottom: 14px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-deep);
+      font-weight: 900;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin: 0 auto 32px;
+    }
+
+    .video-wrap {
+      position: relative;
+      max-width: 820px;
+      margin: 0 auto 60px;
+      aspect-ratio: 16/9;
+      background: #000;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(42, 36, 25, 0.3), 0 0 0 1px rgba(180, 145, 70, 0.25);
+    }
+    .video-wrap video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .video-unmute {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      color: var(--dark);
+      border: 0;
+      border-radius: var(--radius-pill);
+      font-weight: 800;
+      font-size: 14px;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+      z-index: 3;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .video-unmute:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+    }
+    .video-unmute svg { width: 18px; height: 18px; }
+    .video-unmute.is-hidden { display: none; }
+
+    .section-pad { padding: 60px 0 80px; }
+
+    .appt {
+      background: var(--cream-light);
+    }
+    .appt-head {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .appt-eyebrow {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(180, 145, 70, 0.14);
+      color: var(--gold-deep);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      margin-bottom: 16px;
+    }
+    .appt-head h2 {
+      font-size: clamp(26px, 3.4vw, 36px);
+      font-weight: 800;
+      color: var(--dark);
+      line-height: 1.2;
+      letter-spacing: -0.6px;
+      margin-bottom: 10px;
+    }
+    .appt-head p {
+      color: var(--text-muted);
+      font-size: 15.5px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .appt-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      box-shadow: 0 24px 52px rgba(42, 36, 25, 0.14);
+      border: 1px solid rgba(42, 36, 25, 0.06);
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 7px;
+      letter-spacing: 0.2px;
+    }
+    .req { color: var(--danger); font-weight: 900; }
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      font-family: inherit;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--cream-light);
+      border: 1.5px solid rgba(42, 36, 25, 0.12);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: 0;
+      border-color: var(--gold);
+      background: #fff;
+    }
+    .form-textarea {
+      min-height: 92px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+    .form-radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-radio {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      background: var(--cream-light);
+      border: 1.5px solid rgba(42, 36, 25, 0.1);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 14.5px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .form-radio:hover { border-color: var(--gold); }
+    .form-radio input { accent-color: var(--gold); width: 18px; height: 18px; flex-shrink: 0; }
+    .form-radio input:checked ~ span { color: var(--dark); font-weight: 700; }
+
+    .form-submit {
+      width: 100%;
+      padding: 18px;
+      margin-top: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      color: var(--dark);
+      background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+      border: 0;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      box-shadow: 0 18px 40px rgba(180, 145, 70, 0.42);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 46px rgba(180, 145, 70, 0.5);
+    }
+    .form-submit[disabled] { opacity: 0.6; cursor: default; transform: none; }
+
+    .form-error {
+      display: none;
+      padding: 12px 16px;
+      background: rgba(231, 76, 60, 0.08);
+      border-left: 3px solid var(--danger);
+      border-radius: var(--radius-sm);
+      color: var(--danger);
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .form-error.show { display: block; }
+
+    .appt-success {
+      display: none;
+      text-align: center;
+      padding: 40px 32px;
+      background: #fff;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 52px rgba(42, 36, 25, 0.14);
+      border: 1px solid rgba(76, 175, 80, 0.3);
+    }
+    .appt-success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--success);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 16px;
+    }
+    .appt-success h3 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .appt-success p {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    footer {
+      background: var(--cream-dark);
+      padding: 32px 0 28px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid rgba(42, 36, 25, 0.08);
+    }
+    footer a { color: var(--text); font-weight: 600; }
+
+    @media (max-width: 640px) {
+      .hero { padding: 32px 0 10px; }
+      .video-wrap { margin-bottom: 40px; border-radius: var(--radius); }
+      .section-pad { padding: 40px 0 60px; }
+      .appt-card { padding: 28px 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .video-unmute { bottom: 12px; right: 12px; padding: 10px 16px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">Satış Laboratuvarı</span>
+        <span class="logo-sub">Faruk Oğuz</span>
+      </a>
+      <a href="index.html" class="nav-back">← Ana Sayfa</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero-badge">✓ Başvurun bize ulaştı</span>
+      <h1>Teşekkürler! <em>Bu videoyu kaçırma.</em></h1>
+      <p class="hero-sub">
+        Uzman ekibimiz kısa süre içinde seninle iletişime geçecek.
+        Görüşme öncesi aşağıdaki videoyu izle ve altındaki formu
+        doldurarak randevu tarihini seç.
+      </p>
+
+      <div class="video-wrap" id="videoWrap">
+        <video
+          id="thankYouVideo"
+          autoplay
+          playsinline
+          muted
+          preload="auto"
+          controls
+          poster="videos/misc/tesekkurler-poster.jpg">
+          <source src="videos/misc/tesekkurler.mp4" type="video/mp4">
+          Tarayıcınız video oynatmayı desteklemiyor.
+        </video>
+        <button type="button" class="video-unmute" id="unmuteBtn" aria-label="Sesi aç">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4.03v8.05A4.5 4.5 0 0 0 16.5 12zM14 3.23v2.06c3.39.79 6 3.86 6 7.71s-2.61 6.92-6 7.71v2.06c4.5-.85 8-4.82 8-9.77s-3.5-8.92-8-9.77z"/></svg>
+          Sesi Aç
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="appt section-pad">
+    <div class="container">
+      <div class="appt-head">
+        <span class="appt-eyebrow">Randevu Al</span>
+        <h2>Uzman Ekibimizle Görüşme Zamanını Seç</h2>
+        <p>
+          Senin için en uygun tarih ve saati seç. Formu gönderdikten sonra
+          belirlediğin saatte seni telefon üzerinden arayacağız.
+        </p>
+      </div>
+
+      <form class="appt-card" id="apptForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="aptDate">Tarih <span class="req">*</span></label>
+            <input type="date" id="aptDate" name="date" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="aptTime">Saat <span class="req">*</span></label>
+            <select id="aptTime" name="time" class="form-select" required>
+              <option value="">Seçiniz…</option>
+              <option value="09:00">09:00</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="14:00">14:00</option>
+              <option value="15:00">15:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+              <option value="18:00">18:00</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="aptSector">Hangi alanda / ne satıyorsun? <span class="req">*</span></label>
+          <input type="text" id="aptSector" name="sector" class="form-input" placeholder="Örn: online eğitim, estetik klinik, danışmanlık, SaaS, emlak…" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Pozisyonun nedir? <span class="req">*</span></label>
+          <div class="form-radio-group">
+            <label class="form-radio">
+              <input type="radio" name="role" value="İşletme sahibi" required>
+              <span>İşletme sahibiyim</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="role" value="Satış danışmanı" required>
+              <span>Satış danışmanıyım</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="role" value="Satış yöneticisi / ekip lideri" required>
+              <span>Satış yöneticisi / ekip lideriyim</span>
+            </label>
+            <label class="form-radio">
+              <input type="radio" name="role" value="Diğer" required>
+              <span>Diğer</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="aptProblem">Satış süreçlerinde ne tür bir problem yaşıyorsun ya da nasıl bir artış hedefliyorsun? <span class="req">*</span></label>
+          <textarea id="aptProblem" name="problem" class="form-textarea" placeholder="Örn: Görüşmelerim 'düşüneyim' ile bitiyor, kapanış oranımı %20'den %40'a çıkarmak istiyorum, ekibim artık satış yapmıyor, yeni bir satış ekibi kurmak istiyorum…" required></textarea>
+        </div>
+
+        <div class="form-error" id="apptError"></div>
+
+        <button type="submit" class="form-submit">Randevumu Oluştur</button>
+      </form>
+
+      <div class="appt-success" id="apptSuccess" role="status" aria-live="polite">
+        <div class="appt-success-icon" aria-hidden="true">✓</div>
+        <h3>Randevun Alındı!</h3>
+        <p>
+          <strong id="successWhen"></strong> için randevun oluşturuldu.
+          O saatte seni telefon üzerinden arayacağız. Takvimine not etmeyi unutma.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 <strong>Satış Laboratuvarı</strong> · Muhammet Faruk Oğuz · <a href="aydinlatma.html">Aydınlatma Metni</a></p>
+    </div>
+  </footer>
+
+  <script>
+    /* ============ VIDEO AUTOPLAY + UNMUTE ============ */
+    (function () {
+      const vid = document.getElementById('thankYouVideo');
+      const btn = document.getElementById('unmuteBtn');
+      if (!vid || !btn) return;
+
+      function hideBtn() { btn.classList.add('is-hidden'); }
+
+      // Attempt to start playback with sound
+      vid.muted = false;
+      vid.volume = 1.0;
+      const tryPlay = vid.play();
+      if (tryPlay && typeof tryPlay.then === 'function') {
+        tryPlay.then(() => {
+          // Succeeded with sound
+          if (!vid.muted) hideBtn();
+        }).catch(() => {
+          // Blocked — fall back to muted autoplay, show unmute CTA
+          vid.muted = true;
+          vid.play().catch(() => {});
+        });
+      }
+
+      btn.addEventListener('click', () => {
+        vid.muted = false;
+        vid.volume = 1.0;
+        vid.play().finally(() => {
+          if (!vid.muted) hideBtn();
+        });
+      });
+
+      vid.addEventListener('volumechange', () => {
+        if (!vid.muted) hideBtn();
+      });
+    })();
+
+    /* ============ APPOINTMENT FORM ============ */
+    // Set min date = today
+    (function () {
+      const d = new Date();
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      const dd = String(d.getDate()).padStart(2, '0');
+      const today = `${yyyy}-${mm}-${dd}`;
+      const input = document.getElementById('aptDate');
+      if (input) {
+        input.min = today;
+        input.value = today;
+      }
+    })();
+
+    const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx-3JHo4RrC7iyRbWUFOtI1Z0rnxiceGpbgjqOtA0YbD47mxx3so2NYLj11fjWVfOXCFw/exec';
+
+    document.getElementById('apptForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errBox = document.getElementById('apptError');
+      errBox.classList.remove('show');
+      errBox.textContent = '';
+
+      const f = e.target;
+      const date = f.date.value;
+      const time = f.time.value;
+      const sector = f.sector.value.trim();
+      const role = f.role.value;
+      const problem = f.problem.value.trim();
+
+      const missing = [];
+      if (!date) missing.push('Tarih');
+      if (!time) missing.push('Saat');
+      if (!sector) missing.push('Alan / Ürün');
+      if (!role) missing.push('Pozisyon');
+      if (!problem) missing.push('Problem / Hedef');
+
+      if (missing.length) {
+        errBox.textContent = 'Lütfen şu alanları doldur: ' + missing.join(', ') + '.';
+        errBox.classList.add('show');
+        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const submitBtn = f.querySelector('.form-submit');
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Gönderiliyor…';
+
+      // Try to recover the leading application's name/phone/email from the referrer flow
+      // (satis-egitimleri form stores them in sessionStorage before redirecting)
+      const lead = JSON.parse(sessionStorage.getItem('leadApply') || '{}');
+
+      const payload = new URLSearchParams({
+        timestamp: new Date().toISOString(),
+        name: lead.name || '',
+        phone: lead.phone || '',
+        email: lead.email || '',
+        date: date,
+        time: time,
+        sector: sector,
+        role: role,
+        problem: problem,
+        source: 'tesekkurler-randevu'
+      });
+
+      try {
+        await fetch(SHEETS_ENDPOINT, { method: 'POST', mode: 'no-cors', body: payload });
+
+        const dt = new Date(date + 'T' + time + ':00');
+        const human = dt.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', year: 'numeric', weekday: 'long' }) + ' · ' + time;
+        document.getElementById('successWhen').textContent = human;
+
+        f.style.display = 'none';
+        document.getElementById('apptSuccess').style.display = 'block';
+        document.getElementById('apptSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Meta Pixel — Schedule event
+        if (typeof fbq === 'function') {
+          fbq('track', 'Schedule', {
+            content_name: '7G Randevu',
+            source: 'tesekkurler'
+          });
+        }
+      } catch (err) {
+        console.error('[Randevu] gönderim hatası:', err);
+        errBox.textContent = 'Gönderim sırasında bir hata oluştu. Lütfen birkaç saniye sonra tekrar dene.';
+        errBox.classList.add('show');
+        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      }
+    });
+  </script>
+</body>
+</html>
