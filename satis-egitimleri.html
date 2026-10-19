@@ -1130,9 +1130,13 @@
       border-radius: var(--radius-sm);
       margin-bottom: 22px;
     }
+    .instructor-left {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
     .instructor-brands {
-      margin-top: 24px;
-      padding: 24px 26px;
+      padding: 22px 22px;
       background: white;
       border-radius: var(--radius);
       box-shadow: var(--shadow-card);
@@ -1148,9 +1152,14 @@
     }
     .instructor-brands-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
+    .mini-brand-card { padding: 16px 10px 14px; }
+    .mini-brand-avatar-wrap { width: 52px; height: 52px; }
+    .mini-brand-handle { font-size: 11.5px; }
+    .mini-brand-name { font-size: 13px; }
+    .mini-brand-followers { font-size: 11.5px; }
     .mini-brand-card {
       position: relative;
       display: flex;
@@ -3191,15 +3200,65 @@
     <section class="instructor">
       <div class="container">
         <div class="instructor-grid">
-          <div class="instructor-photo" data-slideshow data-slideshow-interval="1500">
-            <img src="images/instructor/faruk-1.jpg" alt="Faruk Oğuz — Satış Laboratuvarı" class="is-active" loading="eager">
-            <img src="images/instructor/faruk-2.jpg" alt="" loading="lazy">
-            <img src="images/instructor/faruk-3.jpg" alt="" loading="lazy">
-            <img src="images/instructor/faruk-4.jpg" alt="" loading="lazy">
-            <img src="images/instructor/faruk-5.jpg" alt="" loading="lazy">
-            <img src="images/instructor/faruk-6.jpg" alt="" loading="lazy">
-            <img src="images/instructor/faruk-7.jpg" alt="" loading="lazy">
-            <img src="images/instructor/faruk-8.jpg" alt="" loading="lazy">
+          <div class="instructor-left">
+            <div class="instructor-photo" data-slideshow data-slideshow-interval="1500">
+              <img src="images/instructor/faruk-1.jpg" alt="Faruk Oğuz — Satış Laboratuvarı" class="is-active" loading="eager">
+              <img src="images/instructor/faruk-2.jpg" alt="" loading="lazy">
+              <img src="images/instructor/faruk-3.jpg" alt="" loading="lazy">
+              <img src="images/instructor/faruk-4.jpg" alt="" loading="lazy">
+              <img src="images/instructor/faruk-5.jpg" alt="" loading="lazy">
+              <img src="images/instructor/faruk-6.jpg" alt="" loading="lazy">
+              <img src="images/instructor/faruk-7.jpg" alt="" loading="lazy">
+              <img src="images/instructor/faruk-8.jpg" alt="" loading="lazy">
+            </div>
+
+            <div class="instructor-brands">
+              <div class="instructor-brands-label">Çalıştığım Markalar</div>
+              <div class="instructor-brands-grid">
+                <a href="https://www.instagram.com/osinifresmi/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="O Sınıf Instagram profili">
+                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  <div class="mini-brand-avatar-wrap"><span class="mini-brand-avatar mini-brand-avatar--fallback">O</span></div>
+                  <div class="mini-brand-handle">@osinifresmi</div>
+                  <div class="mini-brand-name">OSINIF</div>
+                  <div class="mini-brand-followers"><strong>18K</strong> takipçi</div>
+                </a>
+                <a href="https://www.instagram.com/rehberimsensin/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="Rehberim Sensin Instagram profili">
+                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  <div class="mini-brand-avatar-wrap"><img class="mini-brand-avatar" src="images/profiles/rehberimsensin.png" alt="Rehberim Sensin" loading="lazy"></div>
+                  <div class="mini-brand-handle">@rehberimsensin</div>
+                  <div class="mini-brand-name">Rehberim Sensin</div>
+                  <div class="mini-brand-followers"><strong>167K</strong> takipçi</div>
+                </a>
+                <a href="https://www.instagram.com/mehmetozcan.cb/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="Mehmet Özcan Instagram profili">
+                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  <div class="mini-brand-avatar-wrap"><span class="mini-brand-avatar mini-brand-avatar--fallback">M</span></div>
+                  <div class="mini-brand-handle">@mehmetozcan.cb</div>
+                  <div class="mini-brand-name">Mehmet Özcan</div>
+                  <div class="mini-brand-followers"><strong>2.5K</strong> takipçi</div>
+                </a>
+                <a href="https://www.instagram.com/diyetisyenintabagi/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="Diyetisyenin Tabağı Instagram profili">
+                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  <div class="mini-brand-avatar-wrap"><img class="mini-brand-avatar" src="images/profiles/diyetisyenintabagi.png" alt="Diyetisyenin Tabağı" loading="lazy"></div>
+                  <div class="mini-brand-handle">@diyetisyenintabagi</div>
+                  <div class="mini-brand-name">Diyetisyenin Tabağı</div>
+                  <div class="mini-brand-followers"><strong>35.9K</strong> takipçi</div>
+                </a>
+                <a href="https://www.instagram.com/dcamazonn/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="DC Amazon Instagram profili">
+                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  <div class="mini-brand-avatar-wrap"><img class="mini-brand-avatar" src="images/profiles/dcamazonn.png" alt="DC Amazon" loading="lazy"></div>
+                  <div class="mini-brand-handle">@dcamazonn</div>
+                  <div class="mini-brand-name">DC Amazon</div>
+                  <div class="mini-brand-followers"><strong>8.7K</strong> takipçi</div>
+                </a>
+                <a href="https://www.instagram.com/beratkizilel/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="Berat Kızılel Instagram profili">
+                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                  <div class="mini-brand-avatar-wrap"><img class="mini-brand-avatar" src="images/profiles/beratkizilel.png" alt="Berat Kızılel" loading="lazy"></div>
+                  <div class="mini-brand-handle">@beratkizilel</div>
+                  <div class="mini-brand-name">Berat Kızılel</div>
+                  <div class="mini-brand-followers"><strong>3.2K</strong> takipçi</div>
+                </a>
+              </div>
+            </div>
           </div>
           <div class="instructor-content">
             <span class="section-eyebrow">Eğitmen</span>
@@ -3255,53 +3314,6 @@
               </div>
             </div>
 
-            <div class="instructor-brands">
-              <div class="instructor-brands-label">Çalıştığım Markalar</div>
-              <div class="instructor-brands-grid">
-                <a href="https://www.instagram.com/osinifresmi/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="O Sınıf Instagram profili">
-                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                  <div class="mini-brand-avatar-wrap"><span class="mini-brand-avatar mini-brand-avatar--fallback">O</span></div>
-                  <div class="mini-brand-handle">@osinifresmi</div>
-                  <div class="mini-brand-name">OSINIF</div>
-                  <div class="mini-brand-followers"><strong>18K</strong> takipçi</div>
-                </a>
-                <a href="https://www.instagram.com/rehberimsensin/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="Rehberim Sensin Instagram profili">
-                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                  <div class="mini-brand-avatar-wrap"><img class="mini-brand-avatar" src="images/profiles/rehberimsensin.png" alt="Rehberim Sensin" loading="lazy"></div>
-                  <div class="mini-brand-handle">@rehberimsensin</div>
-                  <div class="mini-brand-name">Rehberim Sensin</div>
-                  <div class="mini-brand-followers"><strong>167K</strong> takipçi</div>
-                </a>
-                <a href="https://www.instagram.com/mehmetozcan.cb/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="Mehmet Özcan Instagram profili">
-                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                  <div class="mini-brand-avatar-wrap"><span class="mini-brand-avatar mini-brand-avatar--fallback">M</span></div>
-                  <div class="mini-brand-handle">@mehmetozcan.cb</div>
-                  <div class="mini-brand-name">Mehmet Özcan</div>
-                  <div class="mini-brand-followers"><strong>2.5K</strong> takipçi</div>
-                </a>
-                <a href="https://www.instagram.com/diyetisyenintabagi/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="Diyetisyenin Tabağı Instagram profili">
-                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                  <div class="mini-brand-avatar-wrap"><img class="mini-brand-avatar" src="images/profiles/diyetisyenintabagi.png" alt="Diyetisyenin Tabağı" loading="lazy"></div>
-                  <div class="mini-brand-handle">@diyetisyenintabagi</div>
-                  <div class="mini-brand-name">Diyetisyenin Tabağı</div>
-                  <div class="mini-brand-followers"><strong>35.9K</strong> takipçi</div>
-                </a>
-                <a href="https://www.instagram.com/dcamazonn/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="DC Amazon Instagram profili">
-                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                  <div class="mini-brand-avatar-wrap"><img class="mini-brand-avatar" src="images/profiles/dcamazonn.png" alt="DC Amazon" loading="lazy"></div>
-                  <div class="mini-brand-handle">@dcamazonn</div>
-                  <div class="mini-brand-name">DC Amazon</div>
-                  <div class="mini-brand-followers"><strong>8.7K</strong> takipçi</div>
-                </a>
-                <a href="https://www.instagram.com/beratkizilel/" class="mini-brand-card" target="_blank" rel="noopener noreferrer" aria-label="Berat Kızılel Instagram profili">
-                  <svg class="mini-brand-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                  <div class="mini-brand-avatar-wrap"><img class="mini-brand-avatar" src="images/profiles/beratkizilel.png" alt="Berat Kızılel" loading="lazy"></div>
-                  <div class="mini-brand-handle">@beratkizilel</div>
-                  <div class="mini-brand-name">Berat Kızılel</div>
-                  <div class="mini-brand-followers"><strong>3.2K</strong> takipçi</div>
-                </a>
-              </div>
-            </div>
           </div>
         </div>
 
