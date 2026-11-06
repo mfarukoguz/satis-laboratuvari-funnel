@@ -551,7 +551,39 @@
     })();
 
     /* ============ APPOINTMENT FORM ============ */
-    // Set min date = today
+    const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx-3JHo4RrC7iyRbWUFOtI1Z0rnxiceGpbgjqOtA0YbD47mxx3so2NYLj11fjWVfOXCFw/exec';
+
+    async function refreshBookedSlots(dateStr) {
+      const selectEl = document.getElementById('aptTime');
+      if (!selectEl || !dateStr) return;
+
+      // Reset all options first
+      Array.from(selectEl.options).forEach(opt => {
+        opt.disabled = false;
+        opt.textContent = opt.textContent.replace(/\s*—\s*DOLU$/, '');
+      });
+
+      try {
+        const url = SHEETS_ENDPOINT + '?action=bookedSlots&date=' + encodeURIComponent(dateStr);
+        const r = await fetch(url, { method: 'GET' });
+        if (!r.ok) return;
+        const j = await r.json();
+        const booked = Array.isArray(j.bookedSlots) ? j.bookedSlots.map(String) : [];
+        if (!booked.length) return;
+
+        Array.from(selectEl.options).forEach(opt => {
+          if (opt.value && booked.includes(opt.value)) {
+            opt.disabled = true;
+            opt.textContent = opt.value + ' — DOLU';
+            if (selectEl.value === opt.value) selectEl.value = '';
+          }
+        });
+      } catch (err) {
+        console.warn('[bookedSlots] fetch hatası:', err);
+      }
+    }
+
+    // Set min date = today AND load booked slots
     (function () {
       const d = new Date();
       const yyyy = d.getFullYear();
@@ -559,13 +591,12 @@
       const dd = String(d.getDate()).padStart(2, '0');
       const today = `${yyyy}-${mm}-${dd}`;
       const input = document.getElementById('aptDate');
-      if (input) {
-        input.min = today;
-        input.value = today;
-      }
+      if (!input) return;
+      input.min = today;
+      input.value = today;
+      refreshBookedSlots(today);
+      input.addEventListener('change', () => refreshBookedSlots(input.value));
     })();
-
-    const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx-3JHo4RrC7iyRbWUFOtI1Z0rnxiceGpbgjqOtA0YbD47mxx3so2NYLj11fjWVfOXCFw/exec';
 
     document.getElementById('apptForm').addEventListener('submit', async (e) => {
       e.preventDefault();
