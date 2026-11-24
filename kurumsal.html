@@ -3912,38 +3912,106 @@
       </div>
 
       <form class="form-card" id="applyForm" novalidate>
-        <div class="form-group">
-          <label class="form-label" for="fname">Ad Soyad <span class="req">*</span></label>
-          <input type="text" id="fname" name="name" class="form-input" placeholder="Adın ve soyadın" required autocomplete="name">
+        <!-- STEP 1: Kişisel bilgiler -->
+        <div class="form-step" id="formStep1" data-step="1">
+          <div class="form-group">
+            <label class="form-label" for="fname">Ad Soyad <span class="req">*</span></label>
+            <input type="text" id="fname" name="name" class="form-input" placeholder="Adın ve soyadın" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="fphone">Telefon <span class="req">*</span></label>
+            <input type="tel" id="fphone" name="phone" class="form-input" placeholder="05XX..." required autocomplete="tel">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="femail">E-posta <span class="req">*</span></label>
+            <input type="email" id="femail" name="email" class="form-input" placeholder="ornek@mail.com" required autocomplete="email">
+          </div>
+
+          <div class="form-error" id="formError"></div>
+
+          <button type="button" class="form-step-continue" id="formStepContinue">Devam Et</button>
+          <p class="form-step-hint">2. aşamada şirketin ve ekibinle ilgili birkaç kısa soru soracağız.</p>
         </div>
 
-        <div class="form-group">
-          <label class="form-label" for="fphone">Telefon <span class="req">*</span></label>
-          <input type="tel" id="fphone" name="phone" class="form-input" placeholder="05XX..." required autocomplete="tel">
+        <!-- STEP 2: Şirket + ekip bilgileri -->
+        <div class="form-step hidden" id="formStep2" data-step="2">
+          <div class="form-step-recap" id="formStepRecap">
+            <div class="form-step-recap-info">
+              <strong id="recapName">—</strong>
+              <span id="recapContact">—</span>
+            </div>
+            <button type="button" class="form-step-recap-back" id="formStepBack">Düzenle</button>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="fcompany">Şirket Adı <span class="req">*</span></label>
+            <input type="text" id="fcompany" name="company" class="form-input" placeholder="Şirketinin ismi" required autocomplete="organization">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="frole">Rolün <span class="req">*</span></label>
+            <select id="frole" name="role" class="form-input" required>
+              <option value="">Seç…</option>
+              <option value="CEO/Kurucu">CEO / Kurucu</option>
+              <option value="Satış Müdürü/Direktörü">Satış Müdürü / Direktörü</option>
+              <option value="İK/Eğitim">İK / Eğitim Yöneticisi</option>
+              <option value="Diğer">Diğer</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="findustry">Sektör <span class="req">*</span></label>
+            <input type="text" id="findustry" name="industry" class="form-input" placeholder="Örn. gayrimenkul, otomotiv, sağlık…" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="fteamsize">Satış Ekibinizin Büyüklüğü <span class="req">*</span></label>
+            <select id="fteamsize" name="teamSize" class="form-input" required>
+              <option value="">Seç…</option>
+              <option value="1-5">1 – 5 kişi</option>
+              <option value="6-15">6 – 15 kişi</option>
+              <option value="16-30">16 – 30 kişi</option>
+              <option value="31-50">31 – 50 kişi</option>
+              <option value="50+">50+ kişi</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ftimeline">Eğitimi Ne Zaman Planlıyorsunuz? <span class="req">*</span></label>
+            <select id="ftimeline" name="timeline" class="form-input" required>
+              <option value="">Seç…</option>
+              <option value="1 ay içinde">1 ay içinde</option>
+              <option value="1-3 ay">1 – 3 ay içinde</option>
+              <option value="3+ ay">3 aydan sonra</option>
+              <option value="Net değil">Henüz net değil</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="fchallenge">Satış ekibinizle ilgili şu an en büyük problem veya en büyük hedefiniz nedir? <span class="req">*</span></label>
+            <textarea id="fchallenge" name="challenge" class="form-textarea" placeholder="Birkaç cümle yeterli — görüşmede birlikte açarız." required></textarea>
+          </div>
+
+          <label class="form-consent">
+            <input type="checkbox" id="fconsent" name="consent" required>
+            <span>
+              <a href="aydinlatma.html" target="_blank" rel="noopener noreferrer">Aydınlatma Metni</a>
+              ve
+              <a href="acik-riza.html" target="_blank" rel="noopener noreferrer">Açık Rıza Formu</a>'nu okudum, onaylıyorum.
+            </span>
+          </label>
+
+          <div class="form-error" id="formError2"></div>
+
+          <button type="submit" class="form-submit">Başvurumu Tamamla</button>
+
+          <p class="form-disclaimer">
+            Başvurunun ardından ekibimiz mevcut satış sürecinizi değerlendirmek ve
+            programın ekibinize uygun olup olmadığını belirlemek için sizinle iletişime geçecektir.
+          </p>
         </div>
-
-        <div class="form-group">
-          <label class="form-label" for="femail">E-posta <span class="req">*</span></label>
-          <input type="email" id="femail" name="email" class="form-input" placeholder="ornek@mail.com" required autocomplete="email">
-        </div>
-
-        <label class="form-consent">
-          <input type="checkbox" id="fconsent" name="consent" required>
-          <span>
-            <a href="aydinlatma.html" target="_blank" rel="noopener noreferrer">Aydınlatma Metni</a>
-            ve
-            <a href="acik-riza.html" target="_blank" rel="noopener noreferrer">Açık Rıza Formu</a>'nu okudum, onaylıyorum.
-          </span>
-        </label>
-
-        <div class="form-error" id="formError"></div>
-
-        <button type="submit" class="form-submit">Başvurumu Tamamla</button>
-
-        <p class="form-disclaimer">
-          Başvurunun ardından ekibimiz mevcut satış sürecini değerlendirmek ve
-          programın sana uygun olup olmadığını belirlemek için seninle iletişime geçecektir.
-        </p>
       </form>
 
       <div class="apply-success" id="applySuccess" style="display:none;" role="status" aria-live="polite">
@@ -4087,6 +4155,7 @@
             submitBtn.disabled = false;
             submitBtn.textContent = 'Başvurumu Tamamla';
           }
+          if (typeof window.resetFormSteps === 'function') window.resetFormSteps();
         }
         // focus close button for keyboard users
         setTimeout(() => {
@@ -4152,103 +4221,185 @@
     ============================================================================ */
     const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbx-3JHo4RrC7iyRbWUFOtI1Z0rnxiceGpbgjqOtA0YbD47mxx3so2NYLj11fjWVfOXCFw/exec';
 
-    document.getElementById('applyForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const errBox = document.getElementById('formError');
-      errBox.classList.remove('show');
-      errBox.textContent = '';
+    /* ============ 2-STEP FORM FLOW ============ */
+    (function() {
+      const form = document.getElementById('applyForm');
+      const step1 = document.getElementById('formStep1');
+      const step2 = document.getElementById('formStep2');
+      const continueBtn = document.getElementById('formStepContinue');
+      const backBtn = document.getElementById('formStepBack');
+      const err1 = document.getElementById('formError');
+      const err2 = document.getElementById('formError2');
+      const recapName = document.getElementById('recapName');
+      const recapContact = document.getElementById('recapContact');
 
-      const f = e.target;
-      const name = f.name.value.trim();
-      const phone = f.phone.value.trim();
-      const email = f.email.value.trim();
-      const consent = f.consent.checked;
-
-      const missing = [];
-      if (!name) missing.push('Ad Soyad');
-      if (!phone) missing.push('Telefon');
-      if (!email) missing.push('E-posta');
-
-      if (missing.length) {
-        errBox.textContent = 'Lütfen şu alanları doldur: ' + missing.join(', ') + '.';
-        errBox.classList.add('show');
-        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
+      function showErr(box, msg) {
+        box.textContent = msg;
+        box.classList.add('show');
+        box.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      function clearErr(box) {
+        box.textContent = '';
+        box.classList.remove('show');
       }
 
-      const cleanPhone = phone.replace(/\D/g, '');
-      if (cleanPhone.length < 10) {
-        errBox.textContent = 'Lütfen geçerli bir telefon numarası gir (en az 10 hane).';
-        errBox.classList.add('show');
-        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
+      function validateStep1() {
+        clearErr(err1);
+        const name = form.name.value.trim();
+        const phone = form.phone.value.trim();
+        const email = form.email.value.trim();
+        const missing = [];
+        if (!name) missing.push('Ad Soyad');
+        if (!phone) missing.push('Telefon');
+        if (!email) missing.push('E-posta');
+        if (missing.length) {
+          showErr(err1, 'Lütfen şu alanları doldur: ' + missing.join(', ') + '.');
+          return null;
+        }
+        if (phone.replace(/\D/g, '').length < 10) {
+          showErr(err1, 'Lütfen geçerli bir telefon numarası gir (en az 10 hane).');
+          return null;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          showErr(err1, 'Lütfen geçerli bir e-posta adresi gir.');
+          return null;
+        }
+        return { name, phone, email };
       }
 
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        errBox.textContent = 'Lütfen geçerli bir e-posta adresi gir.';
-        errBox.classList.add('show');
-        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
+      function goToStep2() {
+        const s1 = validateStep1();
+        if (!s1) return;
+        recapName.textContent = s1.name;
+        recapContact.textContent = s1.phone + ' · ' + s1.email;
+        step1.classList.add('hidden');
+        step2.classList.remove('hidden');
+        clearErr(err2);
+        setTimeout(() => {
+          const first = document.getElementById('fcompany');
+          if (first) first.focus();
+        }, 60);
       }
 
-      if (!consent) {
-        errBox.textContent = 'Devam etmek için Aydınlatma Metni ve Açık Rıza Formu onayını işaretle.';
-        errBox.classList.add('show');
-        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
+      function goToStep1() {
+        step2.classList.add('hidden');
+        step1.classList.remove('hidden');
+        clearErr(err1);
+        clearErr(err2);
       }
 
-      const submitBtn = f.querySelector('.form-submit');
-      const originalBtnText = submitBtn.textContent;
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Gönderiliyor…';
+      function resetFormSteps() {
+        step2.classList.add('hidden');
+        step1.classList.remove('hidden');
+        clearErr(err1);
+        clearErr(err2);
+      }
+      window.resetFormSteps = resetFormSteps;
 
-      const payload = new URLSearchParams({
-        timestamp: new Date().toISOString(),
-        name,
-        phone,
-        email,
-        consent: 'Evet',
-        source: 'kurumsal.html'
+      continueBtn.addEventListener('click', goToStep2);
+      backBtn.addEventListener('click', goToStep1);
+
+      // Enter key on step-1 inputs → continue
+      [form.name, form.phone, form.email].forEach(inp => {
+        inp.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            goToStep2();
+          }
+        });
       });
 
-      try {
-        if (SHEETS_ENDPOINT.includes('PASTE_YOUR_APPS_SCRIPT_URL_HERE')) {
-          console.warn('[Başvuru] SHEETS_ENDPOINT henüz kurulmadı. Payload:', Object.fromEntries(payload));
-        } else {
-          await fetch(SHEETS_ENDPOINT, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: payload
-          });
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearErr(err2);
+
+        // Re-validate step-1 (in case user tampered)
+        const s1 = validateStep1();
+        if (!s1) {
+          goToStep1();
+          return;
         }
 
-        // Meta Pixel — Lead event
-        if (typeof fbq === 'function') {
-          fbq('track', 'Lead', {
-            content_name: '7G Satış Kampı Başvuru',
-            content_category: 'Satış Eğitimi',
-            source: 'satis-egitimleri'
-          });
+        const company = form.company.value.trim();
+        const role = form.role.value;
+        const industry = form.industry.value.trim();
+        const teamSize = form.teamSize.value;
+        const timeline = form.timeline.value;
+        const challenge = form.challenge.value.trim();
+        const consent = form.consent.checked;
+
+        const missing = [];
+        if (!company) missing.push('Şirket Adı');
+        if (!role) missing.push('Rolün');
+        if (!industry) missing.push('Sektör');
+        if (!teamSize) missing.push('Satış Ekibi Büyüklüğü');
+        if (!timeline) missing.push('Eğitim Zamanı');
+        if (!challenge) missing.push('Problem / Hedef');
+        if (missing.length) {
+          showErr(err2, 'Lütfen şu alanları doldur: ' + missing.join(', ') + '.');
+          return;
+        }
+        if (!consent) {
+          showErr(err2, 'Devam etmek için Aydınlatma Metni ve Açık Rıza Formu onayını işaretle.');
+          return;
         }
 
-        // Save lead data so tesekkurler.html can bind the appointment back to this applicant
+        const submitBtn = form.querySelector('.form-submit');
+        const originalBtnText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Gönderiliyor…';
+
+        const payload = new URLSearchParams({
+          timestamp: new Date().toISOString(),
+          name: s1.name,
+          phone: s1.phone,
+          email: s1.email,
+          company,
+          role,
+          industry,
+          teamSize,
+          timeline,
+          challenge,
+          consent: 'Evet',
+          source: 'kurumsal.html'
+        });
+
         try {
-          sessionStorage.setItem('leadApply', JSON.stringify({ name, phone, email }));
-        } catch (e) {}
+          if (SHEETS_ENDPOINT.includes('PASTE_YOUR_APPS_SCRIPT_URL_HERE')) {
+            console.warn('[Başvuru] SHEETS_ENDPOINT henüz kurulmadı. Payload:', Object.fromEntries(payload));
+          } else {
+            await fetch(SHEETS_ENDPOINT, {
+              method: 'POST',
+              mode: 'no-cors',
+              body: payload
+            });
+          }
 
-        // Redirect to the thank-you + appointment page
-        window.location.href = 'tesekkurler.html';
-        return;
-      } catch (err) {
-        console.error('[Başvuru] Gönderim hatası:', err);
-        errBox.textContent = 'Gönderim sırasında bir hata oluştu. Lütfen birkaç saniye sonra tekrar dene.';
-        errBox.classList.add('show');
-        errBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalBtnText;
-      }
-    });
+          if (typeof fbq === 'function') {
+            fbq('track', 'Lead', {
+              content_name: 'Kurumsal Satış Eğitimi Başvuru',
+              content_category: 'Kurumsal',
+              source: 'kurumsal'
+            });
+          }
+
+          try {
+            sessionStorage.setItem('leadApply', JSON.stringify({
+              name: s1.name, phone: s1.phone, email: s1.email,
+              company, role, industry, teamSize, timeline, challenge
+            }));
+          } catch (e) {}
+
+          window.location.href = 'tesekkurler.html';
+          return;
+        } catch (err) {
+          console.error('[Başvuru] Gönderim hatası:', err);
+          showErr(err2, 'Gönderim sırasında bir hata oluştu. Lütfen birkaç saniye sonra tekrar dene.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      });
+    })();
 
   </script>
 </body>
